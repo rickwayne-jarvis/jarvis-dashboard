@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="J.A.R.V.I.S.">
+<meta name="theme-color" content="#050510">
+<link rel="manifest" href="manifest.json">
+<title>J.A.R.V.I.S. — Command Center</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050510;--primary:#00D4FF;--secondary:#0088FF;
+  --gold:#D4A544;--green:#00FF88;--amber:#FFB020;--dim:#1a1a3a;
+  --glass:rgba(0,20,40,0.55);--border:rgba(0,212,255,0.15);
+  --glow:0 0 12px rgba(0,212,255,0.4);
+  --font-mono:'SF Mono','Fira Code','Courier New',monospace;
+  --font-sys:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html{font-size:14px;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:#c0ddef;
+  font-family:var(--font-sys);line-height:1.5;
+  min-height:100vh;min-height:100dvh;
+  overflow-x:hidden;position:relative;
+  padding:var(--safe-top) 12px var(--safe-bottom);
+}
+canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.35}
+.hex-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.04;pointer-events:none}
+
+/* LAYOUT */
+.container{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding-bottom:40px}
+
+/* HEADER */
+.header{text-align:center;padding:12px 0 4px;position:relative}
+.header h1{
+  font-family:var(--font-sys);font-size:1.6rem;font-weight:200;
+  letter-spacing:0.5em;color:var(--primary);
+  text-shadow:0 0 20px rgba(0,212,255,0.6),0 0 60px rgba(0,212,255,0.2);
+  margin-right:-0.5em;text-transform:uppercase;
+}
+.header .subtitle{
+  font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.3em;
+  color:rgba(0,212,255,0.4);margin-top:2px;text-transform:uppercase;
+}
+.clock{
+  font-family:var(--font-mono);font-size:0.7rem;color:var(--primary);
+  margin-top:4px;letter-spacing:0.1em;opacity:0.8;
+}
+.sphere-wrap{width:80px;height:80px;margin:6px auto 0;position:relative}
+canvas#sphere{width:100%;height:100%}
+
+@keyframes arcSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes corePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.7;transform:scale(0.85)}}
+@keyframes hudPulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes flowDot{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 4px);opacity:0}}
+@keyframes feedFadeIn{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes barGlow{0%,100%{box-shadow:0 0 4px rgba(0,212,255,0.2)}50%{box-shadow:0 0 8px rgba(0,212,255,0.5)}}
+@keyframes subtlePulse{0%,100%{opacity:0.9}50%{opacity:0.6}}
+
+/* SECTION TITLES */
+.section-title{
+  font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.2em;
+  color:var(--primary);text-transform:uppercase;
+  margin:20px 0 12px;padding-left:8px;
+  border-left:2px solid var(--primary);opacity:0.7;
+}
+
+/* ===================== PROJECT TRACKER ===================== */
+.projects-grid{
+  display:grid;grid-template-columns:1fr;gap:10px;
+}
+.proj-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:8px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  position:relative;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.proj-card:hover{border-color:rgba(0,212,255,0.35)}
+.proj-card::before,.proj-card::after{
+  content:'';position:absolute;width:8px;height:8px;
+  border-color:rgba(0,212,255,0.25);border-style:solid;
+}
+.proj-card::before{top:5px;left:5px;border-width:1px 0 0 1px}
+.proj-card::after{bottom:5px;right:5px;border-width:0 1px 1px 0}
+
+.proj-header{
+  padding:12px 14px;display:flex;align-items:center;gap:12px;
+  cursor:pointer;user-select:none;
+}
+.proj-pct{
+  font-family:var(--font-mono);font-size:1.4rem;font-weight:700;
+  min-width:52px;text-align:right;line-height:1;
+}
+.proj-pct.high{color:var(--green)}
+.proj-pct.mid{color:var(--primary)}
+.proj-pct.low{color:var(--amber)}
+.proj-pct .pct-sign{font-size:0.7rem;opacity:0.6}
+
+.proj-info{flex:1;min-width:0}
+.proj-name{
+  font-family:var(--font-mono);font-size:0.8rem;font-weight:700;
+  color:#fff;letter-spacing:0.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.proj-meta{font-size:0.55rem;color:rgba(192,221,239,0.5);margin-top:2px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+.status-badge{
+  font-family:var(--font-mono);font-size:0.5rem;padding:1px 8px;
+  border-radius:10px;letter-spacing:0.08em;font-weight:600;border:1px solid;flex-shrink:0;
+}
+.status-badge.active{color:var(--primary);border-color:rgba(0,212,255,0.35);animation:subtlePulse 3s ease-in-out infinite}
+.status-badge.complete{color:var(--green);border-color:rgba(0,255,136,0.35)}
+.status-badge.blocked{color:#FF4444;border-color:rgba(255,68,68,0.35)}
+.status-badge.monitoring{color:var(--amber);border-color:rgba(255,176,32,0.35)}
+
+.proj-bar-wrap{width:100%;margin-top:6px}
+.proj-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
+.proj-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.proj-bar-fill.high{background:linear-gradient(90deg,var(--green),#00ffaa)}
+.proj-bar-fill.mid{background:linear-gradient(90deg,var(--secondary),var(--primary))}
+.proj-bar-fill.low{background:linear-gradient(90deg,#FF8800,var(--amber))}
+
+.proj-score{
+  font-family:var(--font-mono);font-size:0.55rem;color:var(--gold);
+  background:rgba(212,165,68,0.08);border:1px solid rgba(212,165,68,0.2);
+  padding:1px 8px;border-radius:10px;white-space:nowrap;
+}
+
+.proj-expand{font-size:0.6rem;color:rgba(0,212,255,0.3);flex-shrink:0;transition:transform 0.3s}
+.proj-card.open .proj-expand{transform:rotate(90deg)}
+
+.proj-tasks{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+  border-top:0px solid transparent;
+}
+.proj-card.open .proj-tasks{
+  max-height:500px;border-top:1px solid var(--border);
+}
+.proj-tasks-inner{padding:10px 14px}
+.task-row{
+  display:flex;align-items:center;gap:8px;
+  padding:3px 0;font-size:0.65rem;
+}
+.task-name{flex:1;color:rgba(255,255,255,0.8)}
+.task-bar{width:60px;height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;flex-shrink:0}
+.task-bar-fill{height:100%;border-radius:2px}
+.task-pct{font-family:var(--font-mono);font-size:0.55rem;min-width:28px;text-align:right}
+.task-pct.high{color:var(--green)}
+.task-pct.mid{color:var(--primary)}
+.task-pct.low{color:var(--amber)}
+.task-pct.building{color:var(--amber);animation:subtlePulse 2s ease-in-out infinite}
+
+/* Resy special styling */
+.resy-row{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:0.65rem}
+.resy-name{flex:1;color:rgba(255,255,255,0.8)}
+.resy-status{font-family:var(--font-mono);font-size:0.55rem}
+.resy-status.booked{color:var(--green)}
+.resy-status.hunting{color:var(--amber);animation:subtlePulse 2s ease-in-out infinite}
+
+/* ===================== PIPELINE ===================== */
+.pipeline{
+  display:flex;align-items:center;gap:0;
+  overflow-x:auto;padding:10px 0;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.pipeline::-webkit-scrollbar{display:none}
+.pipe-node{display:flex;flex-direction:column;align-items:center;min-width:60px;position:relative}
+.pipe-badge{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:0.5rem;font-weight:700;
+  letter-spacing:0.05em;position:relative;border:1.5px solid;
+}
+.pipe-badge.running{border-color:var(--primary);color:var(--primary);animation:hudPulse 2s ease-in-out infinite}
+.pipe-badge.running::after{
+  content:'';position:absolute;width:calc(100% + 6px);height:calc(100% + 6px);
+  border-radius:50%;border:1px solid var(--primary);
+  animation:arcSpin 2s linear infinite;
+  border-top-color:transparent;border-left-color:transparent;opacity:0.5;
+}
+.pipe-label{font-size:0.45rem;margin-top:4px;letter-spacing:0.08em;opacity:0.6;text-transform:uppercase}
+.pipe-status{font-size:0.4rem;margin-top:2px;font-family:var(--font-mono);color:var(--primary);animation:hudPulse 2s ease-in-out infinite}
+.pipe-conn{
+  flex:1;min-width:16px;height:2px;position:relative;
+  background:linear-gradient(90deg,rgba(0,212,255,0.1),rgba(0,212,255,0.3),rgba(0,212,255,0.1));
+  margin:0 -2px;align-self:center;margin-bottom:18px;
+}
+.pipe-conn .dot{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--primary);top:-0.5px;
+  animation:flowDot 2s linear infinite;box-shadow:0 0 6px var(--primary);
+}
+
+/* ===================== AGENT CARDS ===================== */
+.agents-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.agent-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:8px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  position:relative;overflow:hidden;
+}
+.agent-card::before,.agent-card::after{
+  content:'';position:absolute;width:8px;height:8px;
+  border-color:rgba(0,212,255,0.25);border-style:solid;
+}
+.agent-card::before{top:5px;left:5px;border-width:1px 0 0 1px}
+.agent-card::after{bottom:5px;right:5px;border-width:0 1px 1px 0}
+
+.agent-header{padding:12px 14px;display:flex;align-items:center;gap:8px;cursor:pointer}
+.agent-status-ring{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.agent-status-ring.running{border:2px solid var(--primary);animation:hudPulse 2s ease-in-out infinite}
+.agent-status-ring.running::before{
+  content:'';position:absolute;width:calc(100% + 5px);height:calc(100% + 5px);
+  border-radius:50%;border:1.5px solid var(--primary);
+  border-top-color:transparent;border-left-color:transparent;
+  animation:arcSpin 1.5s linear infinite;
+}
+.agent-status-ring.running .inner{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:corePulse 1.5s ease-in-out infinite}
+
+.agent-info{flex:1;min-width:0}
+.agent-name{font-family:var(--font-mono);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;color:#fff}
+.agent-role{font-size:0.5rem;color:rgba(192,221,239,0.5);margin-top:1px}
+
+.model-badge{
+  font-family:var(--font-mono);font-size:0.45rem;
+  padding:1px 6px;border-radius:10px;
+  letter-spacing:0.06em;font-weight:600;border:1px solid;flex-shrink:0;
+}
+.model-badge.opus{color:var(--gold);border-color:rgba(212,165,68,0.4)}
+.model-badge.sonnet{color:var(--secondary);border-color:rgba(0,136,255,0.4)}
+
+.agent-expand{font-size:0.6rem;color:rgba(0,212,255,0.3);flex-shrink:0;transition:transform 0.3s}
+.agent-card.open .agent-expand{transform:rotate(90deg)}
+
+.agent-body{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+  border-top:0px solid transparent;
+}
+.agent-card.open .agent-body{max-height:300px;border-top:1px solid var(--border)}
+.agent-body-inner{padding:10px 14px}
+
+.task-label{font-size:0.45rem;letter-spacing:0.15em;color:rgba(0,212,255,0.4);text-transform:uppercase}
+.task-value{font-family:var(--font-mono);font-size:0.65rem;color:#fff;margin-top:2px}
+
+.progress-wrap{margin-top:6px}
+.progress-label{display:flex;justify-content:space-between;font-size:0.5rem;margin-bottom:3px}
+.progress-label .pct{font-family:var(--font-mono);color:var(--primary);font-weight:700}
+.progress-label .p-name{color:rgba(255,255,255,0.5)}
+.progress-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.progress-fill.green{background:var(--green)}
+.progress-fill.blue{background:var(--primary)}
+.progress-fill.gold{background:var(--gold)}
+
+.live-feed{
+  margin-top:8px;background:rgba(0,0,0,0.3);
+  border:1px solid rgba(0,212,255,0.08);
+  border-radius:4px;padding:6px;height:80px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(0,212,255,0.2) transparent;
+}
+.live-feed::-webkit-scrollbar{width:3px}
+.live-feed::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.2);border-radius:2px}
+.feed-entry{
+  font-family:var(--font-mono);font-size:0.55rem;
+  color:rgba(255,255,255,0.75);padding:1px 0;
+  animation:feedFadeIn 0.5s ease-out;
+}
+.feed-entry .ts{color:rgba(0,212,255,0.3);margin-right:4px}
+
+/* ===================== OUTPUT LOG ===================== */
+.output-log{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:8px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  max-height:220px;overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:rgba(0,212,255,0.2) transparent;
+}
+.output-log::-webkit-scrollbar{width:3px}
+.output-log::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.2);border-radius:2px}
+.log-entry{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 14px;border-bottom:1px solid rgba(0,212,255,0.05);font-size:0.6rem;
+}
+.log-entry:last-child{border-bottom:none}
+.log-file{font-family:var(--font-mono);color:rgba(192,221,239,0.7);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.log-desc{color:rgba(192,221,239,0.4);display:none}
+.log-badge{
+  font-family:var(--font-mono);font-size:0.45rem;
+  padding:2px 8px;border-radius:10px;letter-spacing:0.05em;flex-shrink:0;
+}
+.log-badge.complete{color:var(--green);border:1px solid rgba(0,255,136,0.3)}
+.log-badge.live{color:var(--primary);border:1px solid rgba(0,212,255,0.3);animation:hudPulse 2s ease-in-out infinite}
+
+/* FOOTER */
+.footer{text-align:center;padding:20px 0 16px;font-size:0.5rem;letter-spacing:0.1em;color:rgba(192,221,239,0.2)}
+
+/* ===================== RESPONSIVE ===================== */
+@media(min-width:500px){
+  .log-desc{display:block}
+}
+@media(min-width:768px){
+  .projects-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .agents-grid{grid-template-columns:1fr 1fr;gap:10px}
+}
+@media(min-width:1024px){
+  .projects-grid{grid-template-columns:repeat(3, 1fr)}
+  .agents-grid{grid-template-columns:repeat(4, 1fr)}
+}
+@media(max-width:480px){
+  .container{max-width:420px}
+  .proj-pct{font-size:1.1rem;min-width:42px}
+  .proj-name{font-size:0.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Hex Grid Background -->
+<svg class="hex-bg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+<defs>
+<pattern id="hex" width="56" height="100" patternUnits="userSpaceOnUse" patternTransform="scale(0.8)">
+<path d="M28 2L54 18V50L28 66L2 50V18Z" fill="none" stroke="#00D4FF" stroke-width="0.3"/>
+<path d="M28 34L54 50V82L28 98L2 82V50Z" fill="none" stroke="#00D4FF" stroke-width="0.3"/>
+</pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#hex)"/>
+</svg>
+
+<canvas id="particles"></canvas>
+
+<div class="container">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header">
+    <h1>JARVIS</h1>
+    <div class="subtitle">Command Center</div>
+    <div class="clock" id="clock">--:--:-- ---</div>
+    <div class="sphere-wrap"><canvas id="sphere" width="200" height="200"></canvas></div>
+  </header>
+
+  <!-- ==================== SECTION 1: PROJECT TRACKER ==================== -->
+  <div class="section-title">Project Tracker</div>
+  <div class="projects-grid">
+
+    <!-- SHARPIE -->
+    <div class="proj-card" onclick="toggleProj(this)">
+      <div class="proj-header">
+        <div class="proj-pct high">85<span class="pct-sign">%</span></div>
+        <div class="proj-info">
+          <div class="proj-name">SHARPIE MAKE IT</div>
+          <div class="proj-meta">
+            <span class="status-badge active">ACTIVE</span>
+            <span class="proj-score">Gen Z 4.9 / Mill 5.0</span>
+          </div>
+          <div class="proj-bar-wrap"><div class="proj-bar"><div class="proj-bar-fill high" style="width:85%"></div></div></div>
+        </div>
+        <div class="proj-expand">&#9656;</div>
+      </div>
+      <div class="proj-tasks"><div class="proj-tasks-inner">
+        <div class="task-row"><span class="task-name">Strategy V4</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Creative Direction V4</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Product Taglines</span><div class="task-bar"><div class="task-bar-fill high" style="width:90%"></div></div><span class="task-pct high">90%</span></div>
+        <div class="task-row"><span class="task-name">Master Deck</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Google Slides</span><div class="task-bar"><div class="task-bar-fill high" style="width:90%"></div></div><span class="task-pct high">90%</span></div>
+        <div class="task-row"><span class="task-name">360 Plan</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Storyboard</span><div class="task-bar"><div class="task-bar-fill mid" style="width:60%"></div></div><span class="task-pct mid">60%</span></div>
+        <div class="task-row"><span class="task-name">VO / Music</span><div class="task-bar"><div class="task-bar-fill mid" style="width:65%"></div></div><span class="task-pct mid">65%</span></div>
+      </div></div>
+    </div>
+
+    <!-- DRAFT MODE GAME -->
+    <div class="proj-card" onclick="toggleProj(this)">
+      <div class="proj-header">
+        <div class="proj-pct mid">55<span class="pct-sign">%</span></div>
+        <div class="proj-info">
+          <div class="proj-name">DRAFT MODE GAME</div>
+          <div class="proj-meta">
+            <span class="status-badge active">ACTIVE</span>
+            <span class="proj-score">Cannes Innovation</span>
+          </div>
+          <div class="proj-bar-wrap"><div class="proj-bar"><div class="proj-bar-fill mid" style="width:55%"></div></div></div>
+        </div>
+        <div class="proj-expand">&#9656;</div>
+      </div>
+      <div class="proj-tasks"><div class="proj-tasks-inner">
+        <div class="task-row"><span class="task-name">Creative Bible</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Game Design Doc</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Alpha V1 (text)</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">V2 (pixel art)</span><div class="task-bar"><div class="task-bar-fill high" style="width:80%"></div></div><span class="task-pct high">80%</span></div>
+        <div class="task-row"><span class="task-name">V3 (vivid/paint)</span><div class="task-bar"><div class="task-bar-fill high" style="width:85%"></div></div><span class="task-pct high">85%</span></div>
+        <div class="task-row"><span class="task-name">V4 (Pokemon)</span><div class="task-bar"><div class="task-bar-fill low" style="width:15%"></div></div><span class="task-pct building">BUILD</span></div>
+        <div class="task-row"><span class="task-name">AI Integration</span><div class="task-bar"><div class="task-bar-fill low" style="width:0%"></div></div><span class="task-pct low">0%</span></div>
+        <div class="task-row"><span class="task-name">Social Share</span><div class="task-bar"><div class="task-bar-fill low" style="width:0%"></div></div><span class="task-pct low">0%</span></div>
+      </div></div>
+    </div>
+
+    <!-- CULTURAL COMMERCE -->
+    <div class="proj-card" onclick="toggleProj(this)">
+      <div class="proj-header">
+        <div class="proj-pct mid">75<span class="pct-sign">%</span></div>
+        <div class="proj-info">
+          <div class="proj-name">CULTURAL COMMERCE</div>
+          <div class="proj-meta">
+            <span class="status-badge active">ACTIVE</span>
+            <span class="proj-score">$81M Y3 Rev</span>
+          </div>
+          <div class="proj-bar-wrap"><div class="proj-bar"><div class="proj-bar-fill mid" style="width:75%"></div></div></div>
+        </div>
+        <div class="proj-expand">&#9656;</div>
+      </div>
+      <div class="proj-tasks"><div class="proj-tasks-inner">
+        <div class="task-row"><span class="task-name">Revenue Model</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Strategic Manifesto</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Product Concepts (33)</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Merch Site</span><div class="task-bar"><div class="task-bar-fill high" style="width:85%"></div></div><span class="task-pct high">85%</span></div>
+        <div class="task-row"><span class="task-name">Product Images</span><div class="task-bar"><div class="task-bar-fill low" style="width:40%"></div></div><span class="task-pct low">40%</span></div>
+        <div class="task-row"><span class="task-name">Kith/Supreme Plan</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Subscription Model</span><div class="task-bar"><div class="task-bar-fill high" style="width:80%"></div></div><span class="task-pct high">80%</span></div>
+        <div class="task-row"><span class="task-name">Deck Slides</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+      </div></div>
+    </div>
+
+    <!-- UNDERSCORE FILMS -->
+    <div class="proj-card" onclick="toggleProj(this)">
+      <div class="proj-header">
+        <div class="proj-pct mid">70<span class="pct-sign">%</span></div>
+        <div class="proj-info">
+          <div class="proj-name">UNDERSCORE FILMS</div>
+          <div class="proj-meta">
+            <span class="status-badge active">ACTIVE</span>
+            <span class="proj-score">Target: Signed Q4 2026</span>
+          </div>
+          <div class="proj-bar-wrap"><div class="proj-bar"><div class="proj-bar-fill mid" style="width:70%"></div></div></div>
+        </div>
+        <div class="proj-expand">&#9656;</div>
+      </div>
+      <div class="proj-tasks"><div class="proj-tasks-inner">
+        <div class="task-row"><span class="task-name">Production Co Research</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Director Bio</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Director Statement</span><div class="task-bar"><div class="task-bar-fill high" style="width:95%"></div></div><span class="task-pct high">95%</span></div>
+        <div class="task-row"><span class="task-name">Outreach Emails</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Treatment Template</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Reel Strategy</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Director Site</span><div class="task-bar"><div class="task-bar-fill high" style="width:90%"></div></div><span class="task-pct high">90%</span></div>
+        <div class="task-row"><span class="task-name">SEO Strategy</span><div class="task-bar"><div class="task-bar-fill high" style="width:100%"></div></div><span class="task-pct high">100%</span></div>
+        <div class="task-row"><span class="task-name">Outreach Execution</span><div class="task-bar"><div class="task-bar-fill low" style="width:0%"></div></div><span class="task-pct low">0%</span></div>
+      </div></div>
+    </div>
+
+    <!-- RESY RESERVATIONS -->
+    <div class="proj-card" onclick="toggleProj(this)">
+      <div class="proj-header">
+        <div class="proj-pct mid" style="font-size:0.7rem;color:var(--amber)">LIVE</div>
+        <div class="proj-info">
+          <div class="proj-name">RESY RESERVATIONS</div>
+          <div class="proj-meta">
+            <span class="status-badge monitoring">MONITORING</span>
+          </div>
+          <div class="proj-bar-wrap"><div class="proj-bar"><div class="proj-bar-fill mid" style="width:100%;opacity:0.5"></div></div></div>
+        </div>
+        <div class="proj-expand">&#9656;</div>
+      </div>
+      <div class="proj-tasks"><div class="proj-tasks-inner">
+        <div class="resy-row"><span class="resy-name">Free Range</span><span class="resy-status booked">&#10003; BOOKED Fri 3/27</span></div>
+        <div class="resy-row"><span class="resy-name">Le Coucou</span><span class="resy-status booked">&#10003; BOOKED Sat 3/28</span></div>
+        <div class="resy-row"><span class="resy-name">Lilia</span><span class="resy-status booked">&#10003; BOOKED</span></div>
+        <div class="resy-row"><span class="resy-name">Carbone</span><span class="resy-status hunting">HUNTING</span></div>
+        <div class="resy-row"><span class="resy-name">4 Charles</span><span class="resy-status hunting">HUNTING</span></div>
+        <div class="resy-row"><span class="resy-name">Sip & Guzzle</span><span class="resy-status hunting">HUNTING</span></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== PIPELINE FLOW ==================== -->
+  <div class="section-title">Pipeline Flow</div>
+  <div class="pipeline">
+    <div class="pipe-node"><div class="pipe-badge running">JAR</div><div class="pipe-label">JARVIS</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">SCT</div><div class="pipe-label">SCOUT</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:0.4s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">MAE</div><div class="pipe-label">MAESTRO</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:0.8s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">PRK</div><div class="pipe-label">PARK</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:1.2s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">NLN</div><div class="pipe-label">NOLAN</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:1.6s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">TST</div><div class="pipe-label">TESTING</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:2.0s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">VIS</div><div class="pipe-label">VISION</div><div class="pipe-status">ACTIVE</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:2.4s"></div></div>
+    <div class="pipe-node"><div class="pipe-badge running">SRH</div><div class="pipe-label">SARAH</div><div class="pipe-status">ACTIVE</div></div>
+  </div>
+
+  <!-- ==================== SECTION 2: AGENT MONITOR ==================== -->
+  <div class="section-title">Agent Monitor</div>
+  <div class="agents-grid">
+
+    <!-- JARVIS -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">JARVIS</div><div class="agent-role">Orchestrator / Architect</div></div>
+        <div class="model-badge opus">OPUS</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Orchestrating multi-project pipeline</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Pipeline orchestration</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:85%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-jarvis"></div>
+      </div></div>
+    </div>
+
+    <!-- SCOUT -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">SCOUT</div><div class="agent-role">Researcher / Strategist</div></div>
+        <div class="model-badge sonnet">SONNET</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Cultural Commerce market analysis</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Research pipeline</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:80%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-scout"></div>
+      </div></div>
+    </div>
+
+    <!-- MAESTRO -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">MAESTRO</div><div class="agent-role">Executive Creative Director</div></div>
+        <div class="model-badge opus">OPUS</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Draft Mode V4 creative direction</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Creative pipeline</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:75%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-maestro"></div>
+      </div></div>
+    </div>
+
+    <!-- PARK -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">PARK</div><div class="agent-role">Designer / Deck Builder</div></div>
+        <div class="model-badge sonnet">SONNET</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Building Underscore Films director site</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Design pipeline</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:70%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-park"></div>
+      </div></div>
+    </div>
+
+    <!-- NOLAN -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">NOLAN</div><div class="agent-role">Director / Post-Production</div></div>
+        <div class="model-badge opus">OPUS</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Sharpie storyboard + VO generation</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Storyboard</span><span class="pct">60%</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:60%"></div></div>
+        </div>
+        <div class="progress-wrap" style="margin-top:4px">
+          <div class="progress-label"><span class="p-name">VO / Music</span><span class="pct">65%</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:65%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-nolan"></div>
+      </div></div>
+    </div>
+
+    <!-- TESTING -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">TESTING</div><div class="agent-role">Research / Validation</div></div>
+        <div class="model-badge opus">OPUS</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Scoring Draft Mode for Cannes Innovation</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Cannes simulation</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill gold" style="width:60%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-testing"></div>
+      </div></div>
+    </div>
+
+    <!-- VISION -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">VISION</div><div class="agent-role">Dashboard / Monitoring</div></div>
+        <div class="model-badge sonnet">SONNET</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Monitoring all agent activity</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">System monitoring</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:100%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-vision"></div>
+      </div></div>
+    </div>
+
+    <!-- SARAH -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">SARAH</div><div class="agent-role">Project Manager / EA</div></div>
+        <div class="model-badge sonnet">SONNET</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Filing outputs across all workstreams</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">File organization</span><span class="pct">ACTIVE</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" style="width:85%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-sarah"></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- ==================== OUTPUT LOG ==================== -->
+  <div class="section-title">Output Log</div>
+  <div class="output-log">
+    <div class="log-entry"><span class="log-file">sharpie-strategy-v4.md</span><span class="log-desc">Strategy V4</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">sharpie-creative-v4.md</span><span class="log-desc">Creative Direction V4</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">sharpie-make-it-deck.pptx</span><span class="log-desc">Master Deck</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">sharpie-360-plan.xlsx</span><span class="log-desc">360 Plan</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">draft-mode-creative-bible.md</span><span class="log-desc">Creative Bible</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">draft-mode-v3-vivid.html</span><span class="log-desc">V3 Vivid Build</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">cultural-commerce-revenue.xlsx</span><span class="log-desc">Revenue Model</span><span class="log-badge complete">COMPLETE</span></div>
+    <div class="log-entry"><span class="log-file">underscore-director-site.html</span><span class="log-desc">Director Site</span><span class="log-badge live">LIVE</span></div>
+    <div class="log-entry"><span class="log-file">sharpie-storyboard-v1.md</span><span class="log-desc">Storyboard</span><span class="log-badge live">LIVE</span></div>
+    <div class="log-entry"><span class="log-file">draft-mode-v4-pokemon.html</span><span class="log-desc">V4 Pokemon Build</span><span class="log-badge live">LIVE</span></div>
+  </div>
+
+  <div class="footer">JARVIS v5.0.0 — COMMAND CENTER</div>
+
+</div>
+
+<script>
+/* ===================== CLOCK ===================== */
+function updateClock(){
+  var now=new Date();
+  var h=String(now.getHours()).padStart(2,'0');
+  var m=String(now.getMinutes()).padStart(2,'0');
+  var s=String(now.getSeconds()).padStart(2,'0');
+  var ms=String(Math.floor(now.getMilliseconds()/10)).padStart(2,'0');
+  var days=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  var months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  document.getElementById('clock').textContent=
+    h+':'+m+':'+s+'.'+ms+' // '+days[now.getDay()]+' '+String(now.getDate()).padStart(2,'0')+' '+months[now.getMonth()]+' '+now.getFullYear();
+}
+setInterval(updateClock,50);
+updateClock();
+
+/* ===================== TOGGLE FUNCTIONS ===================== */
+function toggleProj(card){card.classList.toggle('open')}
+function toggleAgent(card){card.classList.toggle('open')}
+
+/* ===================== LIVE FEEDS ===================== */
+var feeds={
+  jarvis:[
+    "Pipeline sequence validated","Passing SCOUT output to MAESTRO","Checking output integrity",
+    "Writing pipeline log","Agent handoff protocol initiated","Memory state serialized",
+    "Output hash verified: 0xA7F3","Monitoring PARK execution","Heartbeat OK — all agents nominal",
+    "Resource allocation optimized","Pipeline checkpoint saved","Verifying deliverable completeness",
+    "Multi-project sync: 5 active workstreams","Draft Mode handoff queued","Cultural Commerce pipeline green"
+  ],
+  scout:[
+    "Analyzing competitive landscape","Gen Z permanence data confirmed","Mapping cultural commerce TAM",
+    "Strategy pack finalized","Cultural signal scan complete","Audience segment profiled: 18-24",
+    "Trend velocity scored: high","White space identified in market","Brand equity metrics compiled",
+    "Consumer insight matrix built","Draft Mode market positioning locked","Subscription model benchmarks pulled",
+    "$81M Y3 projection validated","Kith/Supreme comp analysis complete"
+  ],
+  maestro:[
+    "Evaluating anthem routes","Scoring Route A: 44/50","Writing manifesto draft",
+    "Creative direction locked","Tone-of-voice calibrated","Visual territory defined",
+    "Draft Mode V4 Pokemon style frames","Tagline candidates ranked","Brand narrative arc complete",
+    "Creative brief synthesized","Typography system selected","Color palette finalized",
+    "Product tagline batch: 90% complete","Cultural Commerce merch concepts reviewing"
+  ],
+  park:[
+    "Building slide layouts","Rendering territory cards","Applying typography system",
+    "Exporting .pptx","Grid system established: 12-col","Hero image composited",
+    "Google Slides sync: 90%","Transition animations set","Director site: responsive pass",
+    "Style guide applied","Section dividers rendered","Final QA pass running",
+    "Merch site template: building product grid","Underscore Films site: SEO meta tags"
+  ],
+  nolan:[
+    "Reading anthem script","Breaking script into 44 shots","Shot 01: cap pop — KLING selected",
+    "Generating ElevenLabs VO","Voice: bold, warm, documentary tone","Shot 05: chef labels prep containers",
+    "Evaluating shot quality: PASS","Generating Suno score: stomp-clap rhythm",
+    "Shot 12: boy opens lunch, sees note","Color grade: warm, desaturated, film-stock",
+    "Assembling timeline in FFmpeg","Shot 32: game lights on — cinematic peak",
+    "Music sync: matching cuts to rhythm","Storyboard frame 24/44 rendered"
+  ],
+  testing:[
+    "Ingesting campaign assets","Profiling Gen Z audience segment","Running System1 star rating simulation",
+    "Monadic scoring: Attention 8/10","Generating simulated verbatims","Brand linkage analysis: strong",
+    "Draft Mode Cannes jury simulation","Scoring territory: Surface Tension",
+    "Cannes Innovation category: strong fit","Simulating biometric response curve",
+    "Gen Z 4.9 / Millennial 5.0 confirmed","Competitive context: vs Crayola campaign",
+    "Calculating persuasion metrics","Writing improvement recommendations"
+  ],
+  vision:[
+    "Dashboard sync: all agents reporting","Heartbeat check: 8 agents online","Rendering pipeline status",
+    "NOLAN activity: storyboard generation","TESTING activity: Cannes simulation",
+    "Project tracker: 5 workstreams active","Agent health: all nominal",
+    "Update pushed to command center","Monitoring output folder changes","System uptime: stable"
+  ],
+  sarah:[
+    "Scanning Downloads folder","Found 14 JARVIS-related files","Moving VO files to nolan/vo/",
+    "Renaming: naming convention enforced","Flagging 9 duplicates for cleanup","Filing storyboard frames",
+    "Pipeline status: 8/8 agents active","Version check: all outputs current",
+    "Sarah-log.md updated","Downloads sweep complete","Cultural Commerce assets organized",
+    "Draft Mode builds catalogued","Underscore Films outreach docs filed"
+  ]
+};
+
+var feedIdx={jarvis:0,scout:0,maestro:0,park:0,nolan:0,testing:0,vision:0,sarah:0};
+
+function addFeedEntry(agent){
+  var el=document.getElementById('feed-'+agent);
+  if(!el)return;
+  var msgs=feeds[agent];
+  var msg=msgs[feedIdx[agent]%msgs.length];
+  feedIdx[agent]++;
+  var now=new Date();
+  var ts=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':'+String(now.getSeconds()).padStart(2,'0');
+  var entry=document.createElement('div');
+  entry.className='feed-entry';
+  entry.innerHTML='<span class="ts">['+ts+']</span> '+msg;
+  el.appendChild(entry);
+  el.scrollTop=el.scrollHeight;
+  if(el.children.length>50)el.removeChild(el.firstChild);
+}
+
+function startFeeds(){
+  var agents=['jarvis','scout','maestro','park','nolan','testing','vision','sarah'];
+  for(var i=0;i<agents.length;i++)addFeedEntry(agents[i]);
+  setInterval(function(){addFeedEntry('jarvis')},3200);
+  setInterval(function(){addFeedEntry('scout')},3800);
+  setInterval(function(){addFeedEntry('maestro')},4100);
+  setInterval(function(){addFeedEntry('park')},3500);
+  setInterval(function(){addFeedEntry('nolan')},2200);
+  setInterval(function(){addFeedEntry('testing')},2800);
+  setInterval(function(){addFeedEntry('vision')},3000);
+  setInterval(function(){addFeedEntry('sarah')},4500);
+}
+setTimeout(startFeeds,500);
+
+/* ===================== 3D PARTICLE SPHERE ===================== */
+(function(){
+  var c=document.getElementById('sphere');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W=200,H=200,cx=W/2,cy=H/2,R=36;
+  var pts=[];
+  for(var i=0;i<100;i++){
+    var theta=Math.random()*Math.PI*2;
+    var phi=Math.acos(2*Math.random()-1);
+    pts.push({theta:theta,phi:phi,r:R+Math.random()*4-2});
+  }
+  var angle=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var g=ctx.createRadialGradient(cx,cy,0,cx,cy,R*1.3);
+    g.addColorStop(0,'rgba(0,212,255,0.08)');g.addColorStop(1,'rgba(0,212,255,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R*1.3,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='rgba(0,212,255,0.08)';ctx.lineWidth=0.5;
+    for(var ring=0;ring<3;ring++){
+      ctx.beginPath();
+      for(var t=0;t<=64;t++){
+        var a=t/64*Math.PI*2;
+        var x3=R*Math.cos(a);
+        var y3=R*Math.sin(a)*Math.cos(ring*Math.PI/3+angle*0.3);
+        var z3=R*Math.sin(a)*Math.sin(ring*Math.PI/3+angle*0.3);
+        var sx=cx+x3*Math.cos(angle)+z3*Math.sin(angle);
+        var sy=cy+y3;
+        if(t===0)ctx.moveTo(sx,sy);else ctx.lineTo(sx,sy);
+      }
+      ctx.stroke();
+    }
+    var sorted=[];
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      var x=p.r*Math.sin(p.phi)*Math.cos(p.theta);
+      var y=p.r*Math.sin(p.phi)*Math.sin(p.theta);
+      var z=p.r*Math.cos(p.phi);
+      var rx=x*Math.cos(angle)+z*Math.sin(angle);
+      var rz=-x*Math.sin(angle)+z*Math.cos(angle);
+      sorted.push({sx:cx+rx,sy:cy+y,z:rz,phi:p.phi});
+    }
+    sorted.sort(function(a,b){return a.z-b.z});
+    for(var i=0;i<sorted.length;i++){
+      var s=sorted[i];
+      var alpha=0.15+(s.z+R)/(2*R)*0.85;
+      var sz=1+(s.z+R)/(2*R)*1.5;
+      ctx.beginPath();ctx.arc(s.sx,s.sy,sz,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,'+alpha+')';ctx.fill();
+    }
+    for(var i=0;i<pts.length;i++){
+      pts[i].theta+=0.002;pts[i].phi+=0.0005*Math.sin(i);
+    }
+    angle+=0.008;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ===================== BACKGROUND PARTICLES ===================== */
+(function(){
+  var c=document.getElementById('particles');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  var dots=[];
+  for(var i=0;i<60;i++){
+    dots.push({x:Math.random()*c.width,y:Math.random()*c.height,
+      vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*1.5+0.5});
+  }
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d=dots[i];
+      d.x+=d.vx;d.y+=d.vy;
+      if(d.x<0)d.x=c.width;if(d.x>c.width)d.x=0;
+      if(d.y<0)d.y=c.height;if(d.y>c.height)d.y=0;
+      ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,0.3)';ctx.fill();
+    }
+    for(var i=0;i<dots.length;i++){
+      for(var j=i+1;j<dots.length;j++){
+        var dx=dots[i].x-dots[j].x;var dy=dots[i].y-dots[j].y;
+        var dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){
+          ctx.beginPath();ctx.moveTo(dots[i].x,dots[i].y);ctx.lineTo(dots[j].x,dots[j].y);
+          ctx.strokeStyle='rgba(0,212,255,'+(0.08*(1-dist/120))+')';ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>
