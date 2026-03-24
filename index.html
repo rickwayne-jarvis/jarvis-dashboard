@@ -502,6 +502,8 @@ canvas#sphere{width:100%;height:100%}
   <!-- ==================== PIPELINE FLOW ==================== -->
   <div class="section-title">Pipeline Flow</div>
   <div class="pipeline">
+    <div class="pipe-node"><div class="pipe-badge running">ATL</div><div class="pipe-label">ATLAS</div><div class="pipe-status">HEARTBEAT</div></div>
+    <div class="pipe-conn"><div class="dot" style="animation-delay:-0.4s"></div></div>
     <div class="pipe-node"><div class="pipe-badge running">JAR</div><div class="pipe-label">JARVIS</div><div class="pipe-status">ACTIVE</div></div>
     <div class="pipe-conn"><div class="dot"></div></div>
     <div class="pipe-node"><div class="pipe-badge running">SCT</div><div class="pipe-label">SCOUT</div><div class="pipe-status">ACTIVE</div></div>
@@ -687,6 +689,26 @@ canvas#sphere{width:100%;height:100%}
       </div></div>
     </div>
 
+    <!-- ATLAS -->
+    <div class="agent-card" onclick="toggleAgent(this)">
+      <div class="agent-header">
+        <div class="agent-status-ring running"><div class="inner"></div></div>
+        <div class="agent-info"><div class="agent-name">ATLAS</div><div class="agent-role">Heartbeat Monitor / Agent Supervisor</div></div>
+        <div class="model-badge opus">OPUS</div>
+        <div class="agent-expand">&#9656;</div>
+      </div>
+      <div class="agent-body"><div class="agent-body-inner">
+        <div class="task-label">Current Task</div>
+        <div class="task-value">Hourly agent health sweep — monitoring all systems</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span class="p-name">Next heartbeat in</span><span class="pct" id="atlas-countdown">60:00</span></div>
+          <div class="progress-bar"><div class="progress-fill blue" id="atlas-progress" style="width:100%"></div></div>
+        </div>
+        <div class="task-label" style="margin-top:6px">Live Feed</div>
+        <div class="live-feed" id="feed-atlas"></div>
+      </div></div>
+    </div>
+
   </div>
 
   <!-- ==================== OUTPUT LOG ==================== -->
@@ -786,10 +808,18 @@ var feeds={
     "Pipeline status: 8/8 agents active","Version check: all outputs current",
     "Sarah-log.md updated","Downloads sweep complete","Cultural Commerce assets organized",
     "Draft Mode builds catalogued","Underscore Films outreach docs filed"
+  ],
+  atlas:[
+    "Heartbeat sweep initiated","Polling JARVIS — status: active","Polling SCOUT — status: active",
+    "Polling MAESTRO — status: active","Polling PARK — status: active","Polling NOLAN — status: active",
+    "Polling TESTING — status: active","Polling VISION — status: active","Polling SARAH — status: active",
+    "All 8 agents nominal — heartbeat OK","Sweep complete — no idle agents detected","Next check in 60:00",
+    "Idle threshold: 5 min inactivity","Monitoring agent response times","Pipeline supervisor: standing by"
   ]
 };
 
-var feedIdx={jarvis:0,scout:0,maestro:0,park:0,nolan:0,testing:0,vision:0,sarah:0};
+var feedIdx={jarvis:0,scout:0,maestro:0,park:0,nolan:0,testing:0,vision:0,sarah:0,atlas:0};
+var agentLastActivity={jarvis:Date.now(),scout:Date.now(),maestro:Date.now(),park:Date.now(),nolan:Date.now(),testing:Date.now(),vision:Date.now(),sarah:Date.now()};
 
 function addFeedEntry(agent){
   var el=document.getElementById('feed-'+agent);
@@ -797,6 +827,20 @@ function addFeedEntry(agent){
   var msgs=feeds[agent];
   var msg=msgs[feedIdx[agent]%msgs.length];
   feedIdx[agent]++;
+  var now=new Date();
+  var ts=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':'+String(now.getSeconds()).padStart(2,'0');
+  var entry=document.createElement('div');
+  entry.className='feed-entry';
+  entry.innerHTML='<span class="ts">['+ts+']</span> '+msg;
+  el.appendChild(entry);
+  el.scrollTop=el.scrollHeight;
+  if(el.children.length>50)el.removeChild(el.firstChild);
+  if(agentLastActivity&&agent!=='atlas')agentLastActivity[agent]=Date.now();
+}
+
+function addAtlasMsg(msg){
+  var el=document.getElementById('feed-atlas');
+  if(!el)return;
   var now=new Date();
   var ts=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':'+String(now.getSeconds()).padStart(2,'0');
   var entry=document.createElement('div');
@@ -818,8 +862,57 @@ function startFeeds(){
   setInterval(function(){addFeedEntry('testing')},2800);
   setInterval(function(){addFeedEntry('vision')},3000);
   setInterval(function(){addFeedEntry('sarah')},4500);
+  setInterval(function(){addFeedEntry('atlas')},5200);
 }
 setTimeout(startFeeds,500);
+
+/* ===================== ATLAS HEARTBEAT ===================== */
+var HEARTBEAT_INTERVAL=3600000; // 1 hour
+var IDLE_THRESHOLD=300000;      // 5 minutes
+var atlasHeartbeatStart=Date.now();
+
+function atlasHeartbeat(){
+  var managedAgents=['jarvis','scout','maestro','park','nolan','testing','vision','sarah'];
+  atlasHeartbeatStart=Date.now();
+  addAtlasMsg('Heartbeat sweep initiated — checking '+managedAgents.length+' agents');
+  managedAgents.forEach(function(agent,i){
+    setTimeout(function(){
+      var idle=(Date.now()-atlasHeartbeatStart>IDLE_THRESHOLD);
+      // Use actual last-activity time for idle check
+      var lastSeen=agentLastActivity[agent]||0;
+      var isIdle=(Date.now()-lastSeen)>IDLE_THRESHOLD;
+      if(isIdle){
+        addAtlasMsg('IDLE — '+agent.toUpperCase()+' unresponsive. Dispatching next task...');
+        setTimeout(function(){
+          addFeedEntry(agent);
+          addAtlasMsg(agent.toUpperCase()+' resumed — task dispatched OK');
+        },2000);
+      } else {
+        addAtlasMsg('Polling '+agent.toUpperCase()+' — status: active');
+      }
+    },i*600);
+  });
+  setTimeout(function(){
+    addAtlasMsg('Sweep complete — all agents checked. Next heartbeat in 60:00');
+  },managedAgents.length*600+500);
+}
+
+// Countdown + progress bar update
+setInterval(function(){
+  var elapsed=Date.now()-atlasHeartbeatStart;
+  var remaining=Math.max(0,HEARTBEAT_INTERVAL-elapsed);
+  var pct=(remaining/HEARTBEAT_INTERVAL)*100;
+  var el=document.getElementById('atlas-progress');
+  if(el)el.style.width=pct+'%';
+  var mins=Math.floor(remaining/60000);
+  var secs=Math.floor((remaining%60000)/1000);
+  var cd=document.getElementById('atlas-countdown');
+  if(cd)cd.textContent=String(mins).padStart(2,'0')+':'+String(secs).padStart(2,'0');
+},1000);
+
+// Run heartbeat every hour; also run once shortly after load
+setInterval(atlasHeartbeat,HEARTBEAT_INTERVAL);
+setTimeout(atlasHeartbeat,3000);
 
 /* ===================== 3D PARTICLE SPHERE ===================== */
 (function(){
