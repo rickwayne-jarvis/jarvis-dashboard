@@ -1,1649 +1,1093 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JARVIS // BiG Command Center v3</title>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --black:        #000000;
-  --deep:         #020D1A;
-  --panel:        rgba(4, 12, 26, 0.92);
-  --panel-border: rgba(0, 180, 216, 0.16);
-  --panel-bright: rgba(0, 180, 216, 0.40);
-  --cyan:         #00B4D8;
-  --cyan-bright:  #00E5FF;
-  --cyan-dim:     #007A9C;
-  --cyan-glow:    rgba(0, 180, 216, 0.18);
-  --text:         #DDE6F0;
-  --text-dim:     #566A7F;
-  --text-mid:     #8FA3B8;
-  --green:        #00E676;
-  --green-bg:     rgba(0, 230, 118, 0.10);
-  --gold:         #FFB300;
-  --gold-bg:      rgba(255, 179, 0, 0.10);
-  --red:          #FF5252;
-  --font:         -apple-system, 'Helvetica Neue', Arial, sans-serif;
-  --mono:         'SF Mono', 'Fira Code', 'Consolas', monospace;
-}
-
-html, body {
-  height: 100%;
-  overflow: hidden;
-  background: var(--black);
-  color: var(--text);
-  font-family: var(--font);
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ========== HEADER ========== */
-.header {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  background: rgba(0,0,0,0.96);
-  border-bottom: 1px solid var(--panel-border);
-  flex-shrink: 0;
-  z-index: 100;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo {
-  font-family: var(--mono);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: #fff;
-}
-
-.header-sep {
-  color: var(--cyan);
-  font-size: 15px;
-  font-weight: 300;
-  opacity: 0.7;
-}
-
-.header-title {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-}
-
-.header-version {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--cyan-dim);
-  padding: 2px 6px;
-  border: 1px solid var(--panel-border);
-  border-radius: 2px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--text-dim);
-}
-
-.status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 0.15em;
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: statusBlink 4s ease-in-out infinite;
-}
-
-@keyframes statusBlink {
-  0%, 85%, 100% { opacity: 1; }
-  92% { opacity: 0.15; }
-}
-
-.header-clock {
-  color: var(--cyan);
-  letter-spacing: 0.1em;
-}
-
-.header-divider {
-  width: 1px;
-  height: 16px;
-  background: var(--panel-border);
-}
-
-/* ========== MAIN LAYOUT ========== */
-.main {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-}
-
-/* ========== GLOBE COLUMN ========== */
-.globe-col {
-  flex: 0 0 58%;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(ellipse at 50% 50%, #010C18 0%, #000000 68%);
-}
-
-#globe-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* Ambient glow ring behind globe */
-.globe-ambient {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52%;
-  padding-bottom: 52%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Voice rings CSS overlay */
-.voice-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 3;
-  display: none;
-}
-
-.voice-overlay.active { display: block; }
-
-.voice-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  border: 1px solid var(--cyan);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.voice-overlay.active .vr1 {
-  width: 240px; height: 240px;
-  animation: vRing 2.0s ease-out infinite;
-}
-.voice-overlay.active .vr2 {
-  width: 310px; height: 310px;
-  animation: vRing 2.0s ease-out 0.65s infinite;
-}
-.voice-overlay.active .vr3 {
-  width: 380px; height: 380px;
-  animation: vRing 2.0s ease-out 1.3s infinite;
-}
-
-@keyframes vRing {
-  0%   { opacity: 0.6; transform: translate(-50%, -50%) scale(0.88); }
-  100% { opacity: 0;   transform: translate(-50%, -50%) scale(1.12); }
-}
-
-/* Listening label */
-.listen-label {
-  position: absolute;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.28em;
-  color: var(--cyan);
-  text-transform: uppercase;
-  display: none;
-  z-index: 4;
-}
-.listen-label.active { display: block; animation: fadeUp 0.3s ease; }
-
-/* Transcript pill */
-.transcript-pill {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,180,216,0.12);
-  border: 1px solid var(--panel-bright);
-  border-radius: 20px;
-  padding: 7px 20px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--cyan-bright);
-  max-width: 78%;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  display: none;
-  z-index: 4;
-  letter-spacing: 0.04em;
-}
-
-/* Globe HUD */
-.globe-hud {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--text-dim);
-  letter-spacing: 0.12em;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.globe-hud-item {
-  display: flex;
-  gap: 8px;
-}
-
-.globe-hud-label {
-  color: var(--text-dim);
-  opacity: 0.6;
-}
-
-.globe-hud-val {
-  color: var(--cyan-dim);
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-/* ========== RIGHT COLUMN ========== */
-.right-col {
-  flex: 0 0 42%;
-  display: flex;
-  flex-direction: column;
-  background: rgba(1, 6, 14, 0.97);
-  border-left: 1px solid var(--panel-border);
-  min-height: 0;
-}
-
-/* ========== CHAT PANEL ========== */
-.chat-header {
-  padding: 11px 20px;
-  border-bottom: 1px solid var(--panel-border);
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  flex-shrink: 0;
-}
-
-.chat-header-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--cyan);
-  opacity: 0.7;
-}
-
-.chat-messages {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,180,216,0.15) transparent;
-}
-
-.chat-messages::-webkit-scrollbar { width: 3px; }
-.chat-messages::-webkit-scrollbar-track { background: transparent; }
-.chat-messages::-webkit-scrollbar-thumb { background: rgba(0,180,216,0.2); border-radius: 2px; }
-
-.msg {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  animation: msgAppear 0.28s ease;
-}
-
-@keyframes msgAppear {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.msg-meta {
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-}
-
-.msg.user .msg-meta { color: var(--cyan-dim); text-align: right; }
-
-.msg-bubble {
-  padding: 10px 14px;
-  font-size: 12.5px;
-  line-height: 1.65;
-  border-radius: 2px;
-}
-
-.msg.user .msg-bubble {
-  background: rgba(0, 180, 216, 0.08);
-  border: 1px solid rgba(0, 180, 216, 0.18);
-  color: var(--text);
-  align-self: flex-end;
-  max-width: 88%;
-}
-
-.msg.system .msg-bubble {
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(255,255,255,0.05);
-  color: var(--text);
-}
-
-.msg.system .msg-bubble strong {
-  color: var(--cyan-bright);
-  font-weight: 600;
-}
-
-.msg.system .msg-bubble code {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-mid);
-  background: rgba(255,255,255,0.05);
-  padding: 1px 5px;
-  border-radius: 2px;
-}
-
-/* Inline tags */
-.tag {
-  display: inline-block;
-  padding: 1px 7px;
-  border-radius: 2px;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  vertical-align: middle;
-}
-.tag.complete { background: var(--green-bg); color: var(--green); border: 1px solid rgba(0,230,118,0.25); }
-.tag.active   { background: var(--cyan-glow); color: var(--cyan-bright); border: 1px solid var(--panel-border); }
-.tag.ready    { background: rgba(86,106,127,0.12); color: var(--text-dim); border: 1px solid rgba(86,106,127,0.2); }
-.tag.new      { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(255,179,0,0.25); }
-
-/* Status tables */
-.st {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 11.5px;
-  font-family: var(--mono);
-  margin-top: 8px;
-}
-.st th {
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  padding: 0 10px 7px 0;
-  text-align: left;
-  font-weight: 400;
-}
-.st td {
-  padding: 4px 10px 4px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  vertical-align: middle;
-}
-.st tr:last-child td { border-bottom: none; }
-.st td:first-child { color: var(--cyan); }
-
-/* Typing indicator */
-.typing-indicator .msg-bubble {
-  color: var(--text-dim);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-}
-
-.typing-dots span {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--cyan-dim);
-  margin: 0 2px;
-  animation: typingDot 1.2s ease-in-out infinite;
-}
-.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes typingDot {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-4px); opacity: 1; }
-}
-
-/* ========== INPUT AREA ========== */
-.input-area {
-  border-top: 1px solid var(--panel-border);
-  padding: 12px 14px;
-  display: flex;
-  gap: 9px;
-  align-items: center;
-  flex-shrink: 0;
-  background: rgba(0,0,0,0.4);
-}
-
-.text-input {
-  flex: 1;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--panel-border);
-  color: var(--text);
-  font-family: var(--mono);
-  font-size: 12px;
-  padding: 8px 13px;
-  border-radius: 2px;
-  outline: none;
-  letter-spacing: 0.03em;
-  transition: border-color 0.2s;
-}
-
-.text-input:focus {
-  border-color: var(--cyan-dim);
-}
-
-.text-input::placeholder {
-  color: var(--text-dim);
-  opacity: 0.7;
-}
-
-.mic-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(0,180,216,0.07);
-  border: 1px solid var(--panel-border);
-  color: var(--cyan);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  flex-shrink: 0;
-}
-
-.mic-btn:hover {
-  background: rgba(0,180,216,0.16);
-  border-color: var(--cyan-dim);
-}
-
-.mic-btn.recording {
-  background: rgba(255,82,82,0.12);
-  border-color: var(--red);
-  color: var(--red);
-  animation: micPulse 1.4s ease-in-out infinite;
-}
-
-.mic-btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-}
-
-@keyframes micPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,82,82,0.3); }
-  50%       { box-shadow: 0 0 0 8px rgba(255,82,82,0); }
-}
-
-.send-btn {
-  padding: 8px 16px;
-  background: rgba(0,180,216,0.10);
-  border: 1px solid var(--panel-bright);
-  color: var(--cyan);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all 0.2s;
-  flex-shrink: 0;
-  text-transform: uppercase;
-}
-
-.send-btn:hover {
-  background: rgba(0,180,216,0.20);
-  color: var(--cyan-bright);
-}
-
-/* ========== DATA STRIP ========== */
-.data-strip {
-  height: 158px;
-  border-top: 1px solid var(--panel-border);
-  display: flex;
-  flex-shrink: 0;
-  background: rgba(0, 2, 8, 0.99);
-}
-
-.data-sec {
-  padding: 11px 14px;
-  border-right: 1px solid var(--panel-border);
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  overflow: hidden;
-}
-
-.data-sec:last-child { border-right: none; }
-
-.sec-label {
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.25em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-
-/* Agents */
-.agents-sec { flex: 0 0 56%; }
-
-.agents-row {
-  display: flex;
-  gap: 7px;
-  overflow-x: auto;
-  flex: 1;
-  align-items: flex-start;
-  scrollbar-width: none;
-  padding-bottom: 2px;
-}
-
-.agents-row::-webkit-scrollbar { display: none; }
-
-.agent-card {
-  flex-shrink: 0;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 2px;
-  padding: 7px 11px;
-  min-width: 86px;
-  cursor: default;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.agent-card:hover {
-  background: rgba(0,180,216,0.05);
-  border-color: var(--panel-border);
-}
-
-.agent-card.s-complete { border-color: rgba(0,230,118,0.18); }
-.agent-card.s-active {
-  border-color: rgba(0,229,255,0.3);
-  background: rgba(0,180,216,0.06);
-}
-
-.agent-name {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-
-.agent-role {
-  font-size: 8.5px;
-  color: var(--text-dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 110px;
-}
-
-.agent-stat {
-  margin-top: 5px;
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.s-ready    .agent-stat { color: var(--text-dim); }
-.s-complete .agent-stat { color: var(--green); }
-.s-active   .agent-stat { color: var(--cyan-bright); }
-
-/* Project */
-.project-sec { flex: 0 0 22%; }
-
-.project-block {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 2px;
-  padding: 9px 11px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.proj-name {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.08em;
-}
-
-.proj-client {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--cyan-dim);
-  letter-spacing: 0.1em;
-  margin-top: 2px;
-}
-
-.stage-bar {
-  display: flex;
-  gap: 3px;
-  margin-top: 10px;
-}
-
-.stage-pip {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.07);
-  position: relative;
-}
-
-.stage-pip.done { background: var(--green); }
-.stage-pip.now  { background: var(--cyan); }
-
-.proj-stage {
-  font-family: var(--mono);
-  font-size: 8px;
-  color: var(--text-dim);
-  margin-top: 5px;
-  letter-spacing: 0.08em;
-}
-
-/* Pipeline */
-.pipeline-sec { flex: 0 0 22%; }
-
-.pipe-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-
-.pipe-item:last-child { border-bottom: none; }
-
-.pipe-brand {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--text);
-  letter-spacing: 0.04em;
-}
-
-.pipe-signal {
-  font-size: 8.5px;
-  color: var(--text-dim);
-  margin-top: 1px;
-}
-
-.pipe-score {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--cyan);
-  flex-shrink: 0;
-  margin-left: 8px;
-}
-
-.new-badge {
-  font-family: var(--mono);
-  font-size: 7px;
-  letter-spacing: 0.1em;
-  background: var(--gold-bg);
-  color: var(--gold);
-  border: 1px solid rgba(255,179,0,0.25);
-  padding: 1px 4px;
-  border-radius: 2px;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
-/* Voice not supported */
-.voice-notice {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--text-dim);
-  letter-spacing: 0.08em;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS V4 — BiG Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER BAR */
+        .header-bar {
+            height: 50px;
+            background-color: rgba(4, 12, 26, 0.92);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00B4D8;
+            letter-spacing: 1px;
+        }
+
+        .header-subtitle {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header-time {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            color: #00B4D8;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #globe-container {
+            width: 120px;
+            height: 50px;
+            position: relative;
+        }
+
+        .mic-button {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            background-color: rgba(0, 180, 216, 0.05);
+            color: #00B4D8;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .mic-button:hover {
+            background-color: rgba(0, 180, 216, 0.15);
+            border-color: rgba(0, 180, 216, 0.6);
+        }
+
+        .mic-button.recording {
+            background-color: rgba(255, 68, 68, 0.2);
+            border-color: rgba(255, 68, 68, 0.6);
+            color: #FF4444;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 12px;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        /* PANELS */
+        .panel {
+            background-color: rgba(4, 12, 26, 0.92);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            border-radius: 4px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            font-size: 11px;
+            font-weight: 600;
+            color: #00B4D8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+        }
+
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Scrollbar styling */
+        .panel-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .panel-content::-webkit-scrollbar-track {
+            background: rgba(0, 180, 216, 0.05);
+        }
+
+        .panel-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 180, 216, 0.3);
+            border-radius: 3px;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 180, 216, 0.5);
+        }
+
+        /* LEFT COLUMN - ACTIVE PROJECTS */
+        .project-card {
+            background-color: rgba(0, 180, 216, 0.05);
+            border: 1px solid rgba(0, 180, 216, 0.1);
+            border-radius: 3px;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .status-dot.active {
+            background-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+        }
+
+        .status-dot.pending {
+            background-color: #FFC107;
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+        }
+
+        .status-dot.complete {
+            background-color: #2196F3;
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+        }
+
+        .status-dot.overdue {
+            background-color: #FF5252;
+            box-shadow: 0 0 8px rgba(255, 82, 82, 0.6);
+        }
+
+        .project-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+
+        .project-status {
+            font-size: 11px;
+            color: #aaa;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+
+        .project-date {
+            font-size: 10px;
+            color: #666;
+            font-family: 'Monaco', monospace;
+        }
+
+        /* CENTER COLUMN - AGENT ROSTER */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .agent-card {
+            background-color: rgba(0, 180, 216, 0.05);
+            border: 1px solid rgba(0, 180, 216, 0.1);
+            border-radius: 3px;
+            padding: 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .agent-card:hover {
+            border-color: rgba(0, 180, 216, 0.3);
+            background-color: rgba(0, 180, 216, 0.08);
+        }
+
+        .agent-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin: 0 auto 4px;
+        }
+
+        .agent-indicator.active {
+            background-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.8);
+        }
+
+        .agent-indicator.idle {
+            background-color: #666;
+            box-shadow: none;
+        }
+
+        .agent-name {
+            font-weight: 600;
+            font-size: 11px;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .agent-role {
+            font-size: 9px;
+            color: #888;
+            line-height: 1.2;
+        }
+
+        /* RECENT ACTIVITY */
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 8px;
+            background-color: rgba(0, 180, 216, 0.03);
+            border-left: 2px solid rgba(0, 180, 216, 0.2);
+            border-radius: 2px;
+            font-size: 11px;
+            gap: 10px;
+        }
+
+        .activity-text {
+            flex: 1;
+            color: #ddd;
+            line-height: 1.3;
+        }
+
+        .activity-date {
+            font-family: 'Monaco', monospace;
+            font-size: 10px;
+            color: #666;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        /* RIGHT COLUMN - PIPELINE & TASKS */
+        .prospect-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px;
+            background-color: rgba(0, 180, 216, 0.05);
+            border: 1px solid rgba(0, 180, 216, 0.1);
+            border-radius: 3px;
+            transition: border-color 0.2s ease;
+        }
+
+        .prospect-item:hover {
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .prospect-left {
+            flex: 1;
+        }
+
+        .prospect-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+
+        .prospect-status {
+            font-size: 10px;
+            color: #888;
+            font-family: 'Monaco', monospace;
+        }
+
+        .prospect-badge {
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 6px;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .badge-active {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.4);
+        }
+
+        .badge-research {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+            border: 1px solid rgba(255, 193, 7, 0.4);
+        }
+
+        .badge-overdue {
+            background-color: rgba(255, 82, 82, 0.2);
+            color: #FF5252;
+            border: 1px solid rgba(255, 82, 82, 0.4);
+        }
+
+        /* SCHEDULED TASKS */
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background-color: rgba(0, 180, 216, 0.03);
+            border-left: 2px solid rgba(0, 180, 216, 0.2);
+            border-radius: 2px;
+        }
+
+        .task-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .task-indicator.running {
+            background-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.8);
+        }
+
+        .task-indicator.pending {
+            background-color: #FFC107;
+            box-shadow: 0 0 6px rgba(255, 193, 7, 0.6);
+        }
+
+        .task-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .task-name {
+            font-weight: 600;
+            color: #ddd;
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .task-schedule {
+            font-size: 10px;
+            color: #888;
+            font-family: 'Monaco', monospace;
+        }
+
+        /* BOTTOM BAR */
+        .bottom-bar {
+            height: 60px;
+            background-color: rgba(4, 12, 26, 0.92);
+            border-top: 1px solid rgba(0, 180, 216, 0.2);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        #command-input {
+            flex: 1;
+            background-color: rgba(0, 180, 216, 0.08);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        #command-input:focus {
+            outline: none;
+            border-color: rgba(0, 180, 216, 0.8);
+            background-color: rgba(0, 180, 216, 0.12);
+        }
+
+        .send-button {
+            padding: 8px 16px;
+            background-color: rgba(0, 180, 216, 0.2);
+            border: 1px solid rgba(0, 180, 216, 0.4);
+            color: #00B4D8;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .send-button:hover {
+            background-color: rgba(0, 180, 216, 0.35);
+            border-color: rgba(0, 180, 216, 0.8);
+        }
+
+        /* CHAT PANEL */
+        .chat-panel {
+            position: fixed;
+            right: 0;
+            top: 50px;
+            width: 400px;
+            height: calc(100vh - 110px);
+            background-color: rgba(4, 12, 26, 0.98);
+            border-left: 1px solid rgba(0, 180, 216, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-panel.active {
+            transform: translateX(0);
+        }
+
+        .chat-header {
+            padding: 14px;
+            border-bottom: 1px solid rgba(0, 180, 216, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #00B4D8;
+        }
+
+        .chat-close {
+            cursor: pointer;
+            color: #888;
+            font-size: 18px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .message.user {
+            background-color: rgba(0, 180, 216, 0.15);
+            color: #fff;
+            align-self: flex-end;
+            max-width: 85%;
+            border-left: 2px solid rgba(0, 180, 216, 0.6);
+        }
+
+        .message.system {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #aaa;
+            align-self: flex-start;
+            max-width: 85%;
+            border-left: 2px solid rgba(76, 175, 80, 0.4);
+        }
+
+        @media (max-width: 1600px) {
+            .main-container {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .agent-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .chat-panel {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- ========== HEADER ========== -->
-<header class="header">
-  <div class="header-left">
-    <span class="logo">BiG</span>
-    <span class="header-sep">//</span>
-    <span class="header-title">JARVIS Command Center</span>
-    <span class="header-version">v3</span>
-  </div>
-  <div class="header-right">
-    <div class="status-indicator">
-      <div class="status-dot"></div>
-      <span>SYSTEM ACTIVE</span>
-    </div>
-    <div class="header-divider"></div>
-    <span class="header-clock" id="clock">--:--:--</span>
-  </div>
-</header>
-
-<!-- ========== MAIN ========== -->
-<div class="main">
-
-  <!-- GLOBE -->
-  <div class="globe-col" id="globe-container">
-    <canvas id="globe-canvas"></canvas>
-    <div class="globe-ambient"></div>
-    <div class="voice-overlay" id="voice-overlay">
-      <div class="voice-ring vr1"></div>
-      <div class="voice-ring vr2"></div>
-      <div class="voice-ring vr3"></div>
-    </div>
-    <div class="listen-label" id="listen-label">Listening</div>
-    <div class="transcript-pill" id="transcript-pill"></div>
-    <div class="globe-hud">
-      <div class="globe-hud-item">
-        <span class="globe-hud-label">LAT</span>
-        <span class="globe-hud-val" id="hud-lat">40.71° N</span>
-      </div>
-      <div class="globe-hud-item">
-        <span class="globe-hud-label">LON</span>
-        <span class="globe-hud-val" id="hud-lon">74.00° W</span>
-      </div>
-      <div class="globe-hud-item">
-        <span class="globe-hud-label">NODE</span>
-        <span class="globe-hud-val" id="hud-node">BiG-NYC-01</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT PANEL -->
-  <div class="right-col">
-    <div class="chat-header">
-      <div class="chat-header-dot"></div>
-      <span>Command Interface</span>
-    </div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="input-area">
-      <input type="text" class="text-input" id="text-input"
-             placeholder="Command or query..." autocomplete="off" />
-      <button class="mic-btn" id="mic-btn" title="Voice input">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-        </svg>
-      </button>
-      <button class="send-btn" id="send-btn">Send</button>
-    </div>
-  </div>
-
-</div>
-
-<!-- ========== DATA STRIP ========== -->
-<div class="data-strip">
-
-  <div class="data-sec agents-sec">
-    <div class="sec-label">Agent Roster</div>
-    <div class="agents-row" id="agents-row"></div>
-  </div>
-
-  <div class="data-sec project-sec">
-    <div class="sec-label">Active Project</div>
-    <div class="project-block">
-      <div>
-        <div class="proj-name">MAKE IT</div>
-        <div class="proj-client">SHARPIE // NEWELL BRANDS</div>
-      </div>
-      <div>
-        <div class="stage-bar">
-          <div class="stage-pip done" title="SCOUT"></div>
-          <div class="stage-pip done" title="MAESTRO"></div>
-          <div class="stage-pip done" title="PARK"></div>
-          <div class="stage-pip done" title="NOLAN"></div>
-          <div class="stage-pip done" title="TESTING"></div>
+    <!-- HEADER BAR -->
+    <div class="header-bar">
+        <div class="header-left">
+            <div class="header-title">JARVIS</div>
+            <div class="header-subtitle">BiG Command Center</div>
         </div>
-        <div class="proj-stage">Pipeline complete — Pitch ready</div>
-      </div>
+        <div class="header-center">
+            <div class="header-time" id="current-time"></div>
+        </div>
+        <div class="header-right">
+            <div id="globe-container"></div>
+            <button class="mic-button" id="mic-button" title="Voice Input">🎤</button>
+        </div>
     </div>
-  </div>
-
-  <div class="data-sec pipeline-sec">
-    <div class="sec-label">New Business</div>
-    <div id="pipeline-list"></div>
-  </div>
-
-</div>
-
-<script>
-// ============================================================
-// DATA
-// ============================================================
-
-const AGENTS = [
-  { name: 'JARVIS',   role: 'Orchestrator',        status: 'active',   model: 'Opus'   },
-  { name: 'SCOUT',    role: 'Researcher/Strategist',status: 'complete', model: 'Sonnet' },
-  { name: 'MAESTRO',  role: 'Exec Creative Dir',   status: 'complete', model: 'Opus'   },
-  { name: 'PARK',     role: 'Designer/Deck Builder',status: 'complete', model: 'Sonnet' },
-  { name: 'NOLAN',    role: 'Director/Post',        status: 'complete', model: 'Opus'   },
-  { name: 'TESTING',  role: 'Research/Validation',  status: 'complete', model: 'Opus'   },
-  { name: 'SARAH',    role: 'Project Manager',      status: 'ready',    model: 'Sonnet' },
-  { name: 'GUARDIAN', role: 'Brand Voice',          status: 'ready',    model: 'Sonnet' },
-  { name: 'PERSONA',  role: 'Audience Builder',     status: 'ready',    model: 'Opus'   },
-  { name: 'ATLAS',    role: 'System Map',           status: 'ready',    model: 'Sonnet' },
-  { name: 'WRITER',   role: 'Copy/Script',          status: 'ready',    model: 'Sonnet' },
-  { name: 'CFO',      role: 'Budget/Finance',       status: 'ready',    model: 'Sonnet' },
-];
-
-const PIPELINE = [
-  { brand: 'Armra',           score: 82, signal: 'New CMO Apr 2026',  isNew: true  },
-  { brand: 'Farmers Ins.',    score: 78, signal: 'Review active',     isNew: false },
-  { brand: 'Michael Kors',    score: 75, signal: 'New CMO Apr 6',     isNew: false },
-  { brand: 'Glossier',        score: 74, signal: 'New CMO Apr 6',     isNew: false },
-  { brand: "Driscoll's",      score: 68, signal: 'CMO 7mo in',        isNew: false },
-  { brand: "P.F. Chang's",    score: 65, signal: 'Data strategy reset',isNew: false },
-  { brand: 'Williams-Sonoma', score: 60, signal: 'CMO promoted',      isNew: false },
-];
-
-// ============================================================
-// RENDER DATA
-// ============================================================
-
-function renderAgents() {
-  const row = document.getElementById('agents-row');
-  AGENTS.forEach(a => {
-    const card = document.createElement('div');
-    card.className = 'agent-card s-' + a.status;
-    card.innerHTML =
-      '<div class="agent-name">' + a.name + '</div>' +
-      '<div class="agent-role">' + a.role + '</div>' +
-      '<div class="agent-stat">' + a.status + '</div>';
-    row.appendChild(card);
-  });
-}
-
-function renderPipeline() {
-  const list = document.getElementById('pipeline-list');
-  PIPELINE.forEach(p => {
-    const item = document.createElement('div');
-    item.className = 'pipe-item';
-    item.innerHTML =
-      '<div>' +
-        '<div class="pipe-brand">' + p.brand + (p.isNew ? '<span class="new-badge">NEW</span>' : '') + '</div>' +
-        '<div class="pipe-signal">' + p.signal + '</div>' +
-      '</div>' +
-      '<div class="pipe-score">' + p.score + '</div>';
-    list.appendChild(item);
-  });
-}
-
-// ============================================================
-// CLOCK + HUD
-// ============================================================
-
-function updateClock() {
-  const now = new Date();
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const s = String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-let hudPhase = 0;
-function updateHUD() {
-  hudPhase += 0.009;
-  const lat  = (Math.sin(hudPhase * 0.7)  * 48 + 40.71).toFixed(2);
-  const lon  = (Math.cos(hudPhase * 0.5)  * 74).toFixed(2);
-  const latDir = lat >= 0 ? 'N' : 'S';
-  const lonDir = lon >= 0 ? 'W' : 'E';
-  document.getElementById('hud-lat').textContent = Math.abs(lat) + '\u00b0 ' + latDir;
-  document.getElementById('hud-lon').textContent = Math.abs(lon) + '\u00b0 ' + lonDir;
-}
-setInterval(updateHUD, 600);
-
-// ============================================================
-// CHAT SYSTEM
-// ============================================================
-
-function esc(str) {
-  return String(str)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
-}
-
-function now() {
-  const d = new Date();
-  return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
-}
-
-function addMsg(role, html) {
-  const container = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg ' + role;
-  const label = role === 'user' ? 'YOU' : 'JARVIS';
-  div.innerHTML =
-    '<div class="msg-meta">' + label + ' \u00b7 ' + now() + '</div>' +
-    '<div class="msg-bubble">' + html + '</div>';
-  container.appendChild(div);
-  container.scrollTop = container.scrollHeight;
-  if (role === 'system') triggerGlobePulse();
-}
-
-function showTyping() {
-  const container = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg system typing-indicator';
-  div.id = 'typing-ind';
-  div.innerHTML =
-    '<div class="msg-meta">JARVIS \u00b7 processing</div>' +
-    '<div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
-  container.appendChild(div);
-  container.scrollTop = container.scrollHeight;
-}
-
-function hideTyping() {
-  const el = document.getElementById('typing-ind');
-  if (el) el.remove();
-}
-
-// ============================================================
-// COMMANDS
-// ============================================================
-
-function processCmd(raw) {
-  const cmd = raw.toLowerCase().trim();
-
-  // Greetings
-  if (/^(hi|hello|hey|good morning|good afternoon|good evening|yo|sup)/.test(cmd)) return rGreeting();
-
-  // Project status
-  if (/sharpie|make it|current project/.test(cmd))       return rSharpie();
-
-  // Agents
-  if (/agent|roster|team|who.*deployed|who.*available/.test(cmd)) return rAgents();
-
-  // New business pipeline
-  if (/pipeline|new business|prospect|lead/.test(cmd))   return rPipeline();
-
-  // Individual prospects
-  if (/armra/.test(cmd))                                  return rArmra();
-  if (/glossier/.test(cmd))                               return rGlossier();
-  if (/michael kors/.test(cmd))                           return rMichaelKors();
-  if (/farmers/.test(cmd))                                return rFarmers();
-
-  // Pipeline stages
-  if (/nolan|storyboard|film|shot|post.?production/.test(cmd)) return rNolan();
-  if (/scout|research|strategy|category|insight/.test(cmd))    return rScout();
-  if (/maestro|creative direction|route|concept/.test(cmd))    return rMaestro();
-  if (/park|deck|slide|presentation/.test(cmd))                return rPark();
-  if (/test|score|ipsos|research score|validation/.test(cmd))  return rTesting();
-
-  // Status / briefing
-  if (/status|overview|system|how.*going|where.*stand|brief me/.test(cmd)) return rStatus();
-
-  // What's new / today
-  if (/what.*new|latest|update|today|catch me up|recent/.test(cmd)) return rWhatsNew();
-
-  // BiG / company
-  if (/big|brand imagination|company|us|who are we/.test(cmd)) return rAboutBiG();
-
-  // Help
-  if (/help|\?|commands|what can|what do/.test(cmd))     return rHelp();
-
-  return rUnknown(raw);
-}
-
-function rSharpie() {
-  return '<strong>SHARPIE // MAKE IT</strong><br>Campaign pitch. Full pipeline complete.<br><br>' +
-    '<table class="st"><tr><th>Stage</th><th>Agent</th><th>Status</th></tr>' +
-    '<tr><td>Strategy</td><td>SCOUT</td><td><span class="tag complete">Complete</span></td></tr>' +
-    '<tr><td>Creative Direction</td><td>MAESTRO</td><td><span class="tag complete">Complete</span></td></tr>' +
-    '<tr><td>Deck</td><td>PARK</td><td><span class="tag complete">Complete</span></td></tr>' +
-    '<tr><td>Film / VO / Music</td><td>NOLAN</td><td><span class="tag complete">Complete</span></td></tr>' +
-    '<tr><td>Research Validation</td><td>TESTING</td><td><span class="tag complete">Complete</span></td></tr>' +
-    '</table><br>' +
-    'Platform: <strong>Every Mark Means It</strong><br>' +
-    'Tagline: <strong>Make It. Mean It. Sharpie.</strong><br>' +
-    'Files at <code>output/sharpie-*</code>';
-}
-
-function rAgents() {
-  const rows = AGENTS.map(a =>
-    '<tr><td>' + a.name + '</td><td>' + a.role + '</td><td><span class="tag ' + a.status + '">' + a.status + '</span></td></tr>'
-  ).join('');
-  return '<strong>AGENT ROSTER \u2014 12 DEPLOYED</strong><br><br>' +
-    '<table class="st"><tr><th>Agent</th><th>Role</th><th>Status</th></tr>' + rows + '</table>';
-}
-
-function rPipeline() {
-  const rows = PIPELINE.map(p =>
-    '<tr><td>' + p.brand + (p.isNew ? ' <span class="new-badge">NEW</span>' : '') + '</td>' +
-    '<td>' + p.signal + '</td><td>' + p.score + '/100</td></tr>'
-  ).join('');
-  return '<strong>NEW BUSINESS PIPELINE \u2014 7 PROSPECTS</strong><br>' +
-    'Updated Apr 13, 2026<br><br>' +
-    '<table class="st"><tr><th>Brand</th><th>Signal</th><th>Fit</th></tr>' + rows + '</table><br>' +
-    '<strong>Priority targets:</strong> Armra (new CMO, mandate matches BiG) and Glossier (new CMO, strategic reset).';
-}
-
-function rNolan() {
-  return '<strong>NOLAN // SHARPIE MAKE IT</strong><br>Post-production outputs complete.<br><br>' +
-    '<table class="st"><tr><th>Asset</th><th>File</th></tr>' +
-    '<tr><td>VO Take 1</td><td>sharpie_makeit_vo_david_v1.mp3</td></tr>' +
-    '<tr><td>VO Take 2</td><td>sharpie-vo-take2-marcus.mp3</td></tr>' +
-    '<tr><td>VO Take 3</td><td>sharpie-vo-take3-maverick.mp3</td></tr>' +
-    '<tr><td>Anthem v1</td><td>sharpie_makeit_anthem_v1.mp3</td></tr>' +
-    '<tr><td>Anthem v2a</td><td>sharpie_makeit_anthem_v2a_grit.mp3</td></tr>' +
-    '<tr><td>Storyboard MP4</td><td>sharpie-make-it-storyboard-v2-complete.mp4</td></tr>' +
-    '</table><br>All files at <code>output/nolan/</code>';
-}
-
-function rScout() {
-  return '<strong>SCOUT // SHARPIE v4</strong><br>Strategy Pack complete.<br><br>' +
-    '\u201cIn a fully reversible world, permanence is the most subversive thing a brand can offer.\u201d<br><br>' +
-    '<strong>Category:</strong> $29.55B global writing instruments<br>' +
-    '<strong>Target reframe:</strong> People who believe their actions produce artifacts that outlast the moment<br>' +
-    '<strong>Gen Z permanence insight:</strong> Vinyl crossed $1B in 2025. Tattoo rates at historic highs. Permanence is rare and charged.<br>' +
-    '<strong>Threats:</strong> Crayola (6.2B impressions on creativity campaign), Posca (557% search growth)<br><br>' +
-    'File: <code>output/sharpie-scout-v4.md</code>';
-}
-
-function rMaestro() {
-  return '<strong>MAESTRO // SHARPIE v4</strong><br>Three routes evaluated. Route A selected.<br><br>' +
-    '<table class="st"><tr><th>Route</th><th>Score</th><th>Decision</th></tr>' +
-    '<tr><td>Every Mark Means It</td><td>44/50</td><td><span class="tag complete">Hero</span></td></tr>' +
-    '<tr><td>No Take Backs</td><td>39/50</td><td><span class="tag ready">Cut</span></td></tr>' +
-    '<tr><td>The Marks You Keep</td><td>38/50</td><td><span class="tag ready">Cut</span></td></tr>' +
-    '</table><br>' +
-    '<strong>Platform:</strong> Every Mark Means It<br>' +
-    '<strong>Tagline:</strong> Make It. Mean It. Sharpie.<br>' +
-    '<strong>Cannes plays:</strong> The Blank Wall (Outdoor/Experience), The Permanent Playlist (Titanium)';
-}
-
-function rArmra() {
-  return '<strong>ARMRA // NEW PROSPECT</strong><br>Added Apr 13, 2026. Fit score: <strong>82/100</strong><br><br>' +
-    'New CMO: <strong>Hamid Saify</strong><br>' +
-    'Background: ex-Liquid Death (helped scale from challenger to fastest-growing beverage brand), ex-Lucky Energy CMO<br><br>' +
-    'Mandate: \u201cMake colostrum a household name\u201d \u2014 requires emotionally resonant, cinematic brand storytelling. BiG\u2019s lane.<br><br>' +
-    '<strong>Budget est.:</strong> $5M\u2013$15M<br>' +
-    '<strong>Stage:</strong> DTC scaling into broader consumer awareness<br><br>' +
-    'Saify\u2019s Liquid Death background means comfort with bold, distinctive creative. Ready to pitch.';
-}
-
-function rStatus() {
-  const d = new Date();
-  const dateStr = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-  return '<strong>SYSTEM STATUS \u2014 ' + dateStr + '</strong><br><br>' +
-    '<strong>Active project:</strong> Sharpie MAKE IT \u2014 Pipeline complete, pitch ready<br>' +
-    '<strong>New business:</strong> 7 prospects, 1 new this week (Armra, 82/100)<br>' +
-    '<strong>Agents:</strong> 12 deployed \u2014 6 complete on Sharpie, 6 on standby<br>' +
-    '<strong>Priority next action:</strong> Sharpie pitch to Newell Brands<br><br>' +
-    'All systems nominal.';
-}
-
-function rHelp() {
-  return '<strong>COMMANDS</strong><br><br>' +
-    '<table class="st">' +
-    '<tr><th colspan="2">Project</th></tr>' +
-    '<tr><td>sharpie</td><td>Active project status and pipeline</td></tr>' +
-    '<tr><td>status</td><td>Full system overview</td></tr>' +
-    '<tr><td>what\'s new</td><td>Latest intelligence and updates</td></tr>' +
-    '<tr><th colspan="2">Pipeline Stages</th></tr>' +
-    '<tr><td>scout</td><td>Strategy and research output</td></tr>' +
-    '<tr><td>maestro</td><td>Creative direction and routes</td></tr>' +
-    '<tr><td>park</td><td>Deck and presentation</td></tr>' +
-    '<tr><td>nolan</td><td>Film and post-production assets</td></tr>' +
-    '<tr><td>testing</td><td>Ipsos research scores</td></tr>' +
-    '<tr><th colspan="2">New Business</th></tr>' +
-    '<tr><td>pipeline</td><td>7 prospects with fit scores</td></tr>' +
-    '<tr><td>armra</td><td>Top prospect detail (82/100)</td></tr>' +
-    '<tr><td>glossier</td><td>Prospect detail (74/100)</td></tr>' +
-    '<tr><td>farmers</td><td>Prospect detail (78/100)</td></tr>' +
-    '<tr><td>michael kors</td><td>Prospect detail (75/100)</td></tr>' +
-    '<tr><th colspan="2">System</th></tr>' +
-    '<tr><td>agents</td><td>Full 12-agent roster</td></tr>' +
-    '<tr><td>big</td><td>About BiG</td></tr>' +
-    '</table><br>' +
-    'Voice: click the microphone, speak naturally. Transcript routes automatically.';
-}
-
-function rGreeting() {
-  const greetings = [
-    'Ready. What do you need?',
-    'JARVIS online. What are we working on?',
-    'System active. Talk to me.',
-    'Standing by. What\'s the move?'
-  ];
-  return greetings[Math.floor(Math.random() * greetings.length)] + '<br><br>' +
-    'Ask me about <strong>Sharpie</strong>, the <strong>pipeline</strong>, <strong>agents</strong>, or type <strong>status</strong> for the full picture.';
-}
-
-function rPark() {
-  return '<strong>PARK // SHARPIE MAKE IT</strong><br>Deck complete.<br><br>' +
-    '<strong>Deck concept:</strong> Every Mark Means It<br>' +
-    '<strong>Structure:</strong> The Problem (digital impermanence) / The Truth (permanence is charged) / The Platform / Three executional territories / Production framework / Case spine<br><br>' +
-    '<table class="st"><tr><th>Deliverable</th><th>File</th></tr>' +
-    '<tr><td>Deck summary</td><td>sharpie-park-deck-summary.md</td></tr>' +
-    '<tr><td>Park brief</td><td>sharpie-park-brief.md</td></tr>' +
-    '</table><br>' +
-    'Files at <code>output/sharpie-park-*</code>';
-}
-
-function rTesting() {
-  return '<strong>TESTING // SHARPIE MAKE IT — v4 + v5</strong><br><br>' +
-    '<table class="st"><tr><th>Asset</th><th>Star Rating</th><th>Key Score</th></tr>' +
-    '<tr><td>Every Mark Means It (platform)</td><td>★★★★☆</td><td>4.1/5.0</td></tr>' +
-    '<tr><td>Make It anthem v1</td><td>★★★★☆</td><td>4.0/5.0</td></tr>' +
-    '<tr><td>The Blank Wall (Outdoor)</td><td>★★★★★</td><td>4.4/5.0</td></tr>' +
-    '<tr><td>Gen Z copy suite</td><td>★★★★☆</td><td>4.2/5.0</td></tr>' +
-    '</table><br>' +
-    '<strong>Ipsos normative:</strong> Top Quartile on Emotional Engagement and Brand Fit.<br>' +
-    'Files at <code>output/sharpie-testing-*</code>';
-}
-
-function rWhatsNew() {
-  return '<strong>LATEST INTELLIGENCE \u2014 Apr 15, 2026</strong><br><br>' +
-    '<strong>New prospect:</strong> Armra added Apr 13 (fit: 82/100) \u2014 new CMO from Liquid Death, mandate matches BiG exactly.<br><br>' +
-    '<strong>New CMO wave incoming:</strong> Armra, Michael Kors, Glossier all hired new CMOs in Q1 2026. Review window opens Q3-Q4.<br><br>' +
-    '<strong>Sharpie pipeline:</strong> Complete. Pitch-ready. NOLAN finished all post-production assets.<br><br>' +
-    '<strong>Industry signal:</strong> Specialist agencies outperforming holding companies in 2026 creative reviews. BiG\'s positioning is landing.<br><br>' +
-    'Type <strong>pipeline</strong> for full prospect list or <strong>armra</strong> for top priority detail.';
-}
-
-function rAboutBiG() {
-  return '<strong>BRAND IMAGINATION GROUP \u2014 BiG</strong><br><br>' +
-    'Next-generation creative company. Rick Wayne, Director / ECD / Founder.<br><br>' +
-    '<strong>Philosophy:</strong> Lead with imagination. Be a fast follower. Build adaptive systems. Connect empathy with data.<br><br>' +
-    '<strong>Standard:</strong> Strategic intelligence + emotional truth + visual distinctiveness + production realism + award-worthiness.<br><br>' +
-    '<strong>Production arm:</strong> Underscore Films \u2014 directing and production vehicle.<br><br>' +
-    '<strong>Active brands:</strong> Sharpie, Paper Mate, Expo, Elmer\'s, Graco, NUK, Chicago Lighthouse.<br><br>' +
-    'Barry Krause: \u201cThe future isn\u2019t found in data; it\u2019s invented in dreams.\u201d';
-}
-
-function rGlossier() {
-  return '<strong>GLOSSIER // PIPELINE PROSPECT</strong><br>Fit score: <strong>74/100</strong><br><br>' +
-    'New CMO: <strong>Nicole Solorzano</strong> started April 6, 2026.<br>' +
-    'Strategic reset underway. Brand repositioning from cult DTC into broader cultural relevance.<br><br>' +
-    '<strong>Why BiG:</strong> Emotional storytelling, cultural authenticity, Gen Z fluency \u2014 exactly the brief.<br>' +
-    '<strong>Stage:</strong> Monitor. CMO just started. Review window: Q3-Q4 2026.';
-}
-
-function rMichaelKors() {
-  return '<strong>MICHAEL KORS // PIPELINE PROSPECT</strong><br>Fit score: <strong>75/100</strong><br><br>' +
-    'New CMO: <strong>Corey Moran</strong> started April 6, 2026.<br>' +
-    'Background: Google, Head of Industry (Fashion & Luxury). Mandate: align Jet Set lifestyle with data-driven storytelling.<br><br>' +
-    '<strong>Why BiG:</strong> Cinematic brand storytelling with cultural edge. Jet Set is an ownable territory if pushed hard.<br>' +
-    '<strong>Stage:</strong> Monitor. Within 6-18 month new CMO review window.';
-}
-
-function rFarmers() {
-  return '<strong>FARMERS INSURANCE // PIPELINE PROSPECT</strong><br>Fit score: <strong>78/100</strong><br><br>' +
-    'Review status: Active. ID Comms advising. Separate creative and media tracks.<br>' +
-    'RPA incumbent for 15+ years. Media spend jumped $31M (2024) \u2192 $68M (2025).<br><br>' +
-    '<strong>Why BiG:</strong> Insurance ad spend up 23% industry-wide. Brand needs creative that stands out in a noisy category.<br>' +
-    '<strong>Stage:</strong> Review active. High urgency.';
-}
-
-function rUnknown(raw) {
-  const topics = [
-    '<strong>sharpie</strong> \u2014 active project status and campaign platform',
-    '<strong>pipeline</strong> \u2014 7 new business prospects with fit scores',
-    '<strong>armra</strong> / <strong>glossier</strong> / <strong>farmers</strong> \u2014 individual prospect detail',
-    '<strong>agents</strong> \u2014 full 12-agent roster and status',
-    '<strong>scout</strong> / <strong>maestro</strong> / <strong>nolan</strong> / <strong>park</strong> \u2014 pipeline stage outputs',
-    '<strong>testing</strong> \u2014 Ipsos research scores',
-    '<strong>status</strong> \u2014 system-wide overview',
-    '<strong>what\'s new</strong> \u2014 latest intelligence',
-  ];
-  return 'I don\u2019t have a specific handler for \u201c<strong>' + esc(raw) + '</strong>\u201d yet.<br><br>' +
-    'Here\u2019s what I can brief you on:<br><br>' +
-    '<ul style="padding-left:16px;line-height:2">' +
-    topics.map(t => '<li>' + t + '</li>').join('') +
-    '</ul><br>' +
-    'For anything deeper, run it through Claude: <code>Use the JARVIS agent. ' + esc(raw) + '</code>';
-}
-
-// ============================================================
-// SEND HANDLER
-// ============================================================
-
-function handleSend() {
-  const input = document.getElementById('text-input');
-  const val = input.value.trim();
-  if (!val) return;
-  addMsg('user', esc(val));
-  input.value = '';
-  showTyping();
-  setTimeout(function() {
-    hideTyping();
-    addMsg('system', processCmd(val));
-  }, 440);
-}
-
-document.getElementById('send-btn').addEventListener('click', handleSend);
-document.getElementById('text-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handleSend();
-});
-
-// ============================================================
-// VOICE INPUT
-// ============================================================
-
-var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-var recognition = null;
-var listening = false;
-
-var micBtn         = document.getElementById('mic-btn');
-var voiceOverlay   = document.getElementById('voice-overlay');
-var listenLabel    = document.getElementById('listen-label');
-var transcriptPill = document.getElementById('transcript-pill');
-
-if (SpeechRecognition) {
-  recognition = new SpeechRecognition();
-  recognition.continuous = false;
-  recognition.interimResults = true;
-  recognition.lang = 'en-US';
-
-  recognition.onresult = function(event) {
-    var interim = '', final = '';
-    for (var i = event.resultIndex; i < event.results.length; i++) {
-      var txt = event.results[i][0].transcript;
-      if (event.results[i].isFinal) final += txt;
-      else interim += txt;
-    }
-    var display = final || interim;
-    if (display) {
-      transcriptPill.textContent = display;
-      transcriptPill.style.display = 'block';
-    }
-    if (final) {
-      stopListening();
-      var captured = final;
-      setTimeout(function() {
-        transcriptPill.style.display = 'none';
-        document.getElementById('text-input').value = captured;
-        handleSend();
-      }, 500);
-    }
-  };
-
-  recognition.onend = function() {
-    if (listening) stopListening();
-  };
-
-  recognition.onerror = function(e) {
-    stopListening();
-    if (e.error !== 'no-speech') {
-      addMsg('system', 'Voice error: ' + esc(e.error) + '. Use text input instead.');
-    }
-  };
-
-  micBtn.addEventListener('click', function() {
-    if (listening) {
-      recognition.stop();
-      stopListening();
-    } else {
-      startListening();
-    }
-  });
-} else {
-  micBtn.disabled = true;
-  micBtn.title = 'Voice input requires Chrome or Safari';
-}
-
-function startListening() {
-  listening = true;
-  micBtn.classList.add('recording');
-  voiceOverlay.classList.add('active');
-  listenLabel.classList.add('active');
-  transcriptPill.style.display = 'none';
-  setGlobeSpeaking(true);
-  try { recognition.start(); } catch(e) { stopListening(); }
-}
-
-function stopListening() {
-  listening = false;
-  micBtn.classList.remove('recording');
-  voiceOverlay.classList.remove('active');
-  listenLabel.classList.remove('active');
-  setGlobeSpeaking(false);
-}
-
-// ============================================================
-// THREE.JS GLOBE
-// ============================================================
-
-(function() {
-
-  var container = document.getElementById('globe-container');
-  var canvas    = document.getElementById('globe-canvas');
-
-  function dims() {
-    return { w: container.clientWidth, h: container.clientHeight };
-  }
-
-  var d = dims();
-  var scene    = new THREE.Scene();
-  var camera   = new THREE.PerspectiveCamera(42, d.w / d.h, 0.1, 100);
-  camera.position.z = 2.85;
-
-  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-  renderer.setSize(d.w, d.h);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0);
-
-  // --- Inner sphere (dark fill) ---
-  var innerMat = new THREE.MeshBasicMaterial({
-    color: 0x000D1A,
-    transparent: true,
-    opacity: 0.93
-  });
-  scene.add(new THREE.Mesh(new THREE.SphereGeometry(0.968, 40, 30), innerMat));
-
-  // --- Primary wireframe ---
-  var wireMat = new THREE.LineBasicMaterial({
-    color: 0x00B4D8,
-    transparent: true,
-    opacity: 0.28,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  var globeWire = new THREE.LineSegments(
-    new THREE.WireframeGeometry(new THREE.SphereGeometry(1.0, 28, 20)),
-    wireMat
-  );
-  scene.add(globeWire);
-
-  // --- Secondary wireframe (counter-rotating, creates depth) ---
-  var wireMat2 = new THREE.LineBasicMaterial({
-    color: 0x00E5FF,
-    transparent: true,
-    opacity: 0.09,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  var globeWire2 = new THREE.LineSegments(
-    new THREE.WireframeGeometry(new THREE.SphereGeometry(1.0, 16, 12)),
-    wireMat2
-  );
-  scene.add(globeWire2);
-
-  // --- Surface dots (Fibonacci sphere distribution) ---
-  var dotCount = 320;
-  var dotPos = new Float32Array(dotCount * 3);
-  for (var i = 0; i < dotCount; i++) {
-    var phi   = Math.acos(1 - 2 * (i + 0.5) / dotCount);
-    var theta = Math.PI * (1 + Math.sqrt(5)) * i;
-    dotPos[i*3]   = Math.sin(phi) * Math.cos(theta);
-    dotPos[i*3+1] = Math.cos(phi);
-    dotPos[i*3+2] = Math.sin(phi) * Math.sin(theta);
-  }
-  var dotGeo = new THREE.BufferGeometry();
-  dotGeo.setAttribute('position', new THREE.BufferAttribute(dotPos, 3));
-  var dotMat = new THREE.PointsMaterial({
-    color: 0x00E5FF,
-    size: 0.019,
-    transparent: true,
-    opacity: 0.60,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  var dots = new THREE.Points(dotGeo, dotMat);
-  scene.add(dots);
-
-  // --- Particle cloud ---
-  var pCount = 1600;
-  var pPos = new Float32Array(pCount * 3);
-  for (var j = 0; j < pCount; j++) {
-    var pr   = 1.45 + Math.random() * 1.15;
-    var pphi = Math.acos(2 * Math.random() - 1);
-    var pthe = Math.random() * Math.PI * 2;
-    pPos[j*3]   = pr * Math.sin(pphi) * Math.cos(pthe);
-    pPos[j*3+1] = pr * Math.cos(pphi);
-    pPos[j*3+2] = pr * Math.sin(pphi) * Math.sin(pthe);
-  }
-  var pGeo = new THREE.BufferGeometry();
-  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  var pMat = new THREE.PointsMaterial({
-    color: 0x00B4D8,
-    size: 0.013,
-    transparent: true,
-    opacity: 0.38,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  var particles = new THREE.Points(pGeo, pMat);
-  scene.add(particles);
-
-  // --- Equatorial ring ---
-  var ringMat = new THREE.MeshBasicMaterial({
-    color: 0x00B4D8,
-    transparent: true,
-    opacity: 0.48,
-    blending: THREE.AdditiveBlending
-  });
-  var ring = new THREE.Mesh(new THREE.TorusGeometry(1.19, 0.004, 6, 100), ringMat);
-  ring.rotation.x = Math.PI / 2;
-  scene.add(ring);
-
-  // --- Secondary tilted ring ---
-  var ring2Mat = new THREE.MeshBasicMaterial({
-    color: 0x0096C7,
-    transparent: true,
-    opacity: 0.28,
-    blending: THREE.AdditiveBlending
-  });
-  var ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.24, 0.003, 6, 100), ring2Mat);
-  ring2.rotation.x = Math.PI / 4;
-  ring2.rotation.z = Math.PI / 6;
-  scene.add(ring2);
-
-  // --- Arc system ---
-  var arcs = [];
-
-  function randSurface() {
-    var phi = Math.acos(2 * Math.random() - 1);
-    var the = Math.random() * Math.PI * 2;
-    return new THREE.Vector3(
-      Math.sin(phi) * Math.cos(the),
-      Math.cos(phi),
-      Math.sin(phi) * Math.sin(the)
-    );
-  }
-
-  function spawnArc() {
-    var p1  = randSurface();
-    var p2  = randSurface();
-    var mid = p1.clone().add(p2).multiplyScalar(0.5).normalize().multiplyScalar(1.38);
-    var pts = new THREE.QuadraticBezierCurve3(p1, mid, p2).getPoints(55);
-    var ag  = new THREE.BufferGeometry().setFromPoints(pts);
-    var am  = new THREE.LineBasicMaterial({
-      color: 0x00E5FF,
-      transparent: true,
-      opacity: 0.72,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    var al = new THREE.Line(ag, am);
-    scene.add(al);
-    arcs.push({ line: al, geo: ag, mat: am, life: 1.0 });
-  }
-
-  // --- Pulse rings ---
-  var pulseRings = [];
-
-  window.triggerGlobePulse = function() {
-    var pg = new THREE.TorusGeometry(1.0, 0.007, 6, 60);
-    var pm = new THREE.MeshBasicMaterial({
-      color: 0x00E5FF,
-      transparent: true,
-      opacity: 0.65,
-      blending: THREE.AdditiveBlending
-    });
-    var pt = new THREE.Mesh(pg, pm);
-    pt.rotation.x = Math.random() * Math.PI;
-    pt.rotation.y = Math.random() * Math.PI;
-    scene.add(pt);
-    pulseRings.push({ mesh: pt, mat: pm, sc: 1.0, op: 0.65 });
-  };
-
-  // --- State ---
-  var globeSpeaking = false;
-  var speakI = 0.0;
-  var lastArcT = 0;
-
-  window.setGlobeSpeaking = function(val) { globeSpeaking = val; };
-
-  var clock = new THREE.Clock();
-
-  // --- Animate ---
-  function animate() {
-    requestAnimationFrame(animate);
-    var t = clock.getElapsedTime();
-
-    // Lerp speak intensity
-    var target = globeSpeaking ? 1.0 : 0.0;
-    speakI += (target - speakI) * 0.08;
-
-    var baseRot = 0.0028;
-    var extraRot = speakI * 0.011;
-
-    globeWire.rotation.y  += baseRot + extraRot;
-    globeWire2.rotation.y -= baseRot * 0.65 + extraRot * 0.4;
-    globeWire2.rotation.x += 0.0009;
-    dots.rotation.y       += baseRot * 0.76;
-    particles.rotation.y  += 0.0009;
-    particles.rotation.x  += 0.0003;
-    ring.rotation.z       += 0.0018 + speakI * 0.007;
-    ring2.rotation.y      += 0.0025;
-
-    // Opacity modulation
-    wireMat.opacity  = 0.26 + Math.sin(t * 1.1) * 0.04 + speakI * (0.22 + Math.sin(t * 8) * 0.12);
-    wireMat2.opacity = 0.08 + speakI * 0.14;
-    dotMat.opacity   = 0.52 + speakI * 0.28 + Math.sin(t * 2) * 0.04;
-    pMat.opacity     = 0.32 + speakI * 0.18;
-    ringMat.opacity  = 0.42 + speakI * 0.28 + Math.sin(t * 1.4) * 0.06;
-
-    // Scale breathe + speak pulse
-    var bScale = 1 + Math.sin(t * 0.75) * 0.007;
-    var sScale = (speakI > 0.05) ? (1 + Math.sin(t * 11) * 0.018 * speakI) : 1;
-    var sc = bScale * sScale;
-    globeWire.scale.setScalar(sc);
-    dots.scale.setScalar(sc * 0.998);
-
-    // Arc spawning
-    var arcInterval = globeSpeaking ? 0.75 : 4.5;
-    if (t - lastArcT > arcInterval) {
-      spawnArc();
-      lastArcT = t;
-    }
-
-    // Decay arcs
-    for (var i = arcs.length - 1; i >= 0; i--) {
-      arcs[i].life -= 0.015;
-      arcs[i].mat.opacity = Math.max(0, arcs[i].life * 0.72);
-      if (arcs[i].life <= 0) {
-        scene.remove(arcs[i].line);
-        arcs[i].geo.dispose();
-        arcs[i].mat.dispose();
-        arcs.splice(i, 1);
-      }
-    }
-
-    // Decay pulse rings
-    for (var k = pulseRings.length - 1; k >= 0; k--) {
-      pulseRings[k].sc += 0.033;
-      pulseRings[k].op -= 0.028;
-      pulseRings[k].mesh.scale.setScalar(pulseRings[k].sc);
-      pulseRings[k].mat.opacity = Math.max(0, pulseRings[k].op);
-      if (pulseRings[k].op <= 0) {
-        scene.remove(pulseRings[k].mesh);
-        pulseRings[k].mesh.geometry.dispose();
-        pulseRings[k].mat.dispose();
-        pulseRings.splice(k, 1);
-      }
-    }
-
-    renderer.render(scene, camera);
-  }
-
-  animate();
-
-  window.addEventListener('resize', function() {
-    var nd = dims();
-    camera.aspect = nd.w / nd.h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(nd.w, nd.h);
-  });
-
-})();
-
-// ============================================================
-// INIT
-// ============================================================
-
-renderAgents();
-renderPipeline();
-
-// Boot sequence
-setTimeout(function() {
-  addMsg('system',
-    '<strong>JARVIS online.</strong> BiG Command Center v3 initialized.<br><br>' +
-    'Active project: <span class="tag complete">SHARPIE MAKE IT</span> — Pipeline complete. Pitch ready.<br>' +
-    'New business: <strong>7 prospects</strong> in pipeline. Armra added this week (82/100 fit score).<br>' +
-    'Agents: <strong>12 deployed</strong> — 6 complete on Sharpie, 6 on standby.<br><br>' +
-    'Type a command or click the microphone. Type <strong>help</strong> for available commands.'
-  );
-}, 550);
-
-</script>
+
+    <!-- MAIN CONTENT GRID -->
+    <div class="main-container">
+        <!-- LEFT COLUMN: ACTIVE PROJECTS -->
+        <div class="panel">
+            <div class="panel-header">Active Projects</div>
+            <div class="panel-content">
+                <div class="project-card">
+                    <div class="status-dot active"></div>
+                    <div class="project-content">
+                        <div class="project-name">Sharpie MAKE IT</div>
+                        <div class="project-status">Deck V2 Build • Client presentation in ~3 days</div>
+                        <div class="project-date">Apr 14</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="status-dot complete"></div>
+                    <div class="project-content">
+                        <div class="project-name">HAVOC TV Bible</div>
+                        <div class="project-status">8 episodes, available for development</div>
+                        <div class="project-date">Apr 10</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="status-dot active"></div>
+                    <div class="project-content">
+                        <div class="project-name">BiG New Business</div>
+                        <div class="project-status">SCOUT ACTIVE • 7 prospects tracked</div>
+                        <div class="project-date">Apr 15</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="status-dot complete"></div>
+                    <div class="project-content">
+                        <div class="project-name">rickwayne.cc</div>
+                        <div class="project-status">GitHub Pages deployed</div>
+                        <div class="project-date">Mar 28</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="status-dot pending"></div>
+                    <div class="project-content">
+                        <div class="project-name">CFO Strategy</div>
+                        <div class="project-status">S-Corp setup, payroll pending</div>
+                        <div class="project-date">Apr 12</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="status-dot complete"></div>
+                    <div class="project-content">
+                        <div class="project-name">Book Outline</div>
+                        <div class="project-status">On Google Docs, ready for draft</div>
+                        <div class="project-date">Apr 08</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CENTER COLUMN: AGENTS + ACTIVITY -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- AGENT ROSTER -->
+            <div class="panel">
+                <div class="panel-header">Agent Roster</div>
+                <div style="flex: 1; overflow: auto;">
+                    <div class="agent-grid">
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">MAESTRO</div>
+                            <div class="agent-role">Strategic Director</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">WRITER</div>
+                            <div class="agent-role">Creative Copy</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator idle"></div>
+                            <div class="agent-name">TESTING</div>
+                            <div class="agent-role">Research Lab</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">NOLAN</div>
+                            <div class="agent-role">Visual Production</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">PARK</div>
+                            <div class="agent-role">Deck Builder</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator idle"></div>
+                            <div class="agent-name">SARAH</div>
+                            <div class="agent-role">File Management</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">ATLAS</div>
+                            <div class="agent-role">Dependency Tracker</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator idle"></div>
+                            <div class="agent-name">CFO</div>
+                            <div class="agent-role">Financial Strategy</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator idle"></div>
+                            <div class="agent-name">GUARDIAN</div>
+                            <div class="agent-role">Brand Protection</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">PERSONA</div>
+                            <div class="agent-role">Audience Intel</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">SCOUT</div>
+                            <div class="agent-role">New Business</div>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-indicator active"></div>
+                            <div class="agent-name">JARVIS</div>
+                            <div class="agent-role">Orchestrator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECENT ACTIVITY -->
+            <div class="panel">
+                <div class="panel-header">Recent Activity</div>
+                <div class="panel-content">
+                    <div class="activity-item">
+                        <div class="activity-text">MAESTRO: :60 Commercial Treatment</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">WRITER: :30 Script + Visual Script</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">TESTING: Manifesto vs Script Report</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">MAESTRO: Cast + Making Matrix (20 chars, 58 moments)</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">WRITER: Product :15s V2 (with attributes)</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">WRITER: Bookend Slides + 10 Vignettes</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">MAESTRO: :60 Visual Script V2</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">Deck V2 read via Slides API</div>
+                        <div class="activity-date">Apr 14</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">Dashboard V3 deployed</div>
+                        <div class="activity-date">Apr 13</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-text">ATLAS: Dependency report</div>
+                        <div class="activity-date">Apr 13</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: PIPELINE + TASKS -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- BiG PIPELINE -->
+            <div class="panel">
+                <div class="panel-header">BiG Pipeline</div>
+                <div class="panel-content">
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Sharpie</div>
+                            <div class="prospect-status">Internal review this week</div>
+                        </div>
+                        <div class="prospect-badge badge-active">Active Pitch</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Glossier</div>
+                            <div class="prospect-status">Solórzano outreach by Apr 20</div>
+                        </div>
+                        <div class="prospect-badge badge-research">Research</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Sonos</div>
+                            <div class="prospect-status">DeCourcy letter</div>
+                        </div>
+                        <div class="prospect-badge badge-overdue">Overdue</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">P.F. Chang's</div>
+                            <div class="prospect-status">Initial outreach pending</div>
+                        </div>
+                        <div class="prospect-badge badge-research">Research</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Michael Kors</div>
+                            <div class="prospect-status">Market analysis in progress</div>
+                        </div>
+                        <div class="prospect-badge badge-research">Research</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Driscoll's</div>
+                            <div class="prospect-status">Competitive positioning review</div>
+                        </div>
+                        <div class="prospect-badge badge-research">Research</div>
+                    </div>
+
+                    <div class="prospect-item">
+                        <div class="prospect-left">
+                            <div class="prospect-name">Farmers Insurance</div>
+                            <div class="prospect-status">Category intelligence gathering</div>
+                        </div>
+                        <div class="prospect-badge badge-research">Research</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCHEDULED TASKS -->
+            <div class="panel">
+                <div class="panel-header">Scheduled Tasks</div>
+                <div class="panel-content">
+                    <div class="task-item">
+                        <div class="task-indicator running"></div>
+                        <div class="task-content">
+                            <div class="task-name">Resy Monitor</div>
+                            <div class="task-schedule">Every hour • Running</div>
+                        </div>
+                    </div>
+
+                    <div class="task-item">
+                        <div class="task-indicator running"></div>
+                        <div class="task-content">
+                            <div class="task-name">SCOUT Pipeline</div>
+                            <div class="task-schedule">Daily 6am • Recreated today</div>
+                        </div>
+                    </div>
+
+                    <div class="task-item">
+                        <div class="task-indicator running"></div>
+                        <div class="task-content">
+                            <div class="task-name">SARAH File Sweep</div>
+                            <div class="task-schedule">Every hour • Running</div>
+                        </div>
+                    </div>
+
+                    <div class="task-item">
+                        <div class="task-indicator running"></div>
+                        <div class="task-content">
+                            <div class="task-name">ATLAS Dependency</div>
+                            <div class="task-schedule">Daily 9am • Last run: today</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom-bar">
+        <div class="input-wrapper">
+            <input type="text" id="command-input" placeholder="Enter command or ask JARVIS... (type /help for commands)">
+            <button class="send-button" id="send-button">Send</button>
+            <button class="mic-button" id="mic-button-bottom" title="Voice Input">🎤</button>
+        </div>
+    </div>
+
+    <!-- CHAT PANEL -->
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">
+            <div class="chat-header-title">JARVIS Response</div>
+            <button class="chat-close" id="chat-close">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message system">Initializing JARVIS V4 Command Center... Ready to assist.</div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize clock
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+            document.getElementById('current-time').textContent = timeStr;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Three.js Globe
+        function initGlobe() {
+            const container = document.getElementById('globe-container');
+            const width = 120;
+            const height = 50;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            // Create wireframe globe
+            const geometry = new THREE.IcosahedronGeometry(2, 4);
+            const material = new THREE.LineBasicMaterial({ color: 0x00B4D8, linewidth: 1 });
+            const wireframe = new THREE.LineSegments(geometry, material);
+            scene.add(wireframe);
+
+            // Add glow effect
+            const glowGeometry = new THREE.IcosahedronGeometry(2.1, 4);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: 0x00B4D8,
+                transparent: true,
+                opacity: 0.1,
+                wireframe: true
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            scene.add(glow);
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                wireframe.rotation.x += 0.001;
+                wireframe.rotation.y += 0.002;
+                glow.rotation.x += 0.001;
+                glow.rotation.y += 0.002;
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        }
+
+        initGlobe();
+
+        // Chat panel functionality
+        const chatPanel = document.getElementById('chat-panel');
+        const chatClose = document.getElementById('chat-close');
+        const chatMessages = document.getElementById('chat-messages');
+        const commandInput = document.getElementById('command-input');
+        const sendButton = document.getElementById('send-button');
+        const micButton = document.getElementById('mic-button');
+        const micButtonBottom = document.getElementById('mic-button-bottom');
+
+        chatClose.addEventListener('click', () => {
+            chatPanel.classList.remove('active');
+        });
+
+        // Command handling
+        const commands = {
+            '/help': () => {
+                return `Available commands:
+/help - Show this message
+/status - Show current status
+/agents - List all agents
+/pipeline - Show pipeline status
+/projects - Show active projects
+/sharpie - Sharpie MAKE IT project info
+/clear - Clear chat history`;
+            },
+            '/status': () => {
+                return 'System Status: OPERATIONAL\n- All agents online\n- 7 prospects in pipeline\n- 4 scheduled tasks running\n- Dashboard V4 active';
+            },
+            '/agents': () => {
+                return 'Active Agents: MAESTRO, WRITER, NOLAN, PARK, ATLAS, PERSONA, SCOUT, JARVIS\nIdle: TESTING, SARAH, CFO, GUARDIAN';
+            },
+            '/pipeline': () => {
+                return 'BiG Pipeline Status:\n- Sharpie: ACTIVE PITCH (internal review this week)\n- Glossier: RESEARCH (outreach by Apr 20)\n- Sonos: OVERDUE (awaiting letter)\n- 4 additional prospects in research phase';
+            },
+            '/projects': () => {
+                return 'Active Projects:\n1. Sharpie MAKE IT - Deck V2 Build\n2. BiG New Business - 7 prospects\n3. CFO Strategy - S-Corp setup\n4. HAVOC TV Bible - Complete, ready for development';
+            },
+            '/sharpie': () => {
+                return 'Sharpie MAKE IT Campaign:\nPhase: Deck V2 Build\nStatus: Client presentation in ~3 days\nLastUpdate: Apr 14\nTeam: MAESTRO, WRITER, NOLAN, PARK\nNext: Design finalization, stakeholder review';
+            }
+        };
+
+        function processCommand(input) {
+            const trimmed = input.trim().toLowerCase();
+
+            if (trimmed === '/clear') {
+                chatMessages.innerHTML = '<div class="message system">Chat history cleared.</div>';
+                return null;
+            }
+
+            if (commands[trimmed]) {
+                return commands[trimmed]();
+            }
+
+            // Default response for arbitrary queries
+            return `Processing: "${input}"\n\nJARVIS is ready to execute. For pre-defined commands, use /help to see available options. Natural language processing for custom queries coming in V5.`;
+        }
+
+        function addMessage(text, type = 'system') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const input = commandInput.value.trim();
+            if (!input) return;
+
+            addMessage(input, 'user');
+            const response = processCommand(input);
+            if (response) {
+                addMessage(response, 'system');
+            }
+            commandInput.value = '';
+            chatPanel.classList.add('active');
+        });
+
+        commandInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        // Voice input
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let isRecording = false;
+
+        function toggleVoiceInput(button) {
+            if (!SpeechRecognition) {
+                addMessage('Voice input not supported in this browser.', 'system');
+                return;
+            }
+
+            if (isRecording) {
+                recognition.stop();
+                return;
+            }
+
+            const recognition = new SpeechRecognition();
+            recognition.language = 'en-US';
+            recognition.continuous = false;
+            recognition.interimResults = true;
+
+            recognition.onstart = () => {
+                isRecording = true;
+                button.classList.add('recording');
+            };
+
+            recognition.onend = () => {
+                isRecording = false;
+                button.classList.remove('recording');
+            };
+
+            recognition.onresult = (event) => {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                if (event.results[event.results.length - 1].isFinal) {
+                    commandInput.value = transcript;
+                    sendButton.click();
+                }
+            };
+
+            recognition.start();
+        }
+
+        micButton.addEventListener('click', () => toggleVoiceInput(micButton));
+        micButtonBottom.addEventListener('click', () => toggleVoiceInput(micButtonBottom));
+
+        // Initial message
+        addMessage('JARVIS V4 initialized. Dashboard active and monitoring. Type /help for available commands.', 'system');
+    </script>
 </body>
 </html>
