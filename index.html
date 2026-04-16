@@ -1,840 +1,883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JARVIS // Command Center</title>
-<style>
-  :root {
-    --bg: #0A0A0A;
-    --bg2: #111111;
-    --bg3: #1A1A1A;
-    --border: #2A2A2A;
-    --text: #E8E8E8;
-    --text-dim: #888888;
-    --text-dimmer: #555555;
-    --green: #00C853;
-    --gold: #FFB300;
-    --red: #FF3D00;
-    --gray: #555555;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS V5 — BiG Mission Control</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg: #060B14;
+            --panel: rgba(8,16,32,0.92);
+            --border: rgba(0,180,216,0.12);
+            --border-hover: rgba(0,180,216,0.35);
+            --accent: #00B4D8;
+            --accent-dim: rgba(0,180,216,0.6);
+            --text: #d4d4d4;
+            --text-bright: #fff;
+            --text-dim: #777;
+            --green: #4CAF50;
+            --amber: #FFC107;
+            --red: #FF5252;
+            --blue: #2196F3;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 12px;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* ─── HEADER ─── */
+        .header {
+            height: 46px;
+            background: var(--panel);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 16px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+        .header-brand { display:flex; align-items:baseline; gap:8px; }
+        .header-brand h1 { font-size:16px; font-weight:700; color:var(--accent); letter-spacing:1.5px; }
+        .header-brand span { font-size:10px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; }
+        .header-center { flex:1; text-align:center; }
+        .header-time { font-family:'SF Mono','Monaco','Courier New',monospace; font-size:12px; color:var(--accent-dim); }
+        .header-right { display:flex; align-items:center; gap:12px; }
+        .header-stat { text-align:center; padding:0 10px; border-left:1px solid var(--border); }
+        .header-stat .val { font-size:14px; font-weight:700; color:var(--text-bright); }
+        .header-stat .lbl { font-size:9px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.3px; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
-    font-size: 12px;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
+        /* ─── MAIN GRID ─── */
+        .main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            grid-template-rows: 1fr;
+            gap: 1px;
+            background: rgba(0,180,216,0.06);
+            overflow: hidden;
+        }
 
-  /* HEADER */
-  .header {
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+        /* ─── PANELS ─── */
+        .panel {
+            background: var(--panel);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .panel-head {
+            padding: 10px 14px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .panel-head .count { color: var(--text-dim); font-weight:400; }
+        .panel-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 6px;
+        }
+        .panel-body::-webkit-scrollbar { width:4px; }
+        .panel-body::-webkit-scrollbar-track { background:transparent; }
+        .panel-body::-webkit-scrollbar-thumb { background:rgba(0,180,216,0.2); border-radius:2px; }
 
-  .header-left {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-  }
+        /* ─── LEFT COLUMN ─── */
+        .left-col {
+            display: flex;
+            flex-direction: column;
+        }
 
-  .logo {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #FFFFFF;
-  }
+        /* Globe Section */
+        .globe-wrap {
+            height: 240px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        #globe-canvas { width:100%; height:100%; display:block; }
+        .globe-label {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 9px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-  .logo span {
-    color: var(--text-dimmer);
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-  }
+        /* Agent List */
+        .agent-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-bottom: 1px solid rgba(0,180,216,0.04);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .agent-item:hover { background: rgba(0,180,216,0.06); }
+        .agent-item.selected { background: rgba(0,180,216,0.1); border-left: 2px solid var(--accent); }
+        .agent-dot {
+            width: 7px; height: 7px; border-radius: 50%; flex-shrink:0;
+        }
+        .agent-dot.active { background:var(--green); box-shadow:0 0 6px rgba(76,175,80,0.7); }
+        .agent-dot.idle { background:#444; }
+        .agent-dot.busy { background:var(--amber); box-shadow:0 0 6px rgba(255,193,7,0.5); }
+        .agent-info { flex:1; min-width:0; }
+        .agent-info .name { font-weight:600; color:var(--text-bright); font-size:11px; }
+        .agent-info .role { font-size:9px; color:var(--text-dim); }
+        .agent-tasks { font-size:10px; color:var(--text-dim); font-family:'SF Mono',monospace; }
 
-  .header-meta {
-    font-size: 11px;
-    color: var(--text-dimmer);
-    letter-spacing: 0.04em;
-  }
+        /* ─── CENTER COLUMN ─── */
+        .center-col {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 11px;
-    color: var(--text-dimmer);
-  }
+        /* Project Cards Row */
+        .projects-bar {
+            display: flex;
+            gap: 1px;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,180,216,0.04);
+        }
+        .proj-card {
+            flex: 1;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: background 0.15s;
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+        .proj-card:last-child { border-right:none; }
+        .proj-card:hover { background: rgba(0,180,216,0.06); }
+        .proj-card.selected { background:rgba(0,180,216,0.1); }
+        .proj-card.selected::after {
+            content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--accent);
+        }
+        .proj-card .proj-status-dot {
+            display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:5px; vertical-align:middle;
+        }
+        .proj-card .proj-name { font-weight:600; color:var(--text-bright); font-size:12px; margin-bottom:3px; }
+        .proj-card .proj-desc { font-size:10px; color:var(--text-dim); line-height:1.3; }
+        .proj-card .proj-date { font-size:9px; color:#555; font-family:monospace; margin-top:4px; }
 
-  .live-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    display: inline-block;
-    margin-right: 6px;
-    animation: pulse 2s ease-in-out infinite;
-  }
+        /* Detail Area */
+        .detail-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+        /* Tabs */
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .tab {
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.15s;
+        }
+        .tab:hover { color: var(--text); }
+        .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* LAYOUT */
-  .container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 20px 24px 40px;
-  }
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+        }
+        .tab-content::-webkit-scrollbar { width:4px; }
+        .tab-content::-webkit-scrollbar-thumb { background:rgba(0,180,216,0.2); border-radius:2px; }
+        .tab-pane { display:none; }
+        .tab-pane.active { display:block; }
 
-  .section {
-    margin-bottom: 28px;
-  }
+        /* Activity Feed */
+        .feed-item {
+            display: flex;
+            gap: 10px;
+            padding: 8px 10px;
+            border-left: 2px solid var(--border);
+            margin-bottom: 6px;
+            transition: border-color 0.15s;
+            cursor: pointer;
+        }
+        .feed-item:hover { border-left-color: var(--accent); background:rgba(0,180,216,0.03); }
+        .feed-agent { font-size:9px; font-weight:600; color:var(--accent); text-transform:uppercase; min-width:60px; flex-shrink:0; }
+        .feed-text { flex:1; color:var(--text); font-size:11px; line-height:1.4; }
+        .feed-time { font-size:9px; color:#555; font-family:monospace; flex-shrink:0; white-space:nowrap; }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
-  }
+        /* Files List */
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .file-item:hover { background:rgba(0,180,216,0.06); }
+        .file-icon { font-size:14px; flex-shrink:0; }
+        .file-name { flex:1; font-size:11px; color:var(--text-bright); }
+        .file-date { font-size:9px; color:#555; font-family:monospace; }
 
-  .section-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--text-dimmer);
-    text-transform: uppercase;
-  }
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .metric-card {
+            background: rgba(0,180,216,0.04);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 10px;
+            text-align: center;
+        }
+        .metric-card .metric-val { font-size:20px; font-weight:700; color:var(--text-bright); }
+        .metric-card .metric-lbl { font-size:9px; color:var(--text-dim); text-transform:uppercase; margin-top:2px; }
 
-  .section-count {
-    font-size: 10px;
-    color: var(--text-dimmer);
-    background: var(--bg3);
-    padding: 1px 6px;
-    border-radius: 2px;
-  }
+        /* ─── RIGHT COLUMN ─── */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
 
-  /* AGENT GRID */
-  .agent-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 8px;
-  }
+        /* Pipeline */
+        .pipeline-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(0,180,216,0.04);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .pipeline-item:hover { background:rgba(0,180,216,0.06); }
+        .pipeline-info { flex:1; min-width:0; }
+        .pipeline-info .name { font-weight:600; color:var(--text-bright); font-size:11px; }
+        .pipeline-info .detail { font-size:9px; color:var(--text-dim); margin-top:1px; }
+        .badge {
+            font-size:8px; font-weight:600; text-transform:uppercase; padding:2px 6px;
+            border-radius:2px; white-space:nowrap;
+        }
+        .badge-hot { background:rgba(76,175,80,0.2); color:var(--green); border:1px solid rgba(76,175,80,0.3); }
+        .badge-warm { background:rgba(255,193,7,0.2); color:var(--amber); border:1px solid rgba(255,193,7,0.3); }
+        .badge-cold { background:rgba(33,150,243,0.15); color:var(--blue); border:1px solid rgba(33,150,243,0.3); }
+        .badge-overdue { background:rgba(255,82,82,0.2); color:var(--red); border:1px solid rgba(255,82,82,0.3); }
 
-  .agent-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 12px 14px;
-    position: relative;
-    transition: border-color 0.15s;
-  }
+        /* Scheduled Tasks */
+        .sched-item {
+            display: flex; align-items:center; gap:8px; padding:7px 10px;
+            border-bottom:1px solid rgba(0,180,216,0.04); cursor:pointer; transition:background 0.15s;
+        }
+        .sched-item:hover { background:rgba(0,180,216,0.06); }
+        .sched-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+        .sched-dot.on { background:var(--green); box-shadow:0 0 5px rgba(76,175,80,0.6); }
+        .sched-dot.off { background:#555; }
+        .sched-info { flex:1; }
+        .sched-info .name { font-size:10px; font-weight:600; color:var(--text); }
+        .sched-info .cron { font-size:9px; color:#555; font-family:monospace; }
 
-  .agent-card:hover { border-color: #444; }
+        /* ─── MODAL ─── */
+        .modal-overlay {
+            position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:100;
+            display:none; align-items:center; justify-content:center;
+        }
+        .modal-overlay.open { display:flex; }
+        .modal {
+            background:var(--bg); border:1px solid var(--border); border-radius:6px;
+            width:600px; max-height:80vh; display:flex; flex-direction:column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-head {
+            padding:14px 18px; border-bottom:1px solid var(--border);
+            display:flex; justify-content:space-between; align-items:center;
+        }
+        .modal-head h2 { font-size:14px; color:var(--accent); font-weight:600; }
+        .modal-close { background:none; border:none; color:var(--text-dim); font-size:20px; cursor:pointer; }
+        .modal-close:hover { color:var(--text-bright); }
+        .modal-body { padding:18px; overflow-y:auto; flex:1; line-height:1.6; font-size:12px; }
+        .modal-body h3 { font-size:12px; color:var(--accent); margin:12px 0 6px; text-transform:uppercase; letter-spacing:0.4px; }
+        .modal-body .kv { display:flex; gap:10px; margin-bottom:4px; }
+        .modal-body .kv .k { color:var(--text-dim); min-width:100px; }
+        .modal-body .kv .v { color:var(--text-bright); }
+        .modal-body .tag-row { display:flex; gap:4px; flex-wrap:wrap; margin-top:6px; }
+        .modal-body .tag { font-size:9px; padding:2px 6px; background:rgba(0,180,216,0.1); border:1px solid var(--border); border-radius:2px; color:var(--accent); }
 
-  .agent-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-  }
-
-  .agent-card.active::before  { background: var(--green); }
-  .agent-card.running::before { background: var(--gold); }
-  .agent-card.standby::before { background: var(--gray); }
-
-  .agent-name {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
-    margin-bottom: 3px;
-  }
-
-  .agent-role {
-    font-size: 10px;
-    color: var(--text-dimmer);
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-
-  .agent-status {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .sdot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .active  .sdot { background: var(--green); }
-  .running .sdot { background: var(--gold); animation: pulse 1.5s ease-in-out infinite; }
-  .standby .sdot { background: var(--gray); }
-
-  .active  .agent-status { color: var(--green); }
-  .running .agent-status { color: var(--gold); }
-  .standby .agent-status { color: var(--gray); }
-
-  .agent-badge {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    padding: 1px 4px;
-    opacity: 0.8;
-  }
-
-  /* SCHEDULED TASKS */
-  .tasks-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .tasks-table th {
-    text-align: left;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-dimmer);
-    padding: 0 12px 8px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .tasks-table td {
-    padding: 10px 12px;
-    font-size: 11px;
-    border-bottom: 1px solid #161616;
-    vertical-align: middle;
-  }
-
-  .tasks-table tr:last-child td { border-bottom: none; }
-  .tasks-table tr:hover td { background: var(--bg2); }
-
-  .task-name {
-    font-weight: 700;
-    color: #FFFFFF;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-
-  .task-desc {
-    color: var(--text-dimmer);
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .t-dim { color: var(--text-dim); font-size: 10px; white-space: nowrap; }
-
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 2px 8px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .pill-active  { background: rgba(0,200,83,.1);  color: var(--green); border: 1px solid rgba(0,200,83,.25); }
-  .pill-running { background: rgba(255,179,0,.1); color: var(--gold);  border: 1px solid rgba(255,179,0,.25); }
-  .pill-standby { background: rgba(85,85,85,.15); color: var(--gray);  border: 1px solid rgba(85,85,85,.3); }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 8px;
-  }
-
-  .project-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 14px 16px;
-    transition: border-color 0.15s;
-  }
-
-  .project-card:hover { border-color: #444; }
-
-  .project-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 6px;
-    gap: 10px;
-  }
-
-  .project-name {
-    font-size: 12px;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 0.04em;
-    line-height: 1.3;
-  }
-
-  .project-desc {
-    font-size: 10px;
-    color: var(--text-dim);
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-
-  .tag {
-    font-size: 9px;
-    color: var(--text-dimmer);
-    border: 1px solid var(--border);
-    padding: 1px 6px;
-    letter-spacing: 0.06em;
-  }
-
-  .tag-link {
-    font-size: 9px;
-    color: var(--text-dimmer);
-    border: 1px solid var(--border);
-    padding: 1px 6px;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    transition: color 0.15s, border-color 0.15s;
-  }
-
-  .tag-link:hover { color: #FFFFFF; border-color: #666; }
-
-  /* LIVE SITES */
-  .sites-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 8px;
-  }
-
-  .site-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: border-color 0.15s, background 0.15s;
-  }
-
-  .site-card:hover { border-color: #555; background: var(--bg3); }
-
-  .site-icon {
-    width: 28px;
-    height: 28px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    color: var(--text-dimmer);
-    flex-shrink: 0;
-    font-weight: 700;
-  }
-
-  .site-info { min-width: 0; }
-
-  .site-name {
-    font-size: 11px;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 0.04em;
-    margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .site-url {
-    font-size: 9px;
-    color: var(--text-dimmer);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .site-status { margin-left: auto; flex-shrink: 0; }
-
-  /* STATS BAR */
-  .stats-bar {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    margin-top: 28px;
-  }
-
-  .stat {
-    flex: 1;
-    text-align: center;
-    padding: 0 20px;
-    border-right: 1px solid var(--border);
-  }
-
-  .stat:last-child { border-right: none; }
-
-  .stat-value {
-    font-size: 24px;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 0.02em;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-dimmer);
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 16px 24px;
-    font-size: 10px;
-    color: var(--text-dimmer);
-    letter-spacing: 0.06em;
-    border-top: 1px solid var(--border);
-    margin-top: 8px;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .container { padding: 16px 16px 32px; }
-    .header { padding: 12px 16px; }
-    .header-meta { display: none; }
-    .agent-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    .projects-grid { grid-template-columns: 1fr; }
-    .sites-grid { grid-template-columns: 1fr; }
-    .stats-bar { flex-wrap: wrap; padding: 12px 16px; }
-    .stat { min-width: 50%; border-right: none; padding: 8px 0; border-bottom: 1px solid var(--border); }
-    .stat:nth-child(odd) { border-right: 1px solid var(--border); }
-    .stat:nth-last-child(-n+2) { border-bottom: none; }
-    .tasks-table { display: block; overflow-x: auto; }
-    .logo { font-size: 16px; }
-  }
-</style>
+        /* ─── STATUS BAR ─── */
+        .status-bar {
+            height: 24px;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            gap: 20px;
+            flex-shrink: 0;
+            font-size: 10px;
+            color: var(--text-dim);
+        }
+        .status-bar .indicator {
+            display:flex; align-items:center; gap:4px;
+        }
+        .status-bar .dot { width:5px; height:5px; border-radius:50%; }
+    </style>
 </head>
 <body>
 
+<!-- ═══ HEADER ═══ -->
 <div class="header">
-  <div class="header-left">
-    <div class="logo">JARVIS <span>// COMMAND CENTER</span></div>
-    <div class="header-meta">BiG &mdash; Brand Imagination Group</div>
-  </div>
-  <div class="header-right">
-    <span><span class="live-dot"></span>LIVE</span>
-    <span id="ts">--</span>
-  </div>
+    <div class="header-brand">
+        <h1>JARVIS</h1>
+        <span>BiG Mission Control</span>
+    </div>
+    <div class="header-center">
+        <span class="header-time" id="clock"></span>
+    </div>
+    <div class="header-right">
+        <div class="header-stat">
+            <div class="val" id="agents-active">8</div>
+            <div class="lbl">Agents Active</div>
+        </div>
+        <div class="header-stat">
+            <div class="val" id="tasks-running">3</div>
+            <div class="lbl">Tasks Running</div>
+        </div>
+        <div class="header-stat">
+            <div class="val" id="projects-count">7</div>
+            <div class="lbl">Projects</div>
+        </div>
+    </div>
 </div>
 
-<div class="container">
+<!-- ═══ MAIN ═══ -->
+<div class="main">
 
-  <!-- AGENTS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-label">Agent Roster</span>
-      <span class="section-count">12 agents</span>
+    <!-- LEFT COLUMN: Globe + Agents -->
+    <div class="left-col">
+        <div class="globe-wrap">
+            <canvas id="globe-canvas"></canvas>
+            <div class="globe-label">JARVIS Network — Online</div>
+        </div>
+        <div class="panel" style="flex:1;border:none;">
+            <div class="panel-head">Agent Roster <span class="count">12 agents</span></div>
+            <div class="panel-body" id="agent-list"></div>
+        </div>
     </div>
-    <div class="agent-grid">
 
-      <div class="agent-card active">
-        <div class="agent-name">JARVIS</div>
-        <div class="agent-role">System orchestrator<br>Pipeline architect</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">SCOUT</div>
-        <div class="agent-role">Research &amp; intelligence<br>Strategy packs</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">MAESTRO</div>
-        <div class="agent-role">Executive creative direction<br>Campaign architecture</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">WRITER</div>
-        <div class="agent-badge">NEW</div>
-        <div class="agent-role">Copywriting<br>Screenwriting</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">TESTING</div>
-        <div class="agent-role">Ipsos methodology scoring<br>Creative validation</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">NOLAN</div>
-        <div class="agent-role">Visual &amp; film production<br>Shot lists, post</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">PARK</div>
-        <div class="agent-role">Presentation building<br>Deck design</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">SARAH</div>
-        <div class="agent-role">File management<br>Organization &amp; hygiene</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">ATLAS</div>
-        <div class="agent-role">Dependency checking<br>System health</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card active">
-        <div class="agent-name">CFO</div>
-        <div class="agent-badge">NEW</div>
-        <div class="agent-role">Personal finance<br>Tax strategy</div>
-        <div class="agent-status"><span class="sdot"></span>Active</div>
-      </div>
-
-      <div class="agent-card standby">
-        <div class="agent-name">GUARDIAN</div>
-        <div class="agent-role">Brand safety<br>Voice validation</div>
-        <div class="agent-status"><span class="sdot"></span>Standby</div>
-      </div>
-
-      <div class="agent-card standby">
-        <div class="agent-name">PERSONA</div>
-        <div class="agent-role">Audience profiling<br>Persona builder</div>
-        <div class="agent-status"><span class="sdot"></span>Standby</div>
-      </div>
-
+    <!-- CENTER COLUMN: Projects + Details -->
+    <div class="center-col">
+        <div class="projects-bar" id="projects-bar"></div>
+        <div class="detail-area">
+            <div class="tab-bar" id="tab-bar">
+                <div class="tab active" data-tab="activity">Activity</div>
+                <div class="tab" data-tab="files">Files</div>
+                <div class="tab" data-tab="metrics">Metrics</div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="pane-activity"></div>
+                <div class="tab-pane" id="pane-files"></div>
+                <div class="tab-pane" id="pane-metrics"></div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- SCHEDULED TASKS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-label">Scheduled Tasks</span>
-      <span class="section-count">4 tasks</span>
+    <!-- RIGHT COLUMN: Pipeline + Tasks -->
+    <div class="right-col">
+        <div class="panel" style="flex:1;border:none;">
+            <div class="panel-head">BiG Pipeline <span class="count">7 prospects</span></div>
+            <div class="panel-body" id="pipeline-list"></div>
+        </div>
+        <div class="panel" style="flex:0 0 auto;max-height:35%;border:none;border-top:1px solid var(--border);">
+            <div class="panel-head">Scheduled Tasks <span class="count">4 active</span></div>
+            <div class="panel-body" id="sched-list"></div>
+        </div>
     </div>
-    <table class="tasks-table">
-      <thead>
-        <tr>
-          <th>Task</th>
-          <th>Schedule</th>
-          <th>Next Run</th>
-          <th>Agent</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div class="task-name">Pipeline Check</div>
-            <div class="task-desc">Brand reviews, RFPs &mdash; auto-push to BiG pipeline</div>
-          </td>
-          <td><span class="t-dim">Daily 6:00 AM</span></td>
-          <td><span class="t-dim" id="scout-next">--</span></td>
-          <td><span class="t-dim">SCOUT</span></td>
-          <td><span class="pill pill-active">Active</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="task-name">Dependency Check</div>
-            <div class="task-desc">System health and staleness report</div>
-          </td>
-          <td><span class="t-dim">Daily 9:00 AM</span></td>
-          <td><span class="t-dim" id="atlas-next">--</span></td>
-          <td><span class="t-dim">ATLAS</span></td>
-          <td><span class="pill pill-active">Active</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="task-name">File Sweep</div>
-            <div class="task-desc">Downloads organization and file management</div>
-          </td>
-          <td><span class="t-dim">Hourly</span></td>
-          <td><span class="t-dim" id="sarah-next">--</span></td>
-          <td><span class="t-dim">SARAH</span></td>
-          <td><span class="pill pill-active">Active</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="task-name">Resy Bot</div>
-            <div class="task-desc">Reservation monitoring &mdash; auto-books targets</div>
-          </td>
-          <td><span class="t-dim">Every 15 min</span></td>
-          <td><span class="t-dim" id="resy-next">--</span></td>
-          <td><span class="t-dim">JARVIS</span></td>
-          <td><span class="pill pill-active">Active</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ACTIVE PROJECTS -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-label">Active Projects</span>
-      <span class="section-count">7 projects</span>
-    </div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">Sharpie "What You Make It"</div>
-          <span class="pill pill-running">Running</span>
-        </div>
-        <div class="project-desc">Gen Z territory. Deck on Google Slides. WRITER pass complete.</div>
-        <div class="tags">
-          <span class="tag">MAESTRO</span>
-          <span class="tag">WRITER</span>
-          <span class="tag">PARK</span>
-          <span class="tag">Sharpie</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">DUMBO Creative Collective</div>
-          <span class="pill pill-active">Live</span>
-        </div>
-        <div class="project-desc">DCC app live. Mapbox 3D map. Directory on separate page.</div>
-        <div class="tags">
-          <a href="https://rickwayne-jarvis.github.io/dumbo-creative-collective" target="_blank" class="tag-link">View Site &rarr;</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">rickwayne.cc</div>
-          <span class="pill pill-active">Live</span>
-        </div>
-        <div class="project-desc">Director portfolio. I Believe manifesto live.</div>
-        <div class="tags">
-          <a href="https://rickwayne.cc" target="_blank" class="tag-link">View Site &rarr;</a>
-          <span class="tag">Underscore Films</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">BiG Website Rebuild</div>
-          <span class="pill pill-running">In Progress</span>
-        </div>
-        <div class="project-desc">Case study microsites in development.</div>
-        <div class="tags">
-          <a href="https://rickwayne-jarvis.github.io/gobig-nyc" target="_blank" class="tag-link">View Site &rarr;</a>
-          <span class="tag">PARK</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">BiG New Business Pipeline</div>
-          <span class="pill pill-active">Live</span>
-        </div>
-        <div class="project-desc">CRM dashboard live. SCOUT auto-updating pipeline.</div>
-        <div class="tags">
-          <a href="https://rickwayne-jarvis.github.io/big-pipeline" target="_blank" class="tag-link">View Dashboard &rarr;</a>
-          <span class="tag">SCOUT</span>
-          <span class="tag">CRM</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">Taylor VanBramer Interiors</div>
-          <span class="pill pill-active">Live</span>
-        </div>
-        <div class="project-desc">Client site deployed.</div>
-        <div class="tags">
-          <a href="https://rickwayne-jarvis.github.io/taylor-vanbramer-interiors" target="_blank" class="tag-link">View Site &rarr;</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-name">Draft Mode Game</div>
-          <span class="pill pill-active">Live</span>
-        </div>
-        <div class="project-desc">V4 live on GitHub Pages.</div>
-        <div class="tags">
-          <span class="tag">Game</span>
-          <span class="tag">V4</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- LIVE SITES -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-label">Live Sites</span>
-      <span class="section-count">6 deployed</span>
-    </div>
-    <div class="sites-grid">
-
-      <a href="https://rickwayne.cc" target="_blank" class="site-card">
-        <div class="site-icon">RW</div>
-        <div class="site-info">
-          <div class="site-name">rickwayne.cc</div>
-          <div class="site-url">Director Portfolio / Underscore Films</div>
-        </div>
-        <div class="site-status"><span class="pill pill-active" style="font-size:8px;">Live</span></div>
-      </a>
-
-      <a href="https://rickwayne-jarvis.github.io/dumbo-creative-collective" target="_blank" class="site-card">
-        <div class="site-icon">DCC</div>
-        <div class="site-info">
-          <div class="site-name">DUMBO Creative Collective</div>
-          <div class="site-url">rickwayne-jarvis.github.io/dumbo-creative-collective</div>
-        </div>
-        <div class="site-status"><span class="pill pill-active" style="font-size:8px;">Live</span></div>
-      </a>
-
-      <a href="https://rickwayne-jarvis.github.io/big-pipeline" target="_blank" class="site-card">
-        <div class="site-icon">CRM</div>
-        <div class="site-info">
-          <div class="site-name">BiG New Business Pipeline</div>
-          <div class="site-url">rickwayne-jarvis.github.io/big-pipeline</div>
-        </div>
-        <div class="site-status"><span class="pill pill-active" style="font-size:8px;">Live</span></div>
-      </a>
-
-      <a href="https://rickwayne-jarvis.github.io/gobig-nyc" target="_blank" class="site-card">
-        <div class="site-icon">BiG</div>
-        <div class="site-info">
-          <div class="site-name">BiG Website</div>
-          <div class="site-url">rickwayne-jarvis.github.io/gobig-nyc</div>
-        </div>
-        <div class="site-status"><span class="pill pill-running" style="font-size:8px;">WIP</span></div>
-      </a>
-
-      <a href="https://rickwayne-jarvis.github.io/taylor-vanbramer-interiors" target="_blank" class="site-card">
-        <div class="site-icon">TVI</div>
-        <div class="site-info">
-          <div class="site-name">Taylor VanBramer Interiors</div>
-          <div class="site-url">rickwayne-jarvis.github.io/taylor-vanbramer-interiors</div>
-        </div>
-        <div class="site-status"><span class="pill pill-active" style="font-size:8px;">Live</span></div>
-      </a>
-
-      <a href="https://rickwayne-jarvis.github.io/jarvis-dashboard" target="_blank" class="site-card">
-        <div class="site-icon">SYS</div>
-        <div class="site-info">
-          <div class="site-name">JARVIS Dashboard</div>
-          <div class="site-url">rickwayne-jarvis.github.io/jarvis-dashboard</div>
-        </div>
-        <div class="site-status"><span class="pill pill-active" style="font-size:8px;">Live</span></div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-value">12</div>
-      <div class="stat-label">Total Agents</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value" style="color:var(--green);">10</div>
-      <div class="stat-label">Active Agents</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">4</div>
-      <div class="stat-label">Scheduled Tasks</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value" style="color:var(--gold);">7</div>
-      <div class="stat-label">Projects In Flight</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">6</div>
-      <div class="stat-label">Sites Deployed</div>
-    </div>
-  </div>
-
 </div>
 
-<div class="footer">
-  JARVIS // Brand Imagination Group &mdash; Auto-refreshes every 60s
+<!-- ═══ STATUS BAR ═══ -->
+<div class="status-bar">
+    <div class="indicator"><div class="dot" style="background:var(--green);box-shadow:0 0 4px rgba(76,175,80,0.6)"></div> System Online</div>
+    <span>SCOUT: last sweep 6:00 AM</span>
+    <span>SARAH: last outreach Apr 14</span>
+    <span style="margin-left:auto;">V5.0 — Apr 15, 2026</span>
+</div>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+        <div class="modal-head">
+            <h2 id="modal-title">Detail</h2>
+            <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+    </div>
 </div>
 
 <script>
-  function pad(n) { return n < 10 ? '0' + n : String(n); }
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+const AGENTS = [
+    { id:'jarvis', name:'JARVIS', role:'Orchestrator', status:'active', tasks:12, lastAction:'Coordinating deck review' },
+    { id:'maestro', name:'MAESTRO', role:'Strategic Director', status:'active', tasks:8, lastAction:'Film treatment V3 — scene refinement' },
+    { id:'writer', name:'WRITER', role:'Creative Copy', status:'active', tasks:15, lastAction:'Deck slide copy fixes delivered' },
+    { id:'scout', name:'SCOUT', role:'Research & Intel', status:'active', tasks:6, lastAction:'Pipeline prospect scan — 6AM sweep' },
+    { id:'testing', name:'TESTING', role:'Research Lab', status:'active', tasks:4, lastAction:'Brand ladder key human value scoring' },
+    { id:'nolan', name:'NOLAN', role:'Visual Director', status:'busy', tasks:3, lastAction:'Storyboard stills generation' },
+    { id:'park', name:'PARK', role:'Deck Builder', status:'active', tasks:5, lastAction:'V5 master deck rebuild' },
+    { id:'sarah', name:'SARAH', role:'Outreach & Ops', status:'active', tasks:3, lastAction:'LA Galaxy CMO outreach note' },
+    { id:'atlas', name:'ATLAS', role:'Dependency Tracker', status:'idle', tasks:0, lastAction:'Dependency check — all clear' },
+    { id:'cfo', name:'CFO', role:'Finance Strategy', status:'idle', tasks:1, lastAction:'S-Corp + payroll setup' },
+    { id:'guardian', name:'GUARDIAN', role:'Quality Control', status:'active', tasks:2, lastAction:'Monitoring deck consistency' },
+    { id:'persona', name:'PERSONA', role:'Audience Intel', status:'idle', tasks:1, lastAction:'Gen Z behavioral profile update' },
+];
 
-  function fmt(d) {
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
-      ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
-  }
+const PROJECTS = [
+    {
+        id:'sharpie', name:'Sharpie MAKE IT', status:'active', date:'Apr 15',
+        desc:'Internal review tomorrow — deck V2 slides 1-35',
+        files:['DECK_V2_SLIDE_CONTENT.md','DECK_V2_SLIDES_27_35.md','MAESTRO_60_COMMERCIAL_TREATMENT.md','LAUNCH_60_VISUAL_SCRIPT.md','LAUNCH_30_AND_VISUAL_SCRIPT.md','PRODUCT_15s_SCRIPTS_V2.md','TESTING_MANIFESTO_VS_SCRIPT.md','BOOKEND_SLIDES_AND_VIGNETTES.md','DECK_V2_SLIDE_COPY_FIXES.md'],
+        metrics:{scripts:9,scenes:8,testingScore:'4.5★',daysToReview:1},
+        activity:[
+            {agent:'WRITER',text:'Delivered clean replacement copy for slides 1,2,4,5,7,8,27,31',time:'5m ago'},
+            {agent:'MAESTRO',text:'Full team review of slides 1-35 with priority fixes',time:'15m ago'},
+            {agent:'TESTING',text:'Brand ladder key human value — "Courage to Make the First Mark" scored',time:'1h ago'},
+            {agent:'WRITER',text:':30 cut + visual script delivered (62 words, EEI 154)',time:'3h ago'},
+            {agent:'MAESTRO',text:'Scene 4 overhaul — The Graduate (fridge gallery → stage)',time:'4h ago'},
+            {agent:'NOLAN',text:'Storyboard stills for 8 scenes in progress',time:'5h ago'},
+            {agent:'WRITER',text:'Product :15s V2 with attributes (S-Gel, PM, CM)',time:'6h ago'},
+        ]
+    },
+    {
+        id:'big-pipeline', name:'BiG Pipeline', status:'active', date:'Apr 15',
+        desc:'7 prospects tracked, SCOUT active',
+        files:['prospect_database.json','outreach_tracker.md'],
+        metrics:{prospects:7,hot:2,warm:3,outreachSent:12},
+        activity:[
+            {agent:'SCOUT',text:'6AM sweep completed — no new prospects flagged',time:'9h ago'},
+            {agent:'SARAH',text:'LA Galaxy CMO outreach note drafted',time:'4h ago'},
+            {agent:'SCOUT',text:'Glossier CMO Solórzano — due Apr 20',time:'1d ago'},
+        ]
+    },
+    {
+        id:'havoc', name:'HAVOC', status:'complete', date:'Apr 10',
+        desc:'TV bible — 8 episodes, ready for development',
+        files:['HAVOC_BIBLE.md','HAVOC_LORE.md'],
+        metrics:{episodes:8,characters:14,worldPages:42},
+        activity:[
+            {agent:'WRITER',text:'Show bible finalized and pushed to Google Docs',time:'5d ago'},
+        ]
+    },
+    {
+        id:'draft-mode', name:'Draft Mode', status:'pending', date:'Apr 12',
+        desc:'Game design — V4 Pokemon-quality build',
+        files:['DRAFT_MODE_BIBLE.md','GAME_DESIGN_DOC.md'],
+        metrics:{version:'V4',mechanics:6,territories:3},
+        activity:[
+            {agent:'WRITER',text:'Game bible updated with Rick\'s territory notes',time:'3d ago'},
+        ]
+    },
+    {
+        id:'rickwayne', name:'rickwayne.cc', status:'complete', date:'Mar 28',
+        desc:'Director portfolio — LIVE',
+        files:['index.html','styles.css'],
+        metrics:{pages:5,caseStudies:8,visits:'—'},
+        activity:[
+            {agent:'PARK',text:'Mobile + press fixes merged and pushed',time:'2w ago'},
+        ]
+    },
+    {
+        id:'big-site', name:'BiG Agency Site', status:'complete', date:'Mar 30',
+        desc:'gobig.nyc — LIVE on GitHub Pages',
+        files:['index.html','case-studies/'],
+        metrics:{pages:15,caseStudies:10},
+        activity:[
+            {agent:'PARK',text:'Purple brand refresh + image updates',time:'2w ago'},
+        ]
+    },
+    {
+        id:'cfo-strat', name:'CFO Strategy', status:'pending', date:'Apr 12',
+        desc:'S-Corp setup, payroll, tax optimization',
+        files:['CFO_ACTION_PLAN.md','TAX_PREP.md'],
+        metrics:{monthlyTarget:'$10K',structures:2},
+        activity:[
+            {agent:'CFO',text:'Tax advisor call prep delivered',time:'3d ago'},
+        ]
+    },
+];
 
-  function nextAtHour(h, m) {
-    var d = new Date();
-    d.setHours(h, m, 0, 0);
-    if (d <= new Date()) d.setDate(d.getDate() + 1);
-    return d;
-  }
+const PIPELINE = [
+    { name:'LA Galaxy', contact:'CMO', stage:'hot', detail:'Soccer/female football angle — outreach drafted' },
+    { name:'Sharpie (Newell)', contact:'Brand Team', stage:'hot', detail:'MAKE IT territory — internal review Apr 16' },
+    { name:'Glossier', contact:'Solórzano, CMO', stage:'warm', detail:'Outreach due Apr 20' },
+    { name:'Sonos', contact:'DeCourcy', stage:'overdue', detail:'Outreach letter overdue' },
+    { name:'Cash App', contact:'Marketing', stage:'warm', detail:'SCOUT flagged — cultural fit' },
+    { name:'Nike SB', contact:'Brand', stage:'warm', detail:'SCOUT flagged — Gen Z alignment' },
+    { name:'Arc\'teryx', contact:'Creative Dir', stage:'cold', detail:'Early research phase' },
+];
 
-  function nextInterval(ms) {
-    var now = Date.now();
-    return new Date(now + ms - (now % ms));
-  }
+const SCHEDULED = [
+    { name:'SCOUT Pipeline Sweep', cron:'Daily 6:00 AM', status:'on' },
+    { name:'SARAH File Sweep', cron:'Every 4 hours', status:'on' },
+    { name:'ATLAS Dependency Check', cron:'Daily 8:00 AM', status:'on' },
+    { name:'Resy Reservation Monitor', cron:'Every 30 min', status:'on' },
+    { name:'Dashboard Auto-Deploy', cron:'On git push', status:'off' },
+];
 
-  function tick() {
-    document.getElementById('ts').textContent = fmt(new Date());
-    document.getElementById('scout-next').textContent = fmt(nextAtHour(6, 0));
-    document.getElementById('atlas-next').textContent = fmt(nextAtHour(9, 0));
-    document.getElementById('sarah-next').textContent = fmt(nextInterval(3600000));
-    document.getElementById('resy-next').textContent  = fmt(nextInterval(900000));
-  }
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+let selectedProject = 'sharpie';
+let selectedTab = 'activity';
 
-  tick();
-  setInterval(tick, 1000);
+// ═══════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════
+function renderAgents() {
+    const el = document.getElementById('agent-list');
+    el.innerHTML = AGENTS.map(a => `
+        <div class="agent-item" onclick="openAgent('${a.id}')">
+            <div class="agent-dot ${a.status}"></div>
+            <div class="agent-info">
+                <div class="name">${a.name}</div>
+                <div class="role">${a.role}</div>
+            </div>
+            <div class="agent-tasks">${a.tasks > 0 ? a.tasks : '—'}</div>
+        </div>
+    `).join('');
+}
+
+function renderProjects() {
+    const el = document.getElementById('projects-bar');
+    el.innerHTML = PROJECTS.map(p => {
+        const dotColor = p.status==='active'?'var(--green)':p.status==='complete'?'var(--blue)':'var(--amber)';
+        return `
+        <div class="proj-card ${p.id===selectedProject?'selected':''}" onclick="selectProject('${p.id}')">
+            <div class="proj-name"><span class="proj-status-dot" style="background:${dotColor};${p.status==='active'?'box-shadow:0 0 5px rgba(76,175,80,0.5)':''}"></span>${p.name}</div>
+            <div class="proj-desc">${p.desc}</div>
+            <div class="proj-date">${p.date}</div>
+        </div>`;
+    }).join('');
+}
+
+function renderDetail() {
+    const proj = PROJECTS.find(p=>p.id===selectedProject);
+    if (!proj) return;
+
+    // Activity
+    document.getElementById('pane-activity').innerHTML = proj.activity.map(a => `
+        <div class="feed-item" onclick="openActivity('${a.agent}','${a.text.replace(/'/g,"\\'")}')">
+            <div class="feed-agent">${a.agent}</div>
+            <div class="feed-text">${a.text}</div>
+            <div class="feed-time">${a.time}</div>
+        </div>
+    `).join('') || '<div style="color:var(--text-dim);padding:20px;text-align:center;">No recent activity</div>';
+
+    // Files
+    document.getElementById('pane-files').innerHTML = proj.files.map(f => {
+        const ext = f.split('.').pop();
+        const icon = ext==='md'?'📄':ext==='html'?'🌐':ext==='json'?'📊':'📁';
+        return `
+        <div class="file-item" onclick="openFile('${f}')">
+            <div class="file-icon">${icon}</div>
+            <div class="file-name">${f}</div>
+        </div>`;
+    }).join('');
+
+    // Metrics
+    const m = proj.metrics;
+    const cards = Object.entries(m).map(([k,v]) => `
+        <div class="metric-card">
+            <div class="metric-val">${v}</div>
+            <div class="metric-lbl">${k.replace(/([A-Z])/g,' $1').trim()}</div>
+        </div>
+    `).join('');
+    document.getElementById('pane-metrics').innerHTML = `<div class="metrics-grid">${cards}</div>`;
+}
+
+function renderPipeline() {
+    const el = document.getElementById('pipeline-list');
+    el.innerHTML = PIPELINE.map(p => {
+        const cls = p.stage==='hot'?'badge-hot':p.stage==='warm'?'badge-warm':p.stage==='overdue'?'badge-overdue':'badge-cold';
+        return `
+        <div class="pipeline-item" onclick="openProspect('${p.name.replace(/'/g,"\\'")}')">
+            <div class="pipeline-info">
+                <div class="name">${p.name}</div>
+                <div class="detail">${p.contact} — ${p.detail}</div>
+            </div>
+            <span class="badge ${cls}">${p.stage}</span>
+        </div>`;
+    }).join('');
+}
+
+function renderScheduled() {
+    const el = document.getElementById('sched-list');
+    el.innerHTML = SCHEDULED.map(s => `
+        <div class="sched-item" onclick="openTask('${s.name.replace(/'/g,"\\'")}')">
+            <div class="sched-dot ${s.status}"></div>
+            <div class="sched-info">
+                <div class="name">${s.name}</div>
+                <div class="cron">${s.cron}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ═══════════════════════════════════════
+// INTERACTIONS
+// ═══════════════════════════════════════
+function selectProject(id) {
+    selectedProject = id;
+    renderProjects();
+    renderDetail();
+}
+
+function selectTab(tab) {
+    selectedTab = tab;
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab===tab));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id==='pane-'+tab));
+}
+
+function openModal(title, html) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-body').innerHTML = html;
+    document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function openAgent(id) {
+    const a = AGENTS.find(x=>x.id===id);
+    if (!a) return;
+    openModal(a.name + ' — ' + a.role, `
+        <div class="kv"><span class="k">Status</span><span class="v" style="color:${a.status==='active'?'var(--green)':a.status==='busy'?'var(--amber)':'var(--text-dim)'}">${a.status.toUpperCase()}</span></div>
+        <div class="kv"><span class="k">Tasks completed</span><span class="v">${a.tasks}</span></div>
+        <h3>Last Action</h3>
+        <p>${a.lastAction}</p>
+        <h3>Capabilities</h3>
+        <div class="tag-row">
+            ${getAgentTags(a.id)}
+        </div>
+    `);
+}
+
+function getAgentTags(id) {
+    const tags = {
+        jarvis: ['orchestration','task-routing','agent-coordination','decision-making'],
+        maestro: ['strategy','creative-direction','brand-architecture','film-treatment'],
+        writer: ['copywriting','scripts','manifesto','VO','deck-copy'],
+        scout: ['market-research','prospect-intel','competitor-analysis','trend-detection'],
+        testing: ['creative-scoring','ipsos-methodology','demo-analysis','A/B-testing'],
+        nolan: ['storyboards','visual-direction','motion','cinematography'],
+        park: ['deck-building','google-slides','presentation-design','layout'],
+        sarah: ['outreach','email','file-management','scheduling'],
+        atlas: ['dependency-tracking','timeline-management','blocker-detection'],
+        cfo: ['financial-strategy','tax-optimization','revenue-planning'],
+        guardian: ['quality-control','consistency-checks','brand-compliance'],
+        persona: ['audience-profiling','behavioral-data','gen-z-insights'],
+    };
+    return (tags[id]||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+}
+
+function openProspect(name) {
+    const p = PIPELINE.find(x=>x.name===name);
+    if (!p) return;
+    openModal(p.name, `
+        <div class="kv"><span class="k">Contact</span><span class="v">${p.contact}</span></div>
+        <div class="kv"><span class="k">Stage</span><span class="v">${p.stage.toUpperCase()}</span></div>
+        <div class="kv"><span class="k">Detail</span><span class="v">${p.detail}</span></div>
+    `);
+}
+
+function openTask(name) {
+    const s = SCHEDULED.find(x=>x.name===name);
+    if (!s) return;
+    openModal(s.name, `
+        <div class="kv"><span class="k">Schedule</span><span class="v">${s.cron}</span></div>
+        <div class="kv"><span class="k">Status</span><span class="v" style="color:${s.status==='on'?'var(--green)':'var(--text-dim)'}">${s.status.toUpperCase()}</span></div>
+    `);
+}
+
+function openActivity(agent, text) {
+    openModal(agent + ' Activity', `<p>${text}</p>`);
+}
+
+function openFile(name) {
+    openModal(name, `<p style="color:var(--text-dim)">File located in JARVIS output directory.</p><p style="margin-top:8px;color:var(--text);">output/sharpie-what-you-make-it/${name}</p>`);
+}
+
+// ═══════════════════════════════════════
+// CLOCK
+// ═══════════════════════════════════════
+function updateClock() {
+    const now = new Date();
+    const opts = { weekday:'short', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false };
+    document.getElementById('clock').textContent = now.toLocaleDateString('en-US', opts).replace(',','');
+}
+
+// ═══════════════════════════════════════
+// PARTICLE GLOBE
+// ═══════════════════════════════════════
+function initGlobe() {
+    const canvas = document.getElementById('globe-canvas');
+    const wrap = canvas.parentElement;
+    const w = wrap.clientWidth;
+    const h = wrap.clientHeight;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+    camera.position.z = 3.2;
+
+    // Globe particles
+    const geo = new THREE.BufferGeometry();
+    const count = 4000;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+
+    for (let i = 0; i < count; i++) {
+        const phi = Math.acos(2 * Math.random() - 1);
+        const theta = Math.random() * Math.PI * 2;
+        const r = 1.0;
+        positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+        positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[i*3+2] = r * Math.cos(phi);
+
+        // Color: cyan-ish with some variation
+        const bright = 0.3 + Math.random() * 0.7;
+        colors[i*3] = 0.0 * bright;
+        colors[i*3+1] = 0.7 * bright;
+        colors[i*3+2] = 0.85 * bright;
+    }
+
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const mat = new THREE.PointsMaterial({
+        size: 0.012,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true,
+    });
+    const globe = new THREE.Points(geo, mat);
+    scene.add(globe);
+
+    // Ring particles (orbit)
+    const ringGeo = new THREE.BufferGeometry();
+    const ringCount = 800;
+    const ringPos = new Float32Array(ringCount * 3);
+    const ringCol = new Float32Array(ringCount * 3);
+    for (let i = 0; i < ringCount; i++) {
+        const angle = (i / ringCount) * Math.PI * 2;
+        const r = 1.3 + (Math.random() - 0.5) * 0.06;
+        ringPos[i*3] = r * Math.cos(angle);
+        ringPos[i*3+1] = (Math.random() - 0.5) * 0.04;
+        ringPos[i*3+2] = r * Math.sin(angle);
+        ringCol[i*3] = 0.0;
+        ringCol[i*3+1] = 0.5 + Math.random()*0.3;
+        ringCol[i*3+2] = 0.7 + Math.random()*0.15;
+    }
+    ringGeo.setAttribute('position', new THREE.BufferAttribute(ringPos, 3));
+    ringGeo.setAttribute('color', new THREE.BufferAttribute(ringCol, 3));
+    const ringMat = new THREE.PointsMaterial({ size:0.008, vertexColors:true, transparent:true, opacity:0.5, sizeAttenuation:true });
+    const ring = new THREE.Points(ringGeo, ringMat);
+    ring.rotation.x = 0.5;
+    scene.add(ring);
+
+    // Connection lines (subtle)
+    const lineMat = new THREE.LineBasicMaterial({ color:0x00B4D8, transparent:true, opacity:0.06 });
+    for (let i = 0; i < 20; i++) {
+        const lineGeo = new THREE.BufferGeometry();
+        const i1 = Math.floor(Math.random()*count);
+        const i2 = Math.floor(Math.random()*count);
+        lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+            positions[i1*3], positions[i1*3+1], positions[i1*3+2],
+            positions[i2*3], positions[i2*3+1], positions[i2*3+2],
+        ]), 3));
+        scene.add(new THREE.Line(lineGeo, lineMat));
+    }
+
+    // Animate
+    function animate() {
+        requestAnimationFrame(animate);
+        globe.rotation.y += 0.002;
+        ring.rotation.y -= 0.001;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize
+    window.addEventListener('resize', () => {
+        const nw = wrap.clientWidth;
+        const nh = wrap.clientHeight;
+        camera.aspect = nw/nh;
+        camera.updateProjectionMatrix();
+        renderer.setSize(nw, nh);
+    });
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    renderAgents();
+    renderProjects();
+    renderDetail();
+    renderPipeline();
+    renderScheduled();
+    updateClock();
+    setInterval(updateClock, 1000);
+    initGlobe();
+
+    // Tab clicks
+    document.querySelectorAll('.tab').forEach(t => {
+        t.addEventListener('click', () => selectTab(t.dataset.tab));
+    });
+
+    // Modal close
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-overlay').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+});
 </script>
-
 </body>
 </html>
