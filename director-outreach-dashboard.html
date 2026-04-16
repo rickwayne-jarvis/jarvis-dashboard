@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIRECTOR PLAYBOOK — Rick Wayne</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#060e1a;--panel:#0a1628;--border:#1a2a44;--accent:#00B4D8;--accent2:#0077B6;--green:#10B981;--yellow:#F59E0B;--red:#EF4444;--orange:#F97316;--text:#e2e8f0;--muted:#64748b;--dim:#334155}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.top-bar{background:var(--panel);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.top-bar h1{font-size:14px;letter-spacing:3px;color:var(--accent);font-weight:600}
+.top-bar .streak{font-size:13px;color:var(--muted)}
+.top-bar .streak b{color:var(--green)}
+.progress-wrap{background:var(--panel);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;gap:16px;align-items:center}
+.progress-wrap .label{font-size:12px;color:var(--muted);white-space:nowrap}
+.progress-wrap .label b{color:var(--text)}
+.pbar{flex:1;height:6px;background:var(--dim);border-radius:3px;overflow:hidden}
+.pbar .fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px;transition:width .4s}
+.main{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 100px)}
+.sidebar{background:var(--panel);border-right:1px solid var(--border);padding:16px 0;overflow-y:auto}
+.sidebar h3{font-size:10px;letter-spacing:2px;color:var(--muted);padding:8px 16px;margin-top:12px}
+.sidebar h3:first-child{margin-top:0}
+.week-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 16px;background:none;border:none;color:var(--text);font-size:13px;cursor:pointer;text-align:left;transition:background .2s}
+.week-btn:hover{background:rgba(0,180,216,.08)}
+.week-btn.active{background:rgba(0,180,216,.12);border-left:2px solid var(--accent)}
+.week-btn .wk-prog{font-size:11px;color:var(--muted);margin-left:auto}
+.week-btn .wk-prog.done{color:var(--green)}
+.day-btn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 16px 8px 28px;background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-align:left;transition:all .2s}
+.day-btn:hover{color:var(--text);background:rgba(0,180,216,.05)}
+.day-btn.active{color:var(--accent);background:rgba(0,180,216,.08)}
+.day-btn.completed{color:var(--green)}
+.day-btn .dot{width:6px;height:6px;border-radius:50%;background:var(--dim);flex-shrink:0}
+.day-btn.completed .dot{background:var(--green)}
+.day-btn.active .dot{background:var(--accent)}
+.content{padding:32px;max-width:840px;overflow-y:auto}
+.day-header{margin-bottom:24px}
+.day-header h2{font-size:22px;font-weight:600;margin-bottom:4px}
+.day-header .sub{font-size:13px;color:var(--muted)}
+.day-header .theme{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:4px;font-size:11px;letter-spacing:1px;font-weight:600}
+.theme.connect{background:rgba(0,180,216,.15);color:var(--accent)}
+.theme.post{background:rgba(249,115,22,.15);color:var(--orange)}
+.theme.engage{background:rgba(16,185,129,.15);color:var(--green)}
+.theme.research{background:rgba(139,92,246,.15);color:#a78bfa}
+.task-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px;transition:border-color .2s}
+.task-card.checked{border-color:var(--green);opacity:.7}
+.task-card.checked .task-title{text-decoration:line-through;color:var(--muted)}
+.task-top{display:flex;align-items:flex-start;gap:12px}
+.task-check{width:20px;height:20px;border:2px solid var(--dim);border-radius:4px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:1px}
+.task-check:hover{border-color:var(--accent)}
+.task-check.done{background:var(--green);border-color:var(--green)}
+.task-check.done::after{content:'✓';color:#fff;font-size:12px;font-weight:700}
+.task-title{font-size:14px;font-weight:600;margin-bottom:4px}
+.task-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.copy-block{background:rgba(0,180,216,.06);border:1px solid rgba(0,180,216,.15);border-radius:6px;padding:12px;margin-top:10px;position:relative}
+.copy-block p{font-size:13px;line-height:1.6;color:var(--text);font-style:italic}
+.copy-block .copy-btn{position:absolute;top:8px;right:8px;background:var(--accent2);color:#fff;border:none;padding:4px 8px;border-radius:4px;font-size:10px;cursor:pointer;letter-spacing:1px}
+.copy-block .copy-btn:hover{background:var(--accent)}
+.copy-block .target{font-size:11px;color:var(--accent);font-weight:600;margin-bottom:6px;font-style:normal}
+.tip{background:rgba(249,115,22,.06);border-left:3px solid var(--orange);padding:10px 12px;margin-top:10px;border-radius:0 6px 6px 0}
+.tip p{font-size:12px;color:var(--muted);line-height:1.5}
+.tip b{color:var(--orange)}
+.section-label{font-size:10px;letter-spacing:2px;color:var(--muted);margin:24px 0 12px;font-weight:600}
+.tier-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:8px}
+.tier-card h4{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:2px}
+.tier-card .why{font-size:12px;color:var(--muted);line-height:1.4}
+.tier-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;letter-spacing:1px;margin-left:6px}
+.tier-badge.sweet{background:rgba(16,185,129,.2);color:var(--green)}
+.tier-badge.build{background:rgba(249,115,22,.2);color:var(--orange)}
+.tier-badge.long{background:rgba(100,116,139,.2);color:var(--muted)}
+.reset-btn{background:none;border:1px solid var(--dim);color:var(--muted);padding:6px 12px;border-radius:4px;font-size:11px;cursor:pointer;letter-spacing:1px}
+.reset-btn:hover{border-color:var(--red);color:var(--red)}
+.strat-panel{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px}
+.strat-panel h3{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:8px}
+.strat-panel p{font-size:13px;color:var(--muted);line-height:1.6}
+@media(max-width:768px){.main{grid-template-columns:1fr}.sidebar{display:none}.content{padding:16px}}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>DIRECTOR PLAYBOOK</h1>
+  <div style="display:flex;gap:16px;align-items:center">
+    <span class="streak">Streak: <b id="streakCount">0</b> days</span>
+    <button class="reset-btn" onclick="resetAll()">RESET</button>
+  </div>
+</div>
+<div class="progress-wrap">
+  <span class="label">Week <b id="curWeek">1</b> of 6</span>
+  <div class="pbar"><div class="fill" id="totalProgress" style="width:0%"></div></div>
+  <span class="label"><b id="totalPct">0</b>% complete</span>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content" id="content"></div>
+</div>
+
+<script>
+const PLAN = buildPlan();
+let state = loadState();
+
+function buildPlan() {
+  const weeks = [];
+
+  // ─── SWEET SPOT COMPANIES (Big Fish, Little Pond) ───
+  const sweetSpot = [
+    { name: 'Object & Animal', person: 'Dom Thomas', title: 'Co-Founder', li: 'linkedin.com/company/objectandanimal', why: 'Multi-disciplinary roster, founded 2018, fast-growing. Your cross-discipline background is exactly their model.' },
+    { name: 'Doomsday Entertainment', person: 'Danielle Hinde', title: 'Founder', li: 'linkedin.com/company/doomsday-entertainment', why: 'Disruption-first, nurtured Hiro Murai from zero. Actively judging new director awards. Brooklyn energy.' },
+    { name: 'Rattling Stuff', person: 'Cabell Hopkins', title: 'Head of Emerging Talent', li: 'linkedin.com/company/rattling-stick', why: 'Purpose-built division for new directors. Literally designed as your entry point.' },
+    { name: 'Pulse Films', person: 'EP (via site)', title: 'Production Company', li: 'linkedin.com/company/pulsefilms', why: 'Multi-format (commercials, music videos, docs, scripted). Your range is their model. shots PCOTY.' },
+    { name: 'M SS NG P ECES', person: 'Ari Kuschnir', title: 'Founder', li: 'linkedin.com/company/mssngpeces', why: 'Brooklyn. Culture-first. Small enough roster that you get real opportunities, not buried behind DGA winners.' },
+    { name: 'Stink Films', person: 'Benjamin Davies', title: 'US MD', li: 'linkedin.com/company/stink', why: 'New US MD from BBH/Droga5 — speaks your language. Known for mentoring directors.' },
+  ];
+
+  const buildRel = [
+    { name: 'Prettybird', person: 'Ali Brown', title: 'President', why: 'Emerging talent dev but also Oscar winners. Get on radar now, convert later.' },
+    { name: 'Biscuit Filmworks', person: 'Shawn Lacy', title: 'MD', why: 'Actively signing first-timers. Topped AICP two years running. Diverse roster priority.' },
+    { name: 'Iconoclast', person: 'Leadership', title: 'Various', why: 'Romain Gavras, Harmony Korine energy. Culture meets commerce at the highest level.' },
+    { name: 'Radical Media', person: 'Frank Scherma', title: 'President', why: 'Just signed a DP for directing — open to non-traditional paths.' },
+  ];
+
+  const agencyTargets = [
+    { name: 'Will Dempster', agency: 'Mischief', title: 'SVP, Head of Production', hook: 'The Mischief velocity is unreal — your production philosophy is something I think about a lot.' },
+    { name: 'Alison Hill', agency: 'Translation', title: 'Head of Integrated Production', hook: 'Brooklyn to Brooklyn. Translation\'s cultural lens is rare — been watching your team\'s work closely.' },
+    { name: 'Rebecca O\'Neill', agency: 'Johannes Leonardo', title: 'Head of Production', hook: 'The VW work has real texture. Congrats on the promotion — JL is in great hands.' },
+    { name: 'Orlee Tatarka', agency: 'W+K Portland', title: 'Head of Production', hook: 'The way W+K protects creative ambition in production is something I admire. Your work on Nike is why.' },
+    { name: 'Jen Passaniti', agency: 'Highdive', title: 'Head of Production', hook: '13 Super Bowls is insane. The Jeep Groundhog Day spot is still one of my favorites — real filmmaking.' },
+    { name: 'Ruben Mercadal', agency: 'Droga5', title: 'Global Head of Production', hook: 'The Truth Is Worth It campaign changed how I think about branded storytelling. That\'s rare.' },
+    { name: 'Jim Haight', agency: 'GS&P', title: 'Head of Production', hook: 'From Facebook content to GS&P production — that range is exactly how I think about the work.' },
+    { name: 'Andrew Loevenguth', agency: 'Cartwright', title: 'Head of Production', hook: 'W+K to Anomaly to Cartwright — you clearly go where the ideas are sharpest.' },
+    { name: 'Stacey Higgins', agency: 'Preacher', title: 'Head of Production', hook: 'Preacher makes work that doesn\'t feel like it came from advertising. That restraint is hard to find.' },
+    { name: 'Stephen Ledger-Lomas', agency: 'BBH London', title: 'CPO', hook: 'Dazed to Mother to BBH — your eye for what\'s next in culture is evident in everything BBH puts out.' },
+  ];
+
+  const industryTargets = [
+    { name: 'shots editors', platform: 'shots.net', hook: 'Your coverage of [recent director piece] was sharp — it articulated something most trade press misses.' },
+    { name: 'LBB editors', platform: 'LBBonline', hook: 'LBB consistently profiles directors who actually think, not just execute. Respect that editorial standard.' },
+    { name: 'Creative Review', platform: 'creativereview.co.uk', hook: 'Your [recent feature] was the most honest take I\'ve read on the state of commercial directing.' },
+  ];
+
+  // LinkedIn posts (already written)
+  const posts = [
+    { week: 1, title: 'The One-Sentence Brief', content: 'The best brief I ever got was one sentence long.\n\n"Make them feel like they\'re already late."\n\nThat was it. No brand pyramid. No competitive landscape. No "key consumer insight" pulled from a deck that took six weeks to build. One sentence. And it unlocked everything — the casting, the pace, the grade, the music.\n\nThe problem with most briefs isn\'t that they\'re bad. It\'s that they\'re afraid of silence. They fill every inch of space so nobody has to make a real decision. But a director needs room to think. A sentence gives you room. A 40-page deck gives you a cage.\n\nIf you can\'t say it in one breath, you don\'t know what you want yet.' },
+    { week: 2, title: 'Shooting Like Indie Films', content: 'I shoot commercials like indie films and people act like that\'s a flex. It\'s not. It\'s just the only way I know how to make something that doesn\'t feel disposable.\n\nWhen you light a scene like it matters — when you let a moment breathe instead of cutting away because someone\'s nervous about holding a shot — you\'re telling the audience: this is worth your time.\n\nMost spots don\'t do that. They move fast because they have nothing to say slowly. Speed is the disguise.\n\nI\'d rather make a :30 that sits with you for a week than a :60 you forget before your thumb hits the next post.' },
+    { week: 3, title: 'The Lunchbox Rule', content: 'I call it the lunchbox rule.\n\nWhen I was a kid my mom packed lunch with the same care whether it was Monday or Friday. Same napkin folded the same way. She wasn\'t performing. She just didn\'t know how to half-ass it.\n\nThat\'s how I think about campaigns. Frame 47 of the cutdown for paid social should feel like it was shot by the same person who lit the hero spot. Not because anyone\'s checking. Because the work knows when you stopped caring.\n\nAudiences can\'t always articulate why something feels cheap. But they feel it. Every time.' },
+    { week: 4, title: 'The Decade in Advertising', content: 'I spent 10 years in advertising before I ever picked up a camera. I sat in the room where the idea was born. I sat through the rounds where it got sanded down. I watched directors come in and miss — not because they lacked talent, but because they never sat in that room.\n\nThat decade isn\'t a detour. It\'s the whole reason the work lands. I know what the idea was before it became a treatment. I know what the strategy was trying to protect. I know where the client got scared and where the creative team compromised.\n\nSo when I\'m on set, I\'m not guessing what the spot needs to be. I already know.' },
+    { week: 5, title: 'The Gen Z Listening Gap', content: 'Everyone wants to "speak to Gen Z" and almost nobody wants to listen to them first.\n\nI was on a call last month where someone described their target as "authenticity-driven digital natives." That\'s not a person. That\'s a horoscope. You could tape that to any demo born after 1996 and nod your head.\n\nThe kids I cast — the ones who make a frame come alive — they\'re not performing authenticity. They\'re just not afraid of silence. They\'ll hold a look. They\'ll let a joke land without mugging. They trust the viewer.\n\nMaybe the brief shouldn\'t be "speak to Gen Z." Maybe it should be "have the confidence Gen Z already has."' },
+    { week: 6, title: 'Content vs. Filmmaking', content: 'There\'s a difference between content and filmmaking and it\'s not budget.\n\nContent fills space. Filmmaking holds it. You can feel the difference in the first two seconds — before a single word is spoken, before the logo, before the super. Something in the frame either has a point of view or it doesn\'t.\n\nI\'ve seen $15K shoots with more intention than $2M productions. Money doesn\'t buy taste. It doesn\'t buy restraint. And it definitely doesn\'t buy the instinct to know when a frame is done — when adding one more thing would break it.\n\nThe best work I\'ve made cost the least. Not because scrappy is romantic. Because constraints force clarity.' },
+  ];
+
+  // ─── WEEK 1: FOUNDATION ───
+  weeks.push({ name: 'Week 1', subtitle: 'Plant the Flag', days: [
+    { name: 'Monday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Update LinkedIn headline', desc: 'Change to: "Director / ECD — I make the things I used to brief." Keep it short, no buzzwords. Remove any "seeking opportunities" language.', type: 'action' },
+      { title: 'Update LinkedIn About section', desc: 'Write 3 sentences max. Who you are, what you direct, your POV. Not a resume — a signal.', type: 'action', copy: 'Director and ECD out of Brooklyn. I spent a decade in advertising before I picked up a camera — that\'s not a detour, it\'s the whole reason the work lands. I make commercials that feel like short films and branded content that earns attention instead of buying it.' },
+      { title: 'Research CDDP application', desc: 'Commercial Directors Diversity Program — $25K grant to produce a spec commercial with production company mentorship. 5 Fellows per cohort. Go to cddprogram.org and check application status/deadlines.', type: 'action' },
+    ]},
+    { name: 'Tuesday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Danielle Hinde — Doomsday', desc: 'Founder of Doomsday Entertainment. Nurtured Hiro Murai. Currently Head Judge for shots New Director category. She understands what it takes to build a director from scratch.', type: 'connect', copy: 'The way you built Doomsday — and Hiro\'s career — is something I think about as I make the jump from ECD to director. Your taste is rare.', target: 'Danielle Hinde, Founder, Doomsday Entertainment' },
+      { title: 'Connect: Dom Thomas — Object & Animal', desc: 'Co-Founder. They explicitly represent multi-disciplinary talent. Your cross-discipline background is literally their business model.', type: 'connect', copy: 'Object & Animal is building the roster I wish existed when I started. Multi-disciplinary talent who think beyond the format — that\'s the future.', target: 'Dom Thomas, Co-Founder, Object & Animal' },
+      { title: 'Connect: Benjamin Davies — Stink Films US', desc: 'New US MD, came from BBH and Droga5. He speaks agency language — he\'ll understand your ECD-to-director path immediately.', type: 'connect', copy: 'BBH to Droga5 to Stink — you clearly go where the craft is taken seriously. As someone making the jump from ECD to directing, that matters.', target: 'Benjamin Davies, US MD, Stink Films' },
+    ]},
+    { name: 'Wednesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "The One-Sentence Brief"', desc: 'Post between 8-9 AM EST for maximum visibility. This is your opening statement — it signals you think about the work differently.', type: 'post', copy: posts[0].content },
+      { title: 'Comment on 2 industry posts', desc: 'Find posts from anyone on your target list (prodco founders, agency HoPs, industry editors). Leave a real comment — not "great post" but a specific thought that adds to the conversation. 2-3 sentences max.', type: 'action', tip: 'Search LinkedIn for posts by Will Dempster, Ari Kuschnir, Danielle Hinde, or shots/LBB editors. Your comment should make them click your profile.' },
+    ]},
+    { name: 'Thursday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Will Dempster — Mischief', desc: 'Ad Age 2025 Head of Production of the Year. Mischief went from zero to 3x Agency of the Year in 24 months. He\'s the hottest production person in advertising.', type: 'connect', copy: 'The Mischief velocity is unreal — your production philosophy is something I think about a lot as I build out my directing work.', target: 'Will Dempster, SVP Head of Production, Mischief' },
+      { title: 'Connect: Alison Hill — Translation', desc: 'Brooklyn-based. Career from PA to EP at W+K New York. Translation is culturally-centered — natural fit for your sensibility.', type: 'connect', copy: 'Brooklyn to Brooklyn. Translation\'s cultural lens is rare — been watching your team\'s work closely.', target: 'Alison Hill, Head of Integrated Production, Translation' },
+    ]},
+    { name: 'Friday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'Comment on 3 posts from this week\'s connections', desc: 'Go back to anyone you connected with this week who posted. Leave a substantive comment. The goal: they start recognizing your name.', type: 'action' },
+      { title: 'Connect: Cabell Hopkins — Rattling Stuff', desc: 'Runs Rattling Stick\'s emerging talent division. This is literally built for directors at your stage.', type: 'connect', copy: 'Rattling Stuff is the kind of thing the industry needed — a real path for emerging directors, not just a PR move. Respect.', target: 'Cabell Hopkins, Head of Rattling Stuff' },
+    ]},
+  ]});
+
+  // ─── WEEK 2: BUILD MOMENTUM ───
+  weeks.push({ name: 'Week 2', subtitle: 'Start the Engine', days: [
+    { name: 'Monday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Ari Kuschnir — M SS NG P ECES', desc: 'Brooklyn-based founder. Culture-first DNA. Webby PCOTY. He calls himself a "New Wave Storyteller" — your mirror.', type: 'connect', copy: 'M SS NG P ECES has been on my radar since day one — the intersection of culture and craft you\'ve built is exactly where I live.', target: 'Ari Kuschnir, Founder, M SS NG P ECES' },
+      { title: 'Connect: Rebecca O\'Neill — Johannes Leonardo', desc: 'Promoted to Head of Production Sept 2025. Led VW "Same Difference." Rising fast.', type: 'connect', copy: 'The VW work has real texture to it. Congrats on the promotion — JL is in great hands on the production side.', target: 'Rebecca O\'Neill, Head of Production, Johannes Leonardo' },
+    ]},
+    { name: 'Tuesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "Shooting Like Indie Films"', desc: 'Post between 8-9 AM EST. This one positions your filmmaking philosophy.', type: 'post', copy: posts[1].content },
+      { title: 'Comment on 2 industry posts', desc: 'Prioritize posts from people who accepted your connection requests this week.', type: 'action' },
+    ]},
+    { name: 'Wednesday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Orlee Tatarka — W+K Portland', desc: 'Leads production across Nike, Jordan, ESPN, Spotify. Previously at Carmichael Lynch.', type: 'connect', copy: 'The way W+K protects creative ambition in production is rare. Your work across Nike and Jordan is why I still believe commercials can be cinema.', target: 'Orlee Tatarka, Head of Production, W+K Portland' },
+      { title: 'Connect: Ali Brown — Prettybird', desc: 'President & Partner. Just accepted into PGA. They excel at nurturing emerging talent to Oscar winners.', type: 'connect', copy: 'Prettybird\'s commitment to emerging directors isn\'t performative — the results speak. Your career path from EP to President is the blueprint.', target: 'Ali Brown, President, Prettybird' },
+    ]},
+    { name: 'Thursday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'Comment on 3 posts', desc: 'Mix of prodco people and agency HoPs. Be specific. Reference their work. Your comments should read like a director who pays attention.', type: 'action' },
+      { title: 'DM anyone who engaged with your Week 1 post', desc: 'If someone liked or commented on your LinkedIn post, send a brief DM. Not selling — just acknowledging.', type: 'action', copy: 'Appreciate you reading that. Always good to know the things I think about resonate with people doing the work at your level.', target: 'Anyone who engaged with Post #1' },
+    ]},
+    { name: 'Friday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Research: YDA submission requirements', desc: 'Young Director Award by shots magazine. Winners announced June 25 at Cannes. Check categories: Personal Projects, Short Form, Music Video, Documentary. Identify which category fits your strongest piece.', type: 'action' },
+      { title: 'Research: Saatchi New Creators\' Showcase', desc: 'Moving to SXSW London — June 4, 2026. Open to all moving image formats. Check submission process.', type: 'action' },
+      { title: 'Connect: shots editor', desc: 'Find the editor or writer at shots who covers new director talent.', type: 'connect', copy: 'Your coverage of emerging directors consistently surfaces people who actually have something to say. That editorial standard is why I read shots first.', target: 'shots editorial team' },
+    ]},
+  ]});
+
+  // ─── WEEK 3: DEEPEN ───
+  weeks.push({ name: 'Week 3', subtitle: 'Go Deeper', days: [
+    { name: 'Monday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Jen Passaniti — Highdive', desc: 'Emmy-nominated. Ad Age 2023 HoP of the Year. 13 Super Bowl spots. Founded in-house studio 1986 Studios.', type: 'connect', copy: '13 Super Bowls and an Emmy. The Jeep Groundhog Day spot is still one of my favorites — that\'s real filmmaking, not just advertising.', target: 'Jen Passaniti, Head of Production, Highdive' },
+      { title: 'Connect: Ruben Mercadal — Droga5', desc: 'Global Head of Production. Led NYT "The Truth Is Worth It" — Cannes Grand Prix.', type: 'connect', copy: '"The Truth Is Worth It" changed how I think about branded storytelling. The production ambition on that campaign is rare.', target: 'Ruben Mercadal, Global Head of Production, Droga5' },
+    ]},
+    { name: 'Tuesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "The Lunchbox Rule"', desc: 'Post between 8-9 AM EST. This one shows your craft philosophy and personal side. It tends to resonate.', type: 'post', copy: posts[2].content },
+      { title: 'Comment on 2 posts from target list', desc: 'Focus on anyone you haven\'t engaged with yet.', type: 'action' },
+    ]},
+    { name: 'Wednesday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'DM 2 connections who\'ve been engaging', desc: 'Anyone who liked multiple posts or commented. Keep it brief and conversational — no pitch, no ask.', type: 'action', copy: 'Your perspective on [thing they posted/commented about] stuck with me. The industry needs more of that honesty.', target: 'Warm connections' },
+      { title: 'Comment on 2 industry posts', desc: 'Expand beyond your direct targets — comment on Ad Age, Adweek, Creative Review articles shared on LinkedIn.', type: 'action' },
+    ]},
+    { name: 'Thursday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Jim Haight — GS&P', desc: 'Head of Production. Previously EP at Facebook, 72andSunny. Led VW "The Force" Super Bowl spot.', type: 'connect', copy: 'From Facebook content to GS&P production — that range is exactly how I think about the work. Not format-first, idea-first.', target: 'Jim Haight, Head of Production, GS&P' },
+      { title: 'Connect: LBB editor/writer', desc: 'Little Black Book is the primary industry trade for director profiles and studio signings.', type: 'connect', copy: 'LBB consistently profiles directors who actually think, not just execute. That editorial standard is why it\'s my first read every morning.', target: 'LBB editorial team' },
+    ]},
+    { name: 'Friday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Submit to AICP Best New Director (if eligible)', desc: 'Check deadline and requirements. Single honoree award — massive visibility if you win.', type: 'action' },
+      { title: 'Plan AICP Week attendance (June 2-4, NYC)', desc: 'This is the commercial production industry\'s main event. Closing ceremony at MoMA. Put it on the calendar and plan which sessions/events to attend.', type: 'action' },
+    ]},
+  ]});
+
+  // ─── WEEK 4: CONVERT ───
+  weeks.push({ name: 'Week 4', subtitle: 'Start Converting', days: [
+    { name: 'Monday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Andrew Loevenguth — Cartwright', desc: '7 years at W+K, 13 at Anomaly. Grand Prix at Cannes, Emmys, Clios.', type: 'connect', copy: 'W+K to Anomaly to Cartwright — you clearly go where the ideas are sharpest. That instinct is rare.', target: 'Andrew Loevenguth, Head of Production, Cartwright' },
+      { title: 'Connect: Stacey Higgins — Preacher', desc: 'Austin-based. Clio 2025 Jury. 9 years running all production.', type: 'connect', copy: 'Preacher makes work that doesn\'t feel like it came from advertising. That restraint is hard to find.', target: 'Stacey Higgins, Head of Production, Preacher' },
+    ]},
+    { name: 'Tuesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "The Decade in Advertising"', desc: 'Post 8-9 AM EST. This is the most directly relevant post for your audience — it positions your ECD background as an asset, not a detour.', type: 'post', copy: posts[3].content },
+      { title: 'Comment on 2 posts', desc: 'Prioritize anyone who engaged with your previous posts.', type: 'action' },
+    ]},
+    { name: 'Wednesday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'DM your warmest 3 connections', desc: 'By now you should have 3-5 people who\'ve engaged multiple times. Send a genuine DM — still no pitch. The goal is a real conversation.', type: 'action', copy: 'I\'ve been thinking about what you said about [specific thing]. Curious if you\'ve seen [related work/trend]. Would love to hear your take.', target: 'Your 3 warmest connections' },
+      { title: 'Comment on 3 posts', desc: 'Cast a wider net — industry news, festival announcements, campaign launches.', type: 'action' },
+    ]},
+    { name: 'Thursday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect: Stephen Ledger-Lomas — BBH London', desc: 'CPO. Background at Dazed & Confused, Mother, Art + Commerce, WME/IMG. 18+ years.', type: 'connect', copy: 'Dazed to Mother to BBH — your eye for what\'s next in culture is evident in everything BBH puts out.', target: 'Stephen Ledger-Lomas, CPO, BBH London' },
+      { title: 'Connect: Creative Review editor', desc: 'UK creative community\'s primary publication for director profiles.', type: 'connect', copy: 'Your [recent feature] was the most honest take I\'ve read on the state of commercial directing this year.', target: 'Creative Review editorial' },
+    ]},
+    { name: 'Friday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Plan D&AD Festival attendance (May 19-20, London)', desc: 'Theme: "Is Creativity Dead or Alive?" Decide if attending makes sense for networking. Multiple target connections will be there.', type: 'action' },
+      { title: 'Review & prep YDA submission', desc: 'If you\'re submitting to the Young Director Award, materials should be getting finalized. Deadline alignment with June 25 Cannes ceremony.', type: 'action' },
+    ]},
+  ]});
+
+  // ─── WEEK 5: ACCELERATE ───
+  weeks.push({ name: 'Week 5', subtitle: 'Accelerate', days: [
+    { name: 'Monday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'DM your top 2 prodco connections', desc: 'By now Danielle Hinde, Dom Thomas, Benjamin Davies, Ari Kuschnir, or Cabell Hopkins should recognize your name. Time to start real conversations.', type: 'action', copy: 'I\'ve been building out my directing work and your roster is one of the few that feels like a real fit. Would love to share what I\'m working on if you\'re open to it — no pressure, just wanted you to have it.', target: 'Your 2 warmest prodco connections' },
+      { title: 'Comment on 2 posts', type: 'action' },
+    ]},
+    { name: 'Tuesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "The Gen Z Listening Gap"', desc: 'Post 8-9 AM EST. This positions your cultural fluency and challenges lazy thinking.', type: 'post', copy: posts[4].content },
+      { title: 'Comment on 2 posts', type: 'action' },
+    ]},
+    { name: 'Wednesday', theme: 'connect', themeLabel: 'CONNECT', tasks: [
+      { title: 'Connect with 3 second-degree contacts', desc: 'Look at who your strongest connections are connected to. Mutual connections make the add warmer.', type: 'action', tip: 'If Dom Thomas is connected to someone at Partizan, or if Alison Hill is connected to an EP at a prodco you like — that\'s your in. Mention the mutual.' },
+    ]},
+    { name: 'Thursday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'DM your top 2 agency HoP connections', desc: 'Same approach as Monday — real conversation, not a pitch. But now you can reference your LinkedIn posts as proof of how you think.', type: 'action', copy: 'Been thinking a lot about the gap between strategy and what actually shows up on screen — wrote about it a few times on here. Curious if that tension hits different from the production side.', target: 'Your 2 warmest agency HoP connections' },
+      { title: 'Comment on 2 posts', type: 'action' },
+    ]},
+    { name: 'Friday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Prep reel for sharing', desc: 'You should have a clean, curated reel or portfolio link ready before Week 6. 3-5 strongest pieces. Individual project pages if possible.', type: 'action' },
+      { title: 'Advertising Week NY speaker application', desc: 'October 2026 in NYC. Open speaker applications. Your "ECD who became a director" angle is a strong panel pitch.', type: 'action' },
+    ]},
+  ]});
+
+  // ─── WEEK 6: HARVEST ───
+  weeks.push({ name: 'Week 6', subtitle: 'Harvest', days: [
+    { name: 'Monday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'Share reel with top 3 prodco contacts', desc: 'The ones who\'ve been engaging. Send your work with zero pressure.', type: 'action', copy: 'Been meaning to share this — here\'s what I\'ve been building on the directing side. No ask, just wanted you to see it. [link]', target: 'Top 3 prodco contacts' },
+      { title: 'Comment on 2 posts', type: 'action' },
+    ]},
+    { name: 'Tuesday', theme: 'post', themeLabel: 'POST', tasks: [
+      { title: 'Publish LinkedIn Post: "Content vs. Filmmaking"', desc: 'Post 8-9 AM EST. Your closing statement for the series. This one draws a line in the sand about what you believe.', type: 'post', copy: posts[5].content },
+      { title: 'Comment on 2 posts', type: 'action' },
+    ]},
+    { name: 'Wednesday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'Share reel with top 3 agency HoPs', desc: 'Same approach — share work, no pressure. Your LinkedIn presence has pre-sold your POV.', type: 'action', copy: 'I\'ve been directing alongside my ECD work and wanted to share what I\'m building. Your taste in directors is something I respect — would value your eyes on it. [link]', target: 'Top 3 agency HoP contacts' },
+    ]},
+    { name: 'Thursday', theme: 'research', themeLabel: 'RESEARCH', tasks: [
+      { title: 'Assess & plan next 6 weeks', desc: 'Review: Who responded? Who engaged most? Which prodcos showed interest? Which agency HoPs are warm? Build your focused follow-up list for the next cycle.', type: 'action' },
+      { title: 'Plan AICP Week strategy (June 2-4)', desc: 'Less than 2 weeks away. Who will be there? Which events to attend? Who to meet in person?', type: 'action' },
+    ]},
+    { name: 'Friday', theme: 'engage', themeLabel: 'ENGAGE', tasks: [
+      { title: 'Follow up with anyone who hasn\'t responded to reel share', desc: 'One gentle nudge. If they don\'t respond to this, move on.', type: 'action', copy: 'Just circling back — no rush at all. Let me know if you get a chance to look. Either way, appreciate the connection.', target: 'Non-responders from reel shares' },
+      { title: 'Weekly retrospective', desc: 'What worked this week? What felt forced? Who\'s warmest? Update your approach for the next cycle.', type: 'action' },
+    ]},
+  ]});
+
+  return { weeks, sweetSpot, buildRel, agencyTargets, posts };
+}
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem('directorPlaybook') || '{}');
+  } catch { return {}; }
+}
+function saveState() {
+  localStorage.setItem('directorPlaybook', JSON.stringify(state));
+}
+function resetAll() {
+  if (confirm('Reset all progress? This cannot be undone.')) {
+    state = {};
+    saveState();
+    render();
+  }
+}
+
+function getTaskKey(w, d, t) { return `w${w}d${d}t${t}`; }
+function isChecked(w, d, t) { return !!state[getTaskKey(w, d, t)]; }
+function toggleTask(w, d, t) {
+  const k = getTaskKey(w, d, t);
+  state[k] = !state[k];
+  saveState();
+  render();
+}
+
+function getDayCompletion(w, d) {
+  const day = PLAN.weeks[w].days[d];
+  const total = day.tasks.length;
+  const done = day.tasks.filter((_, t) => isChecked(w, d, t)).length;
+  return { total, done, pct: total ? Math.round(done/total*100) : 0 };
+}
+function getWeekCompletion(w) {
+  let total = 0, done = 0;
+  PLAN.weeks[w].days.forEach((day, d) => {
+    day.tasks.forEach((_, t) => { total++; if (isChecked(w, d, t)) done++; });
+  });
+  return { total, done, pct: total ? Math.round(done/total*100) : 0 };
+}
+function getTotalCompletion() {
+  let total = 0, done = 0;
+  PLAN.weeks.forEach((week, w) => {
+    week.days.forEach((day, d) => {
+      day.tasks.forEach((_, t) => { total++; if (isChecked(w, d, t)) done++; });
+    });
+  });
+  return { total, done, pct: total ? Math.round(done/total*100) : 0 };
+}
+
+function getStreak() {
+  // Count consecutive completed days from the start
+  let streak = 0;
+  for (let w = 0; w < PLAN.weeks.length; w++) {
+    for (let d = 0; d < PLAN.weeks[w].days.length; d++) {
+      const comp = getDayCompletion(w, d);
+      if (comp.pct === 100) streak++;
+      else return streak;
+    }
+  }
+  return streak;
+}
+
+let currentWeek = 0, currentDay = 0;
+
+function render() {
+  renderSidebar();
+  renderContent();
+  const total = getTotalCompletion();
+  document.getElementById('totalProgress').style.width = total.pct + '%';
+  document.getElementById('totalPct').textContent = total.pct;
+  document.getElementById('curWeek').textContent = currentWeek + 1;
+  document.getElementById('streakCount').textContent = getStreak();
+}
+
+function renderSidebar() {
+  const sb = document.getElementById('sidebar');
+  let html = '<h3>STRATEGY</h3>';
+  html += '<button class="week-btn" onclick="showStrategy()" id="stratBtn">Sweet Spot Companies</button>';
+  html += '<h3>6-WEEK PLAN</h3>';
+  PLAN.weeks.forEach((week, w) => {
+    const comp = getWeekCompletion(w);
+    html += `<button class="week-btn ${currentWeek===w?'active':''}" onclick="selectWeek(${w})" id="wk${w}">
+      ${week.name} <span style="color:var(--muted);font-size:11px">— ${week.subtitle}</span>
+      <span class="wk-prog ${comp.pct===100?'done':''}">${comp.pct}%</span>
+    </button>`;
+    if (currentWeek === w) {
+      PLAN.weeks[w].days.forEach((day, d) => {
+        const dc = getDayCompletion(w, d);
+        html += `<button class="day-btn ${currentDay===d?'active':''} ${dc.pct===100?'completed':''}" onclick="selectDay(${w},${d})">
+          <span class="dot"></span>${day.name} <span style="margin-left:auto;font-size:10px">${dc.done}/${dc.total}</span>
+        </button>`;
+      });
+    }
+  });
+  sb.innerHTML = html;
+}
+
+function renderContent() {
+  const ct = document.getElementById('content');
+  if (state._showStrategy) {
+    renderStrategy(ct);
+    return;
+  }
+  const week = PLAN.weeks[currentWeek];
+  const day = week.days[currentDay];
+  let html = `<div class="day-header">
+    <h2>${week.name}, ${day.name}</h2>
+    <div class="sub">${week.subtitle}</div>
+    <span class="theme ${day.theme}">${day.themeLabel}</span>
+  </div>`;
+
+  day.tasks.forEach((task, t) => {
+    const checked = isChecked(currentWeek, currentDay, t);
+    html += `<div class="task-card ${checked?'checked':''}">
+      <div class="task-top">
+        <div class="task-check ${checked?'done':''}" onclick="toggleTask(${currentWeek},${currentDay},${t})"></div>
+        <div style="flex:1">
+          <div class="task-title">${task.title}</div>
+          ${task.desc ? `<div class="task-desc">${task.desc}</div>` : ''}
+          ${task.copy ? `<div class="copy-block">
+            ${task.target ? `<div class="target">${task.target}</div>` : ''}
+            <p>${task.copy.replace(/\n/g, '<br>')}</p>
+            <button class="copy-btn" onclick="copyText(this, \`${task.copy.replace(/`/g,'\\`').replace(/\\/g,'\\\\')}\`)">COPY</button>
+          </div>` : ''}
+          ${task.tip ? `<div class="tip"><p><b>Tip:</b> ${task.tip}</p></div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // If all tasks done, show next day prompt
+  const comp = getDayCompletion(currentWeek, currentDay);
+  if (comp.pct === 100) {
+    const hasNext = currentDay < week.days.length - 1 || currentWeek < PLAN.weeks.length - 1;
+    if (hasNext) {
+      html += `<div style="text-align:center;padding:24px;margin-top:16px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:8px">
+        <div style="font-size:24px;margin-bottom:8px">&#10003;</div>
+        <div style="font-size:14px;font-weight:600;color:var(--green);margin-bottom:8px">Day complete.</div>
+        <button onclick="goNext()" style="background:var(--green);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">Move to next day &rarr;</button>
+      </div>`;
+    }
+  }
+  ct.innerHTML = html;
+}
+
+function renderStrategy(ct) {
+  let html = '<div class="day-header"><h2>Production Company Strategy</h2><div class="sub">Big fish, little pond. Get on rosters where you actually get put forward for work.</div></div>';
+
+  html += '<div class="strat-panel"><h3>The Reality</h3><p>Smuggler has Barry Jenkins. Superprime has Scorsese and Chlo&eacute; Zhao. Park Pictures has Lance Acord. You\'d be on the roster but you\'d never get put forward for the big jobs — their established directors eat first. The play is companies where your ECD brain and cultural fluency are a genuine differentiator, where the roster is small enough that you actually get opportunities, and where they\'re actively looking for non-traditional talent.</p></div>';
+
+  html += `<div class="section-label">SWEET SPOT — WHERE YOU WIN <span class="tier-badge sweet">PRIORITY</span></div>`;
+  PLAN.sweetSpot.forEach(c => {
+    html += `<div class="tier-card"><h4>${c.name} <span class="tier-badge sweet">SWEET SPOT</span></h4><div style="font-size:12px;color:var(--text);margin:4px 0">${c.person} — ${c.title}</div><div class="why">${c.why}</div></div>`;
+  });
+
+  html += `<div class="section-label">BUILD RELATIONSHIP — CONVERT LATER <span class="tier-badge build">BUILD</span></div>`;
+  PLAN.buildRel.forEach(c => {
+    html += `<div class="tier-card"><h4>${c.name} <span class="tier-badge build">BUILD</span></h4><div style="font-size:12px;color:var(--text);margin:4px 0">${c.person} — ${c.title}</div><div class="why">${c.why}</div></div>`;
+  });
+
+  html += `<div class="section-label">AGENCY HEADS OF PRODUCTION <span class="tier-badge build">TARGETS</span></div>`;
+  PLAN.agencyTargets.forEach(a => {
+    html += `<div class="tier-card"><h4>${a.name} — ${a.agency} <span class="tier-badge build">AGENCY</span></h4><div style="font-size:12px;color:var(--text);margin:4px 0">${a.title}</div><div class="why">Hook: "${a.hook}"</div></div>`;
+  });
+
+  ct.innerHTML = html;
+}
+
+function showStrategy() {
+  state._showStrategy = true;
+  render();
+  document.getElementById('stratBtn').classList.add('active');
+}
+
+function selectWeek(w) {
+  state._showStrategy = false;
+  currentWeek = w;
+  currentDay = 0;
+  render();
+}
+function selectDay(w, d) {
+  state._showStrategy = false;
+  currentWeek = w;
+  currentDay = d;
+  render();
+}
+function goNext() {
+  const week = PLAN.weeks[currentWeek];
+  if (currentDay < week.days.length - 1) {
+    currentDay++;
+  } else if (currentWeek < PLAN.weeks.length - 1) {
+    currentWeek++;
+    currentDay = 0;
+  }
+  render();
+}
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text.replace(/\\n/g, '\n'));
+  btn.textContent = 'COPIED';
+  setTimeout(() => btn.textContent = 'COPY', 1500);
+}
+
+render();
+</script>
+</body>
+</html>
