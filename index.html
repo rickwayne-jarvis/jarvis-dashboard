@@ -3,880 +3,1330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JARVIS V5 — BiG Mission Control</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>JARVIS V5 — BiG Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
         :root {
-            --bg: #060B14;
-            --panel: rgba(8,16,32,0.92);
-            --border: rgba(0,180,216,0.12);
-            --border-hover: rgba(0,180,216,0.35);
-            --accent: #00B4D8;
-            --accent-dim: rgba(0,180,216,0.6);
-            --text: #d4d4d4;
-            --text-bright: #fff;
-            --text-dim: #777;
-            --green: #4CAF50;
-            --amber: #FFC107;
-            --red: #FF5252;
-            --blue: #2196F3;
+            --bg: #04080f;
+            --panel: rgba(4, 10, 20, 0.95);
+            --card: rgba(0, 180, 216, 0.04);
+            --accent: #00c8e8;
+            --accent-border: rgba(0, 200, 232, 0.18);
+            --green: #00e87a;
+            --orange: #ff9f0a;
+            --red: #ff453a;
+            --blue: #0a84ff;
+            --text: #d8e0ea;
+            --text-dim: #8895a4;
+            --mono: 'Monaco', 'Courier New', monospace;
+            --border: rgba(0, 200, 232, 0.12);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
             font-size: 12px;
+            overflow: hidden;
             height: 100vh;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
+            background-image:
+                radial-gradient(ellipse at 15% 50%, rgba(0,100,140,0.07) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 15%, rgba(0,60,100,0.05) 0%, transparent 50%);
         }
 
-        /* ─── HEADER ─── */
+        /* ============================================================
+           HEADER
+        ============================================================ */
         .header {
-            height: 46px;
-            background: var(--panel);
+            height: 48px;
+            background: rgba(4, 10, 20, 0.99);
             border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            gap: 16px;
-            flex-shrink: 0;
-            z-index: 10;
-        }
-        .header-brand { display:flex; align-items:baseline; gap:8px; }
-        .header-brand h1 { font-size:16px; font-weight:700; color:var(--accent); letter-spacing:1.5px; }
-        .header-brand span { font-size:10px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; }
-        .header-center { flex:1; text-align:center; }
-        .header-time { font-family:'SF Mono','Monaco','Courier New',monospace; font-size:12px; color:var(--accent-dim); }
-        .header-right { display:flex; align-items:center; gap:12px; }
-        .header-stat { text-align:center; padding:0 10px; border-left:1px solid var(--border); }
-        .header-stat .val { font-size:14px; font-weight:700; color:var(--text-bright); }
-        .header-stat .lbl { font-size:9px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.3px; }
-
-        /* ─── MAIN GRID ─── */
-        .main {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 280px 1fr 300px;
-            grid-template-rows: 1fr;
-            gap: 1px;
-            background: rgba(0,180,216,0.06);
-            overflow: hidden;
-        }
-
-        /* ─── PANELS ─── */
-        .panel {
-            background: var(--panel);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .panel-head {
-            padding: 10px 14px;
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .panel-head .count { color: var(--text-dim); font-weight:400; }
-        .panel-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 6px;
-        }
-        .panel-body::-webkit-scrollbar { width:4px; }
-        .panel-body::-webkit-scrollbar-track { background:transparent; }
-        .panel-body::-webkit-scrollbar-thumb { background:rgba(0,180,216,0.2); border-radius:2px; }
-
-        /* ─── LEFT COLUMN ─── */
-        .left-col {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Globe Section */
-        .globe-wrap {
-            height: 240px;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-        #globe-canvas { width:100%; height:100%; display:block; }
-        .globe-label {
-            position: absolute;
-            bottom: 8px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 9px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Agent List */
-        .agent-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 10px;
-            border-bottom: 1px solid rgba(0,180,216,0.04);
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .agent-item:hover { background: rgba(0,180,216,0.06); }
-        .agent-item.selected { background: rgba(0,180,216,0.1); border-left: 2px solid var(--accent); }
-        .agent-dot {
-            width: 7px; height: 7px; border-radius: 50%; flex-shrink:0;
-        }
-        .agent-dot.active { background:var(--green); box-shadow:0 0 6px rgba(76,175,80,0.7); }
-        .agent-dot.idle { background:#444; }
-        .agent-dot.busy { background:var(--amber); box-shadow:0 0 6px rgba(255,193,7,0.5); }
-        .agent-info { flex:1; min-width:0; }
-        .agent-info .name { font-weight:600; color:var(--text-bright); font-size:11px; }
-        .agent-info .role { font-size:9px; color:var(--text-dim); }
-        .agent-tasks { font-size:10px; color:var(--text-dim); font-family:'SF Mono',monospace; }
-
-        /* ─── CENTER COLUMN ─── */
-        .center-col {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Project Cards Row */
-        .projects-bar {
-            display: flex;
-            gap: 1px;
-            flex-shrink: 0;
-            border-bottom: 1px solid var(--border);
-            background: rgba(0,180,216,0.04);
-        }
-        .proj-card {
-            flex: 1;
-            padding: 12px 14px;
-            cursor: pointer;
-            transition: background 0.15s;
-            border-right: 1px solid var(--border);
-            position: relative;
-        }
-        .proj-card:last-child { border-right:none; }
-        .proj-card:hover { background: rgba(0,180,216,0.06); }
-        .proj-card.selected { background:rgba(0,180,216,0.1); }
-        .proj-card.selected::after {
-            content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--accent);
-        }
-        .proj-card .proj-status-dot {
-            display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:5px; vertical-align:middle;
-        }
-        .proj-card .proj-name { font-weight:600; color:var(--text-bright); font-size:12px; margin-bottom:3px; }
-        .proj-card .proj-desc { font-size:10px; color:var(--text-dim); line-height:1.3; }
-        .proj-card .proj-date { font-size:9px; color:#555; font-family:monospace; margin-top:4px; }
-
-        /* Detail Area */
-        .detail-area {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Tabs */
-        .tab-bar {
-            display: flex;
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-        .tab {
-            padding: 8px 16px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-dim);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.15s;
-        }
-        .tab:hover { color: var(--text); }
-        .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-        .tab-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 12px;
-        }
-        .tab-content::-webkit-scrollbar { width:4px; }
-        .tab-content::-webkit-scrollbar-thumb { background:rgba(0,180,216,0.2); border-radius:2px; }
-        .tab-pane { display:none; }
-        .tab-pane.active { display:block; }
-
-        /* Activity Feed */
-        .feed-item {
-            display: flex;
-            gap: 10px;
-            padding: 8px 10px;
-            border-left: 2px solid var(--border);
-            margin-bottom: 6px;
-            transition: border-color 0.15s;
-            cursor: pointer;
-        }
-        .feed-item:hover { border-left-color: var(--accent); background:rgba(0,180,216,0.03); }
-        .feed-agent { font-size:9px; font-weight:600; color:var(--accent); text-transform:uppercase; min-width:60px; flex-shrink:0; }
-        .feed-text { flex:1; color:var(--text); font-size:11px; line-height:1.4; }
-        .feed-time { font-size:9px; color:#555; font-family:monospace; flex-shrink:0; white-space:nowrap; }
-
-        /* Files List */
-        .file-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .file-item:hover { background:rgba(0,180,216,0.06); }
-        .file-icon { font-size:14px; flex-shrink:0; }
-        .file-name { flex:1; font-size:11px; color:var(--text-bright); }
-        .file-date { font-size:9px; color:#555; font-family:monospace; }
-
-        /* Metrics Grid */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-        .metric-card {
-            background: rgba(0,180,216,0.04);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 10px;
-            text-align: center;
-        }
-        .metric-card .metric-val { font-size:20px; font-weight:700; color:var(--text-bright); }
-        .metric-card .metric-lbl { font-size:9px; color:var(--text-dim); text-transform:uppercase; margin-top:2px; }
-
-        /* ─── RIGHT COLUMN ─── */
-        .right-col {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Pipeline */
-        .pipeline-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 10px;
-            border-bottom: 1px solid rgba(0,180,216,0.04);
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .pipeline-item:hover { background:rgba(0,180,216,0.06); }
-        .pipeline-info { flex:1; min-width:0; }
-        .pipeline-info .name { font-weight:600; color:var(--text-bright); font-size:11px; }
-        .pipeline-info .detail { font-size:9px; color:var(--text-dim); margin-top:1px; }
-        .badge {
-            font-size:8px; font-weight:600; text-transform:uppercase; padding:2px 6px;
-            border-radius:2px; white-space:nowrap;
-        }
-        .badge-hot { background:rgba(76,175,80,0.2); color:var(--green); border:1px solid rgba(76,175,80,0.3); }
-        .badge-warm { background:rgba(255,193,7,0.2); color:var(--amber); border:1px solid rgba(255,193,7,0.3); }
-        .badge-cold { background:rgba(33,150,243,0.15); color:var(--blue); border:1px solid rgba(33,150,243,0.3); }
-        .badge-overdue { background:rgba(255,82,82,0.2); color:var(--red); border:1px solid rgba(255,82,82,0.3); }
-
-        /* Scheduled Tasks */
-        .sched-item {
-            display: flex; align-items:center; gap:8px; padding:7px 10px;
-            border-bottom:1px solid rgba(0,180,216,0.04); cursor:pointer; transition:background 0.15s;
-        }
-        .sched-item:hover { background:rgba(0,180,216,0.06); }
-        .sched-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-        .sched-dot.on { background:var(--green); box-shadow:0 0 5px rgba(76,175,80,0.6); }
-        .sched-dot.off { background:#555; }
-        .sched-info { flex:1; }
-        .sched-info .name { font-size:10px; font-weight:600; color:var(--text); }
-        .sched-info .cron { font-size:9px; color:#555; font-family:monospace; }
-
-        /* ─── MODAL ─── */
-        .modal-overlay {
-            position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:100;
-            display:none; align-items:center; justify-content:center;
-        }
-        .modal-overlay.open { display:flex; }
-        .modal {
-            background:var(--bg); border:1px solid var(--border); border-radius:6px;
-            width:600px; max-height:80vh; display:flex; flex-direction:column;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-        .modal-head {
-            padding:14px 18px; border-bottom:1px solid var(--border);
-            display:flex; justify-content:space-between; align-items:center;
-        }
-        .modal-head h2 { font-size:14px; color:var(--accent); font-weight:600; }
-        .modal-close { background:none; border:none; color:var(--text-dim); font-size:20px; cursor:pointer; }
-        .modal-close:hover { color:var(--text-bright); }
-        .modal-body { padding:18px; overflow-y:auto; flex:1; line-height:1.6; font-size:12px; }
-        .modal-body h3 { font-size:12px; color:var(--accent); margin:12px 0 6px; text-transform:uppercase; letter-spacing:0.4px; }
-        .modal-body .kv { display:flex; gap:10px; margin-bottom:4px; }
-        .modal-body .kv .k { color:var(--text-dim); min-width:100px; }
-        .modal-body .kv .v { color:var(--text-bright); }
-        .modal-body .tag-row { display:flex; gap:4px; flex-wrap:wrap; margin-top:6px; }
-        .modal-body .tag { font-size:9px; padding:2px 6px; background:rgba(0,180,216,0.1); border:1px solid var(--border); border-radius:2px; color:var(--accent); }
-
-        /* ─── STATUS BAR ─── */
-        .status-bar {
-            height: 24px;
-            background: var(--panel);
-            border-top: 1px solid var(--border);
             display: flex;
             align-items: center;
             padding: 0 14px;
-            gap: 20px;
+            gap: 16px;
             flex-shrink: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: baseline;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-ver {
             font-size: 10px;
+            font-family: var(--mono);
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+
+        .h-sep { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
+
+        .h-clock {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .h-stats {
+            display: flex;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hs {
+            padding: 0 12px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .hs:first-child { border-left: 1px solid var(--border); }
+
+        .hs-label {
+            font-size: 8.5px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-family: var(--mono);
+        }
+
+        .hs-val {
+            font-size: 11.5px;
+            font-weight: 700;
+            font-family: var(--mono);
+        }
+        .hs-val.g { color: var(--green); }
+        .hs-val.a { color: var(--accent); }
+        .hs-val.o { color: var(--orange); }
+        .hs-val.r { color: var(--red); }
+
+        .h-globe {
+            width: 200px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           MAIN GRID
+        ============================================================ */
+        .main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 278px 1fr 272px;
+            gap: 9px;
+            padding: 9px;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        /* ============================================================
+           PANELS
+        ============================================================ */
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .ph {
+            padding: 6px 10px 5px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .ph-title {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-family: var(--mono);
+        }
+
+        .ph-meta {
+            font-size: 9px;
+            color: var(--text-dim);
+            font-family: var(--mono);
+        }
+
+        .pb {
+            flex: 1;
+            overflow-y: auto;
+            padding: 7px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-height: 0;
+        }
+
+        .pb::-webkit-scrollbar { width: 3px; }
+        .pb::-webkit-scrollbar-track { background: transparent; }
+        .pb::-webkit-scrollbar-thumb { background: rgba(0,200,232,0.25); border-radius: 2px; }
+
+        /* ============================================================
+           LEFT COL
+        ============================================================ */
+        .left { display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+
+        /* Globe panel */
+        .globe-wrap {
+            height: 194px;
+            flex-shrink: 0;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+        .globe-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0,200,232,0.06) 0%, transparent 68%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        #globe-canvas { width: 100%; height: 100%; display: block; }
+
+        .globe-tag {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8.5px;
+            font-family: var(--mono);
+            color: rgba(0,200,232,0.45);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .globe-live {
+            position: absolute;
+            top: 9px;
+            right: 11px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 8.5px;
+            font-family: var(--mono);
+            color: var(--green);
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(0,232,122,0.5); }
+            50%      { opacity:.7; box-shadow:0 0 0 5px rgba(0,232,122,0); }
+        }
+        @keyframes pulse-b {
+            0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(0,200,232,0.5); }
+            50%      { opacity:.7; box-shadow:0 0 0 5px rgba(0,200,232,0); }
+        }
+
+        .dot-live { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+
+        /* Project cards */
+        .pcard {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            padding: 7px 9px;
+            cursor: pointer;
+            transition: border-color .15s, background .15s;
+            position: relative;
+        }
+        .pcard:hover { border-color: rgba(0,200,232,0.4); background: rgba(0,200,232,0.07); }
+
+        .pcard-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .pcard-name { font-weight: 700; font-size: 11.5px; color: #fff; }
+
+        .pill {
+            font-size: 7.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-family: var(--mono);
+        }
+        .p-active   { background: rgba(0,232,122,.12);  color: var(--green);  border: 1px solid rgba(0,232,122,.3); }
+        .p-complete { background: rgba(10,132,255,.12); color: var(--blue);   border: 1px solid rgba(10,132,255,.3); }
+        .p-pending  { background: rgba(255,159,10,.12); color: var(--orange); border: 1px solid rgba(255,159,10,.3); }
+        .p-overdue  { background: rgba(255,69,58,.12);  color: var(--red);    border: 1px solid rgba(255,69,58,.3); }
+        .p-live     { background: rgba(0,200,232,.12);  color: var(--accent); border: 1px solid rgba(0,200,232,.3); }
+
+        .pcard-sub { font-size: 10px; color: var(--text-dim); line-height: 1.35; }
+
+        .pcard-foot {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 3px;
+        }
+        .pcard-date   { font-size: 8.5px; font-family: var(--mono); color: #4a5562; }
+        .pcard-agents { font-size: 8.5px; color: rgba(0,200,232,0.45); font-family: var(--mono); }
+        .pcard-hint   { font-size: 7.5px; color: rgba(0,200,232,0.25); font-family: var(--mono); margin-left: auto; }
+
+        /* ============================================================
+           CENTER COL
+        ============================================================ */
+        .center { display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+
+        /* Agent grid */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            padding: 7px;
+        }
+
+        .acard {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            padding: 7px 4px 6px;
+            text-align: center;
+            transition: all .15s;
+        }
+        .acard:hover { border-color: rgba(0,200,232,.35); background: rgba(0,200,232,.07); }
+        .acard.ac-run { border-color: rgba(0,232,122,.2); }
+        .acard.ac-proc { border-color: rgba(0,200,232,.2); }
+
+        .adot { width: 5px; height: 5px; border-radius: 50%; margin: 0 auto 5px; }
+        .adot.active    { background: var(--green);  box-shadow: 0 0 6px rgba(0,232,122,.7);   animation: pulse 2s infinite; }
+        .adot.processing{ background: var(--accent); box-shadow: 0 0 6px rgba(0,200,232,.7);   animation: pulse-b 1.5s infinite; }
+        .adot.idle      { background: #384250; }
+        .adot.standby   { background: var(--orange); box-shadow: 0 0 4px rgba(255,159,10,.5); }
+
+        .aname  { font-size: 9.5px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+        .arole  { font-size: 7.5px; color: var(--text-dim); line-height: 1.2; }
+        .atask  { font-size: 7px; color: rgba(0,200,232,.5); font-family: var(--mono); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* Activity feed */
+        .feed-item {
+            display: flex;
+            gap: 8px;
+            padding: 5px 7px;
+            background: rgba(0,200,232,.02);
+            border-left: 2px solid rgba(0,200,232,.15);
+            border-radius: 0 2px 2px 0;
+        }
+        .feed-item.fc { border-left-color: rgba(0,232,122,.4); }
+        .feed-item.fa { border-left-color: rgba(0,200,232,.5); }
+        .feed-item.fd { border-left-color: rgba(10,132,255,.5); }
+        .feed-item.fw { border-left-color: rgba(255,159,10,.5); }
+
+        .f-agent { font-size: 8.5px; font-weight: 700; font-family: var(--mono); color: var(--accent); flex-shrink: 0; width: 55px; }
+        .f-text  { flex: 1; font-size: 10px; color: var(--text); line-height: 1.35; }
+        .f-ts    { font-size: 8.5px; font-family: var(--mono); color: #3f4c58; flex-shrink: 0; white-space: nowrap; }
+
+        /* ============================================================
+           RIGHT COL
+        ============================================================ */
+        .right { display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+
+        /* KPI strip */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            padding: 7px;
+        }
+
+        .kpi {
+            padding: 7px 9px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+        }
+        .kpi-label { font-size: 7.5px; text-transform: uppercase; letter-spacing: .8px; color: var(--text-dim); font-family: var(--mono); margin-bottom: 3px; }
+        .kpi-val   { font-size: 22px; font-weight: 700; font-family: var(--mono); line-height: 1; }
+        .kpi-sub   { font-size: 8.5px; color: var(--text-dim); margin-top: 2px; }
+
+        /* Pipeline */
+        .pipe-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            transition: border-color .15s;
+        }
+        .pipe-item:hover { border-color: rgba(0,200,232,.3); }
+        .pipe-name   { font-weight: 600; font-size: 11px; color: #fff; margin-bottom: 1px; }
+        .pipe-detail { font-size: 8.5px; font-family: var(--mono); color: var(--text-dim); }
+
+        /* Tasks */
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+        }
+        .tdot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+        .tdot.run  { background: var(--green);  box-shadow: 0 0 5px rgba(0,232,122,.7); animation: pulse 2s infinite; }
+        .tdot.sched{ background: var(--accent); }
+        .tdot.off  { background: #3a4250; }
+        .task-name  { font-size: 10.5px; font-weight: 600; color: var(--text); margin-bottom: 1px; }
+        .task-sched { font-size: 8.5px; font-family: var(--mono); color: var(--text-dim); }
+
+        /* ============================================================
+           TICKER
+        ============================================================ */
+        .ticker {
+            height: 26px;
+            background: rgba(0,5,12,.99);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .ticker-lbl {
+            background: var(--accent);
+            color: #000;
+            font-size: 8.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0 10px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            font-family: var(--mono);
+        }
+
+        .ticker-track { flex: 1; overflow: hidden; }
+
+        .ticker-inner {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker-move 70s linear infinite;
+        }
+
+        .ti {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0 18px 0 0;
+            font-size: 9.5px;
+            font-family: var(--mono);
             color: var(--text-dim);
         }
-        .status-bar .indicator {
-            display:flex; align-items:center; gap:4px;
+        .ti-agent { color: var(--accent); font-weight: 700; }
+        .ti-hi    { color: var(--text); }
+        .ti-sep   { color: rgba(0,200,232,.25); }
+        .ti-warn  { color: var(--red); }
+
+        @keyframes ticker-move {
+            from { transform: translateX(100vw); }
+            to   { transform: translateX(-100%); }
         }
-        .status-bar .dot { width:5px; height:5px; border-radius:50%; }
+
+        /* ============================================================
+           MODAL
+        ============================================================ */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,4,10,.88);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .overlay.open { display: flex; }
+
+        .modal {
+            background: rgba(4,11,22,.99);
+            border: 1px solid rgba(0,200,232,.38);
+            border-radius: 4px;
+            width: 640px;
+            max-height: 82vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 80px rgba(0,200,232,.07), 0 24px 80px rgba(0,0,0,.7);
+        }
+
+        .modal-h {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .modal-title  { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+        .modal-sub    { font-size: 9.5px; font-family: var(--mono); color: var(--text-dim); }
+        .modal-close  { background: none; border: none; color: var(--text-dim); font-size: 20px; cursor: pointer; padding: 0; line-height: 1; flex-shrink: 0; }
+        .modal-close:hover { color: #fff; }
+
+        .modal-b {
+            padding: 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .modal-b::-webkit-scrollbar { width: 3px; }
+        .modal-b::-webkit-scrollbar-thumb { background: rgba(0,200,232,.25); border-radius: 2px; }
+
+        .ms { margin-bottom: 15px; }
+        .ms-title {
+            font-size: 8.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            font-family: var(--mono);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+        .ms-body  { font-size: 11.5px; color: var(--text); line-height: 1.56; }
+        .ms-phase { font-size: 10.5px; color: var(--accent); font-family: var(--mono); }
+
+        .m-agents { display: flex; flex-wrap: wrap; gap: 5px; }
+        .m-tag {
+            font-size: 9.5px; font-family: var(--mono);
+            padding: 2px 8px; border-radius: 2px;
+            background: rgba(0,200,232,.1); color: var(--accent);
+            border: 1px solid rgba(0,200,232,.2);
+        }
+
+        .m-steps { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .m-steps li {
+            font-size: 10.5px; color: var(--text);
+            padding: 5px 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .m-steps li::before { content: '›'; color: var(--accent); font-size: 14px; font-weight: 700; flex-shrink: 0; }
+
+        .m-meta { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
+        .m-meta-item { padding: 7px 9px; background: var(--card); border: 1px solid var(--border); border-radius: 2px; }
+        .m-meta-label { font-size: 7.5px; text-transform: uppercase; letter-spacing: .8px; color: var(--text-dim); font-family: var(--mono); margin-bottom: 3px; }
+        .m-meta-val   { font-size: 10.5px; font-weight: 600; color: #fff; }
     </style>
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
-<div class="header">
-    <div class="header-brand">
-        <h1>JARVIS</h1>
-        <span>BiG Mission Control</span>
+<!-- HEADER -->
+<header class="header">
+    <div class="brand">
+        <span class="brand-name">JARVIS</span>
+        <span class="brand-ver">V5</span>
     </div>
-    <div class="header-center">
-        <span class="header-time" id="clock"></span>
+    <div class="h-sep"></div>
+    <div class="h-clock" id="h-clock">--</div>
+    <div class="h-sep"></div>
+    <div class="h-stats">
+        <div class="hs"><div class="hs-label">System</div><div class="hs-val g">ONLINE</div></div>
+        <div class="hs"><div class="hs-label">Agents</div><div class="hs-val a">10 / 12</div></div>
+        <div class="hs"><div class="hs-label">Projects</div><div class="hs-val g">5 ACTIVE</div></div>
+        <div class="hs"><div class="hs-label">Pipeline</div><div class="hs-val a">7 PROSPECTS</div></div>
+        <div class="hs"><div class="hs-label">Tasks</div><div class="hs-val g">4 RUNNING</div></div>
+        <div class="hs"><div class="hs-label">Last Deploy</div><div class="hs-val a">APR 15</div></div>
+        <div class="hs"><div class="hs-label">Outputs</div><div class="hs-val g">94+ FILES</div></div>
     </div>
-    <div class="header-right">
-        <div class="header-stat">
-            <div class="val" id="agents-active">8</div>
-            <div class="lbl">Agents Active</div>
-        </div>
-        <div class="header-stat">
-            <div class="val" id="tasks-running">3</div>
-            <div class="lbl">Tasks Running</div>
-        </div>
-        <div class="header-stat">
-            <div class="val" id="projects-count">7</div>
-            <div class="lbl">Projects</div>
-        </div>
-    </div>
-</div>
+    <canvas id="h-globe-canvas" class="h-globe"></canvas>
+</header>
 
-<!-- ═══ MAIN ═══ -->
+<!-- MAIN -->
 <div class="main">
 
-    <!-- LEFT COLUMN: Globe + Agents -->
-    <div class="left-col">
+    <!-- LEFT: Globe + Projects -->
+    <div class="left">
+
         <div class="globe-wrap">
             <canvas id="globe-canvas"></canvas>
-            <div class="globe-label">JARVIS Network — Online</div>
+            <div class="globe-live"><div class="dot-live"></div>LIVE</div>
+            <div class="globe-tag">BiG Command Center</div>
         </div>
-        <div class="panel" style="flex:1;border:none;">
-            <div class="panel-head">Agent Roster <span class="count">12 agents</span></div>
-            <div class="panel-body" id="agent-list"></div>
+
+        <div class="panel" style="flex:1;min-height:0;">
+            <div class="ph">
+                <span class="ph-title">Active Projects</span>
+                <span class="ph-meta">click to expand</span>
+            </div>
+            <div class="pb">
+
+                <div class="pcard" onclick="openModal('sharpie')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">Sharpie MAKE IT</span>
+                        <span class="pill p-active">Active</span>
+                    </div>
+                    <div class="pcard-sub">Deck V2 Build — client presentation pending</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 15</span>
+                        <span class="pcard-agents">MAESTRO · PARK · NOLAN</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('newbiz')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">BiG New Business</span>
+                        <span class="pill p-active">Active</span>
+                    </div>
+                    <div class="pcard-sub">7 prospects tracked — SCOUT pipeline daily</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 15</span>
+                        <span class="pcard-agents">SCOUT · PERSONA</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('underscore')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">Underscore Films</span>
+                        <span class="pill p-active">Active</span>
+                    </div>
+                    <div class="pcard-sub">Director portfolio + outreach in progress</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 12</span>
+                        <span class="pcard-agents">NOLAN · WRITER</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('cfo')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">CFO Strategy</span>
+                        <span class="pill p-pending">Pending</span>
+                    </div>
+                    <div class="pcard-sub">S-Corp setup, payroll structure — awaiting action</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 12</span>
+                        <span class="pcard-agents">CFO</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('gobig')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">BiG Agency Website</span>
+                        <span class="pill p-live">Live</span>
+                    </div>
+                    <div class="pcard-sub">gobig-nyc — 15 pages, 10 case studies deployed</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Mar 30</span>
+                        <span class="pcard-agents">PARK · GUARDIAN</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('rickwayne')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">rickwayne.cc</span>
+                        <span class="pill p-live">Live</span>
+                    </div>
+                    <div class="pcard-sub">Director portfolio — deployed and indexed</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Mar 28</span>
+                        <span class="pcard-agents">NOLAN · PARK</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('havoc')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">HAVOC TV Bible</span>
+                        <span class="pill p-complete">Complete</span>
+                    </div>
+                    <div class="pcard-sub">8-episode bible — available for development</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 10</span>
+                        <span class="pcard-agents">MAESTRO · WRITER</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+                <div class="pcard" onclick="openModal('book')">
+                    <div class="pcard-top">
+                        <span class="pcard-name">Book Outline</span>
+                        <span class="pill p-complete">Complete</span>
+                    </div>
+                    <div class="pcard-sub">Outline on Google Docs — ready for draft phase</div>
+                    <div class="pcard-foot">
+                        <span class="pcard-date">Apr 08</span>
+                        <span class="pcard-agents">WRITER</span>
+                        <span class="pcard-hint">expand ›</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <!-- CENTER COLUMN: Projects + Details -->
-    <div class="center-col">
-        <div class="projects-bar" id="projects-bar"></div>
-        <div class="detail-area">
-            <div class="tab-bar" id="tab-bar">
-                <div class="tab active" data-tab="activity">Activity</div>
-                <div class="tab" data-tab="files">Files</div>
-                <div class="tab" data-tab="metrics">Metrics</div>
+    <!-- CENTER: Agent Roster + Activity -->
+    <div class="center">
+
+        <div class="panel" style="flex-shrink:0;">
+            <div class="ph">
+                <span class="ph-title">Agent Roster</span>
+                <span class="ph-meta">12 agents deployed — 10 active</span>
             </div>
-            <div class="tab-content">
-                <div class="tab-pane active" id="pane-activity"></div>
-                <div class="tab-pane" id="pane-files"></div>
-                <div class="tab-pane" id="pane-metrics"></div>
+            <div class="agent-grid">
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">JARVIS</div>
+                    <div class="arole">Orchestrator</div>
+                    <div class="atask">V5 deploy</div>
+                </div>
+                <div class="acard ac-proc">
+                    <div class="adot processing"></div>
+                    <div class="aname">SCOUT</div>
+                    <div class="arole">Researcher</div>
+                    <div class="atask">Pipeline scan</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">MAESTRO</div>
+                    <div class="arole">Creative Dir.</div>
+                    <div class="atask">Sharpie V5</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">PARK</div>
+                    <div class="arole">Deck Builder</div>
+                    <div class="atask">Deck V2</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">NOLAN</div>
+                    <div class="arole">Director</div>
+                    <div class="atask">Shot list</div>
+                </div>
+                <div class="acard">
+                    <div class="adot idle"></div>
+                    <div class="aname">TESTING</div>
+                    <div class="arole">Research Lab</div>
+                    <div class="atask">On call</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">SARAH</div>
+                    <div class="arole">Proj. Manager</div>
+                    <div class="atask">File sweep</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">GUARDIAN</div>
+                    <div class="arole">Brand Voice</div>
+                    <div class="atask">On call</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">PERSONA</div>
+                    <div class="arole">Audience Intel</div>
+                    <div class="atask">New biz</div>
+                </div>
+                <div class="acard ac-proc">
+                    <div class="adot processing"></div>
+                    <div class="aname">ATLAS</div>
+                    <div class="arole">Dependencies</div>
+                    <div class="atask">Daily scan</div>
+                </div>
+                <div class="acard ac-run">
+                    <div class="adot active"></div>
+                    <div class="aname">WRITER</div>
+                    <div class="arole">Copy</div>
+                    <div class="atask">On call</div>
+                </div>
+                <div class="acard">
+                    <div class="adot idle"></div>
+                    <div class="aname">CFO</div>
+                    <div class="arole">Finance</div>
+                    <div class="atask">Standby</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" style="flex:1;min-height:0;">
+            <div class="ph">
+                <span class="ph-title">Activity Feed</span>
+                <span class="ph-meta" id="feed-ts">Live</span>
+            </div>
+            <div class="pb">
+                <div class="feed-item fa">
+                    <span class="f-agent">JARVIS</span>
+                    <span class="f-text">Dashboard V5 build — particle globe, 12 agents, drill-down modals, Bloomberg layout</span>
+                    <span class="f-ts">Apr 15 · Now</span>
+                </div>
+                <div class="feed-item fc">
+                    <span class="f-agent">MAESTRO</span>
+                    <span class="f-text">:60 Visual Script V2 delivered — Sharpie MAKE IT final campaign</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">WRITER</span>
+                    <span class="f-text">Bookend slides + 10 vignettes complete — Sharpie Deck V2</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fc">
+                    <span class="f-agent">TESTING</span>
+                    <span class="f-text">Manifesto vs. script comparative report — final V4 scores, full Ipsos debrief</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">MAESTRO</span>
+                    <span class="f-text">Cast + marking matrix — 20 characters, 58 signature moments mapped</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">WRITER</span>
+                    <span class="f-text">Product :15s V2 with attribute messaging — all 4 SKUs covered</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">PARK</span>
+                    <span class="f-text">Deck V2 structure reviewed via Slides API — build in progress</span>
+                    <span class="f-ts">Apr 14</span>
+                </div>
+                <div class="feed-item fd">
+                    <span class="f-agent">JARVIS</span>
+                    <span class="f-text">Dashboard V4 deployed to GitHub Pages — mission control live</span>
+                    <span class="f-ts">Apr 13</span>
+                </div>
+                <div class="feed-item fc">
+                    <span class="f-agent">ATLAS</span>
+                    <span class="f-text">Full dependency report — upstream outputs mapped, no blockers</span>
+                    <span class="f-ts">Apr 13</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">SCOUT</span>
+                    <span class="f-text">Prospect database V2 — 7 qualified targets, contact intel complete</span>
+                    <span class="f-ts">Apr 12</span>
+                </div>
+                <div class="feed-item fc">
+                    <span class="f-agent">TESTING</span>
+                    <span class="f-text">All-the-way-in scoring — DRAFT MODE GAME concept validated above norm</span>
+                    <span class="f-ts">Apr 11</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">MAESTRO</span>
+                    <span class="f-text">Product lines V3 — full campaign matrix for 4 Sharpie SKUs</span>
+                    <span class="f-ts">Apr 11</span>
+                </div>
+                <div class="feed-item fd">
+                    <span class="f-agent">NOLAN</span>
+                    <span class="f-text">Shot list finalized — Sharpie :60 treatment, 12 scenes production-ready</span>
+                    <span class="f-ts">Apr 10</span>
+                </div>
+                <div class="feed-item fc">
+                    <span class="f-agent">WRITER</span>
+                    <span class="f-text">HAVOC TV Bible complete — 8 episodes, show bible ready for development</span>
+                    <span class="f-ts">Apr 10</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">SARAH</span>
+                    <span class="f-text">360 activation plan organized — output/sharpie-360-activation-plan.md</span>
+                    <span class="f-ts">Apr 09</span>
+                </div>
+                <div class="feed-item fa">
+                    <span class="f-agent">SCOUT</span>
+                    <span class="f-text">Rick Wayne directing production research complete — positioning document</span>
+                    <span class="f-ts">Apr 08</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- RIGHT COLUMN: Pipeline + Tasks -->
-    <div class="right-col">
-        <div class="panel" style="flex:1;border:none;">
-            <div class="panel-head">BiG Pipeline <span class="count">7 prospects</span></div>
-            <div class="panel-body" id="pipeline-list"></div>
+    <!-- RIGHT: Metrics + Pipeline + Tasks -->
+    <div class="right">
+
+        <div class="panel" style="flex-shrink:0;">
+            <div class="ph">
+                <span class="ph-title">Metrics</span>
+                <span class="ph-meta">BiG at a glance</span>
+            </div>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-label">Agents Online</div>
+                    <div class="kpi-val" style="color:var(--green)">10</div>
+                    <div class="kpi-sub">of 12 deployed</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Active Projects</div>
+                    <div class="kpi-val" style="color:var(--accent)">5</div>
+                    <div class="kpi-sub">3 complete</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Pipeline</div>
+                    <div class="kpi-val" style="color:var(--orange)">7</div>
+                    <div class="kpi-sub">prospects tracked</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-label">Output Files</div>
+                    <div class="kpi-val" style="color:var(--green)">94+</div>
+                    <div class="kpi-sub">generated by agents</div>
+                </div>
+            </div>
         </div>
-        <div class="panel" style="flex:0 0 auto;max-height:35%;border:none;border-top:1px solid var(--border);">
-            <div class="panel-head">Scheduled Tasks <span class="count">4 active</span></div>
-            <div class="panel-body" id="sched-list"></div>
+
+        <div class="panel" style="flex:1;min-height:0;">
+            <div class="ph">
+                <span class="ph-title">BiG Pipeline</span>
+                <span class="ph-meta">New business development</span>
+            </div>
+            <div class="pb">
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Sharpie</div>
+                        <div class="pipe-detail">Internal review this week</div>
+                    </div>
+                    <span class="pill p-active">Active Pitch</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Glossier</div>
+                        <div class="pipe-detail">Solórzano outreach by Apr 20</div>
+                    </div>
+                    <span class="pill p-pending">Research</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Sonos</div>
+                        <div class="pipe-detail">DeCourcy letter pending</div>
+                    </div>
+                    <span class="pill p-overdue">Overdue</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">P.F. Chang's</div>
+                        <div class="pipe-detail">Initial outreach pending</div>
+                    </div>
+                    <span class="pill p-pending">Research</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Michael Kors</div>
+                        <div class="pipe-detail">Market analysis in progress</div>
+                    </div>
+                    <span class="pill p-pending">Research</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Driscoll's</div>
+                        <div class="pipe-detail">Competitive positioning review</div>
+                    </div>
+                    <span class="pill p-pending">Research</span>
+                </div>
+                <div class="pipe-item">
+                    <div>
+                        <div class="pipe-name">Farmers Insurance</div>
+                        <div class="pipe-detail">Category intelligence gathering</div>
+                    </div>
+                    <span class="pill p-pending">Research</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" style="flex-shrink:0;">
+            <div class="ph">
+                <span class="ph-title">Scheduled Tasks</span>
+                <span class="ph-meta">4 of 4 running</span>
+            </div>
+            <div class="pb">
+                <div class="task-item">
+                    <div class="tdot run"></div>
+                    <div>
+                        <div class="task-name">Resy Monitor</div>
+                        <div class="task-sched">Every hour · Last: 14 min ago</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="tdot run"></div>
+                    <div>
+                        <div class="task-name">SCOUT Pipeline Scan</div>
+                        <div class="task-sched">Daily 6:00am · Ran today</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="tdot run"></div>
+                    <div>
+                        <div class="task-name">SARAH File Sweep</div>
+                        <div class="task-sched">Every hour · Running</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="tdot run"></div>
+                    <div>
+                        <div class="task-name">ATLAS Dependency Check</div>
+                        <div class="task-sched">Daily 9:00am · Last: today</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+    <div class="ticker-lbl">Live</div>
+    <div class="ticker-track">
+        <div class="ticker-inner">
+            <span class="ti"><span class="ti-agent">JARVIS</span><span class="ti-hi">V5 ONLINE</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">SHARPIE MAKE IT</span><span>Deck V2 build — client presentation imminent</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">SCOUT</span><span>7 prospects in active pipeline — Glossier outreach due Apr 20</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">MAESTRO</span><span>Sharpie :60 visual script V2 delivered</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">TESTING</span><span>All-the-way-in concept scored above Ipsos norm — validated</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">SONOS</span><span class="ti-warn">OVERDUE — DeCourcy letter has not shipped</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">ATLAS</span><span>Daily dependency scan complete — no blockers detected</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">NOLAN</span><span>Shot list finalized — 12 scenes, :60 treatment production-ready</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">SARAH</span><span>Hourly file sweep running — 94+ outputs organized</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">BiG WEBSITE</span><span class="ti-hi">LIVE — 15 pages, 10 case studies deployed to GitHub Pages</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">HAVOC TV BIBLE</span><span>8-episode bible complete — development-ready original IP</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">CFO</span><span>S-Corp setup pending — action required by Rick</span><span class="ti-sep"> · </span></span>
+            <span class="ti"><span class="ti-agent">JARVIS</span><span class="ti-hi">V5 ONLINE</span><span class="ti-sep"> · </span></span>
         </div>
     </div>
 </div>
 
-<!-- ═══ STATUS BAR ═══ -->
-<div class="status-bar">
-    <div class="indicator"><div class="dot" style="background:var(--green);box-shadow:0 0 4px rgba(76,175,80,0.6)"></div> System Online</div>
-    <span>SCOUT: last sweep 6:00 AM</span>
-    <span>SARAH: last outreach Apr 14</span>
-    <span style="margin-left:auto;">V5.0 — Apr 15, 2026</span>
-</div>
-
-<!-- ═══ MODAL ═══ -->
-<div class="modal-overlay" id="modal-overlay">
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
     <div class="modal">
-        <div class="modal-head">
-            <h2 id="modal-title">Detail</h2>
-            <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-h">
+            <div>
+                <div class="modal-title" id="m-title">Project</div>
+                <div class="modal-sub" id="m-sub">--</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+                <span id="m-pill" class="pill"></span>
+                <button class="modal-close" onclick="document.getElementById('overlay').classList.remove('open')">×</button>
+            </div>
         </div>
-        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-b" id="m-body"></div>
     </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════
-const AGENTS = [
-    { id:'jarvis', name:'JARVIS', role:'Orchestrator', status:'active', tasks:12, lastAction:'Coordinating deck review' },
-    { id:'maestro', name:'MAESTRO', role:'Strategic Director', status:'active', tasks:8, lastAction:'Film treatment V3 — scene refinement' },
-    { id:'writer', name:'WRITER', role:'Creative Copy', status:'active', tasks:15, lastAction:'Deck slide copy fixes delivered' },
-    { id:'scout', name:'SCOUT', role:'Research & Intel', status:'active', tasks:6, lastAction:'Pipeline prospect scan — 6AM sweep' },
-    { id:'testing', name:'TESTING', role:'Research Lab', status:'active', tasks:4, lastAction:'Brand ladder key human value scoring' },
-    { id:'nolan', name:'NOLAN', role:'Visual Director', status:'busy', tasks:3, lastAction:'Storyboard stills generation' },
-    { id:'park', name:'PARK', role:'Deck Builder', status:'active', tasks:5, lastAction:'V5 master deck rebuild' },
-    { id:'sarah', name:'SARAH', role:'Outreach & Ops', status:'active', tasks:3, lastAction:'LA Galaxy CMO outreach note' },
-    { id:'atlas', name:'ATLAS', role:'Dependency Tracker', status:'idle', tasks:0, lastAction:'Dependency check — all clear' },
-    { id:'cfo', name:'CFO', role:'Finance Strategy', status:'idle', tasks:1, lastAction:'S-Corp + payroll setup' },
-    { id:'guardian', name:'GUARDIAN', role:'Quality Control', status:'active', tasks:2, lastAction:'Monitoring deck consistency' },
-    { id:'persona', name:'PERSONA', role:'Audience Intel', status:'idle', tasks:1, lastAction:'Gen Z behavioral profile update' },
-];
-
-const PROJECTS = [
-    {
-        id:'sharpie', name:'Sharpie MAKE IT', status:'active', date:'Apr 15',
-        desc:'Internal review tomorrow — deck V2 slides 1-35',
-        files:['DECK_V2_SLIDE_CONTENT.md','DECK_V2_SLIDES_27_35.md','MAESTRO_60_COMMERCIAL_TREATMENT.md','LAUNCH_60_VISUAL_SCRIPT.md','LAUNCH_30_AND_VISUAL_SCRIPT.md','PRODUCT_15s_SCRIPTS_V2.md','TESTING_MANIFESTO_VS_SCRIPT.md','BOOKEND_SLIDES_AND_VIGNETTES.md','DECK_V2_SLIDE_COPY_FIXES.md'],
-        metrics:{scripts:9,scenes:8,testingScore:'4.5★',daysToReview:1},
-        activity:[
-            {agent:'WRITER',text:'Delivered clean replacement copy for slides 1,2,4,5,7,8,27,31',time:'5m ago'},
-            {agent:'MAESTRO',text:'Full team review of slides 1-35 with priority fixes',time:'15m ago'},
-            {agent:'TESTING',text:'Brand ladder key human value — "Courage to Make the First Mark" scored',time:'1h ago'},
-            {agent:'WRITER',text:':30 cut + visual script delivered (62 words, EEI 154)',time:'3h ago'},
-            {agent:'MAESTRO',text:'Scene 4 overhaul — The Graduate (fridge gallery → stage)',time:'4h ago'},
-            {agent:'NOLAN',text:'Storyboard stills for 8 scenes in progress',time:'5h ago'},
-            {agent:'WRITER',text:'Product :15s V2 with attributes (S-Gel, PM, CM)',time:'6h ago'},
-        ]
-    },
-    {
-        id:'big-pipeline', name:'BiG Pipeline', status:'active', date:'Apr 15',
-        desc:'7 prospects tracked, SCOUT active',
-        files:['prospect_database.json','outreach_tracker.md'],
-        metrics:{prospects:7,hot:2,warm:3,outreachSent:12},
-        activity:[
-            {agent:'SCOUT',text:'6AM sweep completed — no new prospects flagged',time:'9h ago'},
-            {agent:'SARAH',text:'LA Galaxy CMO outreach note drafted',time:'4h ago'},
-            {agent:'SCOUT',text:'Glossier CMO Solórzano — due Apr 20',time:'1d ago'},
-        ]
-    },
-    {
-        id:'havoc', name:'HAVOC', status:'complete', date:'Apr 10',
-        desc:'TV bible — 8 episodes, ready for development',
-        files:['HAVOC_BIBLE.md','HAVOC_LORE.md'],
-        metrics:{episodes:8,characters:14,worldPages:42},
-        activity:[
-            {agent:'WRITER',text:'Show bible finalized and pushed to Google Docs',time:'5d ago'},
-        ]
-    },
-    {
-        id:'draft-mode', name:'Draft Mode', status:'pending', date:'Apr 12',
-        desc:'Game design — V4 Pokemon-quality build',
-        files:['DRAFT_MODE_BIBLE.md','GAME_DESIGN_DOC.md'],
-        metrics:{version:'V4',mechanics:6,territories:3},
-        activity:[
-            {agent:'WRITER',text:'Game bible updated with Rick\'s territory notes',time:'3d ago'},
-        ]
-    },
-    {
-        id:'rickwayne', name:'rickwayne.cc', status:'complete', date:'Mar 28',
-        desc:'Director portfolio — LIVE',
-        files:['index.html','styles.css'],
-        metrics:{pages:5,caseStudies:8,visits:'—'},
-        activity:[
-            {agent:'PARK',text:'Mobile + press fixes merged and pushed',time:'2w ago'},
-        ]
-    },
-    {
-        id:'big-site', name:'BiG Agency Site', status:'complete', date:'Mar 30',
-        desc:'gobig.nyc — LIVE on GitHub Pages',
-        files:['index.html','case-studies/'],
-        metrics:{pages:15,caseStudies:10},
-        activity:[
-            {agent:'PARK',text:'Purple brand refresh + image updates',time:'2w ago'},
-        ]
-    },
-    {
-        id:'cfo-strat', name:'CFO Strategy', status:'pending', date:'Apr 12',
-        desc:'S-Corp setup, payroll, tax optimization',
-        files:['CFO_ACTION_PLAN.md','TAX_PREP.md'],
-        metrics:{monthlyTarget:'$10K',structures:2},
-        activity:[
-            {agent:'CFO',text:'Tax advisor call prep delivered',time:'3d ago'},
-        ]
-    },
-];
-
-const PIPELINE = [
-    { name:'LA Galaxy', contact:'CMO', stage:'hot', detail:'Soccer/female football angle — outreach drafted' },
-    { name:'Sharpie (Newell)', contact:'Brand Team', stage:'hot', detail:'MAKE IT territory — internal review Apr 16' },
-    { name:'Glossier', contact:'Solórzano, CMO', stage:'warm', detail:'Outreach due Apr 20' },
-    { name:'Sonos', contact:'DeCourcy', stage:'overdue', detail:'Outreach letter overdue' },
-    { name:'Cash App', contact:'Marketing', stage:'warm', detail:'SCOUT flagged — cultural fit' },
-    { name:'Nike SB', contact:'Brand', stage:'warm', detail:'SCOUT flagged — Gen Z alignment' },
-    { name:'Arc\'teryx', contact:'Creative Dir', stage:'cold', detail:'Early research phase' },
-];
-
-const SCHEDULED = [
-    { name:'SCOUT Pipeline Sweep', cron:'Daily 6:00 AM', status:'on' },
-    { name:'SARAH File Sweep', cron:'Every 4 hours', status:'on' },
-    { name:'ATLAS Dependency Check', cron:'Daily 8:00 AM', status:'on' },
-    { name:'Resy Reservation Monitor', cron:'Every 30 min', status:'on' },
-    { name:'Dashboard Auto-Deploy', cron:'On git push', status:'off' },
-];
-
-// ═══════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════
-let selectedProject = 'sharpie';
-let selectedTab = 'activity';
-
-// ═══════════════════════════════════════
-// RENDER FUNCTIONS
-// ═══════════════════════════════════════
-function renderAgents() {
-    const el = document.getElementById('agent-list');
-    el.innerHTML = AGENTS.map(a => `
-        <div class="agent-item" onclick="openAgent('${a.id}')">
-            <div class="agent-dot ${a.status}"></div>
-            <div class="agent-info">
-                <div class="name">${a.name}</div>
-                <div class="role">${a.role}</div>
-            </div>
-            <div class="agent-tasks">${a.tasks > 0 ? a.tasks : '—'}</div>
-        </div>
-    `).join('');
-}
-
-function renderProjects() {
-    const el = document.getElementById('projects-bar');
-    el.innerHTML = PROJECTS.map(p => {
-        const dotColor = p.status==='active'?'var(--green)':p.status==='complete'?'var(--blue)':'var(--amber)';
-        return `
-        <div class="proj-card ${p.id===selectedProject?'selected':''}" onclick="selectProject('${p.id}')">
-            <div class="proj-name"><span class="proj-status-dot" style="background:${dotColor};${p.status==='active'?'box-shadow:0 0 5px rgba(76,175,80,0.5)':''}"></span>${p.name}</div>
-            <div class="proj-desc">${p.desc}</div>
-            <div class="proj-date">${p.date}</div>
-        </div>`;
-    }).join('');
-}
-
-function renderDetail() {
-    const proj = PROJECTS.find(p=>p.id===selectedProject);
-    if (!proj) return;
-
-    // Activity
-    document.getElementById('pane-activity').innerHTML = proj.activity.map(a => `
-        <div class="feed-item" onclick="openActivity('${a.agent}','${a.text.replace(/'/g,"\\'")}')">
-            <div class="feed-agent">${a.agent}</div>
-            <div class="feed-text">${a.text}</div>
-            <div class="feed-time">${a.time}</div>
-        </div>
-    `).join('') || '<div style="color:var(--text-dim);padding:20px;text-align:center;">No recent activity</div>';
-
-    // Files
-    document.getElementById('pane-files').innerHTML = proj.files.map(f => {
-        const ext = f.split('.').pop();
-        const icon = ext==='md'?'📄':ext==='html'?'🌐':ext==='json'?'📊':'📁';
-        return `
-        <div class="file-item" onclick="openFile('${f}')">
-            <div class="file-icon">${icon}</div>
-            <div class="file-name">${f}</div>
-        </div>`;
-    }).join('');
-
-    // Metrics
-    const m = proj.metrics;
-    const cards = Object.entries(m).map(([k,v]) => `
-        <div class="metric-card">
-            <div class="metric-val">${v}</div>
-            <div class="metric-lbl">${k.replace(/([A-Z])/g,' $1').trim()}</div>
-        </div>
-    `).join('');
-    document.getElementById('pane-metrics').innerHTML = `<div class="metrics-grid">${cards}</div>`;
-}
-
-function renderPipeline() {
-    const el = document.getElementById('pipeline-list');
-    el.innerHTML = PIPELINE.map(p => {
-        const cls = p.stage==='hot'?'badge-hot':p.stage==='warm'?'badge-warm':p.stage==='overdue'?'badge-overdue':'badge-cold';
-        return `
-        <div class="pipeline-item" onclick="openProspect('${p.name.replace(/'/g,"\\'")}')">
-            <div class="pipeline-info">
-                <div class="name">${p.name}</div>
-                <div class="detail">${p.contact} — ${p.detail}</div>
-            </div>
-            <span class="badge ${cls}">${p.stage}</span>
-        </div>`;
-    }).join('');
-}
-
-function renderScheduled() {
-    const el = document.getElementById('sched-list');
-    el.innerHTML = SCHEDULED.map(s => `
-        <div class="sched-item" onclick="openTask('${s.name.replace(/'/g,"\\'")}')">
-            <div class="sched-dot ${s.status}"></div>
-            <div class="sched-info">
-                <div class="name">${s.name}</div>
-                <div class="cron">${s.cron}</div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// ═══════════════════════════════════════
-// INTERACTIONS
-// ═══════════════════════════════════════
-function selectProject(id) {
-    selectedProject = id;
-    renderProjects();
-    renderDetail();
-}
-
-function selectTab(tab) {
-    selectedTab = tab;
-    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab===tab));
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id==='pane-'+tab));
-}
-
-function openModal(title, html) {
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-body').innerHTML = html;
-    document.getElementById('modal-overlay').classList.add('open');
-}
-function closeModal() {
-    document.getElementById('modal-overlay').classList.remove('open');
-}
-
-function openAgent(id) {
-    const a = AGENTS.find(x=>x.id===id);
-    if (!a) return;
-    openModal(a.name + ' — ' + a.role, `
-        <div class="kv"><span class="k">Status</span><span class="v" style="color:${a.status==='active'?'var(--green)':a.status==='busy'?'var(--amber)':'var(--text-dim)'}">${a.status.toUpperCase()}</span></div>
-        <div class="kv"><span class="k">Tasks completed</span><span class="v">${a.tasks}</span></div>
-        <h3>Last Action</h3>
-        <p>${a.lastAction}</p>
-        <h3>Capabilities</h3>
-        <div class="tag-row">
-            ${getAgentTags(a.id)}
-        </div>
-    `);
-}
-
-function getAgentTags(id) {
-    const tags = {
-        jarvis: ['orchestration','task-routing','agent-coordination','decision-making'],
-        maestro: ['strategy','creative-direction','brand-architecture','film-treatment'],
-        writer: ['copywriting','scripts','manifesto','VO','deck-copy'],
-        scout: ['market-research','prospect-intel','competitor-analysis','trend-detection'],
-        testing: ['creative-scoring','ipsos-methodology','demo-analysis','A/B-testing'],
-        nolan: ['storyboards','visual-direction','motion','cinematography'],
-        park: ['deck-building','google-slides','presentation-design','layout'],
-        sarah: ['outreach','email','file-management','scheduling'],
-        atlas: ['dependency-tracking','timeline-management','blocker-detection'],
-        cfo: ['financial-strategy','tax-optimization','revenue-planning'],
-        guardian: ['quality-control','consistency-checks','brand-compliance'],
-        persona: ['audience-profiling','behavioral-data','gen-z-insights'],
-    };
-    return (tags[id]||[]).map(t=>`<span class="tag">${t}</span>`).join('');
-}
-
-function openProspect(name) {
-    const p = PIPELINE.find(x=>x.name===name);
-    if (!p) return;
-    openModal(p.name, `
-        <div class="kv"><span class="k">Contact</span><span class="v">${p.contact}</span></div>
-        <div class="kv"><span class="k">Stage</span><span class="v">${p.stage.toUpperCase()}</span></div>
-        <div class="kv"><span class="k">Detail</span><span class="v">${p.detail}</span></div>
-    `);
-}
-
-function openTask(name) {
-    const s = SCHEDULED.find(x=>x.name===name);
-    if (!s) return;
-    openModal(s.name, `
-        <div class="kv"><span class="k">Schedule</span><span class="v">${s.cron}</span></div>
-        <div class="kv"><span class="k">Status</span><span class="v" style="color:${s.status==='on'?'var(--green)':'var(--text-dim)'}">${s.status.toUpperCase()}</span></div>
-    `);
-}
-
-function openActivity(agent, text) {
-    openModal(agent + ' Activity', `<p>${text}</p>`);
-}
-
-function openFile(name) {
-    openModal(name, `<p style="color:var(--text-dim)">File located in JARVIS output directory.</p><p style="margin-top:8px;color:var(--text);">output/sharpie-what-you-make-it/${name}</p>`);
-}
-
-// ═══════════════════════════════════════
-// CLOCK
-// ═══════════════════════════════════════
-function updateClock() {
+// ===== CLOCK =====
+(function tick() {
     const now = new Date();
-    const opts = { weekday:'short', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false };
-    document.getElementById('clock').textContent = now.toLocaleDateString('en-US', opts).replace(',','');
-}
+    document.getElementById('h-clock').textContent = now.toLocaleString('en-US', {
+        weekday: 'short', month: 'short', day: 'numeric', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+    });
+    setTimeout(tick, 1000);
+})();
 
-// ═══════════════════════════════════════
-// PARTICLE GLOBE
-// ═══════════════════════════════════════
-function initGlobe() {
-    const canvas = document.getElementById('globe-canvas');
-    const wrap = canvas.parentElement;
-    const w = wrap.clientWidth;
-    const h = wrap.clientHeight;
+document.getElementById('feed-ts').textContent = new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
-    renderer.setSize(w, h);
+// ===== GLOBE FACTORY =====
+function makeGlobe(canvas, opts) {
+    opts = Object.assign({ R: 1.4, particles: 500, wireOpacity: 0.07, ringOpacity: 0.3 }, opts);
+    const W = canvas.clientWidth || canvas.width;
+    const H = canvas.clientHeight || canvas.height;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H, false);
+    renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 100);
     camera.position.z = 3.2;
 
-    // Globe particles
-    const geo = new THREE.BufferGeometry();
-    const count = 4000;
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
+    const group = new THREE.Group();
+    scene.add(group);
 
-    for (let i = 0; i < count; i++) {
-        const phi = Math.acos(2 * Math.random() - 1);
-        const theta = Math.random() * Math.PI * 2;
-        const r = 1.0;
-        positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
-        positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
-        positions[i*3+2] = r * Math.cos(phi);
-
-        // Color: cyan-ish with some variation
-        const bright = 0.3 + Math.random() * 0.7;
-        colors[i*3] = 0.0 * bright;
-        colors[i*3+1] = 0.7 * bright;
-        colors[i*3+2] = 0.85 * bright;
+    // Fibonacci sphere particles
+    const N = opts.particles;
+    const R = opts.R;
+    const pos = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) {
+        const phi = Math.acos(-1 + (2 * i) / N);
+        const theta = Math.sqrt(N * Math.PI) * phi;
+        pos[i*3]   = R * Math.sin(phi) * Math.cos(theta);
+        pos[i*3+1] = R * Math.sin(phi) * Math.sin(theta);
+        pos[i*3+2] = R * Math.cos(phi);
     }
+    const pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const pMat = new THREE.PointsMaterial({ color: 0x00c8e8, size: 0.035, transparent: true, opacity: 0.85 });
+    group.add(new THREE.Points(pGeo, pMat));
 
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    // Dim wireframe
+    const wGeo = new THREE.WireframeGeometry(new THREE.SphereGeometry(R, 18, 12));
+    group.add(new THREE.LineSegments(wGeo,
+        new THREE.LineBasicMaterial({ color: 0x00c8e8, transparent: true, opacity: opts.wireOpacity })));
 
-    const mat = new THREE.PointsMaterial({
-        size: 0.012,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.8,
-        sizeAttenuation: true,
-    });
-    const globe = new THREE.Points(geo, mat);
-    scene.add(globe);
+    // Equator ring
+    group.add(new THREE.Mesh(
+        new THREE.TorusGeometry(R, 0.008, 4, 80),
+        new THREE.MeshBasicMaterial({ color: 0x00c8e8, transparent: true, opacity: opts.ringOpacity })
+    ));
 
-    // Ring particles (orbit)
-    const ringGeo = new THREE.BufferGeometry();
-    const ringCount = 800;
-    const ringPos = new Float32Array(ringCount * 3);
-    const ringCol = new Float32Array(ringCount * 3);
-    for (let i = 0; i < ringCount; i++) {
-        const angle = (i / ringCount) * Math.PI * 2;
-        const r = 1.3 + (Math.random() - 0.5) * 0.06;
-        ringPos[i*3] = r * Math.cos(angle);
-        ringPos[i*3+1] = (Math.random() - 0.5) * 0.04;
-        ringPos[i*3+2] = r * Math.sin(angle);
-        ringCol[i*3] = 0.0;
-        ringCol[i*3+1] = 0.5 + Math.random()*0.3;
-        ringCol[i*3+2] = 0.7 + Math.random()*0.15;
-    }
-    ringGeo.setAttribute('position', new THREE.BufferAttribute(ringPos, 3));
-    ringGeo.setAttribute('color', new THREE.BufferAttribute(ringCol, 3));
-    const ringMat = new THREE.PointsMaterial({ size:0.008, vertexColors:true, transparent:true, opacity:0.5, sizeAttenuation:true });
-    const ring = new THREE.Points(ringGeo, ringMat);
-    ring.rotation.x = 0.5;
-    scene.add(ring);
+    // Tilted orbital ring
+    const r2 = new THREE.Mesh(
+        new THREE.TorusGeometry(R + 0.2, 0.005, 4, 80),
+        new THREE.MeshBasicMaterial({ color: 0x00c8e8, transparent: true, opacity: opts.ringOpacity * 0.55 })
+    );
+    r2.rotation.x = Math.PI / 4;
+    r2.rotation.z = Math.PI / 5;
+    group.add(r2);
 
-    // Connection lines (subtle)
-    const lineMat = new THREE.LineBasicMaterial({ color:0x00B4D8, transparent:true, opacity:0.06 });
-    for (let i = 0; i < 20; i++) {
-        const lineGeo = new THREE.BufferGeometry();
-        const i1 = Math.floor(Math.random()*count);
-        const i2 = Math.floor(Math.random()*count);
-        lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
-            positions[i1*3], positions[i1*3+1], positions[i1*3+2],
-            positions[i2*3], positions[i2*3+1], positions[i2*3+2],
-        ]), 3));
-        scene.add(new THREE.Line(lineGeo, lineMat));
-    }
+    // Orbiting beacon
+    const beacon = new THREE.Mesh(
+        new THREE.SphereGeometry(0.048, 6, 6),
+        new THREE.MeshBasicMaterial({ color: 0x00ff88 })
+    );
+    scene.add(beacon);
 
-    // Animate
+    let t = 0;
+    let alive = true;
     function animate() {
+        if (!alive) return;
         requestAnimationFrame(animate);
-        globe.rotation.y += 0.002;
-        ring.rotation.y -= 0.001;
+        t += 0.012;
+        group.rotation.y += 0.004;
+        group.rotation.x += 0.0007;
+        const orbitR = R + 0.2;
+        beacon.position.set(
+            orbitR * Math.cos(t) * Math.cos(Math.PI / 4),
+            orbitR * Math.sin(Math.PI / 4) * Math.sin(t),
+            orbitR * Math.sin(t) * Math.cos(Math.PI / 4)
+        );
         renderer.render(scene, camera);
     }
     animate();
 
-    // Resize
-    window.addEventListener('resize', () => {
-        const nw = wrap.clientWidth;
-        const nh = wrap.clientHeight;
-        camera.aspect = nw/nh;
-        camera.updateProjectionMatrix();
-        renderer.setSize(nw, nh);
-    });
+    return {
+        resize(w, h) {
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        },
+        destroy() { alive = false; renderer.dispose(); }
+    };
 }
 
-// ═══════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-    renderAgents();
-    renderProjects();
-    renderDetail();
-    renderPipeline();
-    renderScheduled();
-    updateClock();
-    setInterval(updateClock, 1000);
-    initGlobe();
+// Main globe
+const mainCanvas = document.getElementById('globe-canvas');
+const mainGlobe = makeGlobe(mainCanvas, { R: 1.4, particles: 500 });
 
-    // Tab clicks
-    document.querySelectorAll('.tab').forEach(t => {
-        t.addEventListener('click', () => selectTab(t.dataset.tab));
-    });
+// Header micro-globe
+const hCanvas = document.getElementById('h-globe-canvas');
+hCanvas.width = 200; hCanvas.height = 44;
+makeGlobe(hCanvas, { R: 1.1, particles: 280, wireOpacity: 0.05, ringOpacity: 0.25 });
 
-    // Modal close
-    document.getElementById('modal-close').addEventListener('click', closeModal);
-    document.getElementById('modal-overlay').addEventListener('click', e => {
-        if (e.target === e.currentTarget) closeModal();
-    });
-    document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+window.addEventListener('resize', () => {
+    const p = mainCanvas.parentElement;
+    mainGlobe.resize(p.clientWidth, p.clientHeight);
+});
+
+// ===== PROJECT DATA =====
+const PROJECTS = {
+    sharpie: {
+        title: 'Sharpie MAKE IT',
+        sub: 'Brand campaign platform — pitch phase',
+        status: 'Active', pillClass: 'p-active',
+        phase: 'Deck V2 Build — internal review this week',
+        desc: 'Full campaign platform for Sharpie permanent marker and writing instruments. Platform: "MAKE IT" — positioning Sharpie as the cultural tool for people who create, mark, and leave a legacy. Campaign spans :60/:30/:15 commercials, social content, merch activation, and a live event strategy. 28 output files generated across 5 pipeline passes.',
+        agents: ['MAESTRO','WRITER','PARK','NOLAN','TESTING','SCOUT','GUARDIAN'],
+        steps: [
+            'Finalize Deck V2 — design and production sections',
+            'Client presentation — internal review this week',
+            'Submit licensing contact list for merch activation',
+            'NOLAN shot list review before production meeting',
+            'TESTING: final concept validation on selected :60 route'
+        ],
+        meta: [{ l:'Last Updated', v:'Apr 15, 2026' }, { l:'Phase', v:'Deck V2 Build' }, { l:'Output Files', v:'28 files' }]
+    },
+    newbiz: {
+        title: 'BiG New Business',
+        sub: 'Business development — 7 active prospects',
+        status: 'Active', pillClass: 'p-active',
+        phase: 'SCOUT pipeline running — daily 6am scan',
+        desc: 'Systematic new business outreach for Brand Imagination Group. SCOUT has built a qualified prospect database with market intel, contact information, and strategic angles for 7 priority targets. Outreach letters and pitch frameworks drafted. Daily monitoring pipeline auto-runs at 6am.',
+        agents: ['SCOUT','PERSONA','GUARDIAN','MAESTRO'],
+        steps: [
+            'Glossier — Solórzano outreach letter by Apr 20',
+            'Sonos — DeCourcy letter (overdue — action required)',
+            'P.F. Chang\'s — brief SCOUT for initial outreach',
+            'Build pitch templates per category vertical',
+            'Schedule intro calls for Glossier and Sonos'
+        ],
+        meta: [{ l:'Prospects', v:'7 active' }, { l:'Priority', v:'Sonos, Glossier' }, { l:'Monitor', v:'Daily 6am' }]
+    },
+    underscore: {
+        title: 'Underscore Films',
+        sub: 'Rick Wayne — directing and production vehicle',
+        status: 'Active', pillClass: 'p-active',
+        phase: 'Director portfolio live + outreach in progress',
+        desc: 'Building Rick Wayne\'s directing and production presence under Underscore Films. Includes director bio, reel strategy, treatment template, social content strategy, LinkedIn optimization, and a press/outreach system for production company introduction. 12 output files generated.',
+        agents: ['NOLAN','GUARDIAN','WRITER','SCOUT'],
+        steps: [
+            'Send ready-to-send outreach emails (output/underscore/emails-ready-to-send.md)',
+            'Update reel with latest production work',
+            'Publish updated LinkedIn profile (optimization complete)',
+            'Execute Social Engine Strategy — batch 1 content',
+            'SCOUT research: comparable director deal structures'
+        ],
+        meta: [{ l:'Portfolio', v:'rickwayne.cc' }, { l:'Reel', v:'Pending update' }, { l:'Output Files', v:'12 files' }]
+    },
+    cfo: {
+        title: 'CFO Strategy',
+        sub: 'Financial structure and business architecture',
+        status: 'Pending', pillClass: 'p-pending',
+        phase: 'Research complete — S-Corp setup pending action',
+        desc: 'Financial architecture for BiG and Rick Wayne. Research covers S-Corp formation, payroll structure, passive income strategy, and long-term ownership model. CFO has produced full research document and passive income analysis. Implementation requires external advisors — action by Rick required.',
+        agents: ['CFO'],
+        steps: [
+            'File S-Corp paperwork (external advisor required)',
+            'Set up payroll structure once S-Corp is active',
+            'Review passive income strategy document (output/cfo/passive-income-strategy.md)',
+            'Schedule quarterly CFO strategy review',
+            'Confirm accounting software before payroll launch'
+        ],
+        meta: [{ l:'Priority', v:'High' }, { l:'Blocker', v:'External advisor' }, { l:'Research', v:'Complete' }]
+    },
+    gobig: {
+        title: 'BiG Agency Website',
+        sub: 'gobig-nyc.github.io — deployed to GitHub Pages',
+        status: 'Live', pillClass: 'p-live',
+        phase: 'Live — ongoing maintenance and updates',
+        desc: 'Full agency website for Brand Imagination Group. 15 pages including agency philosophy, capabilities, team, and contact. 10 case studies covering Sharpie, Chicago Lighthouse, NUK, Graco, Paper Mate, and more. Deployed to GitHub Pages. Google-indexed.',
+        agents: ['PARK','GUARDIAN','SCOUT'],
+        steps: [
+            'Update Sharpie case study once campaign is approved',
+            'Add Underscore Films to capabilities section',
+            'SEO audit via SCOUT — identify keyword opportunities',
+            'Add new business contact form',
+            'Review and refresh agency positioning copy'
+        ],
+        meta: [{ l:'URL', v:'gobig-nyc.github.io' }, { l:'Pages', v:'15' }, { l:'Case Studies', v:'10' }]
+    },
+    rickwayne: {
+        title: 'rickwayne.cc',
+        sub: 'Director portfolio — deployed and indexed',
+        status: 'Live', pillClass: 'p-live',
+        phase: 'Deployed — Google indexed',
+        desc: 'Personal director portfolio for Rick Wayne. Fast, cinematic design showcasing work across commercial, branded content, and Underscore Films projects. Google-indexed and linked from BiG agency site.',
+        agents: ['NOLAN','PARK'],
+        steps: [
+            'Update reel embed when new production work is cut',
+            'Add HAVOC project to selected work section',
+            'Monitor Google indexing and search appearance',
+            'Cross-link from Underscore Films outreach materials'
+        ],
+        meta: [{ l:'URL', v:'rickwayne.cc' }, { l:'Deployed', v:'Mar 28, 2026' }, { l:'Status', v:'Indexed' }]
+    },
+    havoc: {
+        title: 'HAVOC TV Bible',
+        sub: 'Original IP — development-ready',
+        status: 'Complete', pillClass: 'p-complete',
+        phase: 'Complete — available for development meetings',
+        desc: '8-episode television bible for HAVOC — original IP developed by Rick Wayne. Complete with series premise, episode arcs, character bible, and tone document. Production-quality writing. Ready for development meetings with streaming platforms and production companies.',
+        agents: ['MAESTRO','WRITER'],
+        steps: [
+            'Identify development executives at target networks/streamers',
+            'Build HAVOC one-pager for cold outreach (WRITER)',
+            'SCOUT research: comparable series deal structures',
+            'Draft introductory pitch email via WRITER',
+            'Submit to at least 3 development contacts Q2'
+        ],
+        meta: [{ l:'Episodes', v:'8' }, { l:'Format', v:'TV Drama/Thriller' }, { l:'Completed', v:'Apr 10, 2026' }]
+    },
+    book: {
+        title: 'Book Outline',
+        sub: 'Rick Wayne — working title TBD',
+        status: 'Complete', pillClass: 'p-complete',
+        phase: 'Outline complete — ready for first draft',
+        desc: 'Book outline exploring Rick Wayne\'s philosophy on creativity, brand strategy, and the intersection of culture and commerce. Full chapter structure on Google Docs. Represents a major long-term content and positioning opportunity.',
+        agents: ['WRITER'],
+        steps: [
+            'Begin Chapter 1 first draft when bandwidth allows',
+            'Identify literary agents via SCOUT research',
+            'Develop 1-2 chapters as thought leadership content first',
+            'Build proposal document once 3 chapters are complete'
+        ],
+        meta: [{ l:'Format', v:'Nonfiction' }, { l:'Location', v:'Google Docs' }, { l:'Completed', v:'Apr 08, 2026' }]
+    }
+};
+
+// ===== MODAL =====
+function openModal(id) {
+    const p = PROJECTS[id];
+    if (!p) return;
+    document.getElementById('m-title').textContent = p.title;
+    document.getElementById('m-sub').textContent = p.sub;
+    const pill = document.getElementById('m-pill');
+    pill.textContent = p.status;
+    pill.className = 'pill ' + p.pillClass;
+    document.getElementById('m-body').innerHTML = `
+        <div class="ms">
+            <div class="ms-title">Phase</div>
+            <div class="ms-phase">${p.phase}</div>
+        </div>
+        <div class="ms">
+            <div class="ms-title">Overview</div>
+            <div class="ms-body">${p.desc}</div>
+        </div>
+        <div class="ms">
+            <div class="ms-title">Assigned Agents</div>
+            <div class="m-agents">${p.agents.map(a=>`<span class="m-tag">${a}</span>`).join('')}</div>
+        </div>
+        <div class="ms">
+            <div class="ms-title">Next Steps</div>
+            <ul class="m-steps">${p.steps.map(s=>`<li>${s}</li>`).join('')}</ul>
+        </div>
+        <div class="ms">
+            <div class="ms-title">Project Data</div>
+            <div class="m-meta">${p.meta.map(m=>`<div class="m-meta-item"><div class="m-meta-label">${m.l}</div><div class="m-meta-val">${m.v}</div></div>`).join('')}</div>
+        </div>
+    `;
+    document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal(e) {
+    if (!e || e.target === document.getElementById('overlay')) {
+        document.getElementById('overlay').classList.remove('open');
+    }
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('overlay').classList.remove('open');
 });
 </script>
 </body>
