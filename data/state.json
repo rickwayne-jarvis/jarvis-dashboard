@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-23T04:41:19Z",
-  "statusLine": "CEO pitch morning — deck ready, VO polished, all systems clean. SARAH swept at 4am (38 loose docs in ~/Documents flagged). Glossier 3 days overdue, LA Galaxy closes April 25. GUARDIAN still unrun in 5 cycles — queue it after the pitch.",
+  "lastUpdated": "2026-04-23T05:20:00Z",
+  "statusLine": "CEO pitch day is here. SARAH just finished Run 66 — 27 confirmed duplicates found in Documents, ready to clear on your command, 9 unique files flagged for review. Glossier is 3 days past due and LA Galaxy closes April 25. GUARDIAN is now at six straight no-runs.",
   "agents": [
     {
       "id": "jarvis",
@@ -18,7 +18,7 @@
       "role": "Researcher / Pipeline",
       "state": "idle",
       "lastAction": "Pipeline sweep — Lands' End flagged (4/5 BiG fit, first CMO in decade)",
-      "lastActionAgo": "22h ago",
+      "lastActionAgo": "~23h ago",
       "nextRun": "Today 6:07 AM"
     },
     {
@@ -27,7 +27,7 @@
       "role": "Executive Creative Director",
       "state": "idle",
       "lastAction": "Product vision doc + WYMI rooftop scene v2 + campaign review",
-      "lastActionAgo": "~10h ago",
+      "lastActionAgo": "~11h ago",
       "nextRun": null
     },
     {
@@ -36,7 +36,7 @@
       "role": "Copywriter / Content",
       "state": "idle",
       "lastAction": "Director site About page + Process section drafts",
-      "lastActionAgo": "~10h ago",
+      "lastActionAgo": "~11h ago",
       "nextRun": null
     },
     {
@@ -53,9 +53,9 @@
       "name": "SARAH",
       "role": "File System / Operations",
       "state": "idle",
-      "lastAction": "Run 65 — Downloads clean (13 items scanned). 38 loose JARVIS docs in ~/Documents flagged — awaiting user confirmation to move.",
-      "lastActionAgo": "37m ago",
-      "nextRun": "~5:04 AM"
+      "lastAction": "Run 66 — Documents: 35 JARVIS files, 27 confirmed byte-for-byte duplicates (safe to delete), 9 unique files flagged. Say 'yes clean Documents dupes' to clear.",
+      "lastActionAgo": "13m ago",
+      "nextRun": "~6:04 AM"
     },
     {
       "id": "atlas",
@@ -63,7 +63,7 @@
       "role": "System Monitor",
       "state": "idle",
       "lastAction": "Daily report — PARK/NOLAN stale, GUARDIAN 5th no-run, Lands' End flagged",
-      "lastActionAgo": "~19h ago",
+      "lastActionAgo": "~20h ago",
       "nextRun": "Today 9:05 AM"
     },
     {
@@ -71,7 +71,7 @@
       "name": "GUARDIAN",
       "role": "QA / Continuity",
       "state": "idle",
-      "lastAction": "Not run — 5 consecutive ATLAS flags",
+      "lastAction": "Not run — 6 consecutive ATLAS flags. Blocks client delivery.",
       "lastActionAgo": null,
       "nextRun": null
     },
@@ -104,21 +104,21 @@
     }
   ],
   "activity": [
-    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch day, GUARDIAN 5th no-run flag, Glossier 3d overdue, LA Galaxy 2d to deadline",                           "time": "4:41 AM" },
-    { "agent": "SARAH",    "action": "Run 65 — Downloads clean (13 items). 38 loose JARVIS docs in ~/Documents flagged for review.",                                    "time": "4:04 AM" },
-    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch alert active, Glossier 3d overdue, LA Galaxy 2d to deadline",                                          "time": "3:39 AM" },
-    { "agent": "SARAH",    "action": "Run 65 — renamed jarvis-maestro-product-vision + jarvis-scout-dashboard to sharpie-* prefix",                                       "time": "3:04 AM" },
-    { "agent": "ATLAS",    "action": "Full state audit — purged stale data, rebuilt state.json v2",                                                                        "time": "9:50 PM" },
-    { "agent": "JARVIS",   "action": "Dashboard rebuild — v6 HTML deployed",                                                                                              "time": "9:23 PM" },
-    { "agent": "SCOUT",    "action": "Fractional ECD portal built — 18 prospects, Lands' End top lead",                                                                   "time": "9:22 PM" },
-    { "agent": "SARAH",    "action": "Run 64 — JARVIS ProductVision + Dashboard UX Research filed",                                                                       "time": "9:07 PM" },
-    { "agent": "MAESTRO",  "action": "Product vision doc (13KB) + WYMI final VO + rooftop scene v2",                                                                      "time": "9:04 PM" },
-    { "agent": "MAESTRO",  "action": "CEO pitch deck PDF exported (SHARPIE_MAKE_IT_PRESENTATION_2026-04-23)",                                                             "time": "4:16 PM" },
-    { "agent": "ATLAS",    "action": "Daily dependency report — PARK/NOLAN 48h stale, GUARDIAN still at zero",                                                            "time": "9:05 AM" }
+    { "agent": "SARAH",    "action": "Run 66 — Documents audit: 35 JARVIS files, 27 confirmed duplicates (ready to delete), 9 unique files flagged. Downloads not mounted.",                 "time": "5:07 AM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch day, GUARDIAN 5th no-run flag, Glossier 3d overdue, LA Galaxy 2d to deadline",                                           "time": "4:41 AM" },
+    { "agent": "SARAH",    "action": "Run 65 — Downloads clean (13 items). 38 loose JARVIS docs in ~/Documents flagged for review.",                                                      "time": "4:04 AM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch alert active, Glossier 3d overdue, LA Galaxy 2d to deadline",                                                            "time": "3:39 AM" },
+    { "agent": "SARAH",    "action": "Run 65 — renamed jarvis-maestro-product-vision + jarvis-scout-dashboard to sharpie-* prefix",                                                       "time": "3:04 AM" },
+    { "agent": "ATLAS",    "action": "Full state audit — purged stale data, rebuilt state.json v2",                                                                                        "time": "9:50 PM" },
+    { "agent": "JARVIS",   "action": "Dashboard rebuild — v6 HTML deployed",                                                                                                              "time": "9:23 PM" },
+    { "agent": "SCOUT",    "action": "Fractional ECD portal built — 18 prospects, Lands' End top lead",                                                                                   "time": "9:22 PM" },
+    { "agent": "SARAH",    "action": "Run 64 — JARVIS ProductVision + Dashboard UX Research filed",                                                                                       "time": "9:07 PM" },
+    { "agent": "MAESTRO",  "action": "Product vision doc (13KB) + WYMI final VO + rooftop scene v2",                                                                                      "time": "9:04 PM" },
+    { "agent": "ATLAS",    "action": "Daily dependency report — PARK/NOLAN 48h stale, GUARDIAN still at zero",                                                                            "time": "9:05 AM" }
   ],
   "attention": [
     {
-      "title": "CEO pitch is TODAY (April 23)",
+      "title": "CEO Pitch — TODAY (April 23)",
       "subtitle": "Deck exported, VO polished. You're ready. Make it count.",
       "severity": "red"
     },
@@ -133,18 +133,23 @@
       "severity": "red"
     },
     {
+      "title": "27 confirmed dupes in Documents — ready to clear",
+      "subtitle": "SARAH Run 66 verified checksums. Say 'yes clean Documents dupes' to remove safely.",
+      "severity": "amber"
+    },
+    {
       "title": "Macy's — needs outreach this week",
       "subtitle": "Q2 decision. Creative partner needed May–June. 100th Parade on Nov 26.",
       "severity": "amber"
     },
     {
-      "title": "PARK + NOLAN stale — 48h+ behind Hybrid V1",
-      "subtitle": "Decks still show Rick's Deck Cut (4.1★). Hybrid V1 (4.7★) not loaded.",
+      "title": "GUARDIAN — 6th consecutive no-run",
+      "subtitle": "Blocks client delivery pipeline. Queue it after the CEO pitch today.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — 5th consecutive no-run",
-      "subtitle": "Blocks client delivery pipeline. Queue it after the CEO pitch today.",
+      "title": "PARK + NOLAN stale — 72h+ behind Hybrid V1",
+      "subtitle": "Decks still show Rick's Deck Cut (4.1★). Hybrid V1 (4.7★) not loaded.",
       "severity": "amber"
     },
     {
@@ -154,8 +159,8 @@
     }
   ],
   "scheduled": [
-    { "id": "sarah-file-sweep",       "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T04:04:56Z", "nextRun": "2026-04-23T05:04:06Z" },
-    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T04:41:19Z", "nextRun": "2026-04-23T05:39:16Z" },
+    { "id": "sarah-file-sweep",       "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T05:04:56Z", "nextRun": "2026-04-23T06:04:06Z" },
+    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T05:20:00Z", "nextRun": "2026-04-23T06:39:16Z" },
     { "id": "atlas-dependency-check", "name": "ATLAS Dependency",    "schedule": "Daily 9:05 AM", "enabled": true,  "lastRun": "2026-04-22T13:05:38Z", "nextRun": "2026-04-23T13:04:52Z" },
     { "id": "scout-pipeline-check",   "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM", "enabled": true,  "lastRun": "2026-04-22T10:07:47Z", "nextRun": "2026-04-23T10:07:01Z" },
     { "id": "morning-priorities",     "name": "Morning Priorities",  "schedule": "Daily 6:06 AM", "enabled": true,  "lastRun": "2026-04-22T10:06:52Z", "nextRun": "2026-04-23T10:06:06Z" },
@@ -175,7 +180,7 @@
     "scheduled_tasks_disabled": 2,
     "prospects_in_pipeline": 18,
     "overdue_outreach": 3,
-    "files_swept_last_run": 13,
+    "files_swept_last_run": 35,
     "receipts_filed_today": 2
   }
 }
