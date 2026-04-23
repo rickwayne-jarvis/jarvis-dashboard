@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-23T04:41:19Z",
-  "status_line": "CEO pitch morning — SARAH swept clean at 4am, all systems nominal. Glossier is 3 days overdue, LA Galaxy closes April 25. GUARDIAN still hasn't run in 5 cycles; queue it after the pitch.",
+  "updated_at": "2026-04-23T05:20:00Z",
+  "status_line": "CEO pitch day is here. SARAH just finished Run 66 — 27 confirmed duplicates found in Documents, ready to clean on your command, with 9 unique files flagged for review. Glossier is 3 days past due and LA Galaxy closes April 25. GUARDIAN is now at six straight no-runs.",
   "agents": [
     {
       "name": "SCOUT",
@@ -26,21 +26,21 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Current — last scoring task complete.",
-      "last_run": "Recent",
+      "last_action": "Hybrid V1 confirmed 4.7★ — production-ready score.",
+      "last_run": "2 days ago",
       "color": "dim"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 65 — Downloads clean (13 items scanned, zero JARVIS files). Flagged 38 loose JARVIS docs in ~/Documents awaiting user confirmation to move.",
-      "last_run": "Today 4:04 AM",
+      "last_action": "Run 66 — Documents: 35 JARVIS files found, 27 confirmed byte-for-byte duplicates (safe to delete), 9 unique files flagged for Rick. Downloads sandbox-inaccessible. Say 'yes clean Documents dupes' to clear.",
+      "last_run": "Today 5:07 AM",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Daily system report filed. Flagged PARK/NOLAN stale on Hybrid V1, GUARDIAN at 5th consecutive no-run.",
+      "last_action": "System report filed. PARK/NOLAN stale on Hybrid V1, GUARDIAN at 5th consecutive no-run flagged.",
       "last_run": "Yesterday 9:05 AM",
       "color": "teal"
     },
@@ -54,14 +54,14 @@
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "All 3 decks parked at Rick's Deck Cut (4.1★). Hybrid V1 (4.7★) lives in script only.",
+      "last_action": "All 3 decks at Rick's Cut (4.1★). Hybrid V1 (4.7★) lives in script only — client delivery risk.",
       "last_run": "Parked",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "5th consecutive cycle with no run. Blocks client delivery pipeline.",
+      "last_action": "6th consecutive cycle with no run. Blocks client delivery pipeline.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,6 +75,12 @@
   ],
   "activity": [
     {
+      "time": "5:07 AM",
+      "agent": "SARAH",
+      "text": "Run 66 complete. Documents: 35 JARVIS files, 27 confirmed duplicates (ready to delete), 9 unique files flagged for review. Downloads not mounted this run.",
+      "color": "teal"
+    },
+    {
       "time": "4:39 AM",
       "agent": "JARVIS",
       "text": "Dashboard update pushed to GitHub Pages — agent states, 3 red attention items captured.",
@@ -83,7 +89,7 @@
     {
       "time": "4:04 AM",
       "agent": "SARAH",
-      "text": "Run 65 complete. Downloads clean. 38 loose JARVIS docs in ~/Documents flagged (not moved — awaiting confirmation).",
+      "text": "Run 65 complete. Downloads clean (13 items). 38 loose JARVIS docs in ~/Documents flagged (not moved — awaiting confirmation).",
       "color": "teal"
     },
     {
@@ -95,31 +101,25 @@
     {
       "time": "Yesterday 9:05 AM",
       "agent": "ATLAS",
-      "text": "System report: PARK/NOLAN 48h stale on Hybrid V1. GUARDIAN flag #4. SCOUT + MAESTRO + TESTING current.",
+      "text": "System report: PARK/NOLAN 48h stale on Hybrid V1. GUARDIAN flag #5. SCOUT + MAESTRO + TESTING current.",
       "color": "teal"
+    },
+    {
+      "time": "Yesterday 9:04 AM",
+      "agent": "JARVIS",
+      "text": "Receipt filer ran — Uber/Lyft/restaurant receipts classified by card and filed to Dropbox.",
+      "color": "blue"
     },
     {
       "time": "Yesterday 6:07 AM",
       "agent": "SCOUT",
-      "text": "Lands' End filed — Sarah Sylvester hired as CMO (Apr 1), WHP Global acquisition, blank creative roster. BiG Fit 4/5. Outreach window closes April 30.",
-      "color": "teal"
-    },
-    {
-      "time": "Yesterday ~6:07 AM",
-      "agent": "SCOUT",
-      "text": "Pipeline resolved: Farmers Insurance → Dentsu, Wendy's media → WPP, Haleon → Publicis/WPP (too large). Active prospects confirmed: Hoka, Macy's, Glossier, Michael Kors, LA Galaxy.",
+      "text": "Lands' End filed (BiG Fit 4/5) — Sarah Sylvester hired as first CMO in a decade, WHP Global acquisition, blank creative roster. Outreach window closes April 30.",
       "color": "teal"
     },
     {
       "time": "Yesterday 6:06 AM",
       "agent": "JARVIS",
       "text": "Morning priorities: Glossier, Michael Kors, Macy's, PARK re-run, GUARDIAN sequenced for the day.",
-      "color": "blue"
-    },
-    {
-      "time": "Apr 22 9:04 AM",
-      "agent": "JARVIS",
-      "text": "Receipt filer ran — Uber/Lyft/restaurant receipts classified by card and filed to Dropbox.",
       "color": "blue"
     },
     {
@@ -131,14 +131,14 @@
     {
       "time": "Apr 22",
       "agent": "SARAH",
-      "text": "Run 64 + Run 55 — clean sweeps. Discovered 6 uncatalogued Sharpie merch render PNGs in ~/Documents.",
+      "text": "Runs 54–55 — clean sweeps. Discovered 6 uncatalogued Sharpie merch render PNGs in ~/Documents.",
       "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "CEO Pitch — TODAY",
-      "subtitle": "Deck ready, VO polished. Flagged: no measurement framework / KPIs slide as of last night.",
+      "subtitle": "Deck ready, VO polished. Last flag: no measurement framework / KPIs slide as of last night.",
       "severity": "red"
     },
     {
@@ -152,35 +152,40 @@
       "severity": "red"
     },
     {
-      "title": "Macy's — 5 Consecutive Flags",
-      "subtitle": "Q2 creative partner decision due May–June. Has this moved at all?",
+      "title": "27 Confirmed Dupes in Documents",
+      "subtitle": "SARAH Run 66 verified checksums. Say 'yes clean Documents dupes' to remove safely.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — 5th No-Run",
+      "title": "Macy's — 5+ Consecutive Flags",
+      "subtitle": "Q2 creative partner decision due May–June. Has this moved?",
+      "severity": "amber"
+    },
+    {
+      "title": "GUARDIAN — 6th No-Run",
       "subtitle": "Blocks client delivery pipeline. Queue after CEO pitch today.",
       "severity": "amber"
     },
     {
       "title": "PARK / NOLAN Stale on Hybrid V1",
-      "subtitle": "Decks show Rick's Cut (4.1★). Hybrid V1 (4.7★, production cut) exists in script only. Client risk.",
+      "subtitle": "Decks show Rick's Cut (4.1★). Hybrid V1 (4.7★, confirmed production) lives in script only.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 2,
+    "tasks_today": 3,
     "top_score": 4.7,
     "prospects": 6,
-    "files_swept": 13
+    "files_swept": 35
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "5:04 AM UTC"
+      "next_run": "6:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "5:39 AM UTC"
+      "next_run": "6:39 AM UTC"
     },
     {
       "name": "Receipt filer",
@@ -196,11 +201,11 @@
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "1:04 PM UTC"
+      "next_run": "1:05 PM UTC"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM UTC"
+      "next_run": "11:04 PM UTC"
     }
   ]
 }
