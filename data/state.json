@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-23T04:39:00Z",
-  "statusLine": "CEO pitch morning. It's 4:39 AM — deck is ready, VO is polished. Glossier is now 3 days overdue, LA Galaxy closes in 2 days. SARAH swept clean at 4am. All systems nominal.",
+  "lastUpdated": "2026-04-23T04:41:19Z",
+  "statusLine": "CEO pitch morning — deck ready, VO polished, all systems clean. SARAH swept at 4am (38 loose docs in ~/Documents flagged). Glossier 3 days overdue, LA Galaxy closes April 25. GUARDIAN still unrun in 5 cycles — queue it after the pitch.",
   "agents": [
     {
       "id": "jarvis",
@@ -53,8 +53,8 @@
       "name": "SARAH",
       "role": "File System / Operations",
       "state": "idle",
-      "lastAction": "Run 66 — clean sweep, Downloads empty, output root organized, 6 dupes pending user confirmation",
-      "lastActionAgo": "35m ago",
+      "lastAction": "Run 65 — Downloads clean (13 items scanned). 38 loose JARVIS docs in ~/Documents flagged — awaiting user confirmation to move.",
+      "lastActionAgo": "37m ago",
       "nextRun": "~5:04 AM"
     },
     {
@@ -104,8 +104,9 @@
     }
   ],
   "activity": [
-    { "agent": "SARAH",    "action": "Run 66 — clean sweep, Downloads empty, output root organized. 6 dupes + 2 zero-byte files awaiting user confirmation to delete.",  "time": "4:04 AM" },
-    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch alert active, Glossier 3d overdue, LA Galaxy 2d to deadline",                                            "time": "3:40 AM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch day, GUARDIAN 5th no-run flag, Glossier 3d overdue, LA Galaxy 2d to deadline",                           "time": "4:41 AM" },
+    { "agent": "SARAH",    "action": "Run 65 — Downloads clean (13 items). 38 loose JARVIS docs in ~/Documents flagged for review.",                                    "time": "4:04 AM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch alert active, Glossier 3d overdue, LA Galaxy 2d to deadline",                                          "time": "3:39 AM" },
     { "agent": "SARAH",    "action": "Run 65 — renamed jarvis-maestro-product-vision + jarvis-scout-dashboard to sharpie-* prefix",                                       "time": "3:04 AM" },
     { "agent": "ATLAS",    "action": "Full state audit — purged stale data, rebuilt state.json v2",                                                                        "time": "9:50 PM" },
     { "agent": "JARVIS",   "action": "Dashboard rebuild — v6 HTML deployed",                                                                                              "time": "9:23 PM" },
@@ -142,6 +143,11 @@
       "severity": "amber"
     },
     {
+      "title": "GUARDIAN — 5th consecutive no-run",
+      "subtitle": "Blocks client delivery pipeline. Queue it after the CEO pitch today.",
+      "severity": "amber"
+    },
+    {
       "title": "Lands' End — top new prospect",
       "subtitle": "Sarah Sylvester, new CMO April 1. Blank creative roster. Outreach by April 30.",
       "severity": "amber"
@@ -149,7 +155,7 @@
   ],
   "scheduled": [
     { "id": "sarah-file-sweep",       "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T04:04:56Z", "nextRun": "2026-04-23T05:04:06Z" },
-    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T04:39:00Z", "nextRun": "2026-04-23T05:39:16Z" },
+    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T04:41:19Z", "nextRun": "2026-04-23T05:39:16Z" },
     { "id": "atlas-dependency-check", "name": "ATLAS Dependency",    "schedule": "Daily 9:05 AM", "enabled": true,  "lastRun": "2026-04-22T13:05:38Z", "nextRun": "2026-04-23T13:04:52Z" },
     { "id": "scout-pipeline-check",   "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM", "enabled": true,  "lastRun": "2026-04-22T10:07:47Z", "nextRun": "2026-04-23T10:07:01Z" },
     { "id": "morning-priorities",     "name": "Morning Priorities",  "schedule": "Daily 6:06 AM", "enabled": true,  "lastRun": "2026-04-22T10:06:52Z", "nextRun": "2026-04-23T10:06:06Z" },
@@ -169,7 +175,7 @@
     "scheduled_tasks_disabled": 2,
     "prospects_in_pipeline": 18,
     "overdue_outreach": 3,
-    "files_swept_last_run": 0,
+    "files_swept_last_run": 13,
     "receipts_filed_today": 2
   }
 }
