@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-23T05:20:00Z",
-  "status_line": "CEO pitch day is here. SARAH just finished Run 66 — 27 confirmed duplicates found in Documents, ready to clean on your command, with 9 unique files flagged for review. Glossier is 3 days past due and LA Galaxy closes April 25. GUARDIAN is now at six straight no-runs.",
+  "updated_at": "2026-04-23T07:39:00Z",
+  "status_line": "CEO pitch day is here. SARAH Run 67 wrapped clean — 12 Grain Haven film grain duplicates (~4.6 GB) confirmed in Downloads, ready to clear on your command. Glossier is now 3 days past target and LA Galaxy closes in 2 days; both need action today. SCOUT and ATLAS have their daily runs queued for this morning.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Filed Lands' End as new prospect (4/5 BiG fit) — Sarah Sylvester first CMO in a decade, blank creative roster. Pipeline dashboard updated and pushed.",
+      "last_action": "Filed Lands' End (4/5 BiG fit) — Sarah Sylvester first CMO in a decade, WHP Global acquisition, blank creative roster. Pipeline dashboard live. Today's run queued at 10:07 AM UTC.",
       "last_run": "Yesterday 6:07 AM",
       "color": "teal"
     },
@@ -14,12 +14,12 @@
       "state": "idle",
       "last_action": "Product vision doc + WYMI campaign materials completed.",
       "last_run": "Yesterday evening",
-      "color": "teal"
+      "color": "dim"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "Current — no new tasks since last cycle.",
+      "last_action": "No new tasks since last cycle.",
       "last_run": "Recent",
       "color": "dim"
     },
@@ -33,14 +33,14 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 66 — Documents: 35 JARVIS files found, 27 confirmed byte-for-byte duplicates (safe to delete), 9 unique files flagged for Rick. Downloads sandbox-inaccessible. Say 'yes clean Documents dupes' to clear.",
-      "last_run": "Today 5:07 AM",
+      "last_action": "Run 67 — Downloads: 13 items scanned. 12 Grain Haven film grain overlays (~4.6 GB) confirmed duplicates of files in output/2026-04-06_nolan/. 0 moves/deletes. Say 'yes delete grain haven downloads' to clear 4.6 GB.",
+      "last_run": "Today 6:05 AM UTC",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "System report filed. PARK/NOLAN stale on Hybrid V1, GUARDIAN at 5th consecutive no-run flagged.",
+      "last_action": "April 22 report filed. PARK/NOLAN stale on Hybrid V1. GUARDIAN at 4th consecutive no-run flagged. Today's run queued at 1:05 PM UTC.",
       "last_run": "Yesterday 9:05 AM",
       "color": "teal"
     },
@@ -61,54 +61,48 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "6th consecutive cycle with no run. Blocks client delivery pipeline.",
+      "last_action": "Multiple consecutive cycles with no run. Blocks client delivery pipeline.",
       "last_run": "No recent run",
       "color": "amber"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Current — no new tasks flagged.",
+      "last_action": "No new tasks flagged.",
       "last_run": "Recent",
       "color": "dim"
     }
   ],
   "activity": [
     {
-      "time": "5:07 AM",
+      "time": "6:05 AM UTC",
       "agent": "SARAH",
-      "text": "Run 66 complete. Documents: 35 JARVIS files, 27 confirmed duplicates (ready to delete), 9 unique files flagged for review. Downloads not mounted this run.",
+      "text": "Run 67 complete. Downloads: 13 items scanned. 12 Grain Haven film grain duplicates (~4.6 GB) identified — confirmed copies of files in output/2026-04-06_nolan/. Awaiting delete command.",
       "color": "teal"
     },
     {
-      "time": "4:39 AM",
+      "time": "6:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard update pushed to GitHub Pages — agent states, 3 red attention items captured.",
+      "text": "Dashboard update pushed to GitHub Pages — agent states, 3 red + 4 amber attention items captured.",
       "color": "blue"
     },
     {
-      "time": "4:04 AM",
+      "time": "5:07 AM UTC",
       "agent": "SARAH",
-      "text": "Run 65 complete. Downloads clean (13 items). 38 loose JARVIS docs in ~/Documents flagged (not moved — awaiting confirmation).",
+      "text": "Run 66 complete. Documents: 35 JARVIS files found, 27 confirmed byte-for-byte duplicates ready to delete, 9 unique files flagged for Rick.",
       "color": "teal"
     },
     {
       "time": "Yesterday 7:04 PM",
       "agent": "JARVIS",
-      "text": "Nightly report filed — CEO pitch today, Glossier overdue, LA Galaxy April 25, 6 attention items.",
+      "text": "Nightly report filed — CEO pitch today, Glossier overdue, LA Galaxy April 25, PARK/NOLAN stale, GUARDIAN flagged.",
       "color": "blue"
     },
     {
       "time": "Yesterday 9:05 AM",
       "agent": "ATLAS",
-      "text": "System report: PARK/NOLAN 48h stale on Hybrid V1. GUARDIAN flag #5. SCOUT + MAESTRO + TESTING current.",
+      "text": "April 22 system report: PARK/NOLAN 48h stale on Hybrid V1. GUARDIAN 4th consecutive no-run. SCOUT + MAESTRO + TESTING current.",
       "color": "teal"
-    },
-    {
-      "time": "Yesterday 9:04 AM",
-      "agent": "JARVIS",
-      "text": "Receipt filer ran — Uber/Lyft/restaurant receipts classified by card and filed to Dropbox.",
-      "color": "blue"
     },
     {
       "time": "Yesterday 6:07 AM",
@@ -120,6 +114,12 @@
       "time": "Yesterday 6:06 AM",
       "agent": "JARVIS",
       "text": "Morning priorities: Glossier, Michael Kors, Macy's, PARK re-run, GUARDIAN sequenced for the day.",
+      "color": "blue"
+    },
+    {
+      "time": "Yesterday 9:04 AM",
+      "agent": "JARVIS",
+      "text": "Receipt filer ran — Uber/Lyft/restaurant receipts classified by card and filed to Dropbox.",
       "color": "blue"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "CEO Pitch — TODAY",
-      "subtitle": "Deck ready, VO polished. Last flag: no measurement framework / KPIs slide as of last night.",
+      "subtitle": "Deck ready, VO polished. Known gap: no measurement framework / KPIs slide.",
       "severity": "red"
     },
     {
@@ -147,13 +147,18 @@
       "severity": "red"
     },
     {
-      "title": "LA Galaxy — April 25 Deadline",
+      "title": "LA Galaxy — Closes April 25",
       "subtitle": "Jessica Jacobi, 2 weeks as CMO. BiG Fit 4/5. Window closes in 2 days.",
       "severity": "red"
     },
     {
+      "title": "4.6 GB Grain Haven Dupes in Downloads",
+      "subtitle": "SARAH Run 67 confirmed checksums. Say 'yes delete grain haven downloads' to clear safely.",
+      "severity": "amber"
+    },
+    {
       "title": "27 Confirmed Dupes in Documents",
-      "subtitle": "SARAH Run 66 verified checksums. Say 'yes clean Documents dupes' to remove safely.",
+      "subtitle": "SARAH Run 66 verified. Say 'yes clean Documents dupes' to remove safely.",
       "severity": "amber"
     },
     {
@@ -162,13 +167,13 @@
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — 6th No-Run",
+      "title": "GUARDIAN — Multiple No-Run Cycles",
       "subtitle": "Blocks client delivery pipeline. Queue after CEO pitch today.",
       "severity": "amber"
     },
     {
       "title": "PARK / NOLAN Stale on Hybrid V1",
-      "subtitle": "Decks show Rick's Cut (4.1★). Hybrid V1 (4.7★, confirmed production) lives in script only.",
+      "subtitle": "Decks show Rick's Cut (4.1★). Hybrid V1 (4.7★, production-ready) lives in script only.",
       "severity": "amber"
     }
   ],
@@ -176,16 +181,16 @@
     "tasks_today": 3,
     "top_score": 4.7,
     "prospects": 6,
-    "files_swept": 35
+    "files_swept": 13
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "6:04 AM UTC"
+      "next_run": "8:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "6:39 AM UTC"
+      "next_run": "8:39 AM UTC"
     },
     {
       "name": "Receipt filer",
