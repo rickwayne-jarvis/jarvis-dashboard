@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-04-23T21:41:00Z",
-  "status_line": "Thursday 2:41 PM. System steady. LA Galaxy window closes Saturday — Jacobi outreach is the most urgent open action with under 36 hours left. SCOUT clean today, 0 new prospects, Lands' End freshest lead. SARAH Run 77 confirmed output unchanged. GUARDIAN remains offline at 8+ cycles. Nightly report at 4 PM PT.",
+  "updated_at": "2026-04-23T22:40:00Z",
+  "status_line": "Thursday 3:40 PM. LA Galaxy window is under 32 hours — Jacobi outreach is the single most urgent open action. SARAH Run 79 completed at 3:04 PM, clean sweep. GUARDIAN remains offline at 9+ cycles. Nightly report in ~3.5 hours. Glossier Day 18 still unconfirmed — verify that message went out.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apr 23 run complete — 0 new prospects. Dashboard current. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog.",
-      "last_run": "Today 10:07 UTC",
+      "last_run": "Today 10:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight triple run: CEO pitch prep memo (7 hardest questions), WYMI rooftop scene V2, full JARVIS product vision spec + Fractional ECD portal v1.",
-      "last_run": "Last night ~01:30 UTC",
+      "last_action": "Overnight triple run: CEO pitch prep memo (7 hardest questions answered), WYMI rooftop scene V2, full JARVIS product vision spec + Fractional ECD portal v1.",
+      "last_run": "Last night ~1:30 AM PT",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 77 (~20:05 UTC) — Downloads not mounted, output directory unchanged. 4 carry-forward items pending Rick's auth. Run 78 due at 21:04 UTC.",
-      "last_run": "Today ~20:05 UTC",
+      "last_action": "Run 79 (~3:04 PM PT) — 5 files organized to output/, 29 duplicates identified and logged. Downloads not mounted. Source files read-only; cleanup list in sarah-log.md awaiting Rick's authorization.",
+      "last_run": "Today ~3:04 PM PT",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Daily report: CEO pitch day confirmed. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 8+ no-run cycles. K18/Kleo Mack flagged as highest-fit new lead.",
-      "last_run": "Today 13:05 UTC",
+      "last_action": "Daily report: CEO pitch day confirmed. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 9+ no-run cycles. K18/Kleo Mack flagged as highest-fit new lead.",
+      "last_run": "Today 9:05 AM PT",
       "color": "teal"
     },
     {
@@ -54,14 +54,14 @@
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "V9 stalled Day 3. PPTX files 72+ hours stale vs Hybrid V1 (4.7★). Awaiting MAESTRO review of TESTING results before V9 can fully resume.",
-      "last_run": "Parked",
+      "last_action": "V9 stalled. PPTX files stale vs Hybrid V1 (4.7★). Awaiting MAESTRO review of TESTING results before V9 can fully resume.",
+      "last_run": "Parked since Apr 19",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "8+ consecutive cycles with no run. Blocks client delivery pipeline. ATLAS has escalated. Queue after CEO pitch resolution.",
+      "last_action": "9+ consecutive cycles with no run. Blocks client delivery pipeline. ATLAS has escalated. Queue after CEO pitch resolution.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,43 +75,43 @@
   ],
   "activity": [
     {
-      "time": "~20:05 UTC",
+      "time": "3:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 77 — Downloads not mounted, output unchanged. 4 carry-forward items still awaiting Rick's auth.",
+      "text": "Run 79 — 5 files organized to output/, 29 dupes logged. Downloads not mounted. Cleanup list awaiting authorization.",
       "color": "teal"
     },
     {
-      "time": "~19:39 UTC",
+      "time": "2:41 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — Run 76 captured, LA Galaxy 2-day warning active, GUARDIAN 7+ no-run cycles escalated.",
+      "text": "Dashboard pushed — Run 78 captured, LA Galaxy 36-hour warning, GUARDIAN 8+ cycles escalated.",
       "color": "blue"
     },
     {
-      "time": "~19:06 UTC",
+      "time": "2:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 76 — 4 Sharpie T2 files promoted to output/ root. output/nolan/ path gap flagged.",
+      "text": "Run 78 — sweep completed, output directory updated.",
       "color": "teal"
     },
     {
-      "time": "13:05 UTC",
+      "time": "10:07 AM PT",
+      "agent": "SCOUT",
+      "text": "BiG pipeline scan complete — 0 new prospects. Dashboard committed and pushed. Lands' End freshest lead.",
+      "color": "teal"
+    },
+    {
+      "time": "10:06 AM PT",
+      "agent": "JARVIS",
+      "text": "Morning brief: CEO pitch day, LA Galaxy D-2, Glossier window closing, K18/Mack flagged as top new lead.",
+      "color": "blue"
+    },
+    {
+      "time": "9:05 AM PT",
       "agent": "ATLAS",
-      "text": "Daily report: CEO pitch day, LA Galaxy D-2, Macy's overdue, Glossier D-18, GUARDIAN 8+ no-run cycles, K18 flagged as top new lead.",
+      "text": "Daily dependency check: GUARDIAN 9+ offline cycles, PARK/NOLAN stalled, Macy's escalated to overdue.",
       "color": "teal"
     },
     {
-      "time": "10:14 UTC",
-      "agent": "SCOUT",
-      "text": "BiG pipeline dashboard updated — fractional-ecd.html pushed alongside index.html.",
-      "color": "teal"
-    },
-    {
-      "time": "10:12 UTC",
-      "agent": "SCOUT",
-      "text": "Apr 23 pipeline report: 0 new prospects. Lands' End (Sylvester) freshest. McGarrah Jessee flagged as closest BiG analog.",
-      "color": "teal"
-    },
-    {
-      "time": "Last night ~01:30 UTC",
+      "time": "Last night ~1:30 AM PT",
       "agent": "MAESTRO",
       "text": "Triple overnight run: CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision + Fractional ECD portal v1.",
       "color": "teal"
@@ -123,22 +123,22 @@
       "color": "blue"
     },
     {
-      "time": "Apr 22 10:07 UTC",
+      "time": "Apr 22",
       "agent": "SCOUT",
       "text": "Lands' End flagged — Sarah Sylvester, first CMO hire in a decade. Added to pipeline dashboard.",
       "color": "teal"
     },
     {
-      "time": "Apr 19 10:13 UTC",
+      "time": "Apr 19",
       "agent": "SCOUT",
-      "text": "K18 + E.l.f. added to pipeline dashboard. K18/Kleo Mack (ex-Glossier CMO) flagged as 8/10 fit, window open now.",
+      "text": "K18 + E.l.f. added to pipeline. K18/Kleo Mack (ex-Glossier CMO) flagged as 8/10 fit, window open now.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — under 36 hours",
-      "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed.",
+      "title": "LA Galaxy / Jacobi — ~32 hours left",
+      "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed today.",
       "severity": "red"
     },
     {
@@ -147,55 +147,55 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 8+ no-run cycles",
-      "subtitle": "Brand integrity check blocking client delivery pipeline. Queue immediately.",
+      "title": "Glossier / Solórzano — Day 18 unconfirmed",
+      "subtitle": "Outreach unconfirmed three consecutive reports. Past optimal window — verify message was sent.",
+      "severity": "red"
+    },
+    {
+      "title": "GUARDIAN — 9+ no-run cycles",
+      "subtitle": "Brand integrity check blocking client delivery pipeline. Queue immediately after pitch.",
       "severity": "amber"
     },
     {
-      "title": "Glossier / Solórzano — Day 18",
-      "subtitle": "Outreach unconfirmed. Past optimal window — verify message was sent.",
-      "severity": "amber"
-    },
-    {
-      "title": "SARAH cleanup — 4 pending items",
-      "subtitle": "Grain Haven 4.6GB dupe, 6 duplicates, 2 zero-byte files. Say 'SARAH go' to authorize.",
+      "title": "SARAH cleanup — 29 dupes pending auth",
+      "subtitle": "Duplicates identified in Documents/, zero-byte test files, Downloads not mounted. Say 'SARAH go' to authorize.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 9,
+    "tasks_today": 11,
     "top_score": 8.5,
     "prospects": 12,
-    "files_swept": 0
+    "files_swept": 5
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep (Run 78)",
-      "next_run": "2:04 PM PT"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "3:39 PM PT"
-    },
-    {
-      "name": "Nightly status report",
+      "name": "SARAH file sweep (Run 80)",
       "next_run": "4:04 PM PT today"
     },
     {
+      "name": "Nightly status report",
+      "next_run": "7:04 PM PT today"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "4:39 PM PT today"
+    },
+    {
       "name": "Uber/Lyft receipt filer",
-      "next_run": "Tomorrow 2:04 AM PT"
+      "next_run": "Tomorrow 5:04 AM PT"
     },
     {
       "name": "Morning priorities",
-      "next_run": "Tomorrow 3:06 AM PT"
+      "next_run": "Tomorrow 6:06 AM PT"
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "Tomorrow 3:07 AM PT"
+      "next_run": "Tomorrow 6:07 AM PT"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "Tomorrow 6:04 AM PT"
+      "next_run": "Tomorrow 9:05 AM PT"
     }
   ]
 }
