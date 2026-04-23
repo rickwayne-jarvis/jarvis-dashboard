@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-23T01:50:00Z",
-  "statusLine": "CEO pitch is tomorrow. Sharpie VO and campaign review polished tonight, deck PDF exported. Fractional ECD portal live with 18 prospects. JARVIS dashboard rebuild in progress. Glossier outreach 2 days overdue.",
+  "lastUpdated": "2026-04-23T03:00:00Z",
+  "statusLine": "CEO pitch day. Deck is ready, VO is polished. Glossier is now 3 days overdue — send it today. LA Galaxy closes in 2 days. SARAH swept the output root at 2am, JARVIS systems running clean.",
   "agents": [
     {
       "id": "jarvis",
       "name": "JARVIS",
       "role": "Orchestrator",
       "state": "active",
-      "lastAction": "Dashboard rebuild + state audit",
+      "lastAction": "Dashboard state update",
       "lastActionAgo": "now",
       "nextRun": "Hourly push"
     },
@@ -17,17 +17,17 @@
       "name": "SCOUT",
       "role": "Researcher / Pipeline",
       "state": "idle",
-      "lastAction": "Pipeline sweep — Lands' End flagged (4/5 BiG fit, new CMO)",
-      "lastActionAgo": "16h ago",
-      "nextRun": "Tomorrow 6:07 AM"
+      "lastAction": "Pipeline sweep — Lands' End flagged (4/5 BiG fit, first CMO in decade)",
+      "lastActionAgo": "17h ago",
+      "nextRun": "Today 6:07 AM"
     },
     {
       "id": "maestro",
       "name": "MAESTRO",
       "role": "Executive Creative Director",
       "state": "idle",
-      "lastAction": "Sharpie WYMI VO polish, rooftop scene v2, campaign review",
-      "lastActionAgo": "5h ago",
+      "lastAction": "Product vision doc + WYMI rooftop scene v2 + campaign review",
+      "lastActionAgo": "6h ago",
       "nextRun": null
     },
     {
@@ -36,7 +36,7 @@
       "role": "Copywriter / Content",
       "state": "idle",
       "lastAction": "Director site About page + Process section drafts",
-      "lastActionAgo": "tonight",
+      "lastActionAgo": "last night",
       "nextRun": null
     },
     {
@@ -44,34 +44,34 @@
       "name": "TESTING",
       "role": "Research / Validation",
       "state": "idle",
-      "lastAction": "WYMI storyboard script scored",
-      "lastActionAgo": "5h ago",
+      "lastAction": "WYMI storyboard script scored — Hybrid V1 confirmed 4.7★",
+      "lastActionAgo": "2d ago",
       "nextRun": null
     },
     {
       "id": "sarah",
       "name": "SARAH",
-      "role": "Project Manager / File Ops",
-      "state": "scheduled",
-      "lastAction": "Run 64 — 2 JARVIS docs filed",
-      "lastActionAgo": "45m ago",
-      "nextRun": "2:04 AM"
+      "role": "File System / Operations",
+      "state": "idle",
+      "lastAction": "Run 65 — renamed 2 JARVIS docs to correct sharpie-* prefix",
+      "lastActionAgo": "1h ago",
+      "nextRun": "In ~1h"
     },
     {
       "id": "atlas",
       "name": "ATLAS",
-      "role": "System Health / Dependencies",
-      "state": "active",
-      "lastAction": "Full state audit and cleanup — running now",
-      "lastActionAgo": "now",
-      "nextRun": "Tomorrow 9:05 AM"
+      "role": "System Monitor",
+      "state": "idle",
+      "lastAction": "Daily report — PARK/NOLAN stale, GUARDIAN 4th no-run, Lands' End flagged",
+      "lastActionAgo": "14h ago",
+      "nextRun": "Today 9:05 AM"
     },
     {
       "id": "guardian",
       "name": "GUARDIAN",
-      "role": "Brand Voice Validator",
-      "state": "ready",
-      "lastAction": "No runs logged",
+      "role": "QA / Continuity",
+      "state": "idle",
+      "lastAction": "Not run — 4 consecutive ATLAS flags",
       "lastActionAgo": null,
       "nextRun": null
     },
@@ -81,7 +81,7 @@
       "role": "Audience Builder",
       "state": "idle",
       "lastAction": "Profiles current",
-      "lastActionAgo": "1d ago",
+      "lastActionAgo": "3d ago",
       "nextRun": null
     },
     {
@@ -104,66 +104,65 @@
     }
   ],
   "activity": [
-    { "agent": "ATLAS",    "action": "Full state audit — purged stale data, rebuilt state.json v2",            "time": "9:50 PM" },
-    { "agent": "JARVIS",   "action": "Dashboard rebuild — v6 HTML deployed",                                   "time": "9:23 PM" },
-    { "agent": "SCOUT",    "action": "Fractional ECD portal built — 18 prospects, Lands' End top lead",        "time": "9:22 PM" },
-    { "agent": "SARAH",    "action": "Run 64 — JARVIS ProductVision + Dashboard UX Research filed",            "time": "9:07 PM" },
-    { "agent": "MAESTRO",  "action": "Product vision doc written (13KB) + WYMI VO final + rooftop v2",        "time": "9:04 PM" },
-    { "agent": "TESTING",  "action": "WYMI storyboard script scored",                                          "time": "9:07 PM" },
-    { "agent": "MAESTRO",  "action": "Sharpie WYMI campaign review + final VO polish",                        "time": "5:07 PM" },
-    { "agent": "MAESTRO",  "action": "CEO pitch deck PDF exported (SHARPIE_MAKE_IT_PRESENTATION_2026-04-23)",  "time": "4:16 PM" },
-    { "agent": "ATLAS",    "action": "Daily dependency report — flagged stale items",                           "time": "9:05 AM" },
-    { "agent": "SCOUT",    "action": "Pipeline sweep — Lands' End (new CMO April 1, 4/5 BiG fit)",             "time": "6:07 AM" },
-    { "agent": "RECEIPTS", "action": "Filed Anthropic Max $217.75 (MC 6468) + Uber $41.01 (Visa 9636)",       "time": "5:04 AM" }
+    { "agent": "SARAH",    "action": "Run 65 — renamed jarvis-maestro-product-vision + jarvis-scout-dashboard to sharpie-* prefix",  "time": "2:04 AM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — CEO pitch alert active, Glossier 3d overdue",                                   "time": "1:40 AM" },
+    { "agent": "ATLAS",    "action": "Full state audit — purged stale data, rebuilt state.json v2",                                    "time": "9:50 PM" },
+    { "agent": "JARVIS",   "action": "Dashboard rebuild — v6 HTML deployed",                                                           "time": "9:23 PM" },
+    { "agent": "SCOUT",    "action": "Fractional ECD portal built — 18 prospects, Lands' End top lead",                               "time": "9:22 PM" },
+    { "agent": "SARAH",    "action": "Run 64 — JARVIS ProductVision + Dashboard UX Research filed",                                    "time": "9:07 PM" },
+    { "agent": "MAESTRO",  "action": "Product vision doc (13KB) + WYMI final VO + rooftop scene v2",                                  "time": "9:04 PM" },
+    { "agent": "MAESTRO",  "action": "CEO pitch deck PDF exported (SHARPIE_MAKE_IT_PRESENTATION_2026-04-23)",                         "time": "4:16 PM" },
+    { "agent": "ATLAS",    "action": "Daily dependency report — PARK/NOLAN 48h stale, GUARDIAN still at zero",                        "time": "9:05 AM" },
+    { "agent": "SCOUT",    "action": "Pipeline sweep — Lands' End (Sarah Sylvester CMO April 1, 4/5 BiG fit)",                        "time": "6:07 AM" }
   ],
   "attention": [
     {
-      "title": "CEO pitch is TOMORROW (April 23)",
-      "subtitle": "Deck PDF exported. VO polished. Review rooftop scene v2 + campaign review tonight.",
+      "title": "CEO pitch is TODAY (April 23)",
+      "subtitle": "Deck exported, VO polished. You're ready. Make it count.",
       "severity": "red"
     },
     {
-      "title": "Glossier outreach — 2 days overdue",
-      "subtitle": "Nicole Solórzano, 30+ days in role. Window closing.",
+      "title": "Glossier outreach — 3 days overdue",
+      "subtitle": "Nicole Solórzano, 30+ days in role. Window is closing fast.",
       "severity": "red"
     },
     {
       "title": "LA Galaxy — deadline April 25",
-      "subtitle": "Jessica Jacobi, week 2 as CMO. BiG Fit 4/5. 3 days left.",
+      "subtitle": "Jessica Jacobi, week 2 as CMO. BiG Fit 4/5. 2 days left.",
       "severity": "red"
     },
     {
       "title": "Macy's — needs outreach this week",
-      "subtitle": "Q2 decision. Creative partner needed May–June.",
+      "subtitle": "Q2 decision. Creative partner needed May–June. 100th Parade on Nov 26.",
       "severity": "amber"
     },
     {
-      "title": "Director site drafts need morning review",
-      "subtitle": "About page + Process section written tonight. Review before publishing.",
+      "title": "PARK + NOLAN stale — 48h behind Hybrid V1",
+      "subtitle": "Decks still show Rick's Deck Cut (4.1★). Hybrid V1 (4.7★) not loaded.",
       "severity": "amber"
     },
     {
       "title": "Lands' End — top new prospect",
-      "subtitle": "Sarah Sylvester, new CMO April 1. BiG Fit 4/5. Outreach window open through April 30.",
+      "subtitle": "Sarah Sylvester, new CMO April 1. Blank creative roster. Outreach by April 30.",
       "severity": "amber"
     }
   ],
   "scheduled": [
-    { "id": "sarah-file-sweep",     "name": "SARAH File Sweep",    "schedule": "Hourly",       "enabled": true,  "lastRun": "2026-04-23T01:04:56Z", "nextRun": "2026-04-23T02:04:06Z" },
-    { "id": "jarvis-dashboard-push","name": "JARVIS Dashboard",    "schedule": "Hourly",       "enabled": true,  "lastRun": "2026-04-23T01:40:06Z", "nextRun": "2026-04-23T02:39:16Z" },
-    { "id": "atlas-dependency-check","name": "ATLAS Dependency",   "schedule": "Daily 9:05 AM","enabled": true,  "lastRun": "2026-04-22T13:05:38Z", "nextRun": "2026-04-23T13:04:52Z" },
-    { "id": "scout-pipeline-check", "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM","enabled": true,  "lastRun": "2026-04-22T10:07:47Z", "nextRun": "2026-04-23T10:07:01Z" },
-    { "id": "morning-priorities",   "name": "Morning Priorities",   "schedule": "Daily 6:06 AM","enabled": true,  "lastRun": "2026-04-22T10:06:52Z", "nextRun": "2026-04-23T10:06:06Z" },
-    { "id": "uber-lyft-receipt-filer","name": "Receipt Filer",     "schedule": "Daily 5:04 AM","enabled": true,  "lastRun": "2026-04-22T09:04:46Z", "nextRun": "2026-04-23T09:04:00Z" },
-    { "id": "nightly-status-report","name": "Nightly Report",      "schedule": "Daily 7:04 PM","enabled": true,  "lastRun": "2026-04-22T23:05:15Z", "nextRun": "2026-04-23T23:04:25Z" }
+    { "id": "sarah-file-sweep",      "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T02:04:56Z", "nextRun": "2026-04-23T03:04:06Z" },
+    { "id": "jarvis-dashboard-push", "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T02:40:06Z", "nextRun": "2026-04-23T03:39:16Z" },
+    { "id": "atlas-dependency-check","name": "ATLAS Dependency",    "schedule": "Daily 9:05 AM", "enabled": true,  "lastRun": "2026-04-22T13:05:38Z", "nextRun": "2026-04-23T13:04:52Z" },
+    { "id": "scout-pipeline-check",  "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM", "enabled": true,  "lastRun": "2026-04-22T10:07:47Z", "nextRun": "2026-04-23T10:07:01Z" },
+    { "id": "morning-priorities",    "name": "Morning Priorities",  "schedule": "Daily 6:06 AM", "enabled": true,  "lastRun": "2026-04-22T10:06:52Z", "nextRun": "2026-04-23T10:06:06Z" },
+    { "id": "uber-lyft-receipt-filer","name": "Receipt Filer",      "schedule": "Daily 5:04 AM", "enabled": true,  "lastRun": "2026-04-22T09:04:46Z", "nextRun": "2026-04-23T09:04:00Z" },
+    { "id": "nightly-status-report", "name": "Nightly Report",      "schedule": "Daily 7:04 PM", "enabled": true,  "lastRun": "2026-04-22T23:05:15Z", "nextRun": "2026-04-23T23:04:25Z" }
   ],
   "disabled": [
-    { "id": "resy-monitor",                "reason": "Terminated. Do not re-enable." },
+    { "id": "resy-monitor",                 "reason": "Terminated. Do not re-enable." },
     { "id": "corner-store-reservation-check","reason": "Disabled by Rick." }
   ],
   "stats": {
     "active_agents": 2,
-    "idle_agents": 5,
+    "idle_agents": 6,
     "parked_agents": 2,
     "ready_agents": 1,
     "scheduled_tasks_active": 7,
