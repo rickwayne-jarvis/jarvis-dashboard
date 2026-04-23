@@ -22,7 +22,6 @@
     { "agent": "PARK",    "action": "Deck V2 assembled via Slides API — layout confirmed",  "time": "Yesterday" }
   ],
   "tasks": [
-    { "id": "resy",    "name": "Resy Monitor",     "schedule": "Every hour",  "status": "running",  "lastRun": "12:00 PM" },
     { "id": "scout-t", "name": "SCOUT Pipeline",   "schedule": "Daily 6am",   "status": "running",  "lastRun": "6:00 AM"  },
     { "id": "sarah-t", "name": "SARAH File Sweep", "schedule": "Every hour",  "status": "running",  "lastRun": "12:00 PM" },
     { "id": "atlas-t", "name": "ATLAS Dependency", "schedule": "Daily 9am",   "status": "running",  "lastRun": "9:00 AM"  }
