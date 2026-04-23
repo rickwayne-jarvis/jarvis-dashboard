@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-23T18:39:00Z",
-  "status_line": "Thursday, 1:39 PM. CEO pitch window is now — deck is on the table, prep is done. SARAH just finished Run 75: 4 new production files landed clean, output root solid. LA Galaxy closes Saturday — Jacobi outreach is the pressing clock. Macy's still overdue. Glossier window narrowing at Day 18. GUARDIAN is the standing gap.",
+  "updated_at": "2026-04-23T19:39:00Z",
+  "status_line": "Thursday 2:39 PM. CEO pitch is done — deck was on the table, prep was solid. LA Galaxy closes Saturday, one day left — Jacobi outreach is the most urgent clock. SARAH Run 76 just promoted 4 more Sharpie T2 testing files to the output root. Macy's still overdue. Glossier at Day 18 and narrowing. GUARDIAN is the standing gap.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Zero new prospects. Dashboard current. Lands' End (Sarah Sylvester, first CMO in a decade) remains freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog — YETI, Whataburger, Lyft, Fender, Shiner.",
+      "last_action": "Zero new prospects. Dashboard current. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog — YETI, Whataburger, Lyft, Fender, Shiner.",
       "last_run": "Today 10:07 UTC",
       "color": "teal"
     },
@@ -13,7 +13,7 @@
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Overnight triple run: CEO pitch prep memo (7 hardest questions), WYMI rooftop scene V2, full JARVIS product vision spec + Fractional ECD portal v1. JARVIS demo workstream launched.",
-      "last_run": "Last night ~1:30 AM UTC",
+      "last_run": "Last night ~01:30 UTC",
       "color": "teal"
     },
     {
@@ -33,35 +33,35 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 75 (~18:04 UTC) — 4 new production files detected, all correctly placed: scout-pipeline-2026-04-23.md, atlas-daily-report.md, fractional-ecd-portal-v1.html, jarvis-dashboard-v6.html. output/ root 11 files unchanged. Downloads still blocked (not mounted). Carry-forward cleanup items unchanged.",
-      "last_run": "Today ~18:04 UTC",
+      "last_action": "Run 76 (~19:04 UTC) — 4 Sharpie T2 testing files promoted to output/ root: anthem-60-v3, genz-v1, genz-v2, hybrid-v1. Downloads still blocked (not mounted). output/nolan/ directory structure missing — NOLAN assets not under canonical path.",
+      "last_run": "Today ~19:04 UTC",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Daily report: CEO pitch day confirmed, SHARPIE PDF (47MB) on desk. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 5+ consecutive no-run cycles. JARVIS demo track now a tracked workstream.",
+      "last_action": "Daily report: CEO pitch day confirmed, SHARPIE PDF (47MB) on desk. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 6+ consecutive no-run cycles. JARVIS demo now a tracked workstream.",
       "last_run": "Today 13:05 UTC",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "WYMI structure not updated — storyboard frames still from March 21. Awaiting PARK re-run before NOLAN can proceed.",
+      "last_action": "WYMI structure not updated — storyboard frames still from March 21. Awaiting PARK re-run before NOLAN can proceed. output/nolan/ directory structure also missing.",
       "last_run": "Parked",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "PPTX files 72+ hours stale vs. Hybrid V1 (4.7★). PDF serves today's pitch. Client delivery risk if PPTX not updated post-pitch.",
+      "last_action": "PPTX files 72+ hours stale vs. Hybrid V1 (4.7★). PDF served today's pitch. Client delivery risk if PPTX not updated post-pitch.",
       "last_run": "Parked",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "6+ consecutive cycles with no run. Blocks client delivery pipeline. ATLAS has escalated — queue after CEO pitch today.",
+      "last_action": "7+ consecutive cycles with no run. Blocks client delivery pipeline. ATLAS has escalated — queue after CEO pitch today.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,21 +75,21 @@
   ],
   "activity": [
     {
-      "time": "~18:04 UTC",
+      "time": "~19:04 UTC",
       "agent": "SARAH",
-      "text": "Run 75 — 4 new production files verified clean and correctly placed. output/ root 11 files unchanged. Downloads still blocked.",
+      "text": "Run 76 — 4 Sharpie T2 files promoted to output/ root (anthem-60-v3, genz-v1, genz-v2, hybrid-v1). Downloads still blocked. output/nolan/ path missing flagged.",
       "color": "teal"
     },
     {
-      "time": "17:39 UTC",
+      "time": "~18:39 UTC",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — commit 3890dcb. SARAH Run 74 captured, K18/Kleo Mack added as amber item.",
+      "text": "Dashboard pushed — SARAH Run 75 captured, K18/Kleo Mack amber item active.",
       "color": "blue"
     },
     {
-      "time": "17:04 UTC",
+      "time": "~18:04 UTC",
       "agent": "SARAH",
-      "text": "Run 74 — output/ clean (11 production files, zero changes from Run 73). All cleanup items pending Rick's auth.",
+      "text": "Run 75 — 4 new production files verified clean and correctly placed. output/ root 11 files unchanged.",
       "color": "teal"
     },
     {
@@ -113,7 +113,7 @@
     {
       "time": "~01:30 UTC",
       "agent": "MAESTRO",
-      "text": "JARVIS product vision spec + Fractional ECD portal v1 delivered. Dashboard v6 UX research complete (Raycast/Linear/Bloomberg reference set).",
+      "text": "JARVIS product vision spec + Fractional ECD portal v1 delivered. Dashboard v6 UX research complete.",
       "color": "amber"
     },
     {
@@ -125,7 +125,7 @@
     {
       "time": "Yesterday ~22:00 UTC",
       "agent": "TESTING",
-      "text": "WYMI storyboard scored 6.6/10. VO locked 8.5/10 — 'the ink doesn't know' is the line. Filmability gap: 37+ beats in :30.",
+      "text": "WYMI storyboard scored 6.6/10. VO locked 8.5/10 — 'the ink doesn't know' is the line.",
       "color": "teal"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "LA Galaxy → Jessica Jacobi outreach",
-      "subtitle": "Deadline Saturday April 25 — 2 days left",
+      "subtitle": "Deadline Saturday April 25 — 1 day left",
       "severity": "red"
     },
     {
@@ -152,35 +152,35 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 6+ cycles with no run",
-      "subtitle": "Blocking client delivery pipeline. Queue after CEO pitch today.",
-      "severity": "amber"
-    },
-    {
-      "title": "SARAH cleanup — 5 items pending Rick's auth",
-      "subtitle": "Grain Haven 4.6GB dupe, 6 file pairs, 2 zero-byte files, director target list promotion",
+      "title": "GUARDIAN — 7+ cycles with no run",
+      "subtitle": "Blocking client delivery pipeline. Queue now that CEO pitch is done.",
       "severity": "amber"
     },
     {
       "title": "K18 / Kleo Mack — Day 15",
       "subtitle": "Ex-Glossier CMO, fit score 8/10. LinkedIn outreach window open now.",
       "severity": "amber"
+    },
+    {
+      "title": "SARAH cleanup — 5 items pending Rick's auth",
+      "subtitle": "Grain Haven 4.6GB dupe, 10 file pairs, 2 zero-byte files, director target list + nolan/ dir",
+      "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 16,
+    "tasks_today": 17,
     "top_score": 8.5,
     "prospects": 12,
-    "files_swept": 75
+    "files_swept": 76
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "Today 19:04 UTC"
+      "next_run": "Today 20:04 UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "Today 19:39 UTC"
+      "next_run": "Today 20:39 UTC"
     },
     {
       "name": "Nightly status report",
