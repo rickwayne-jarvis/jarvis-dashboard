@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-04-22T09:15:00Z",
+  "statusLine": "SCOUT filed the morning report at 6:02am. Three new prospects in the pipeline. Lands' End has a new CMO and a blank creative roster — I flagged it.",
+  "agents": [
+    { "id": "jarvis",   "state": "idle",      "lastAction": "Dashboard V6 build complete",               "lastActionAgo": "2h ago",  "nextRun": null            },
+    { "id": "scout",    "state": "scheduled",  "lastAction": "Morning pipeline sweep — 3 new prospects", "lastActionAgo": "4h ago",  "nextRun": "Tomorrow 6am"  },
+    { "id": "maestro",  "state": "idle",       "lastAction": ":60 Visual Script V2 — Sharpie",           "lastActionAgo": "1d ago",  "nextRun": null            },
+    { "id": "park",     "state": "idle",       "lastAction": "Deck V2 assembled via Slides API",         "lastActionAgo": "1d ago",  "nextRun": null            },
+    { "id": "nolan",    "state": "idle",       "lastAction": "Shot list prep — MAKE IT",                 "lastActionAgo": "3d ago",  "nextRun": null            },
+    { "id": "testing",  "state": "idle",       "lastAction": "Manifesto vs Script report",               "lastActionAgo": "1d ago",  "nextRun": null            },
+    { "id": "sarah",    "state": "scheduled",  "lastAction": "Hourly file sweep — complete",             "lastActionAgo": "47m ago", "nextRun": "In 13m"        },
+    { "id": "guardian", "state": "idle",       "lastAction": "Voice check — Sharpie scripts",            "lastActionAgo": "1d ago",  "nextRun": null            },
+    { "id": "persona",  "state": "idle",       "lastAction": "Sharpie target profiles",                  "lastActionAgo": "5d ago",  "nextRun": null            },
+    { "id": "atlas",    "state": "scheduled",  "lastAction": "Daily dependency report — complete",       "lastActionAgo": "5h ago",  "nextRun": "Tomorrow 9am"  }
+  ],
+  "activity": [
+    { "agent": "SCOUT",   "action": "Morning pipeline sweep — 3 new prospects flagged",    "time": "6:02 AM" },
+    { "agent": "SARAH",   "action": "Hourly file sweep — 6 outputs organized",             "time": "12:00 PM" },
+    { "agent": "ATLAS",   "action": "Dependency report complete — no downstream gaps",      "time": "9:00 AM" },
+    { "agent": "MAESTRO", "action": ":60 Visual Script V2 — revised pacing and structure", "time": "Yesterday" },
+    { "agent": "PARK",    "action": "Deck V2 assembled via Slides API — layout confirmed",  "time": "Yesterday" }
+  ],
+  "tasks": [
+    { "id": "resy",    "name": "Resy Monitor",     "schedule": "Every hour",  "status": "running",  "lastRun": "12:00 PM" },
+    { "id": "scout-t", "name": "SCOUT Pipeline",   "schedule": "Daily 6am",   "status": "running",  "lastRun": "6:00 AM"  },
+    { "id": "sarah-t", "name": "SARAH File Sweep", "schedule": "Every hour",  "status": "running",  "lastRun": "12:00 PM" },
+    { "id": "atlas-t", "name": "ATLAS Dependency", "schedule": "Daily 9am",   "status": "running",  "lastRun": "9:00 AM"  }
+  ],
+  "brief": {
+    "lastUpdated": "2026-04-22T06:05:00Z",
+    "type": "morning"
+  }
+}
