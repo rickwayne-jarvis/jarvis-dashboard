@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-23T19:39:00Z",
-  "status_line": "Thursday 2:39 PM. CEO pitch is done — deck was on the table, prep was solid. LA Galaxy closes Saturday, one day left — Jacobi outreach is the most urgent clock. SARAH Run 76 just promoted 4 more Sharpie T2 testing files to the output root. Macy's still overdue. Glossier at Day 18 and narrowing. GUARDIAN is the standing gap.",
+  "updated_at": "2026-04-23T20:39:00Z",
+  "status_line": "Thursday 3:39 PM. CEO pitch in the books. LA Galaxy closes Saturday — Jacobi outreach is still the most urgent clock with 2 days left. SARAH Run 77 found Downloads clean and output unchanged. Macy's and Glossier still need action. GUARDIAN remains the standing gap.",
   "agents": [
     {
       "name": "SCOUT",
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 76 (~19:04 UTC) — 4 Sharpie T2 testing files promoted to output/ root: anthem-60-v3, genz-v1, genz-v2, hybrid-v1. Downloads still blocked (not mounted). output/nolan/ directory structure missing — NOLAN assets not under canonical path.",
-      "last_run": "Today ~19:04 UTC",
+      "last_action": "Run 77 (~20:04 UTC) — Downloads empty, output directory unchanged since 18:07. Same 4 carry-forward items pending Rick's auth: Grain Haven 4.6GB dupe, 6 duplicate files, 2 zero-byte files, director target list ready to promote.",
+      "last_run": "Today ~20:04 UTC",
       "color": "teal"
     },
     {
@@ -75,21 +75,21 @@
   ],
   "activity": [
     {
-      "time": "~19:04 UTC",
+      "time": "~20:04 UTC",
       "agent": "SARAH",
-      "text": "Run 76 — 4 Sharpie T2 files promoted to output/ root (anthem-60-v3, genz-v1, genz-v2, hybrid-v1). Downloads still blocked. output/nolan/ path missing flagged.",
+      "text": "Run 77 — Downloads empty, output unchanged since 18:07. 4 carry-forward items still awaiting Rick's auth.",
       "color": "teal"
     },
     {
-      "time": "~18:39 UTC",
+      "time": "~19:39 UTC",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 75 captured, K18/Kleo Mack amber item active.",
+      "text": "Dashboard pushed — SARAH Run 76 captured, LA Galaxy 1-day warning, GUARDIAN 7+ no-run cycles escalated.",
       "color": "blue"
     },
     {
-      "time": "~18:04 UTC",
+      "time": "~19:04 UTC",
       "agent": "SARAH",
-      "text": "Run 75 — 4 new production files verified clean and correctly placed. output/ root 11 files unchanged.",
+      "text": "Run 76 — 4 Sharpie T2 files promoted to output/ root (anthem-60-v3, genz-v1, genz-v2, hybrid-v1). output/nolan/ path missing flagged.",
       "color": "teal"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "LA Galaxy → Jessica Jacobi outreach",
-      "subtitle": "Deadline Saturday April 25 — 1 day left",
+      "subtitle": "Deadline Saturday April 25 — 2 days left",
       "severity": "red"
     },
     {
@@ -162,8 +162,8 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup — 5 items pending Rick's auth",
-      "subtitle": "Grain Haven 4.6GB dupe, 10 file pairs, 2 zero-byte files, director target list + nolan/ dir",
+      "title": "SARAH cleanup — 4 items pending Rick's auth",
+      "subtitle": "Grain Haven 4.6GB dupe, 6 duplicate files, 2 zero-byte files, director target list ready to promote",
       "severity": "amber"
     }
   ],
@@ -171,16 +171,12 @@
     "tasks_today": 17,
     "top_score": 8.5,
     "prospects": 12,
-    "files_swept": 76
+    "files_swept": 77
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "Today 20:04 UTC"
-    },
-    {
       "name": "JARVIS dashboard push",
-      "next_run": "Today 20:39 UTC"
+      "next_run": "Today 21:39 UTC"
     },
     {
       "name": "Nightly status report",
@@ -201,6 +197,10 @@
     {
       "name": "ATLAS dependency check",
       "next_run": "Tomorrow 13:05 UTC"
+    },
+    {
+      "name": "SARAH file sweep",
+      "next_run": "Today 21:04 UTC"
     }
   ]
 }
