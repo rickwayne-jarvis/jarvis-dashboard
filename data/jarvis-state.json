@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-24T20:40:00Z",
-  "status_line": "Friday 1:40 PM PT. SARAH Run 92 in — new finding: 6 Sharpie PNG renders from March are untracked in Documents, added as Standing Issue #7. Morning brief also needs an output/ copy. LA Galaxy / Jacobi deadline is TOMORROW — that DM still needs to go today. TESTING re-run and GUARDIAN remain the two blockers on client delivery. Pipeline steady at 11 active signals.",
+  "updated_at": "2026-04-24T21:41:00Z",
+  "status_line": "Friday 2:41 PM PT. SARAH Run 93 in — all quiet, no new files since Run 92. 8 standing issues carried forward. LA Galaxy / Jacobi deadline is TOMORROW — that DM still needs to go today. TESTING re-run and GUARDIAN remain the two blockers on client delivery. Pipeline steady at 11 active signals.",
   "agents": [
     {
       "name": "SCOUT",
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 92 (1:06 PM PT) — New Standing Issue #7: 6 Sharpie PNG renders (~1.2MB, March vintage) found untracked in Documents, recommend move to output/nolan/shots/. Morning brief (JARVIS-morning-brief-2026-04-24.md) needs output/ copy. No moves performed. Log appended.",
-      "last_run": "Today 1:06 PM PT",
+      "last_action": "Run 93 (2:04 PM PT) — All quiet. No new files anywhere since Run 92. 8 standing issues carried forward. Downloads still inaccessible via sandbox (osascript path remains the workaround). Log appended.",
+      "last_run": "Today 2:04 PM PT",
       "color": "teal"
     },
     {
@@ -75,6 +75,18 @@
   ],
   "activity": [
     {
+      "time": "2:41 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 93 complete. All quiet, 8 standing issues carried forward. No new files since Run 92.",
+      "color": "blue"
+    },
+    {
+      "time": "2:04 PM PT",
+      "agent": "SARAH",
+      "text": "Run 93 — All quiet. No new files anywhere since Run 92. 8 standing issues carried forward. Downloads still sandbox-inaccessible.",
+      "color": "teal"
+    },
+    {
       "time": "1:40 PM PT",
       "agent": "JARVIS",
       "text": "Dashboard pushed — SARAH Run 92 logged. Standing Issue #7 added (6 untracked PNG renders). Morning brief needs output/ copy.",
@@ -83,14 +95,8 @@
     {
       "time": "1:06 PM PT",
       "agent": "SARAH",
-      "text": "Run 92 — New: 6 Sharpie PNG renders (March vintage, ~1.2MB) untracked in Documents → Standing Issue #7. Morning brief missing output/ counterpart. No moves performed. Log appended.",
+      "text": "Run 92 — New: 6 Sharpie PNG renders (March vintage, ~1.2MB) untracked in Documents → Standing Issue #7. Morning brief missing output/ counterpart. No moves performed.",
       "color": "teal"
-    },
-    {
-      "time": "12:40 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 91 breakthrough logged. Downloads accessible via osascript. 5 standing issues remain.",
-      "color": "blue"
     },
     {
       "time": "12:06 PM PT",
@@ -162,13 +168,13 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH Standing Issue #7 — 6 PNG renders untracked",
-      "subtitle": "Sharpie campaign renders (March vintage, ~1.2MB) in Documents with no output/ counterpart. Recommend: output/nolan/shots/.",
+      "title": "SARAH — 8 standing issues",
+      "subtitle": "Includes 6 untracked Sharpie PNG renders in Documents and morning brief missing output/ copy. All awaiting Rick's guidance.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 23,
+    "tasks_today": 24,
     "top_score": 4.7,
     "prospects": 11,
     "files_swept": 9
@@ -176,31 +182,31 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "2:04 PM PT"
+      "next_run": "3:04 PM PT"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "2:39 PM PT"
+      "next_run": "3:39 PM PT"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM PT"
+      "next_run": "4:04 PM PT"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "Tomorrow 9:05 AM PT"
+      "next_run": "Tomorrow 6:05 AM PT"
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "Tomorrow 6:07 AM PT"
+      "next_run": "Tomorrow 3:07 AM PT"
     },
     {
       "name": "Morning priorities",
-      "next_run": "Tomorrow 6:06 AM PT"
+      "next_run": "Tomorrow 3:06 AM PT"
     },
     {
       "name": "Uber/Lyft receipt filer",
-      "next_run": "Tomorrow 5:04 AM PT"
+      "next_run": "Tomorrow 2:04 AM PT"
     }
   ]
 }
