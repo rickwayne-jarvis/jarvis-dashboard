@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-24T18:41:00Z",
-  "status_line": "Friday 11:41 AM PT. SARAH Run 90 wrapped — Downloads locked out for the 12th straight sweep. LA Galaxy deadline is TOMORROW and that DM still hasn't gone. TESTING re-run and GUARDIAN are both blocking Sharpie client delivery. 11 active pipeline prospects; Macy's and Glossier are overdue for action.",
+  "updated_at": "2026-04-24T19:40:00Z",
+  "status_line": "Friday 12:40 PM PT. SARAH Run 91 brought a real breakthrough — Downloads is finally accessible after 13 straight blocked sweeps. Folder was clean (all personal files, nothing to move). 5 standing issues remain awaiting Rick sign-off. LA Galaxy deadline is TOMORROW — that Jacobi DM still needs to go. TESTING re-run and GUARDIAN remain blockers on client delivery.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
+      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi outreach deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
       "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 90 (11:06 AM PT) — Downloads not accessible, 12th consecutive blocked sweep. Output directory unchanged since Run 88. 6 standing issues still await Rick sign-off.",
-      "last_run": "Today 11:06 AM PT",
+      "last_action": "Run 91 (12:06 PM PT) — BREAKTHROUGH: Downloads accessible via osascript after 13 blocked runs. Folder clean (9 personal files, zero JARVIS-related). Standing Issue #1 resolved. 5 remaining issues await Rick sign-off.",
+      "last_run": "Today 12:06 PM PT",
       "color": "teal"
     },
     {
@@ -75,27 +75,27 @@
   ],
   "activity": [
     {
+      "time": "12:40 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 91 breakthrough logged. Downloads accessible via osascript. 5 standing issues remain.",
+      "color": "blue"
+    },
+    {
+      "time": "12:06 PM PT",
+      "agent": "SARAH",
+      "text": "Run 91 — BREAKTHROUGH: Downloads finally accessible via osascript. Folder clean (9 personal files, nothing to move). Standing Issue #1 resolved.",
+      "color": "teal"
+    },
+    {
       "time": "11:41 AM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 90 logged, 12th consecutive Downloads block, LA Galaxy deadline tomorrow.",
+      "text": "Dashboard pushed — SARAH Run 90 logged, 12th consecutive Downloads block, LA Galaxy deadline flagged tomorrow.",
       "color": "blue"
     },
     {
       "time": "11:06 AM PT",
       "agent": "SARAH",
-      "text": "Run 90 — Downloads blocked (12th consecutive no-mount). Output directory unchanged. 6 standing issues await sign-off.",
-      "color": "teal"
-    },
-    {
-      "time": "10:40 AM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 88 logged, LA Galaxy deadline flagged red, GUARDIAN blocker noted.",
-      "color": "blue"
-    },
-    {
-      "time": "10:05 AM PT",
-      "agent": "SARAH",
-      "text": "Run 88 — Downloads blocked (11th consecutive no-mount). Output unchanged.",
+      "text": "Run 90 — Downloads blocked (12th consecutive no-mount). Output directory unchanged. 6 standing issues awaiting sign-off.",
       "color": "teal"
     },
     {
@@ -162,29 +162,29 @@
       "severity": "amber"
     },
     {
-      "title": "Downloads folder never mounted — 12 consecutive SARAH misses",
-      "subtitle": "Grant ~/Downloads in Cowork settings or those files remain invisible to SARAH.",
+      "title": "SARAH: 5 standing issues await Rick sign-off",
+      "subtitle": "Test artifacts, NOLAN folder path, PPTX dupes (~77.6 MB), two session file copies. Downloads blocker now resolved.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 21,
+    "tasks_today": 22,
     "top_score": 4.7,
     "prospects": 11,
-    "files_swept": 0
+    "files_swept": 9
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "12:04 PM PT (hourly)"
+      "next_run": "1:04 PM PT (hourly)"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "1:39 PM PT (hourly)"
     },
     {
       "name": "Nightly status report",
       "next_run": "4:04 PM PT"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "12:39 PM PT (hourly)"
     },
     {
       "name": "Uber/Lyft receipt filer",
