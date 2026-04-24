@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-23T23:41:05Z",
-  "status_line": "Thursday 4:41 PM. LA Galaxy window is now under 31 hours — Jacobi outreach is still the single most urgent open item. SARAH Run 80 just completed: 13 new files filed (6 Sharpie Gemini renders, 3 campaign decks v6/v7/v8, 4 research docs) and 22 more dupes logged. Nightly report confirmed all red items still open. GUARDIAN has not run in 10+ cycles.",
+  "updated_at": "2026-04-24T00:41:10Z",
+  "status_line": "Thursday 5:41 PM. MAESTRO dropped a new Sharpie concept — 'The Gallery' — and SARAH just filed both documents. LA Galaxy window is down to ~30 hours; Jacobi outreach is still the most urgent open item. All three red flags unchanged.",
   "agents": [
     {
       "name": "SCOUT",
@@ -12,8 +12,8 @@
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight triple run: CEO pitch prep memo (7 hardest questions answered), WYMI rooftop scene V2, full JARVIS product vision spec + Fractional ECD portal v1.",
-      "last_run": "Last night ~1:30 AM PT",
+      "last_action": "New Sharpie concept: 'The Gallery' — strategy doc + creative treatment now filed by SARAH. Plus overnight triple run: CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision + Fractional ECD portal v1.",
+      "last_run": "Today (Gallery files detected ~5 PM PT)",
       "color": "teal"
     },
     {
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 80 (~4:04 PM PT) — 13 new files filed: 6 Sharpie Gemini product renders → nolan/storyboard/, 3 campaign decks (v6/v7/v8 PPTX) → big-new-business/, plus Audacious Research, Creative Package Final, merch contacts, and Apr 22 evening report. 22 duplicates logged in ~/Documents. Downloads still not mounted.",
-      "last_run": "Today ~4:04 PM PT",
+      "last_action": "Run at 5:04 PM PT — 2 new MAESTRO Gallery concept files filed: sharpie-maestro-gallery-strategy-v1.md and sharpie-maestro-gallery-treatment-v1.md. MAESTRO file count now 10. Downloads still not mounted.",
+      "last_run": "Today 5:04 PM PT",
       "color": "teal"
     },
     {
@@ -54,7 +54,7 @@
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "V9 stalled. PPTX files v6/v7/v8 now in output via SARAH Run 80 — but V9 still awaiting MAESTRO review of TESTING results before fully resuming.",
+      "last_action": "V9 stalled. PPTX files v6/v7/v8 now in output. V9 still awaiting MAESTRO review of TESTING results before fully resuming.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
@@ -75,33 +75,39 @@
   ],
   "activity": [
     {
+      "time": "5:41 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — MAESTRO 'Gallery' concept captured (2 new Sharpie files: strategy + treatment). LA Galaxy ~30h.",
+      "color": "blue"
+    },
+    {
+      "time": "5:04 PM PT",
+      "agent": "SARAH",
+      "text": "New sweep — 2 MAESTRO Gallery files filed: gallery-strategy-v1.md + gallery-treatment-v1.md. MAESTRO output count now 10.",
+      "color": "teal"
+    },
+    {
       "time": "4:41 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 80 captured (13 new files: 6 Gemini renders, 3 PPTX decks, 4 docs). LA Galaxy window now ~31 hours.",
+      "text": "Dashboard pushed — SARAH Run 80 captured (13 files: 6 Gemini renders, v6/v7/v8 decks, 4 docs). LA Galaxy ~31h.",
       "color": "blue"
     },
     {
       "time": "4:05 PM PT",
       "agent": "JARVIS",
-      "text": "Nightly report completed — all red items confirmed open: LA Galaxy, Macy's, Glossier, GUARDIAN offline.",
+      "text": "Nightly report: all red items confirmed open — LA Galaxy, Macy's, Glossier, GUARDIAN offline.",
       "color": "blue"
     },
     {
       "time": "4:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 80 — 13 new files: 6 Sharpie Gemini renders, v6/v7/v8 campaign decks, Audacious Research, Creative Package Final, merch contacts. 22 dupes logged.",
+      "text": "Run 80 — 13 new files: 6 Sharpie Gemini renders, v6/v7/v8 campaign decks, Audacious Research, Creative Package Final, merch contacts. 51 dupes pending.",
       "color": "teal"
-    },
-    {
-      "time": "3:41 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 79 details confirmed (5 files: v6 preview, sharpie package, WYMI creative, SCOUT audit, about page).",
-      "color": "blue"
     },
     {
       "time": "3:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 79 — 5 files organized to output/ (jarvis-v6-preview, sharpie creative package, WYMI, SCOUT audit, about page). 29 dupes logged.",
+      "text": "Run 79 — 5 files organized: jarvis-v6-preview, sharpie creative package, WYMI, SCOUT audit, about page. 29 dupes logged.",
       "color": "teal"
     },
     {
@@ -109,12 +115,6 @@
       "agent": "SCOUT",
       "text": "BiG pipeline scan complete — 0 new prospects. Dashboard committed and pushed. Lands' End freshest lead.",
       "color": "teal"
-    },
-    {
-      "time": "10:06 AM PT",
-      "agent": "JARVIS",
-      "text": "Morning brief: CEO pitch day, LA Galaxy D-2, Glossier window closing, K18/Mack flagged as top new lead.",
-      "color": "blue"
     },
     {
       "time": "9:05 AM PT",
@@ -131,13 +131,13 @@
     {
       "time": "Apr 22 evening",
       "agent": "TESTING",
-      "text": "Hybrid V1 scored 4.7★ production-ready. VO at 8.5/10. WYMI storyboard 6.6/10 — filmability gap noted.",
+      "text": "Hybrid V1 scored 4.7★ production-ready. VO 8.5/10. WYMI storyboard 6.6/10 — filmability gap noted.",
       "color": "blue"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — ~31 hours left",
+      "title": "LA Galaxy / Jacobi — ~30 hours left",
       "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed today.",
       "severity": "red"
     },
@@ -157,7 +157,7 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup — 51 dupes pending auth",
+      "title": "SARAH cleanup — 51 dupes pending",
       "subtitle": "29 from Run 79 + 22 from Run 80. Clean manual trash job in ~/Documents whenever ready.",
       "severity": "amber"
     },
@@ -168,19 +168,19 @@
     }
   ],
   "stats": {
-    "tasks_today": 15,
+    "tasks_today": 16,
     "top_score": 85,
     "prospects": 8,
-    "files_swept": 13
+    "files_swept": 15
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "Tomorrow 12:04 AM PT"
+      "name": "JARVIS dashboard push",
+      "next_run": "Tonight 6:39 PM PT"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "Tonight 5:39 PM PT"
+      "name": "SARAH file sweep",
+      "next_run": "Tonight 6:04 PM PT"
     },
     {
       "name": "Nightly report",
