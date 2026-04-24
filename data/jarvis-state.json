@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-24T16:43:00Z",
-  "status_line": "Friday 9:43 AM PT. SARAH's 9 AM sweep wrapped — Downloads still blocked (10th consecutive no-mount), output directory unchanged. LA Galaxy window closes tomorrow and the DM still hasn't gone. SCOUT holding 11 signals, ATLAS report from this morning confirmed T2 Hybrid at 4.7 stars. TESTING re-run and GUARDIAN remain the two blockers before anything touches a client.",
+  "updated_at": "2026-04-24T17:40:00Z",
+  "status_line": "Friday 10:40 AM PT. SARAH Run 88 wrapped — Downloads still locked out, 11th consecutive miss. LA Galaxy deadline is TOMORROW and that DM still hasn't gone — that's the only thing that matters right now. TESTING re-run and GUARDIAN still blocking client delivery. Everything else holding steady.",
   "agents": [
     {
       "name": "SCOUT",
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 87 (9:05 AM PT) — Downloads not accessible, 10th consecutive blocked sweep. Output directory stable since prior run. No new JARVIS files. 10 standing issues still await Rick sign-off.",
-      "last_run": "Today 9:05 AM PT",
+      "last_action": "Run 88 (10:05 AM PT) — Downloads not accessible, 11th consecutive blocked sweep. Output directory unchanged since Run 87. No new JARVIS files. 6 standing issues still await Rick sign-off.",
+      "last_run": "Today 10:05 AM PT",
       "color": "teal"
     },
     {
@@ -75,15 +75,21 @@
   ],
   "activity": [
     {
-      "time": "9:05 AM PT",
+      "time": "10:40 AM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 88 logged, 11th consecutive Downloads block, LA Galaxy deadline tomorrow.",
+      "color": "blue"
+    },
+    {
+      "time": "10:05 AM PT",
       "agent": "SARAH",
-      "text": "Run 87 — Downloads blocked again (10th consecutive no-mount). Output directory unchanged. 10 standing issues await sign-off.",
+      "text": "Run 88 — Downloads blocked (11th consecutive no-mount). Output directory unchanged. 6 standing issues await sign-off.",
       "color": "teal"
     },
     {
-      "time": "8:41 AM PT",
+      "time": "9:43 AM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 89 logged, LA Galaxy deadline red, 17 tasks tracked.",
+      "text": "Dashboard pushed — SARAH Run 87 logged, LA Galaxy deadline red, 18 tasks tracked.",
       "color": "blue"
     },
     {
@@ -127,12 +133,6 @@
       "agent": "TESTING",
       "text": "WYMI storyboard 6.6/10. VO 8.5/10 — 'the ink doesn't know' locked. T2 Hybrid V1 4.7★ (pre-final script — re-run needed).",
       "color": "amber"
-    },
-    {
-      "time": "Apr 22 evening",
-      "agent": "PARK",
-      "text": "v6/v7/v8 decks delivered overnight. Stale streak broken. ~154 MB root dupes flagged. Awaiting TESTING re-run before v9.",
-      "color": "dim"
     }
   ],
   "attention": [
@@ -162,7 +162,7 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH: Downloads blocked 10 consecutive runs",
+      "title": "SARAH: Downloads blocked 11 consecutive runs",
       "subtitle": "Downloads folder not mounted in Cowork session. To fix: open Cowork settings and add ~/Downloads as a workspace folder.",
       "severity": "amber"
     }
@@ -176,11 +176,11 @@
   "scheduled": [
     {
       "name": "SARAH File Sweep",
-      "next_run": "10:04 AM PT today"
+      "next_run": "11:04 AM PT today"
     },
     {
       "name": "JARVIS Dashboard Push",
-      "next_run": "10:39 AM PT today"
+      "next_run": "11:39 AM PT today"
     },
     {
       "name": "Nightly Status Report",
