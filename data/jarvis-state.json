@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-04-24T08:41:00Z",
-  "status_line": "Friday 1:41 AM. SARAH Run 84 (08:10 UTC) came back clean again — Downloads still blocked, 6th consecutive. New flag: atlas-daily-report.md root dupe confirmed for delete. LA Galaxy window expires tomorrow (Apr 25) — still the live clock. Macy's and Glossier still red. GUARDIAN at 16+ no-run cycles. SCOUT, Morning Brief, and ATLAS all up in the next few hours.",
+  "updated_at": "2026-04-24T09:41:00Z",
+  "status_line": "Friday 2:41 AM. SARAH Run 84 (09:06 UTC) came back clean — Downloads blocked for the 7th straight run, output stable. SCOUT and Morning Brief both fire in about 25 minutes. LA Galaxy window closes tomorrow (Apr 25) — still the live clock that matters most. GUARDIAN has been dark for 16+ cycles; nothing should go to client without a pass. Six pending deletes in the output folder still need Rick's sign-off.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 23 run complete — 0 new prospects. Dashboard committed and pushed. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead. McGarrah Jessee flagged as BiG's closest competitive analog.",
+      "last_action": "Apr 23 pipeline scan — 0 new prospects. Lands' End (Sarah Sylvester, first CMO in a decade) is the freshest lead. McGarrah Jessee flagged as BiG's closest competitive analog. Dashboard pushed to GitHub.",
       "last_run": "Yesterday 3:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "16 output files confirmed. CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision spec, Fractional ECD portal v1, and 6 T2 anthem scripts all delivered overnight Apr 22–23.",
+      "last_action": "16 output files confirmed from overnight Apr 22–23 run. CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision spec, Fractional ECD portal v1, and 6 T2 anthem scripts all delivered. Gallery strategy and treatment also filed Apr 24.",
       "last_run": "Overnight Apr 22–23",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "No new tasks since last cycle. About page copy (RickWayne_AboutPage_MAESTRO) and Process section (RickWayne_ProcessSection_WRITER) previously filed by SARAH.",
+      "last_action": "About page copy (RickWayne_AboutPage_MAESTRO) and Process section (RickWayne_ProcessSection_WRITER) previously organized by SARAH. No new tasks this cycle.",
       "last_run": "Recent",
       "color": "dim"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "WYMI storyboard scored 6.6/10 — filmability gap flagged (37+ beats in :30). VO locked at 8.5/10, 'the ink doesn't know' is the line. Hybrid V1 confirmed 4.7★ production-ready.",
+      "last_action": "WYMI storyboard scored 6.6/10 — filmability gap flagged (37+ beats in :30). VO locked at 8.5/10, 'the ink doesn't know' is the line. T2 Hybrid V1 confirmed 4.7★ production-ready.",
       "last_run": "Apr 22 evening",
       "color": "dim"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 84 (08:10 UTC) — clean sweep. Downloads still not mounted (6th consecutive). No new files since Run 83. atlas-daily-report.md in output root confirmed exact dupe (19,157 bytes) — flagged for delete pending approval. 4 standing delete approvals still pending from Run 82.",
-      "last_run": "Tonight 1:10 AM PT",
+      "last_action": "Run 84 (09:06 UTC) — clean sweep. Downloads not mounted (7th consecutive). Output directory unchanged since Run 83. atlas-daily-report.md root dupe confirmed (19,157 bytes) — awaiting delete approval. 6 standing issues open.",
+      "last_run": "Tonight 2:06 AM PT",
       "color": "teal"
     },
     {
@@ -47,170 +47,160 @@
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "93 storyboard frames in nolan/storyboard/ (+4 from SARAH Run 83). Awaiting MAESTRO review of TESTING results before resuming. PPTX v6/v7/v8 all in output (3 root copies confirmed dupes, 77.6 MB).",
+      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 all in output (3 root copies confirmed dupes, 77.6 MB). Awaiting MAESTRO review of TESTING results before resuming.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "V9 stalled. PPTX v6/v7/v8 in output. Awaiting MAESTRO + TESTING review resolution.",
+      "last_action": "V9 stalled. PPTX v6/v7/v8 in output. Awaiting MAESTRO + TESTING review resolution before proceeding.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "16+ consecutive cycles with no run. Brand validation offline. Nothing should go to client without a GUARDIAN pass.",
+      "last_action": "16+ consecutive cycles with no run. Brand validation is offline. Nothing should go to client without a GUARDIAN pass — this is a standing gap.",
       "last_run": "No recent run",
       "color": "amber"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "No new tasks flagged this cycle.",
+      "last_action": "No new tasks this cycle. Last active Apr 15.",
       "last_run": "Apr 15",
       "color": "dim"
     }
   ],
   "activity": [
     {
+      "time": "2:41 AM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 84 captured. Downloads blocked 7th consecutive. LA Galaxy expires Apr 25. SCOUT + Morning Brief fire in ~25 min.",
+      "color": "blue"
+    },
+    {
+      "time": "2:06 AM PT",
+      "agent": "SARAH",
+      "text": "Run 84 — clean sweep. Downloads not mounted (7th consecutive). Output unchanged since Run 83. atlas-daily-report.md root dupe flagged for delete. 6 standing issues unresolved.",
+      "color": "teal"
+    },
+    {
       "time": "1:41 AM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 84 captured. Downloads blocked 6th consecutive. atlas-daily-report.md root dupe newly flagged. LA Galaxy expires Apr 25.",
+      "text": "Dashboard pushed — SARAH Run 83 captured. Downloads blocked 6th consecutive. atlas-daily-report.md root dupe newly confirmed. LA Galaxy expires Apr 25.",
       "color": "blue"
     },
     {
       "time": "1:10 AM PT",
       "agent": "SARAH",
-      "text": "Run 84 — clean sweep. No new files. Downloads not mounted (6th consecutive). atlas-daily-report.md root confirmed exact dupe (19,157 bytes) — flagged for delete approval.",
+      "text": "Run 83 — clean sweep. No new files. Downloads not mounted (6th consecutive). atlas-daily-report.md root confirmed exact dupe (19,157 bytes).",
       "color": "teal"
     },
     {
-      "time": "1:00 AM PT",
+      "time": "12:40 AM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 83 captured. Clean sweep, 93 Nolan frames (+4). Downloads blocked 5th consecutive. LA Galaxy expires April 25.",
+      "text": "Dashboard pushed — SARAH Run 82 captured. PPTX duplicates (77.6 MB) flagged for delete. 4 standing delete approvals pending.",
       "color": "blue"
     },
     {
-      "time": "12:06 AM PT",
+      "time": "12:04 AM PT",
       "agent": "SARAH",
-      "text": "Run 83 — clean sweep. No new files since Run 82. Downloads still not mounted (5th consecutive). Nolan frames at 93 (+4). 4 delete approvals still pending from Run 82.",
+      "text": "Run 82 — PPTX duplicates confirmed: 3 deck files in output root match big-new-business/ copies. Downloads blocked 5th consecutive. 4 pending deletes.",
       "color": "teal"
-    },
-    {
-      "time": "11:40 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 82 captured. PPTX duplicates (77.6 MB) flagged for delete approval. LA Galaxy window now hours, not days.",
-      "color": "blue"
     },
     {
       "time": "11:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 82 — PPTX duplicates confirmed: 3 deck files in output root match big-new-business/ copies (77.6 MB recoverable). atlas-daily-report.md root also duped. Downloads still not mounted (4th consecutive). 4 pending delete approvals.",
-      "color": "teal"
-    },
-    {
-      "time": "10:05 PM PT",
-      "agent": "SARAH",
-      "text": "Run 81 — clean sweep. No new files since Run 80. Downloads still not mounted (3rd consecutive). sharpie-t2-anthem-60-hybrid-v1-src.md flagged for delete approval.",
+      "text": "Run 81 — clean sweep. No new files since Run 80. Downloads still not mounted (3rd consecutive).",
       "color": "teal"
     },
     {
       "time": "8:06 PM PT",
       "agent": "SARAH",
-      "text": "Run 80 — 7 new files organized. MAESTRO scripts: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. NOLAN: sharpie-make-it-permanent.png to nolan/storyboard/.",
+      "text": "Run 80 — 7 new files organized. MAESTRO scripts: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1 + more. Gallery strategy and treatment filed.",
       "color": "teal"
     },
     {
       "time": "6:05 AM PT",
       "agent": "ATLAS",
-      "text": "Daily report: CEO pitch PDF (47MB) confirmed. MAESTRO triple overnight run. LA Galaxy D-1 (Apr 25). Macy's overdue. Glossier D-17 unconfirmed. JARVIS product demo workstream tracked.",
+      "text": "Daily report: CEO pitch PDF (47MB) confirmed. MAESTRO triple overnight run captured. LA Galaxy D-1 (Apr 25), Macy's overdue, Glossier D-17 unconfirmed. GUARDIAN 5+ dark cycles.",
       "color": "teal"
     },
     {
       "time": "3:07 AM PT",
       "agent": "SCOUT",
-      "text": "BiG pipeline scan complete — 0 new prospects. Dashboard committed and pushed. McGarrah Jessee flagged as BiG's closest competitive analog.",
+      "text": "BiG pipeline scan complete — 0 new prospects. Lands' End (Sarah Sylvester) freshest lead. McGarrah Jessee flagged as closest competitive analog. Dashboard pushed.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — expires TOMORROW Apr 25",
-      "subtitle": "~24 hours remaining. LinkedIn outreach to Jessica Jacobi still not confirmed sent. This is the live clock.",
+      "title": "LA Galaxy pitch window closes TOMORROW",
+      "subtitle": "Apr 25 deadline — deck undelivered, NOLAN/PARK parked. This is the live clock.",
       "severity": "red"
     },
     {
       "title": "Macy's — overdue",
-      "subtitle": "No movement logged across multiple cycles. May–June creative partner deadline. Needs direct follow-up now.",
+      "subtitle": "Escalated to overdue per ATLAS Apr 23. No recent outreach logged.",
       "severity": "red"
     },
     {
-      "title": "Glossier / Solórzano — Day 18+ unconfirmed",
-      "subtitle": "Multiple consecutive reports with no confirmation outreach was sent. Needs direct status check.",
-      "severity": "red"
-    },
-    {
-      "title": "PPTX duplicates — 77.6 MB awaiting delete approval",
-      "subtitle": "3 deck files in output root confirmed byte-for-byte identical to big-new-business/ copies. Tell SARAH OK to delete root copies.",
+      "title": "Glossier — D-17 unconfirmed",
+      "subtitle": "Window closing, status unconfirmed. Needs a touch or a decision.",
       "severity": "amber"
     },
     {
-      "title": "atlas-daily-report.md root dupe — newly flagged",
-      "subtitle": "Confirmed exact match (19,157 bytes) to 2026-04-23_atlas/ copy. Ready to delete pending approval.",
+      "title": "GUARDIAN offline — 16+ cycles",
+      "subtitle": "No brand validation runs. Nothing should go to client without a GUARDIAN pass.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — 16+ no-run cycles",
-      "subtitle": "Brand validation offline. Nothing should go to client without a GUARDIAN pass.",
+      "title": "Downloads blocked — 7 consecutive SARAH runs",
+      "subtitle": "Add ~/Downloads in Cowork workspace folder settings to restore sweep.",
       "severity": "amber"
     },
     {
-      "title": "Downloads folder unmounted — 6th consecutive run",
-      "subtitle": "SARAH cannot sweep ~/Downloads. Add it as a Cowork workspace folder to unblock.",
-      "severity": "amber"
-    },
-    {
-      "title": "3 additional items awaiting delete approval",
-      "subtitle": "test-sarah-write-1776722750, test-write-check, sharpie-t2-anthem-60-hybrid-v1-src.md. Tell SARAH OK to clear.",
+      "title": "6 pending delete approvals in output",
+      "subtitle": "PPTX dupes (77.6 MB), test artifacts, atlas-daily-report.md root copy, sharpie-t2 hybrid dupe.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 23,
-    "top_score": 85,
-    "prospects": 8,
-    "files_swept": 0
+    "tasks_today": 9,
+    "top_score": 8.5,
+    "prospects": 1,
+    "files_swept": 7
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "Tonight 2:04 AM PT"
+      "name": "SARAH File Sweep",
+      "next_run": "3:04 AM PT today"
     },
     {
-      "name": "Receipt filer",
-      "next_run": "Tonight 2:04 AM PT"
+      "name": "Morning Brief",
+      "next_run": "3:06 AM PT today"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "Tonight 3:06 AM PT"
+      "name": "SCOUT Pipeline Check",
+      "next_run": "3:07 AM PT today"
     },
     {
-      "name": "SCOUT pipeline check",
-      "next_run": "Tonight 3:07 AM PT"
+      "name": "ATLAS Dependency Check",
+      "next_run": "6:04 AM PT today"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "Tonight 3:39 AM PT"
+      "name": "JARVIS Dashboard Push",
+      "next_run": "3:39 AM PT today"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "This morning 6:05 AM PT"
+      "name": "Nightly Status Report",
+      "next_run": "4:04 PM PT today"
     },
     {
-      "name": "Nightly report",
-      "next_run": "Today 4:04 PM PT"
+      "name": "Receipt Filer",
+      "next_run": "2:04 AM PT tomorrow"
     }
   ]
 }
