@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-24T14:40:00Z",
-  "status_line": "Friday 7:40 AM PT. SARAH Run 88 just completed — osascript bypass finally cracked Downloads open. Full scan of 9 files: zero JARVIS items. 10 standing issues remain, waiting on Rick's call. LA Galaxy window closes tomorrow — that DM still needs to go today. Everything else is holding steady from the 6 AM ATLAS report.",
+  "updated_at": "2026-04-24T15:41:00Z",
+  "status_line": "Friday 8:41 AM PT. All agents holding steady mid-morning. SARAH Run 89 confirmed no JARVIS files in Downloads — clean sweep for the second time. LA Galaxy window closes tomorrow: the DM needs to go today. TESTING re-run still queued, GUARDIAN still dark at 6 flags. SCOUT pipeline unchanged at 11 active signals.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline tomorrow (Apr 25). Haleon, JLR, Wendy's resolved. Lands' End (Sylvester) freshest lead, soft deadline Apr 30.",
+      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
       "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
@@ -26,21 +26,21 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "ATLAS flagged: T2 Hybrid scored 4.7★ before MAESTRO's final script pass — needs re-run on locked T2-60-final. T2-anthem-30 still unscored. WYMI storyboard 6.6/10. VO 8.5/10 ('the ink doesn't know'). Re-run required before anything moves to client.",
+      "last_action": "Re-run required: T2 Hybrid scored 4.7★ before MAESTRO's final script pass. T2-anthem-30 still unscored. WYMI storyboard 6.6/10. VO 8.5/10 ('the ink doesn't know'). Nothing moves to client until re-run completes.",
       "last_run": "Apr 22 evening",
       "color": "amber"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 88 (7:09 AM PT) — osascript bypass worked. Downloads fully scanned for first time: 9 files/folders, zero JARVIS-related items. atlas-daily-report.md refresh noted. 10 standing issues remain open, awaiting Rick sign-off.",
-      "last_run": "Today 7:09 AM PT",
+      "last_action": "Run 89 (8:05 AM PT) — Downloads confirmed clean for second consecutive sweep. 9 files scanned, zero JARVIS-related items. Output directory unchanged since Run 88. 10 standing issues still await Rick sign-off.",
+      "last_run": "Today 8:05 AM PT",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 24 daily report (6:05 AM PT): T2 Hybrid confirmed 4.7★ (top 3% globally). PARK stale streak broken. 21 new files since yesterday. TESTING re-run needed on final locked scripts. NOLAN/GUARDIAN both at 6th stale flag. LA Galaxy four consecutive deadline flags.",
+      "last_action": "Apr 24 daily report (6:05 AM PT): T2 Hybrid confirmed 4.7★ (top 3% globally). PARK stale streak broken. 21 new files since yesterday. TESTING re-run needed on final locked scripts. NOLAN and GUARDIAN both at 6th consecutive stale flag.",
       "last_run": "Today 6:05 AM PT",
       "color": "teal"
     },
@@ -54,7 +54,7 @@
     {
       "name": "PARK",
       "state": "idle",
-      "last_action": "Stale streak broken — v6/v7/v8 decks delivered to root overnight Apr 22–23. 3 root copies confirmed dupes (77.6 MB). Awaiting TESTING re-run on final scripts before v9 proceeds.",
+      "last_action": "Stale streak broken — v6/v7/v8 decks delivered to root overnight Apr 22–23. 3 root copies confirmed dupes (~154 MB). Awaiting TESTING re-run on final scripts before v9 proceeds.",
       "last_run": "Overnight Apr 22–23",
       "color": "dim"
     },
@@ -75,15 +75,27 @@
   ],
   "activity": [
     {
-      "time": "7:09 AM PT",
+      "time": "8:05 AM PT",
       "agent": "SARAH",
-      "text": "Run 88 — osascript bypass cracked Downloads open. Full scan: 9 files, zero JARVIS items. 10 standing issues still awaiting Rick sign-off.",
+      "text": "Run 89 — Downloads confirmed clean again. 9 files, zero JARVIS items. Output directory unchanged. 10 standing issues still await sign-off.",
       "color": "teal"
     },
     {
-      "time": "6:41 AM PT",
+      "time": "7:40 AM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — ATLAS/SARAH 6 AM results live. LA Galaxy deadline flagged red, TESTING re-run needed, SARAH standing issues at 10.",
+      "text": "Dashboard pushed — SARAH Run 88 osascript breakthrough logged. LA Galaxy deadline advanced to red. TESTING re-run flagged.",
+      "color": "blue"
+    },
+    {
+      "time": "7:09 AM PT",
+      "agent": "SARAH",
+      "text": "Run 88 — osascript bypass cracked Downloads open for first time. Full scan: 9 files, zero JARVIS items. Streak broken.",
+      "color": "teal"
+    },
+    {
+      "time": "6:07 AM PT",
+      "agent": "MORNING BRIEF",
+      "text": "Morning brief delivered — LA Galaxy DM top priority, 'The Gallery' ready for Rick's read, Glossier + Macy's need action today.",
       "color": "blue"
     },
     {
@@ -93,22 +105,10 @@
       "color": "teal"
     },
     {
-      "time": "6:05 AM PT",
-      "agent": "SARAH",
-      "text": "Run 87 — Downloads blocked (10th sweep). 10 standing issues tracked. New: orphan MAESTRO file, 3 confirmed dupes, stray HTML at root.",
-      "color": "amber"
-    },
-    {
       "time": "3:07 AM PT",
       "agent": "SCOUT",
-      "text": "Daily scan — 0 new prospects. 11 active signals confirmed. LA Galaxy/Jacobi deadline tomorrow. Haleon, JLR, Wendy's all resolved.",
+      "text": "Daily scan — 0 new prospects. 11 active signals confirmed. LA Galaxy/Jacobi deadline TOMORROW. Haleon, JLR, Wendy's all resolved.",
       "color": "teal"
-    },
-    {
-      "time": "3:06 AM PT",
-      "agent": "JARVIS",
-      "text": "Morning Brief delivered — LA Galaxy DM top priority, 'The Gallery' ready for Rick's read, Glossier + Macy's need action today.",
-      "color": "blue"
     },
     {
       "time": "2:04 AM PT",
@@ -119,7 +119,7 @@
     {
       "time": "Yesterday 7:04 PM PT",
       "agent": "NIGHTLY",
-      "text": "Nightly status report delivered. PARK/MAESTRO outputs confirmed. LA Galaxy D-1 flagged for tomorrow.",
+      "text": "Nightly report delivered. PARK/MAESTRO outputs confirmed. LA Galaxy D-1 flagged for today. Macy's five consecutive flags — overdue.",
       "color": "blue"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "LA Galaxy pitch window closes TOMORROW",
-      "subtitle": "Apr 25 deadline — Jessica Jacobi is 12 days into CMO role. Rick DM today or it's over. ATLAS: four consecutive flags.",
+      "subtitle": "Apr 25 deadline — Jessica Jacobi is 12 days into CMO role. Rick DM today or it's over. Four consecutive ATLAS flags.",
       "severity": "red"
     },
     {
@@ -148,12 +148,12 @@
     },
     {
       "title": "TESTING re-run required before client delivery",
-      "subtitle": "T2 Hybrid scored before final script pass. T2-anthem-30 unscored. Nothing moves to client until re-run.",
+      "subtitle": "T2 Hybrid scored before final script pass. T2-anthem-30 unscored. Nothing moves to client until re-run completes.",
       "severity": "amber"
     },
     {
-      "title": "Glossier — D-19, closing window",
-      "subtitle": "Nicole Solórzano 19 days in. Four consecutive flags. Past D-20 reads reactive, not strategic.",
+      "title": "Glossier — Day 19, closing fast",
+      "subtitle": "Nicole Solórzano 19 days in as CMO. Four consecutive flags. Past Day 20 reads reactive, not strategic.",
       "severity": "amber"
     },
     {
@@ -163,12 +163,12 @@
     },
     {
       "title": "SARAH: 10 standing issues await sign-off",
-      "subtitle": "Dupes, orphans, empty test artifacts, NOLAN path conflict. Downloads finally scanned (Run 88) — zero JARVIS files found.",
+      "subtitle": "Dupes (~154 MB), orphans, empty test artifacts, NOLAN path conflict. Downloads now accessible — zero JARVIS files confirmed.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 16,
+    "tasks_today": 17,
     "top_score": 8.5,
     "prospects": 11,
     "files_swept": 9
@@ -176,11 +176,11 @@
   "scheduled": [
     {
       "name": "SARAH File Sweep",
-      "next_run": "8:04 AM PT today"
+      "next_run": "9:04 AM PT today"
     },
     {
       "name": "JARVIS Dashboard Push",
-      "next_run": "8:39 AM PT today"
+      "next_run": "9:39 AM PT today"
     },
     {
       "name": "Nightly Status Report",
