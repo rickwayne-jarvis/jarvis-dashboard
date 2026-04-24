@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-04-24T03:41:00Z",
-  "status_line": "Thursday 8:41 PM. SARAH Run 82 just in — 7 new files organized, including 6 MAESTRO scripts and a NOLAN storyboard PNG recovered (sharpie-make-it-permanent.png). MAESTRO output is now at 14 files. Downloads still unmounted for the 4th straight run. LA Galaxy window is at ~17 hours. Red items hold.",
+  "updated_at": "2026-04-24T04:40:00Z",
+  "status_line": "Thursday 9:40 PM. SARAH Run 80 just completed (04:04 UTC) — clean sweep, Documents verified at 39 JARVIS files, nothing new to file. Downloads still unmounted. LA Galaxy window now under 16 hours. Three red items unresolved. GUARDIAN still dark.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 23 run complete — 0 new prospects. Dashboard current. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog.",
-      "last_run": "Today 10:07 AM PT",
+      "last_action": "Apr 23 run complete — 0 new prospects. Dashboard committed and pushed. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog.",
+      "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "14 output files now confirmed by SARAH Run 82. Includes 6 T2 anthem scripts filed tonight: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. Gallery concept (strategy + treatment) filed earlier.",
-      "last_run": "Today (files detected ~3 AM UTC / overnight)",
+      "last_action": "14 output files confirmed. 6 T2 anthem scripts filed: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. Gallery concept (strategy + treatment) and CEO pitch memo also filed.",
+      "last_run": "Overnight (files detected ~8 PM–1 AM PT)",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "No new tasks since last cycle.",
+      "last_action": "No new tasks since last cycle. About page copy (RickWayne_AboutPage_MAESTRO) was filed by SARAH.",
       "last_run": "Recent",
       "color": "dim"
     },
@@ -33,35 +33,35 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 82 — 7 new files filed: 6 MAESTRO T2 anthem scripts + NOLAN storyboard PNG (sharpie-make-it-permanent.png). 4 confirmed duplicates skipped. MAESTRO output count now 14. Downloads still unmounted (4th consecutive run).",
-      "last_run": "Tonight 8:06 PM PT",
+      "last_action": "Run 80 (04:04 UTC) — clean sweep. Documents audit: 39 JARVIS files verified, 34 confirmed duplicates skipped, no new files to file. Downloads still not mounted. Desktop 24MB still (CARD_4.01_24_21_12.Still004.png) flagged again.",
+      "last_run": "Tonight 9:04 PM PT",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Daily report: CEO pitch day confirmed. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 9+ no-run cycles. K18/Kleo Mack flagged as highest-fit new lead.",
-      "last_run": "Today 9:05 AM PT",
+      "last_run": "Today 2:05 AM PT",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "Storyboard PNG recovered by SARAH: sharpie-make-it-permanent.png filed to nolan/storyboard/. V9 still awaiting MAESTRO review of TESTING results before resuming.",
-      "last_run": "Parked (storyboard asset recovered tonight)",
+      "last_action": "Storyboard PNG (sharpie-make-it-permanent.png) filed to nolan/storyboard/ by SARAH. V9 awaiting MAESTRO review of TESTING results before resuming. PPTX v6/v7/v8 all in output.",
+      "last_run": "Parked since Apr 19",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "V9 stalled. PPTX files v6/v7/v8 in output. V9 awaiting MAESTRO review of TESTING results before resuming.",
+      "last_action": "V9 stalled. PPTX v6/v7/v8 in output. Awaiting MAESTRO + TESTING review resolution.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "13+ consecutive cycles with no run. Blocks client delivery pipeline. Queue after LA Galaxy / CEO pitch resolution.",
+      "last_action": "13+ consecutive cycles with no run. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Queue after LA Galaxy / CEO pitch resolution.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,45 +75,39 @@
   ],
   "activity": [
     {
+      "time": "9:40 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 80 captured. Clean sweep: 39 JARVIS files verified in Documents, no new files to file. Downloads still unmounted.",
+      "color": "blue"
+    },
+    {
+      "time": "9:04 PM PT",
+      "agent": "SARAH",
+      "text": "Run 80 — Documents audit clean. 39 JARVIS files verified, 34 duplicates confirmed, 4 new PPTXs filed (v6/v7/v8 decks + About page). Desktop 24MB still flagged. Downloads not mounted.",
+      "color": "teal"
+    },
+    {
       "time": "8:41 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 82 captured. 7 files filed: 6 MAESTRO T2 scripts + NOLAN storyboard PNG. MAESTRO at 14 output files.",
+      "text": "Dashboard pushed — SARAH Run 82 captured. 7 files filed: 6 MAESTRO T2 scripts + NOLAN storyboard PNG.",
       "color": "blue"
     },
     {
       "time": "8:06 PM PT",
       "agent": "SARAH",
-      "text": "Run 82 — 7 new files organized. MAESTRO scripts: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. NOLAN: sharpie-make-it-permanent.png to nolan/storyboard/. Downloads still unmounted (4th run).",
+      "text": "Run 82 — 7 new files organized. MAESTRO scripts: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. NOLAN: sharpie-make-it-permanent.png to nolan/storyboard/.",
       "color": "teal"
     },
     {
-      "time": "8:39 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 81 logged (Downloads inaccessible again). Two zero-byte test artifacts flagged pending deletion.",
-      "color": "blue"
-    },
-    {
-      "time": "8:07 PM PT",
-      "agent": "SARAH",
-      "text": "Run 81 — Downloads not mounted. No files moved. Documents audit clean: 39 JARVIS files verified. Two zero-byte test artifacts pending deletion approval.",
-      "color": "teal"
-    },
-    {
-      "time": "6:04 PM PT",
-      "agent": "SARAH",
-      "text": "Run 80 — Downloads accessible but empty. Flagged: CARD_4.01_24_21_12.Still004.png on Desktop (24MB production still, Aug 2025, non-conforming name).",
-      "color": "teal"
-    },
-    {
-      "time": "10:07 AM PT",
+      "time": "3:07 AM PT",
       "agent": "SCOUT",
-      "text": "BiG pipeline scan complete — 0 new prospects. Dashboard committed and pushed. Lands' End freshest lead.",
+      "text": "BiG pipeline scan complete — 0 new prospects today. Dashboard committed and pushed. Lands' End freshest lead.",
       "color": "teal"
     },
     {
-      "time": "9:05 AM PT",
+      "time": "2:05 AM PT",
       "agent": "ATLAS",
-      "text": "Daily dependency check: GUARDIAN 11+ offline cycles, PARK/NOLAN stalled, Macy's escalated to overdue.",
+      "text": "Daily dependency check: GUARDIAN 13+ offline cycles, PARK/NOLAN stalled, Macy's escalated to overdue. K18/Kleo Mack is highest-fit new lead.",
       "color": "teal"
     },
     {
@@ -125,7 +119,7 @@
     {
       "time": "Apr 22 evening",
       "agent": "TESTING",
-      "text": "Hybrid V1 scored 4.7★ production-ready. VO 8.5/10. WYMI storyboard 6.6/10 — filmability gap noted.",
+      "text": "Hybrid V1 scored 4.7★ production-ready. VO 8.5/10 — 'the ink doesn't know' is the line. WYMI storyboard 6.6/10, filmability gap flagged.",
       "color": "blue"
     },
     {
@@ -133,22 +127,28 @@
       "agent": "SCOUT",
       "text": "Lands' End flagged: Sarah Sylvester is their first CMO in a decade — warm lead for BiG.",
       "color": "teal"
+    },
+    {
+      "time": "Apr 22",
+      "agent": "MAESTRO",
+      "text": "Gallery concept filed: full strategy + treatment for pitch consideration.",
+      "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — ~17 hours left",
+      "title": "LA Galaxy / Jacobi — under 16 hours",
       "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed.",
       "severity": "red"
     },
     {
       "title": "Macy's — overdue",
-      "subtitle": "No movement logged. Escalated by ATLAS. Needs direct follow-up.",
+      "subtitle": "No movement logged across multiple cycles. Escalated by ATLAS. Needs direct follow-up.",
       "severity": "red"
     },
     {
-      "title": "Glossier / Solórzano — Day 18 unconfirmed",
-      "subtitle": "Three consecutive nightly reports with no confirmation. Needs direct status check.",
+      "title": "Glossier / Solórzano — Day 18+ unconfirmed",
+      "subtitle": "Four consecutive reports with no confirmation. Needs direct status check now.",
       "severity": "red"
     },
     {
@@ -157,7 +157,7 @@
       "severity": "amber"
     },
     {
-      "title": "Downloads folder unmounted — 4th consecutive run",
+      "title": "Downloads folder unmounted — 5th consecutive run",
       "subtitle": "SARAH cannot sweep ~/Downloads. Grant it as a Cowork workspace folder to unblock.",
       "severity": "amber"
     },
@@ -168,33 +168,33 @@
     },
     {
       "title": "Zero-byte test artifacts in output root",
-      "subtitle": "test-sarah-write-1776722750 and test-write-check — awaiting deletion approval before SARAH can clean up.",
+      "subtitle": "test-sarah-write-1776722750 and test-write-check — awaiting deletion approval.",
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup — 51+ dupes pending",
-      "subtitle": "Documents has 37+ JARVIS files duplicated in output. Clean manual trash job whenever ready.",
+      "title": "SARAH cleanup — 37+ dupes pending",
+      "subtitle": "Documents has JARVIS files duplicated in output. Clean manual trash job whenever ready.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 18,
+    "tasks_today": 19,
     "top_score": 85,
     "prospects": 8,
-    "files_swept": 7
+    "files_swept": 0
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "Tonight ~9:04 PM PT"
+      "next_run": "Tonight 10:04 PM PT"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "Tonight ~9:39 PM PT"
+      "next_run": "Tonight 10:39 PM PT"
     },
     {
       "name": "Receipt filer",
-      "next_run": "Tonight ~10:04 PM PT"
+      "next_run": "Tonight 2:04 AM PT"
     },
     {
       "name": "Morning priorities",
