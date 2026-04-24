@@ -1,53 +1,53 @@
 {
-  "updated_at": "2026-04-24T11:41:20Z",
-  "status_line": "Friday 4:41 AM PT. Systems are quiet but the clock is ticking — LA Galaxy window closes tomorrow (Apr 25), Glossier is at D-19, Macy's is officially overdue. SCOUT confirmed 0 new prospects today; pipeline has 11 active signals. SARAH Run 85 cleared the 8-run Downloads blockage and found the folder empty. ATLAS fires at 6:04 AM. Morning Brief delivered. Three things need Rick's hands today: the Galaxy DM, the Glossier note, and one Macy's touch.",
+  "updated_at": "2026-04-24T12:41:29Z",
+  "status_line": "Friday 5:41 AM PT. SARAH Run 86 — Downloads still not mounted for the 9th straight sweep, no files cleared. SCOUT's daily scan came back clean: 0 new prospects, pipeline holds at 11 signals. LA Galaxy window closes TODAY (Apr 25 is tomorrow in the calendar, today is the last day for Rick to act). ATLAS fires in ~23 minutes. Macy's is overdue, Glossier is at D-18 — last clean outreach window. GUARDIAN remains dark.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 scan — 0 new prospects. Confirmed all active signals already in pipeline. LA Galaxy (Jessica Jacobi) closes Apr 25 — flagged as top priority. Delta CMO change (Ranjan Goswami) ruled out — enterprise scale. Local git commit staged; GitHub push blocked by credential unavailability in automated env.",
+      "last_action": "Apr 24 daily scan — 0 new prospects. Confirmed Haleon, JLR, Wendy's reviews all resolved. Delta CMO (Ranjan Goswami) ruled enterprise-scale. SharkNinja debunked as false positive. All 11 pipeline signals current. LA Galaxy/Jessica Jacobi: outreach deadline expires Apr 25. Git commit staged locally; push blocked by credential unavailability.",
       "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "16 output files confirmed from overnight Apr 22–23. CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision spec, Fractional ECD portal v1, 6 T2 anthem scripts. 'The Gallery' Sharpie concept (strategy + treatment) filed Apr 24 — awaiting Rick's read.",
+      "last_action": "16 output files confirmed from overnight Apr 22–23. 'The Gallery' Sharpie concept filed (strategy + treatment) — awaiting Rick's read. CEO pitch memo, WYMI rooftop scene V2, JARVIS product vision spec, Fractional ECD portal v1, 6 T2 anthem scripts all complete.",
       "last_run": "Overnight Apr 22–23",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "About page copy and Process section previously organized. No new tasks this cycle. LinkedIn rewrites staged in LinkedIn_Audit_SCOUT.md — ready for Rick to apply.",
+      "last_action": "LinkedIn rewrites staged in LinkedIn_Audit_SCOUT.md — ready for Rick to apply. About page copy and Process section previously organized. No new tasks this cycle.",
       "last_run": "Recent",
       "color": "dim"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "WYMI storyboard scored 6.6/10 — filmability gap flagged (37+ beats in :30). VO locked at 8.5/10, 'the ink doesn't know' is the line. T2 Hybrid V1 confirmed 4.7★ production-ready.",
+      "last_action": "WYMI storyboard scored 6.6/10 — filmability gap (37+ beats in :30). VO locked 8.5/10 — 'the ink doesn't know' is the line. T2 Hybrid V1 confirmed 4.7★ production-ready.",
       "last_run": "Apr 22 evening",
       "color": "dim"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 85 (11:04 UTC) — Downloads now accessible after 8 consecutive blocked runs; swept empty. One new file detected: scout-pipeline-2026-04-24.md already correctly placed — no action needed. 6 standing delete/guidance issues still open.",
-      "last_run": "Today 4:05 AM PT",
-      "color": "teal"
+      "last_action": "Run 86 (12:05 UTC) — Downloads still not mounted, 9th consecutive blocked sweep. Zero files cleared. Output dir scanned — no new files since Run 85. 6 standing delete/guidance issues remain open awaiting Rick's go-ahead. Downloads requires adding ~/Downloads as a connected Cowork folder.",
+      "last_run": "Today 5:05 AM PT",
+      "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 23 daily report: CEO pitch PDF (47MB) confirmed. LA Galaxy D-1 (Apr 25), Macy's escalated to overdue, Glossier D-17 unconfirmed. GUARDIAN 5+ no-run cycles flagged. JARVIS product demo workstream newly tracked.",
+      "last_action": "Apr 23 report: CEO pitch PDF confirmed. LA Galaxy D-1 (Apr 25), Macy's escalated to overdue, Glossier D-17. GUARDIAN 5+ dark cycles flagged. JARVIS product demo workstream newly tracked. Next run in ~23 min.",
       "last_run": "Yesterday 6:05 AM PT",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 all in output (3 root copies confirmed dupes, 77.6 MB). Awaiting MAESTRO review of TESTING results before resuming.",
+      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 in output (3 root copies confirmed dupes, 77.6 MB). Awaiting MAESTRO review of TESTING results before resuming.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
@@ -61,7 +61,7 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "18+ consecutive cycles with no run. Brand validation is offline. Nothing should go to client without a GUARDIAN pass — standing gap. Blocks next Sharpie client delivery.",
+      "last_action": "18+ consecutive cycles with no run. Brand validation offline. Nothing should go to client without a GUARDIAN pass — standing gap. Blocks next Sharpie client delivery.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,45 +75,39 @@
   ],
   "activity": [
     {
-      "time": "4:41 AM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 85 confirmed. Downloads unblocked. LA Galaxy closes Apr 25. ATLAS fires at 6:04 AM PT.",
-      "color": "blue"
+      "time": "5:05 AM PT",
+      "agent": "SARAH",
+      "text": "Run 86 — Downloads still not mounted (9th blocked sweep). Output dir scanned, no new files. 6 standing issues await Rick's go-ahead.",
+      "color": "amber"
     },
     {
-      "time": "4:05 AM PT",
-      "agent": "SARAH",
-      "text": "Run 85 — Downloads accessible after 8 blocked runs. Swept: empty. Scout report auto-filed correctly. 6 standing issues remain open.",
-      "color": "teal"
+      "time": "4:41 AM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed (prev hour) — SARAH Run 85 confirmed. LA Galaxy window closes Apr 25. Macy's overdue. ATLAS fires at 6:04 AM.",
+      "color": "blue"
     },
     {
       "time": "3:07 AM PT",
       "agent": "SCOUT",
-      "text": "BiG pipeline scan — 0 new prospects. 11 active signals. LA Galaxy closes Apr 25, Macy's overdue, Glossier D-18. Delta CMO change ruled out — enterprise scale.",
+      "text": "Daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi: deadline tomorrow. Haleon, JLR, Wendy's reviews all resolved and closed.",
       "color": "teal"
     },
     {
       "time": "3:06 AM PT",
       "agent": "JARVIS",
-      "text": "Morning Brief delivered — LA Galaxy DM first priority, 'The Gallery' concept ready for Rick's read, Glossier + Macy's need contact today.",
+      "text": "Morning Brief delivered — LA Galaxy DM first priority, 'The Gallery' concept ready, Glossier + Macy's need contact today.",
       "color": "blue"
     },
     {
       "time": "2:04 AM PT",
       "agent": "RECEIPT FILER",
-      "text": "0 receipts found in iCloud + Livelab inboxes. Ramp: $41.01 Uber (04/21) auto-matched, $82.01 Pizano's (04/12) missing items flag.",
+      "text": "0 receipts found in iCloud + Livelab inboxes. $82.01 Pizano's (04/12) still flagged as missing items in Ramp.",
       "color": "teal"
-    },
-    {
-      "time": "3:41 AM PT (prev)",
-      "agent": "JARVIS",
-      "text": "Prior dashboard pushed — SARAH Run 85 captured. Downloads unblocked after 8 runs. LA Galaxy window closes Apr 25.",
-      "color": "blue"
     },
     {
       "time": "Yesterday 6:05 AM PT",
       "agent": "ATLAS",
-      "text": "Daily report (Apr 23): CEO pitch confirmed. LA Galaxy D-1, Macy's overdue, Glossier D-17. GUARDIAN 5+ dark cycles flagged.",
+      "text": "Daily report: CEO pitch confirmed. LA Galaxy D-1, Macy's overdue, Glossier D-17. GUARDIAN 5+ dark cycles flagged. Firing again in ~23 min.",
       "color": "teal"
     },
     {
@@ -131,7 +125,13 @@
     {
       "time": "Apr 22 evening",
       "agent": "SCOUT",
-      "text": "Apr 23 pipeline scan — Lands' End (Sarah Sylvester) flagged as freshest lead. McGarrah Jessee noted as competitive analog.",
+      "text": "Lands' End (Sarah Sylvester) flagged as freshest lead. McGarrah Jessee noted as competitive analog.",
+      "color": "teal"
+    },
+    {
+      "time": "Apr 21",
+      "agent": "MAESTRO",
+      "text": "CEO pitch deck complete. 47MB PDF confirmed filed. Fractional ECD portal v1 delivered.",
       "color": "teal"
     }
   ],
@@ -147,44 +147,44 @@
       "severity": "red"
     },
     {
-      "title": "Glossier — D-19, closing fast",
-      "subtitle": "Nicole Solórzano is 19 days into the CMO role. Four consecutive flags. At D-20+ it reads reactive. Today or close the file.",
+      "title": "Glossier — D-18, last clean window",
+      "subtitle": "Nicole Solórzano is 18 days into the CMO role. Four consecutive flags. At D-20+ it reads reactive.",
+      "severity": "amber"
+    },
+    {
+      "title": "SARAH Downloads still blocked — 9 runs",
+      "subtitle": "Run 86 confirms ~/Downloads not mounted. Add it as a connected Cowork folder to unblock SARAH sweeps.",
       "severity": "amber"
     },
     {
       "title": "GUARDIAN offline — 18+ cycles",
-      "subtitle": "No brand validation runs. Blocks next Sharpie client delivery. Nothing should go to client without a GUARDIAN pass.",
+      "subtitle": "No brand validation runs. Blocks next Sharpie client delivery. Nothing goes to client without a GUARDIAN pass.",
       "severity": "amber"
     },
     {
       "title": "6 pending delete approvals in output",
-      "subtitle": "PPTX dupes (77.6 MB), test artifacts, atlas-daily-report.md root copy, sharpie-t2 hybrid dupe. Awaiting Rick sign-off.",
-      "severity": "amber"
-    },
-    {
-      "title": "Ramp housekeeping — missing receipt",
-      "subtitle": "$82.01 Pizano's (04/12) flagged as missing items in Ramp. Check dashboard if needed.",
+      "subtitle": "PPTX dupes (77.6 MB), test artifacts, stale report copies. Awaiting Rick sign-off before SARAH can clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 12,
+    "tasks_today": 13,
     "top_score": 8.5,
     "prospects": 11,
     "files_swept": 0
   },
   "scheduled": [
     {
-      "name": "SARAH File Sweep",
-      "next_run": "5:04 AM PT today"
+      "name": "ATLAS Dependency Check",
+      "next_run": "~6:04 AM PT today (imminent)"
     },
     {
-      "name": "ATLAS Dependency Check",
+      "name": "SARAH File Sweep",
       "next_run": "6:04 AM PT today"
     },
     {
       "name": "JARVIS Dashboard Push",
-      "next_run": "5:39 AM PT today"
+      "next_run": "6:39 AM PT today"
     },
     {
       "name": "Nightly Status Report",
