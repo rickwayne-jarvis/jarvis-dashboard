@@ -1,53 +1,53 @@
 {
-  "updated_at": "2026-04-24T13:41:14Z",
-  "status_line": "Friday 6:41 AM PT. ATLAS and SARAH both landed at 6:05 AM — ATLAS confirmed T2 Hybrid at 4.7 stars (top 3% globally, P&G Thank You Mom tier). PARK broke its 72-hour stale streak with v6/v7/v8 delivered. SARAH Run 87: Downloads still blocked (10th straight), standing issues climbed to 10. LA Galaxy window closes tomorrow — if that DM hasn't gone yet, it needs to go this morning. TESTING needs a re-run before anything moves to client.",
+  "updated_at": "2026-04-24T14:40:00Z",
+  "status_line": "Friday 7:40 AM PT. SARAH Run 88 just completed — osascript bypass finally cracked Downloads open. Full scan of 9 files: zero JARVIS items. 10 standing issues remain, waiting on Rick's call. LA Galaxy window closes tomorrow — that DM still needs to go today. Everything else is holding steady from the 6 AM ATLAS report.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. Confirmed Haleon, JLR, Wendy's reviews all resolved. Delta CMO (Ranjan Goswami) ruled enterprise-scale. SharkNinja debunked as false positive. 11 pipeline signals active and current. LA Galaxy/Jessica Jacobi deadline is Apr 25 (tomorrow). Git commit staged locally; push blocked by credential unavailability in automated environment.",
+      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline tomorrow (Apr 25). Haleon, JLR, Wendy's resolved. Lands' End (Sylvester) freshest lead, soft deadline Apr 30.",
       "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight Apr 22–23: 'The Gallery' Sharpie concept (strategy + treatment) filed and awaiting Rick's read. T2 final suite complete. MAKE IT platform formally defined as 3-level architecture. 16 output files confirmed. CEO pitch memo, WYMI rooftop scene V2, Fractional ECD portal v1 all delivered.",
+      "last_action": "Overnight Apr 22–23: 'The Gallery' Sharpie concept filed. T2 final suite complete. MAKE IT platform defined as 3-level architecture. 16 output files confirmed. CEO pitch memo, WYMI rooftop V2, Fractional ECD portal v1 all delivered.",
       "last_run": "Overnight Apr 22–23",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "LinkedIn rewrites staged in LinkedIn_Audit_SCOUT.md — ready for Rick to apply. 'Director' headline, dual-fluency About section, reel-first Featured section all drafted. No new tasks this cycle.",
+      "last_action": "LinkedIn rewrites staged in LinkedIn_Audit_SCOUT.md — ready for Rick to apply. Director headline, dual-fluency About section, reel-first Featured section all drafted.",
       "last_run": "Recent",
       "color": "dim"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "ATLAS flagged: T2 Hybrid scored 4.7★ before MAESTRO's final script pass — needs re-run on locked T2-60-final. T2-anthem-30 still unscored. WYMI storyboard 6.6/10. VO locked 8.5/10 ('the ink doesn't know'). Re-run required before anything moves to client.",
+      "last_action": "ATLAS flagged: T2 Hybrid scored 4.7★ before MAESTRO's final script pass — needs re-run on locked T2-60-final. T2-anthem-30 still unscored. WYMI storyboard 6.6/10. VO 8.5/10 ('the ink doesn't know'). Re-run required before anything moves to client.",
       "last_run": "Apr 22 evening",
       "color": "amber"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 87 (6:05 AM PT) — Downloads still not mounted, 10th consecutive blocked sweep. Zero files cleared. New discoveries: orphan MAESTRO file in dated subfolder only, 3 more confirmed exact dupes in 2026-04-15 folder, draft-mode HTML at root = exact dupe of nolan/storyboard/ copy, scout-pipeline-04-20 missing from canonical location. 10 standing issues now open, all pending Rick's go-ahead.",
-      "last_run": "Today 6:05 AM PT",
-      "color": "amber"
+      "last_action": "Run 88 (7:09 AM PT) — osascript bypass worked. Downloads fully scanned for first time: 9 files/folders, zero JARVIS-related items. atlas-daily-report.md refresh noted. 10 standing issues remain open, awaiting Rick sign-off.",
+      "last_run": "Today 7:09 AM PT",
+      "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 24 daily report (6:05 AM PT): T2 Hybrid confirmed 4.7★ (top 3% globally). PARK broke 72-hour stale streak — v6/v7/v8 at root. 21 new files since yesterday. TESTING needs re-run on final locked scripts. NOLAN stale (6th flag). GUARDIAN not run (6th flag). LA Galaxy deadline tomorrow — four consecutive flags.",
+      "last_action": "Apr 24 daily report (6:05 AM PT): T2 Hybrid confirmed 4.7★ (top 3% globally). PARK stale streak broken. 21 new files since yesterday. TESTING re-run needed on final locked scripts. NOLAN/GUARDIAN both at 6th stale flag. LA Galaxy four consecutive deadline flags.",
       "last_run": "Today 6:05 AM PT",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 in output. ATLAS 6th stale flag. Can now run on locked T2-60-final and Hybrid structure — awaiting queue.",
+      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 in output. ATLAS 6th stale flag. Ready to run on locked T2-60-final and Hybrid structure — awaiting queue.",
       "last_run": "Parked since Apr 19",
       "color": "dim"
     },
@@ -75,21 +75,33 @@
   ],
   "activity": [
     {
+      "time": "7:09 AM PT",
+      "agent": "SARAH",
+      "text": "Run 88 — osascript bypass cracked Downloads open. Full scan: 9 files, zero JARVIS items. 10 standing issues still awaiting Rick sign-off.",
+      "color": "teal"
+    },
+    {
+      "time": "6:41 AM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — ATLAS/SARAH 6 AM results live. LA Galaxy deadline flagged red, TESTING re-run needed, SARAH standing issues at 10.",
+      "color": "blue"
+    },
+    {
       "time": "6:05 AM PT",
       "agent": "ATLAS",
-      "text": "Daily report — T2 Hybrid 4.7★ (top 3% globally). PARK un-staled. TESTING re-run needed on final scripts. NOLAN/GUARDIAN both 6th stale flag.",
+      "text": "Daily report — T2 Hybrid 4.7★ (top 3% globally). PARK un-staled. TESTING re-run needed. NOLAN/GUARDIAN both 6th stale flag.",
       "color": "teal"
     },
     {
       "time": "6:05 AM PT",
       "agent": "SARAH",
-      "text": "Run 87 — Downloads blocked (10th sweep). 10 standing issues now tracked. New: orphan MAESTRO file, 3 more confirmed dupes, stray HTML copy at root.",
+      "text": "Run 87 — Downloads blocked (10th sweep). 10 standing issues tracked. New: orphan MAESTRO file, 3 confirmed dupes, stray HTML at root.",
       "color": "amber"
     },
     {
       "time": "3:07 AM PT",
       "agent": "SCOUT",
-      "text": "Daily scan — 0 new prospects. 11 active signals confirmed. LA Galaxy/Jacobi deadline tomorrow (Apr 25). Haleon, JLR, Wendy's all resolved.",
+      "text": "Daily scan — 0 new prospects. 11 active signals confirmed. LA Galaxy/Jacobi deadline tomorrow. Haleon, JLR, Wendy's all resolved.",
       "color": "teal"
     },
     {
@@ -121,24 +133,12 @@
       "agent": "TESTING",
       "text": "WYMI storyboard 6.6/10. VO 8.5/10 — 'the ink doesn't know' locked. T2 Hybrid V1 4.7★ (pre-final script — re-run needed).",
       "color": "amber"
-    },
-    {
-      "time": "Apr 22 evening",
-      "agent": "SCOUT",
-      "text": "Lands' End (Sarah Sylvester) flagged as freshest lead. Soft deadline Apr 30. McGarrah Jessee noted as competitive analog.",
-      "color": "teal"
-    },
-    {
-      "time": "Apr 21",
-      "agent": "MAESTRO",
-      "text": "CEO pitch deck complete. 47 MB PDF confirmed filed. Fractional ECD portal v1 delivered.",
-      "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "LA Galaxy pitch window closes TOMORROW",
-      "subtitle": "Apr 25 deadline — Jessica Jacobi is 12 days into CMO role. Rick DM today. ATLAS: four consecutive flags.",
+      "subtitle": "Apr 25 deadline — Jessica Jacobi is 12 days into CMO role. Rick DM today or it's over. ATLAS: four consecutive flags.",
       "severity": "red"
     },
     {
@@ -162,25 +162,25 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH Downloads blocked — 10 runs",
-      "subtitle": "~/Downloads not mounted. 10 standing issues awaiting Rick sign-off. Add Downloads as Cowork folder to unblock.",
+      "title": "SARAH: 10 standing issues await sign-off",
+      "subtitle": "Dupes, orphans, empty test artifacts, NOLAN path conflict. Downloads finally scanned (Run 88) — zero JARVIS files found.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 15,
+    "tasks_today": 16,
     "top_score": 8.5,
     "prospects": 11,
-    "files_swept": 0
+    "files_swept": 9
   },
   "scheduled": [
     {
       "name": "SARAH File Sweep",
-      "next_run": "7:04 AM PT today"
+      "next_run": "8:04 AM PT today"
     },
     {
       "name": "JARVIS Dashboard Push",
-      "next_run": "7:39 AM PT today"
+      "next_run": "8:39 AM PT today"
     },
     {
       "name": "Nightly Status Report",
@@ -200,7 +200,7 @@
     },
     {
       "name": "ATLAS Dependency Check",
-      "next_run": "6:04 AM PT tomorrow"
+      "next_run": "6:05 AM PT tomorrow"
     }
   ]
 }
