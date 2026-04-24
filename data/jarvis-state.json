@@ -1,169 +1,169 @@
 {
-  "updated_at": "2026-04-24T22:42:00Z",
-  "status_line": "Friday 3:42 PM PT. SARAH swept again at 3:05 PM — still all quiet, 8 standing issues unchanged. LA Galaxy / Jacobi deadline is TOMORROW — that LinkedIn DM still needs to go today. GUARDIAN and TESTING remain the two blocks on Sharpie client delivery. Nightly report fires at 4:04 PM.",
+  "updated_at": "2026-04-24T23:40:36Z",
+  "status_line": "Friday 4:40 PM PT. SARAH closed out Run 94 a half hour ago — all quiet, 8 standing issues unchanged. The nightly report landed, MAESTRO's big overnight is in the books (T2 Hybrid scored 4.7★, top 3% globally, PARK's stale streak broken with v8). Critical open item: LA Galaxy / Jacobi outreach deadline is today — if that DM hasn't gone, it needs to go right now. GUARDIAN remains dark at 7+ cycles. Otherwise, a productive Friday.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
-      "last_run": "Today 3:07 AM PT",
+      "last_action": "Daily pipeline scan — 0 new prospects, 11 active leads confirmed. LA Galaxy flagged URGENT.",
+      "last_run": "13h ago (6:07 AM ET)",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight Apr 22–23: 'The Gallery' Sharpie concept filed. T2 final suite complete. MAKE IT platform defined as 3-level architecture. 16 output files confirmed.",
-      "last_run": "Overnight Apr 22–23",
+      "last_action": "Overnight run: 10 outputs delivered — T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform architecture, About page copy.",
+      "last_run": "19h ago (overnight)",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "LinkedIn rewrites staged in LinkedIn_Audit_SCOUT.md — ready for Rick to apply. Director headline, dual-fluency About, reel-first Featured section all drafted.",
-      "last_run": "Recent",
+      "last_action": "Integrated into MAESTRO overnight pass — T2 scripts and About page copy delivered.",
+      "last_run": "19h ago (overnight)",
       "color": "dim"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Re-run required: T2 Hybrid scored 4.7★ before MAESTRO's final script pass. T2-anthem-30 still unscored. Nothing moves to client until re-run completes.",
-      "last_run": "Apr 22 evening",
+      "last_action": "T2 Hybrid scored 4.7★ / 5.0 — top 3% globally, top 1% writing instruments. T2-anthem-30 not yet scored.",
+      "last_run": "~19h ago",
       "color": "amber"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "3:05 PM PT sweep — All quiet. No new files anywhere. 8 standing issues carried forward. Downloads still inaccessible via sandbox. Log stable.",
-      "last_run": "Today 3:05 PM PT",
+      "last_action": "Run 94 complete — Documents and output/ stable, no new files. 8 standing issues carried forward, awaiting Rick's guidance.",
+      "last_run": "34 min ago (4:06 PM PT)",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 24 daily report (6:05 AM PT): T2 Hybrid confirmed 4.7★ (top 3% globally). PARK stale streak broken. 21 new files since yesterday. TESTING re-run needed. NOLAN and GUARDIAN at 6th consecutive stale flag.",
-      "last_run": "Today 6:05 AM PT",
+      "last_action": "Daily dependency report filed — flagged TESTING re-run needed, GUARDIAN and NOLAN both stale for 6th consecutive day.",
+      "last_run": "10h ago (9:05 AM ET)",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "93 storyboard frames in 2026-04-06_nolan/storyboard/. PPTX v6/v7/v8 in output. ATLAS 6th stale flag. Ready to run on locked T2-60-final and Hybrid structure — awaiting queue.",
-      "last_run": "Parked since Apr 19",
+      "last_action": "Stale — 6th consecutive ATLAS flag. Can now run on locked T2-60-final and Hybrid structure.",
+      "last_run": ">6 days",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "idle",
-      "last_action": "Stale streak broken — v6/v7/v8 decks delivered to root overnight Apr 22–23. 3 root copies confirmed dupes (~154 MB). Awaiting TESTING re-run on final scripts before v9 proceeds.",
-      "last_run": "Overnight Apr 22–23",
-      "color": "dim"
+      "last_action": "Broke 72-hour stale streak overnight — v6/v7/v8 decks delivered to root output. v8 (43MB) is authoritative.",
+      "last_run": "19h ago (overnight)",
+      "color": "teal"
     },
     {
       "name": "GUARDIAN",
-      "state": "idle",
-      "last_action": "7th+ consecutive cycle with no run — ATLAS escalated flag. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Blocks next Sharpie client delivery.",
-      "last_run": "No recent run",
-      "color": "amber"
+      "state": "parked",
+      "last_action": "Offline — 7+ cycles dark. Blocks next Sharpie client delivery until brand voice validation runs.",
+      "last_run": ">7 cycles",
+      "color": "dim"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "No new tasks this cycle. Last active Apr 15.",
-      "last_run": "Apr 15",
+      "last_action": "No recent activity — standing by.",
+      "last_run": "unknown",
       "color": "dim"
     }
   ],
   "activity": [
     {
+      "time": "4:06 PM PT",
+      "agent": "SARAH",
+      "text": "Run 94 complete — output/ and Documents stable, no new files. 8 standing issues held pending Rick's direction.",
+      "color": "teal"
+    },
+    {
+      "time": "4:05 PM PT",
+      "agent": "JARVIS",
+      "text": "Nightly status report delivered — T2 Hybrid 4.7★ headline, LA Galaxy urgent flag, Macy's/Glossier overdue.",
+      "color": "blue"
+    },
+    {
       "time": "3:42 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH 3:05 PM sweep complete, all quiet. 8 standing issues held. LA Galaxy deadline tomorrow still open.",
+      "text": "Dashboard pushed to GitHub (commit b622db1) — SARAH 3:05 PM sweep, LA Galaxy deadline flagged.",
       "color": "blue"
     },
     {
-      "time": "3:05 PM PT",
-      "agent": "SARAH",
-      "text": "Scheduled sweep — All quiet. No new files anywhere. 8 standing issues carried forward. Downloads sandbox-inaccessible.",
-      "color": "teal"
-    },
-    {
-      "time": "2:41 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 93 complete. All quiet, 8 standing issues carried forward. No new files since Run 92.",
-      "color": "blue"
-    },
-    {
-      "time": "2:04 PM PT",
-      "agent": "SARAH",
-      "text": "Run 93 — All quiet. No new files anywhere since Run 92. 8 standing issues carried forward. Downloads still sandbox-inaccessible.",
-      "color": "teal"
-    },
-    {
-      "time": "1:40 PM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 92 logged. Standing Issue #7 added (6 untracked PNG renders). Morning brief needs output/ copy.",
-      "color": "blue"
-    },
-    {
-      "time": "1:06 PM PT",
-      "agent": "SARAH",
-      "text": "Run 92 — New: 6 Sharpie PNG renders (March vintage, ~1.2MB) untracked in Documents → Standing Issue #7. Morning brief missing output/ counterpart.",
-      "color": "teal"
-    },
-    {
-      "time": "12:06 PM PT",
-      "agent": "SARAH",
-      "text": "Run 91 — BREAKTHROUGH: Downloads finally accessible via osascript. Folder clean (9 personal files, nothing to move). Standing Issue #1 resolved.",
-      "color": "teal"
-    },
-    {
-      "time": "6:07 AM PT",
-      "agent": "MORNING BRIEF",
-      "text": "Morning brief delivered — LA Galaxy DM top priority, 'The Gallery' ready for Rick's read, Glossier + Macy's need action today.",
-      "color": "blue"
-    },
-    {
-      "time": "6:05 AM PT",
+      "time": "9:05 AM ET",
       "agent": "ATLAS",
-      "text": "Daily report: T2 Hybrid 4.7★ (top 3% globally). PARK stale streak broken. 21 new files. TESTING + GUARDIAN flags raised.",
+      "text": "Daily dependency check — 21 new files since yesterday. TESTING re-run and NOLAN/GUARDIAN stale flags issued.",
       "color": "teal"
     },
     {
-      "time": "3:07 AM PT",
+      "time": "6:07 AM ET",
       "agent": "SCOUT",
-      "text": "Daily scan: 0 new prospects. LA Galaxy/Jacobi deadline April 25. Haleon, JLR, Wendy's resolved. 11 active signals.",
+      "text": "Pipeline scan complete — 0 new prospects. All signals checked; pipeline current. LA Galaxy deadline TODAY.",
+      "color": "teal"
+    },
+    {
+      "time": "6:06 AM ET",
+      "agent": "JARVIS",
+      "text": "Morning priorities brief delivered — 5 action items, LA Galaxy first.",
+      "color": "blue"
+    },
+    {
+      "time": "Overnight",
+      "agent": "MAESTRO",
+      "text": "10 outputs delivered: T2:60 Final, T2:30, Gallery Strategy, Gallery Treatment, MAKE IT platform (3-level architecture), About page copy.",
+      "color": "amber"
+    },
+    {
+      "time": "Overnight",
+      "agent": "PARK",
+      "text": "Stale streak broken — v6/v7/v8 Sharpie decks delivered to root. v8 (43MB) is the locked production deck.",
+      "color": "amber"
+    },
+    {
+      "time": "Overnight",
+      "agent": "TESTING",
+      "text": "T2 Hybrid scored 4.7★/5.0 — top 3% of all ads globally, top 1% in writing instruments. Benchmarked against P&G Thank You Mom 2012.",
+      "color": "amber"
+    },
+    {
+      "time": "Yesterday",
+      "agent": "SCOUT",
+      "text": "LinkedIn audit complete — 3 profile changes ready (Director-first headline, dual-fluency About, Featured reel-first).",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jessica Jacobi — DEADLINE TOMORROW",
-      "subtitle": "April 25 is the hard close. Jacobi is 11 days into her CMO role. LinkedIn DM must go TODAY.",
+      "title": "LA Galaxy / Jessica Jacobi — deadline TODAY",
+      "subtitle": "11 days into CMO role. DM not confirmed sent. Window closes now.",
       "severity": "red"
     },
     {
-      "title": "Macy's — Overdue, 5+ consecutive flags",
-      "subtitle": "Active creative partner search, Q2 decision. ATLAS: stopped calling this urgent, started calling it late.",
+      "title": "Glossier / Solórzano — 4 days overdue",
+      "subtitle": "April 20 outreach deadline passed. At 20+ days reads reactive, not strategic.",
       "severity": "red"
     },
     {
-      "title": "Glossier / Nicole Solórzano — Day 19, unconfirmed",
-      "subtitle": "Four consecutive flags. At day 20+ it reads reactive, not strategic. Today or close the file.",
+      "title": "Macy's — 5+ consecutive overdue flags",
+      "subtitle": "Q2 creative partner decision May–June. Needs a call or archive decision.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN offline — 7th+ consecutive cycle",
-      "subtitle": "Brand validation down. Blocks next Sharpie client delivery. Nothing goes to client without a GUARDIAN pass.",
+      "title": "GUARDIAN offline — 7+ cycles",
+      "subtitle": "Blocks Sharpie client delivery. Brand voice validation can't run until GUARDIAN is back.",
       "severity": "amber"
     },
     {
-      "title": "TESTING re-run required",
-      "subtitle": "T2 Hybrid scored pre-final-pass. T2-anthem-30 unscored. PARK v9 and client delivery blocked.",
+      "title": "TESTING re-run needed",
+      "subtitle": "T2-60-final and T2-anthem-30 not scored from MAESTRO's final overnight pass.",
       "severity": "amber"
     },
     {
-      "title": "SARAH — 8 standing issues",
-      "subtitle": "Includes 6 untracked Sharpie PNG renders in Documents and morning brief missing output/ copy. All awaiting Rick's guidance.",
+      "title": "SARAH — 8 standing file issues",
+      "subtitle": "PPTX duplicates (77.6MB), PNG renders in Documents/, Nolan folder naming. Awaiting Rick's call.",
       "severity": "amber"
     }
   ],
@@ -171,36 +171,36 @@
     "tasks_today": 25,
     "top_score": 4.7,
     "prospects": 11,
-    "files_swept": 9
+    "files_swept": 94
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "4:04 PM PT"
-    },
-    {
-      "name": "Nightly status report",
-      "next_run": "4:04 PM PT"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "4:39 PM PT"
-    },
-    {
-      "name": "ATLAS dependency check",
-      "next_run": "Tomorrow 6:05 AM PT"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "Tomorrow 3:07 AM PT"
+      "next_run": "Sat 12:04 AM PT"
     },
     {
       "name": "Morning priorities",
-      "next_run": "Tomorrow 3:06 AM PT"
+      "next_run": "Sat 6:06 AM ET"
     },
     {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "Tomorrow 2:04 AM PT"
+      "name": "SCOUT pipeline check",
+      "next_run": "Sat 6:07 AM ET"
+    },
+    {
+      "name": "Receipt filer",
+      "next_run": "Sat 5:04 AM ET"
+    },
+    {
+      "name": "ATLAS dependency check",
+      "next_run": "Sat 9:05 AM ET"
+    },
+    {
+      "name": "Nightly status report",
+      "next_run": "Sat 7:04 PM ET"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "Sat 12:39 AM PT"
     }
   ]
 }
