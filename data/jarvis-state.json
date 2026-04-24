@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-24T19:40:00Z",
-  "status_line": "Friday 12:40 PM PT. SARAH Run 91 brought a real breakthrough — Downloads is finally accessible after 13 straight blocked sweeps. Folder was clean (all personal files, nothing to move). 5 standing issues remain awaiting Rick sign-off. LA Galaxy deadline is TOMORROW — that Jacobi DM still needs to go. TESTING re-run and GUARDIAN remain blockers on client delivery.",
+  "updated_at": "2026-04-24T20:40:00Z",
+  "status_line": "Friday 1:40 PM PT. SARAH Run 92 in — new finding: 6 Sharpie PNG renders from March are untracked in Documents, added as Standing Issue #7. Morning brief also needs an output/ copy. LA Galaxy / Jacobi deadline is TOMORROW — that DM still needs to go today. TESTING re-run and GUARDIAN remain the two blockers on client delivery. Pipeline steady at 11 active signals.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi outreach deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
+      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline signals confirmed. LA Galaxy/Jacobi deadline TOMORROW (Apr 25). Haleon, JLR, Wendy's all resolved. Lands' End (Sylvester) soft deadline Apr 30.",
       "last_run": "Today 3:07 AM PT",
       "color": "teal"
     },
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 91 (12:06 PM PT) — BREAKTHROUGH: Downloads accessible via osascript after 13 blocked runs. Folder clean (9 personal files, zero JARVIS-related). Standing Issue #1 resolved. 5 remaining issues await Rick sign-off.",
-      "last_run": "Today 12:06 PM PT",
+      "last_action": "Run 92 (1:06 PM PT) — New Standing Issue #7: 6 Sharpie PNG renders (~1.2MB, March vintage) found untracked in Documents, recommend move to output/nolan/shots/. Morning brief (JARVIS-morning-brief-2026-04-24.md) needs output/ copy. No moves performed. Log appended.",
+      "last_run": "Today 1:06 PM PT",
       "color": "teal"
     },
     {
@@ -61,7 +61,7 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "6th+ consecutive cycle with no run — ATLAS escalated flag. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Blocks next Sharpie client delivery.",
+      "last_action": "7th consecutive cycle with no run — ATLAS escalated flag. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Blocks next Sharpie client delivery.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,6 +75,18 @@
   ],
   "activity": [
     {
+      "time": "1:40 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 92 logged. Standing Issue #7 added (6 untracked PNG renders). Morning brief needs output/ copy.",
+      "color": "blue"
+    },
+    {
+      "time": "1:06 PM PT",
+      "agent": "SARAH",
+      "text": "Run 92 — New: 6 Sharpie PNG renders (March vintage, ~1.2MB) untracked in Documents → Standing Issue #7. Morning brief missing output/ counterpart. No moves performed. Log appended.",
+      "color": "teal"
+    },
+    {
       "time": "12:40 PM PT",
       "agent": "JARVIS",
       "text": "Dashboard pushed — SARAH Run 91 breakthrough logged. Downloads accessible via osascript. 5 standing issues remain.",
@@ -84,18 +96,6 @@
       "time": "12:06 PM PT",
       "agent": "SARAH",
       "text": "Run 91 — BREAKTHROUGH: Downloads finally accessible via osascript. Folder clean (9 personal files, nothing to move). Standing Issue #1 resolved.",
-      "color": "teal"
-    },
-    {
-      "time": "11:41 AM PT",
-      "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 90 logged, 12th consecutive Downloads block, LA Galaxy deadline flagged tomorrow.",
-      "color": "blue"
-    },
-    {
-      "time": "11:06 AM PT",
-      "agent": "SARAH",
-      "text": "Run 90 — Downloads blocked (12th consecutive no-mount). Output directory unchanged. 6 standing issues awaiting sign-off.",
       "color": "teal"
     },
     {
@@ -125,7 +125,7 @@
     {
       "time": "Yesterday 7:04 PM PT",
       "agent": "JARVIS",
-      "text": "Nightly report: LA Galaxy, Macy's, Glossier all red. GUARDIAN still offline. Downloads never mounted across 3 SARAH sweeps.",
+      "text": "Nightly report: LA Galaxy, Macy's, Glossier all red. GUARDIAN still offline. Downloads blocked 13 consecutive SARAH sweeps.",
       "color": "blue"
     },
     {
@@ -142,33 +142,33 @@
       "severity": "red"
     },
     {
-      "title": "Macy's — Overdue, 5 consecutive flags",
-      "subtitle": "Active creative partner search, Q2 decision. ATLAS has stopped calling this urgent and started calling it late.",
+      "title": "Macy's — Overdue, 5+ consecutive flags",
+      "subtitle": "Active creative partner search, Q2 decision. ATLAS: stopped calling this urgent, started calling it late.",
       "severity": "red"
     },
     {
       "title": "Glossier / Nicole Solórzano — Day 19, unconfirmed",
-      "subtitle": "4 consecutive ATLAS flags. At day 20+ it reads reactive, not strategic. Outreach today or close the file.",
+      "subtitle": "Four consecutive flags. At day 20+ it reads reactive, not strategic. Today or close the file.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN offline — Blocks client delivery",
-      "subtitle": "6th+ consecutive cycle. Brand validation hasn't run on any recent Sharpie output. Nothing ships without it.",
+      "title": "GUARDIAN offline — 7th consecutive cycle",
+      "subtitle": "Brand validation down. Blocks next Sharpie client delivery. Nothing goes to client without a GUARDIAN pass.",
       "severity": "amber"
     },
     {
       "title": "TESTING re-run required",
-      "subtitle": "T2 Hybrid scored before final script pass. T2-anthem-30 unscored. Blocks PARK v9 and NOLAN queue.",
+      "subtitle": "T2 Hybrid scored pre-final-pass. T2-anthem-30 unscored. PARK v9 and client delivery blocked.",
       "severity": "amber"
     },
     {
-      "title": "SARAH: 5 standing issues await Rick sign-off",
-      "subtitle": "Test artifacts, NOLAN folder path, PPTX dupes (~77.6 MB), two session file copies. Downloads blocker now resolved.",
+      "title": "SARAH Standing Issue #7 — 6 PNG renders untracked",
+      "subtitle": "Sharpie campaign renders (March vintage, ~1.2MB) in Documents with no output/ counterpart. Recommend: output/nolan/shots/.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 22,
+    "tasks_today": 23,
     "top_score": 4.7,
     "prospects": 11,
     "files_swept": 9
@@ -176,31 +176,31 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "1:04 PM PT (hourly)"
+      "next_run": "2:04 PM PT"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "1:39 PM PT (hourly)"
+      "next_run": "2:39 PM PT"
     },
     {
       "name": "Nightly status report",
-      "next_run": "4:04 PM PT"
-    },
-    {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "Tomorrow 2:04 AM PT"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "Tomorrow 3:06 AM PT"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "Tomorrow 3:07 AM PT"
+      "next_run": "7:04 PM PT"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "Tomorrow 6:04 AM PT"
+      "next_run": "Tomorrow 9:05 AM PT"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "Tomorrow 6:07 AM PT"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "Tomorrow 6:06 AM PT"
+    },
+    {
+      "name": "Uber/Lyft receipt filer",
+      "next_run": "Tomorrow 5:04 AM PT"
     }
   ]
 }
