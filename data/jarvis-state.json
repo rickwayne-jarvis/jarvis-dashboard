@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-04-24T04:40:00Z",
-  "status_line": "Thursday 9:40 PM. SARAH Run 80 just completed (04:04 UTC) — clean sweep, Documents verified at 39 JARVIS files, nothing new to file. Downloads still unmounted. LA Galaxy window now under 16 hours. Three red items unresolved. GUARDIAN still dark.",
+  "updated_at": "2026-04-24T06:00:00Z",
+  "status_line": "Friday 11 PM. SARAH Run 81 (05:05 UTC) came back clean — no new files, output inventory unchanged at 89 nolan frames. LA Galaxy window is now under 15 hours. Three red items still unresolved. GUARDIAN at 14+ offline cycles. SCOUT runs in about 4 hours.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apr 23 run complete — 0 new prospects. Dashboard committed and pushed. Lands' End (Sarah Sylvester, first CMO in a decade) freshest lead from Apr 22. McGarrah Jessee flagged as BiG's closest competitive analog.",
-      "last_run": "Today 3:07 AM PT",
+      "last_run": "Yesterday 3:07 AM PT",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "14 output files confirmed. 6 T2 anthem scripts filed: 60-hybrid-v1, 60-final-v1, 60-line-edit-v1, 60-line-options-v1, 30-anthem-v1, 60-anthem-v2. Gallery concept (strategy + treatment) and CEO pitch memo also filed.",
-      "last_run": "Overnight (files detected ~8 PM–1 AM PT)",
+      "last_run": "Overnight Apr 23 (~8 PM–1 AM PT)",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "No new tasks since last cycle. About page copy (RickWayne_AboutPage_MAESTRO) was filed by SARAH.",
+      "last_action": "No new tasks since last cycle. About page copy (RickWayne_AboutPage_MAESTRO) previously filed by SARAH.",
       "last_run": "Recent",
       "color": "dim"
     },
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 80 (04:04 UTC) — clean sweep. Documents audit: 39 JARVIS files verified, 34 confirmed duplicates skipped, no new files to file. Downloads still not mounted. Desktop 24MB still (CARD_4.01_24_21_12.Still004.png) flagged again.",
-      "last_run": "Tonight 9:04 PM PT",
+      "last_action": "Run 81 (05:05 UTC) — clean sweep. No new files since Run 80. Output inventory unchanged: 6 scout · 16 maestro · 6 testing · 2 HTML · 3 PPTX · 89 nolan frames. Downloads still not mounted (6th consecutive). Exact duplicate flagged: sharpie-t2-anthem-60-hybrid-v1-src.md awaiting delete permission.",
+      "last_run": "Tonight 10:05 PM PT",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Daily report: CEO pitch day confirmed. LA Galaxy D-2, Macy's escalated to overdue, Glossier D-18 unconfirmed. GUARDIAN at 9+ no-run cycles. K18/Kleo Mack flagged as highest-fit new lead.",
-      "last_run": "Today 2:05 AM PT",
+      "last_run": "Yesterday 6:05 AM PT",
       "color": "teal"
     },
     {
@@ -61,7 +61,7 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "13+ consecutive cycles with no run. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Queue after LA Galaxy / CEO pitch resolution.",
+      "last_action": "14+ consecutive cycles with no run. Brand validation offline. Nothing should go to client without a GUARDIAN pass. Queue after LA Galaxy / CEO pitch resolution.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,21 +75,33 @@
   ],
   "activity": [
     {
+      "time": "11:00 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 81 captured. Clean sweep, no new files. Output inventory stable. LA Galaxy window under 15 hours.",
+      "color": "blue"
+    },
+    {
+      "time": "10:05 PM PT",
+      "agent": "SARAH",
+      "text": "Run 81 — clean sweep. No new files since Run 80. Downloads still not mounted (6th consecutive run). Exact duplicate sharpie-t2-anthem-60-hybrid-v1-src.md flagged for delete approval.",
+      "color": "teal"
+    },
+    {
       "time": "9:40 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 80 captured. Clean sweep: 39 JARVIS files verified in Documents, no new files to file. Downloads still unmounted.",
+      "text": "Dashboard pushed — SARAH Run 80 clean sweep, 39 files verified in Documents, 34 dupes confirmed. LA Galaxy under 16 hours.",
       "color": "blue"
     },
     {
       "time": "9:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 80 — Documents audit clean. 39 JARVIS files verified, 34 duplicates confirmed, 4 new PPTXs filed (v6/v7/v8 decks + About page). Desktop 24MB still flagged. Downloads not mounted.",
+      "text": "Run 80 — Documents audit clean. 39 JARVIS files verified, 34 duplicates confirmed, 4 new PPTXs filed. Desktop 24MB still flagged.",
       "color": "teal"
     },
     {
       "time": "8:41 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 82 captured. 7 files filed: 6 MAESTRO T2 scripts + NOLAN storyboard PNG.",
+      "text": "Dashboard pushed — 7 files filed: 6 MAESTRO T2 scripts + NOLAN storyboard PNG.",
       "color": "blue"
     },
     {
@@ -121,23 +133,11 @@
       "agent": "TESTING",
       "text": "Hybrid V1 scored 4.7★ production-ready. VO 8.5/10 — 'the ink doesn't know' is the line. WYMI storyboard 6.6/10, filmability gap flagged.",
       "color": "blue"
-    },
-    {
-      "time": "Apr 22 afternoon",
-      "agent": "SCOUT",
-      "text": "Lands' End flagged: Sarah Sylvester is their first CMO in a decade — warm lead for BiG.",
-      "color": "teal"
-    },
-    {
-      "time": "Apr 22",
-      "agent": "MAESTRO",
-      "text": "Gallery concept filed: full strategy + treatment for pitch consideration.",
-      "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — under 16 hours",
+      "title": "LA Galaxy / Jacobi — under 15 hours",
       "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed.",
       "severity": "red"
     },
@@ -148,16 +148,16 @@
     },
     {
       "title": "Glossier / Solórzano — Day 18+ unconfirmed",
-      "subtitle": "Four consecutive reports with no confirmation. Needs direct status check now.",
+      "subtitle": "Five consecutive reports with no confirmation. Needs direct status check now.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 13+ no-run cycles",
+      "title": "GUARDIAN — 14+ no-run cycles",
       "subtitle": "Brand validation offline. Nothing should go to client without a GUARDIAN pass.",
       "severity": "amber"
     },
     {
-      "title": "Downloads folder unmounted — 5th consecutive run",
+      "title": "Downloads folder unmounted — 6th consecutive run",
       "subtitle": "SARAH cannot sweep ~/Downloads. Grant it as a Cowork workspace folder to unblock.",
       "severity": "amber"
     },
@@ -167,18 +167,18 @@
       "severity": "amber"
     },
     {
-      "title": "Zero-byte test artifacts in output root",
-      "subtitle": "test-sarah-write-1776722750 and test-write-check — awaiting deletion approval.",
+      "title": "Exact duplicate awaiting delete approval",
+      "subtitle": "sharpie-t2-anthem-60-hybrid-v1-src.md confirmed identical to non-src version. SARAH needs explicit OK to delete.",
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup — 37+ dupes pending",
-      "subtitle": "Documents has JARVIS files duplicated in output. Clean manual trash job whenever ready.",
+      "title": "Zero-byte test artifacts in output root",
+      "subtitle": "test-sarah-write-1776722750 and test-write-check — awaiting deletion approval.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 19,
+    "tasks_today": 20,
     "top_score": 85,
     "prospects": 8,
     "files_swept": 0
@@ -186,11 +186,11 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "Tonight 10:04 PM PT"
+      "next_run": "Tonight 11:04 PM PT"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "Tonight 10:39 PM PT"
+      "next_run": "Tonight 11:39 PM PT"
     },
     {
       "name": "Receipt filer",
