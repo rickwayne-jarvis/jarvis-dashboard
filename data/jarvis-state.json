@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-24T02:39:00Z",
-  "status_line": "Thursday 7:39 PM. SARAH's Run 80 came up clean — Downloads was accessible for the first time but completely empty. One item flagged: a 24MB production still on your Desktop from Aug 2025 that doesn't match naming conventions. LA Galaxy window is now under 19 hours. Red items unchanged.",
+  "updated_at": "2026-04-24T03:39:00Z",
+  "status_line": "Thursday 8:39 PM. SARAH Run 81 complete — Downloads is not mounting again (inaccessible this cycle after Run 80 briefly found it empty). Nothing moved, two zero-byte test artifacts still await your deletion approval. LA Galaxy window is now under 18 hours. All red items unchanged.",
   "agents": [
     {
       "name": "SCOUT",
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 80 — Downloads accessible for first time since Run 73 but completely empty. Zero files moved. One Desktop item flagged for review: CARD_4.01_24_21_12.Still004.png (24MB, 6144×3240, Aug 2025) — possible production still, doesn't match JARVIS naming conventions.",
-      "last_run": "Today 6:04 PM PT",
+      "last_action": "Run 81 — Downloads not mounted (inaccessible again after Run 80 briefly found it empty). No files moved. Documents audit clean: all 39 JARVIS files verified against prior runs. Two zero-byte test artifacts in output root awaiting deletion approval.",
+      "last_run": "Tonight 8:07 PM PT",
       "color": "teal"
     },
     {
@@ -61,7 +61,7 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "11+ consecutive cycles with no run. Blocks client delivery pipeline. Queue after LA Galaxy / CEO pitch resolution.",
+      "last_action": "12+ consecutive cycles with no run. Blocks client delivery pipeline. Queue after LA Galaxy / CEO pitch resolution.",
       "last_run": "No recent run",
       "color": "amber"
     },
@@ -75,9 +75,21 @@
   ],
   "activity": [
     {
+      "time": "8:39 PM PT",
+      "agent": "JARVIS",
+      "text": "Dashboard pushed — SARAH Run 81 logged (Downloads inaccessible again). LA Galaxy ~18h.",
+      "color": "blue"
+    },
+    {
+      "time": "8:07 PM PT",
+      "agent": "SARAH",
+      "text": "Run 81 — Downloads not mounted. No files moved. 39 Documents files verified clean against prior runs. Two zero-byte test artifacts pending Rick's deletion approval.",
+      "color": "teal"
+    },
+    {
       "time": "7:39 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — SARAH Run 80 confirmed clean (Downloads empty, 1 Desktop item flagged). LA Galaxy ~19h.",
+      "text": "Dashboard pushed — SARAH Run 80 corrected (Downloads empty, not 13 files). Desktop still flagged: CARD_4.01_24_21_12.Still004.png (24MB, Aug 2025).",
       "color": "blue"
     },
     {
@@ -96,18 +108,6 @@
       "time": "5:04 PM PT",
       "agent": "SARAH",
       "text": "Run 79 — 2 MAESTRO Gallery files filed: gallery-strategy-v1.md + gallery-treatment-v1.md. MAESTRO output count now 10.",
-      "color": "teal"
-    },
-    {
-      "time": "4:05 PM PT",
-      "agent": "JARVIS",
-      "text": "Nightly report: all red items confirmed open — LA Galaxy, Macy's, Glossier, GUARDIAN offline.",
-      "color": "blue"
-    },
-    {
-      "time": "4:04 PM PT",
-      "agent": "SARAH",
-      "text": "Run 78 — 13 new files: 6 Sharpie Gemini renders, v6/v7/v8 campaign decks, Audacious Research, Creative Package Final, merch contacts. 51 dupes pending.",
       "color": "teal"
     },
     {
@@ -137,7 +137,7 @@
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — ~19 hours left",
+      "title": "LA Galaxy / Jacobi — ~18 hours left",
       "subtitle": "Window closes Saturday Apr 25. LinkedIn outreach to Jessica Jacobi still needed.",
       "severity": "red"
     },
@@ -152,8 +152,13 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 11+ no-run cycles",
+      "title": "GUARDIAN — 12+ no-run cycles",
       "subtitle": "Brand validation offline. Nothing should go to client without a GUARDIAN pass.",
+      "severity": "amber"
+    },
+    {
+      "title": "Downloads folder inaccessible again",
+      "subtitle": "Run 80 briefly found it empty; Run 81 couldn't mount it. Grant ~/Downloads in Cowork to sweep.",
       "severity": "amber"
     },
     {
@@ -162,13 +167,13 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup — 51 dupes pending",
-      "subtitle": "29 from Run 79 + 22 from Run 78. Clean manual trash job in ~/Documents whenever ready.",
+      "title": "Zero-byte test artifacts in output root",
+      "subtitle": "test-sarah-write-1776722750 and test-write-check — awaiting your deletion approval before SARAH can clean up.",
       "severity": "amber"
     },
     {
-      "title": "Downloads folder now mounting",
-      "subtitle": "Run 80 confirmed Downloads is accessible. Was blocked Runs 74–79. Monitor next sweep.",
+      "title": "SARAH cleanup — 51 dupes pending",
+      "subtitle": "29 from Run 79 + 22 from Run 78. Clean manual trash job in ~/Documents whenever ready.",
       "severity": "amber"
     }
   ],
@@ -176,24 +181,20 @@
     "tasks_today": 17,
     "top_score": 85,
     "prospects": 8,
-    "files_swept": 15
+    "files_swept": 0
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "Tonight ~8:04 PM PT"
+      "next_run": "Tonight ~9:04 PM PT"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "Tonight ~8:39 PM PT"
+      "next_run": "Tonight ~9:39 PM PT"
     },
     {
       "name": "Receipt filer",
       "next_run": "Tonight ~10:04 PM PT"
-    },
-    {
-      "name": "Nightly report",
-      "next_run": "Tonight ~11:04 PM PT"
     },
     {
       "name": "Morning priorities",
@@ -206,6 +207,10 @@
     {
       "name": "ATLAS dependency check",
       "next_run": "Tomorrow 6:05 AM PT"
+    },
+    {
+      "name": "Nightly report",
+      "next_run": "Tomorrow 4:04 PM PT"
     }
   ]
 }
