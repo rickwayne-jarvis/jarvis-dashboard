@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-25T02:39:00Z",
-  "status_line": "Friday 7:39 PM PT. SARAH completed Run 95 — clean pass, 8 standing issues unchanged. LA Galaxy / Jacobi window has closed — deadline was today; DM still hasn't gone. Glossier is 4+ days overdue, Macy's needs a go/no-go call. GUARDIAN remains dark for 9+ cycles. Otherwise fleet is steady heading into the weekend.",
+  "updated_at": "2026-04-25T02:40:00Z",
+  "status_line": "Friday 7:40 PM PT. SARAH Run 96 just landed — two new Sharpie gallery files moved to output. Gallery concept scored 7.8/10; 'S' mark integration and 1964 heritage angle still need attention before the CEO presentation. LA Galaxy deadline is officially today — that DM still hasn't gone. Glossier is 4+ days overdue, Macy's needs a go/no-go call. Fleet is steady heading into the weekend.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Daily pipeline scan — 0 new prospects, 11 active leads confirmed. LA Galaxy flagged URGENT for April 24 deadline.",
+      "last_action": "Daily pipeline scan — 0 new prospects, 11 active leads confirmed. LA Galaxy / Jacobi flagged URGENT for April 24 deadline.",
       "last_run": "~17h ago (3:07 AM PT)",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight run: 10 outputs delivered — T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform architecture, About page copy.",
+      "last_action": "Overnight run: 10 outputs — T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform architecture, Rick Wayne About page copy. Also produced Gallery of Ordinary Masterpieces concept (9s on ownability/CEO sellability).",
       "last_run": "~17h ago (overnight)",
       "color": "teal"
     },
@@ -26,35 +26,35 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "T2 Hybrid scored 4.7★ / 5.0 — top 3% globally, top 1% writing instruments. T2-anthem-30 not yet scored.",
+      "last_action": "T2 Hybrid scored 4.7★ / 5.0 — top 3% globally, top 1% writing instruments. Gallery concept scored 7.8/10 (flags: S-mark integration 5/10, 1964 heritage 4/10). T2-anthem-30 still not scored.",
       "last_run": "~17h ago",
       "color": "amber"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 95 complete — Documents and output/ stable, no new files. 8 standing issues carried forward.",
-      "last_run": "1h 35m ago (6:04 PM PT)",
+      "last_action": "Run 96 — 2 new Gallery files found and filed: Gallery_Ordinary_Masterpieces_RICK.md and Gallery_Team_Review.md. Both copied to output/ with proper naming. 8 standing issues carried.",
+      "last_run": "36m ago (7:04 PM PT)",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Daily dependency report filed — flagged TESTING re-run needed, GUARDIAN and NOLAN stale 6th consecutive day.",
+      "last_action": "Daily dependency report — 21 new files since yesterday. Flagged: TESTING re-run needed, GUARDIAN and NOLAN stale 6th consecutive day, LA Galaxy deadline TODAY.",
       "last_run": "~14h ago (6:05 AM PT)",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "Stale — 6th consecutive ATLAS flag. Can now run on locked T2-60-final and Hybrid structure.",
+      "last_action": "Stale — 6th consecutive ATLAS flag. T2-60-final and Hybrid structure now locked and ready. Awaiting activation.",
       "last_run": ">6 days",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "idle",
-      "last_action": "Broke 72-hour stale streak overnight — v6/v7/v8 decks delivered to root output. v8 (43MB) is authoritative.",
+      "last_action": "Broke 72-hour stale streak overnight — v6/v7/v8 decks delivered to root output. v8 (43MB) is authoritative Sharpie deck.",
       "last_run": "~17h ago (overnight)",
       "color": "teal"
     },
@@ -75,9 +75,15 @@
   ],
   "activity": [
     {
+      "time": "7:04 PM PT",
+      "agent": "SARAH",
+      "text": "Run 96 — 2 new Sharpie gallery files filed to output/. Gallery concept (7.8/10) and team review captured. Standing issues unchanged.",
+      "color": "teal"
+    },
+    {
       "time": "6:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 95 complete — output/ and Documents stable, no new files. 8 standing issues held pending Rick's direction.",
+      "text": "Run 95 — clean pass, output stable. 8 standing issues carried forward.",
       "color": "teal"
     },
     {
@@ -87,7 +93,7 @@
       "color": "teal"
     },
     {
-      "time": "4:05 PM PT",
+      "time": "~7:05 PM PT",
       "agent": "JARVIS",
       "text": "Nightly status report delivered — T2 Hybrid 4.7★ headline, LA Galaxy deadline TODAY flagged red.",
       "color": "blue"
@@ -107,7 +113,7 @@
     {
       "time": "~3:00 AM PT",
       "agent": "MAESTRO",
-      "text": "Overnight run complete — 10 outputs: T2:60 Final, T2:30, Gallery Strategy, MAKE IT architecture.",
+      "text": "Overnight run complete — 10 outputs: T2:60 Final, T2:30, Gallery Strategy, MAKE IT architecture, About page copy.",
       "color": "teal"
     },
     {
@@ -124,14 +130,8 @@
     },
     {
       "time": "Yesterday",
-      "agent": "NOLAN",
-      "text": "Flagged stale by ATLAS for 6th consecutive day. T2-60-final structure locked — ready to run when activated.",
-      "color": "dim"
-    },
-    {
-      "time": "9+ cycles ago",
       "agent": "GUARDIAN",
-      "text": "Last known run. Brand voice validation still pending — Sharpie client delivery blocked.",
+      "text": "Still offline — brand voice validation pending. Sharpie client delivery blocked.",
       "color": "dim"
     }
   ],
@@ -152,6 +152,11 @@
       "severity": "red"
     },
     {
+      "title": "Gallery concept: S-mark & 1964 heritage gaps",
+      "subtitle": "Scored 7.8/10. S-mark integration (5/10) and 1964 heritage angle (4/10) need attention before CEO presentation.",
+      "severity": "amber"
+    },
+    {
       "title": "GUARDIAN offline — 9+ cycles dark",
       "subtitle": "Blocks Sharpie client delivery. Brand voice validation required to unblock.",
       "severity": "amber"
@@ -168,10 +173,10 @@
     }
   ],
   "stats": {
-    "tasks_today": 26,
+    "tasks_today": 27,
     "top_score": 4.7,
     "prospects": 11,
-    "files_swept": 95
+    "files_swept": 96
   },
   "scheduled": [
     {
@@ -184,7 +189,11 @@
     },
     {
       "name": "Receipt filer",
-      "next_run": "Sat 12:04 AM PT"
+      "next_run": "Sat 2:04 AM PT"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "Sat 3:06 AM PT"
     },
     {
       "name": "SCOUT pipeline check",
@@ -195,12 +204,8 @@
       "next_run": "Sat 6:05 AM PT"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "Sat 6:06 AM PT"
-    },
-    {
       "name": "Nightly status report",
-      "next_run": "Sat 12:04 PM PT"
+      "next_run": "Sat 4:04 PM PT"
     }
   ]
 }
