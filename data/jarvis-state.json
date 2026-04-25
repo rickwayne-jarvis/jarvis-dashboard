@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-04-25T10:39:00Z",
-  "status_line": "3:39 AM PT Saturday. Fleet is quiet overnight — SARAH just finished her latest clean sweep, receipt filer logged one TYDOTT charge. SCOUT ran yesterday with 0 new prospects; 11 leads still active. LA Galaxy window has officially closed without a DM sent. Glossier is now 6 days past deadline. Macy's is at 5+ flags. ATLAS runs at 6 AM. GUARDIAN still dark at 12+ cycles.",
+  "updated_at": "2026-04-25T11:39:00Z",
+  "status_line": "4:39 AM PT Saturday. Morning fleet has run clean — SCOUT found no new prospects but updated Sonos (in-house pivot confirmed), SARAH swept stable again at run 99, morning brief delivered. Three red items still need Rick's direct action today: LA Galaxy is the last viable day to reach Jacobi, Glossier is 20+ days past window, Macy's has stopped feeling urgent and started feeling late. ATLAS runs at 6 AM. GUARDIAN still dark.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 24 daily scan — 0 new prospects. 11 active pipeline leads. LA Galaxy/Jacobi window closed (13d into CMO role, DM never sent). Glossier 6d overdue. Macy's 5+ flags. Lands' End soft deadline Apr 30.",
-      "last_run": "~1d ago (Apr 24, 3:07 AM PT)",
+      "last_action": "Apr 25 daily scan — 0 new prospects. Sonos updated: CMO DeCourcy pivoting to in-house studio model (not opening external pitch). LA Galaxy/Jacobi: today is last viable outreach day. 11 active leads unchanged.",
+      "last_run": "~1.5h ago (Apr 25, 3:07 AM PT)",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Overnight Apr 24 — 10 outputs: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT 3-level platform architecture (Functional / Personal / Aspirational), Rick Wayne director About page copy.",
-      "last_run": "~25h ago (overnight Apr 24, ~3 AM PT)",
+      "last_action": "Overnight Apr 24 — 10 outputs: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT 3-level platform architecture, Rick Wayne director About page copy.",
+      "last_run": "~26h ago (overnight Apr 24, ~2 AM PT)",
       "color": "teal"
     },
     {
@@ -26,22 +26,22 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "T2 Hybrid scored 4.7★/5.0 — top 3% globally, top 1% writing instruments, P&G 'Thank You Mom' reference class. T2-anthem-30 still unscored — re-run needed.",
+      "last_action": "T2 Hybrid scored 4.7★/5.0 — top 3% globally, top 1% writing instruments. Gallery concept scored 9.0/10 (full board eval, all gaps closed). T2-anthem-30 still unscored — re-run needed.",
       "last_run": "~1d ago (Apr 24)",
       "color": "amber"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 98 — Downloads inaccessible (standing issue), no new files in output. 37 root files stable. 6 standing issues unchanged.",
-      "last_run": "~35min ago (Apr 25, 3:04 AM PT)",
+      "last_action": "Run 99 — Downloads inaccessible (standing issue), no new files since 5:07 UTC morning run. 6 standing issues unchanged. ATLAS dir not yet created (expected at 6 AM).",
+      "last_run": "~1.5h ago (Apr 25, 3:04 AM PT)",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 24 daily — 21 new files since prior day. PARK broke 72h stale streak. T2 Hybrid 4.7★. TESTING re-run flagged. NOLAN stale (6th flag). GUARDIAN stale (6th flag). LA Galaxy deadline flagged critical.",
-      "last_run": "~21h ago (Apr 24, 6:05 AM PT)",
+      "last_action": "Apr 24 daily — 21 new files since prior day. PARK broke 72h stale streak. T2 Hybrid 4.7★. TESTING re-run flagged. NOLAN stale (7th flag). GUARDIAN stale (7th flag). LA Galaxy deadline flagged critical.",
+      "last_run": "~22h ago (Apr 24, 6:05 AM PT)",
       "color": "teal"
     },
     {
@@ -54,15 +54,15 @@
     {
       "name": "PARK",
       "state": "idle",
-      "last_action": "Broke 72-hour stale streak overnight Apr 24 — v6/v7/v8 Sharpie decks delivered to root output. v8 (43MB) is authoritative deck.",
-      "last_run": "~25h ago (Apr 24, ~4 AM PT)",
+      "last_action": "Broke 72-hour stale streak overnight Apr 24 — v6/v7/v8 Sharpie decks delivered to root output. v8 (43MB) is authoritative deck. Gallery package also complete.",
+      "last_run": "~26h ago (Apr 24, ~4 AM PT)",
       "color": "teal"
     },
     {
       "name": "GUARDIAN",
       "state": "parked",
-      "last_action": "Offline — 12+ cycles dark. Blocks next Sharpie client delivery until brand voice validation runs.",
-      "last_run": ">12 cycles",
+      "last_action": "Offline — 13+ cycles dark. Blocks next Sharpie client delivery (T2 and The Gallery) until brand voice validation runs.",
+      "last_run": ">13 cycles",
       "color": "dim"
     },
     {
@@ -75,15 +75,27 @@
   ],
   "activity": [
     {
+      "time": "3:07 AM PT (Apr 25)",
+      "agent": "SCOUT",
+      "text": "Daily scan — 0 new prospects. Sonos pivot to in-house model confirmed. LA Galaxy: today is last viable outreach day. 11 leads stable.",
+      "color": "teal"
+    },
+    {
+      "time": "3:06 AM PT (Apr 25)",
+      "agent": "JARVIS",
+      "text": "Morning brief delivered — 5 priorities: LA Galaxy (today or never), Gallery 9.0/10 ready, Macy's decision, Glossier late outreach, GUARDIAN activation.",
+      "color": "blue"
+    },
+    {
       "time": "3:04 AM PT (Apr 25)",
       "agent": "SARAH",
-      "text": "Run 98 — Downloads inaccessible, no new files. Output stable. 6 standing issues unchanged.",
+      "text": "Run 99 — output stable, no new files, 6 standing issues unchanged. ATLAS dir pending 6 AM run.",
       "color": "teal"
     },
     {
       "time": "2:39 AM PT (Apr 25)",
       "agent": "JARVIS",
-      "text": "Dashboard pushed (commit 8f29909) — SARAH Run 97 captured, LA Galaxy window marked closed, Glossier 5d overdue.",
+      "text": "Dashboard pushed — SARAH Run 98 captured, Glossier bumped to 6d overdue, LA Galaxy window marked near-close.",
       "color": "blue"
     },
     {
@@ -101,7 +113,7 @@
     {
       "time": "12:41 AM PT (Apr 25)",
       "agent": "JARVIS",
-      "text": "Dashboard pushed (commit 51ea2a0) — LA Galaxy deadline marked closed, Macy's and Glossier red-flagged.",
+      "text": "Dashboard pushed — LA Galaxy deadline marked closed, Macy's and Glossier red-flagged.",
       "color": "blue"
     },
     {
@@ -113,69 +125,70 @@
     {
       "time": "7:04 PM PT (Apr 24)",
       "agent": "NIGHTLY",
-      "text": "Evening report: T2 Hybrid top 3% globally. MAESTRO 10 outputs. PARK broke stale streak. 3 red items outstanding.",
+      "text": "Evening report: T2 Hybrid top 3% globally. MAESTRO 10 outputs. PARK broke stale streak. Gallery 9.0/10 cleared. 3 red items outstanding.",
       "color": "blue"
     },
     {
       "time": "6:07 AM PT (Apr 24)",
       "agent": "ATLAS",
-      "text": "Daily dependency check — 21 new files. T2 Hybrid 4.7★. NOLAN/GUARDIAN stale (6th flag each). LA Galaxy deadline critical.",
+      "text": "Daily dependency check — 21 new files. T2 Hybrid 4.7★. NOLAN/GUARDIAN stale (7th flag each). LA Galaxy deadline critical.",
       "color": "teal"
-    },
-    {
-      "time": "3:07 AM PT (Apr 24)",
-      "agent": "SCOUT",
-      "text": "Daily pipeline scan — 0 new prospects. 11 active leads. LA Galaxy deadline confirmed URGENT (April 25).",
-      "color": "teal"
-    },
-    {
-      "time": "~3:00 AM PT (Apr 24)",
-      "agent": "MAESTRO",
-      "text": "Overnight run — 10 outputs delivered: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform, About page copy.",
-      "color": "amber"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jessica Jacobi — window closed",
-      "subtitle": "13+ days into CMO role. April 25 deadline expired. DM never sent. Decision needed: send now or archive.",
+      "title": "LA Galaxy / Jessica Jacobi — TODAY IS THE LAST DAY",
+      "subtitle": "14 days into CMO role. SCOUT confirmed: today is the final day of the optimal first-two-weeks window. One LinkedIn DM. Outreach materials ready in output/2026-04-16_rick-wayne-director/.",
+      "severity": "red"
+    },
+    {
+      "title": "Glossier / Nicole Solórzano — 20+ days past window",
+      "subtitle": "Was April 20 deadline. Sending it late with one line acknowledging the timing is stronger than silence. Five minutes.",
       "severity": "red"
     },
     {
       "title": "Macy's — 5+ consecutive overdue flags",
-      "subtitle": "Q2 creative partner needed May-June. ATLAS has stopped calling this urgent and started calling it late.",
+      "subtitle": "Q2 creative partner decisions happen May–June. ATLAS has stopped calling this urgent and started calling it late. Send or close the file.",
       "severity": "red"
     },
     {
-      "title": "Glossier / Nicole Solórzano — 6 days past deadline",
-      "subtitle": "Was April 20. Now reads reactive, not strategic. Today or close the file.",
-      "severity": "red"
-    },
-    {
-      "title": "GUARDIAN offline — 12+ cycles dark",
-      "subtitle": "Blocks next Sharpie client delivery until brand voice validation runs. Needs activation.",
+      "title": "GUARDIAN offline — 13+ cycles dark",
+      "subtitle": "Blocks next Sharpie client delivery for both T2 and The Gallery. Morning brief flagged this as priority 5 today.",
       "severity": "amber"
     },
     {
       "title": "TESTING re-run needed",
-      "subtitle": "T2-anthem-30 unscored from MAESTRO's Apr 24 pass. T2 Hybrid scored pre-final-script.",
+      "subtitle": "T2-anthem-30 unscored from MAESTRO's Apr 24 pass. Gallery scored 9.0/10 but T2 Hybrid was scored pre-final-script.",
+      "severity": "amber"
+    },
+    {
+      "title": "Sonos — in-house pivot confirmed",
+      "subtitle": "CMO DeCourcy consolidating around in-house studio model. AOR review less likely. Personal letter angle still valid. Pipeline status updated.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 8,
-    "top_score": 4.7,
+    "tasks_today": 5,
+    "top_score": 9.0,
     "prospects": 11,
     "files_swept": 0
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "4:04 AM PT (Apr 25)"
+      "next_run": "5:04 AM PT (Apr 25)"
     },
     {
       "name": "ATLAS dependency check",
       "next_run": "6:04 AM PT (Apr 25)"
+    },
+    {
+      "name": "Nightly status report",
+      "next_run": "4:04 PM PT (Apr 25)"
+    },
+    {
+      "name": "Receipt filer",
+      "next_run": "2:04 AM PT (Apr 26)"
     },
     {
       "name": "SCOUT pipeline check",
@@ -186,16 +199,8 @@
       "next_run": "3:06 AM PT (Apr 26)"
     },
     {
-      "name": "Nightly status report",
-      "next_run": "12:04 PM PT (Apr 25)"
-    },
-    {
-      "name": "Receipt filer",
-      "next_run": "10:04 PM PT (Apr 25)"
-    },
-    {
       "name": "JARVIS dashboard",
-      "next_run": "4:39 AM PT (Apr 25)"
+      "next_run": "5:39 AM PT (Apr 25)"
     }
   ]
 }
