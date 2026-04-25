@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-25T21:40:00Z",
-  "status_line": "9:40 PM — SARAH's Run 102 came back clean: no new assets in Downloads since the gallery deck was filed in Run 101. GUARDIAN is now 14 cycles dark — that's the persistent flag that needs attention. Nightly report fires in 85 minutes, then we're quiet until morning.",
+  "updated_at": "2026-04-25T23:40:00Z",
+  "status_line": "11:40 PM — SARAH Run 103 came back clean again: Downloads wasn't accessible in headless mode, no new JARVIS files in output or Desktop. LA Galaxy's optimal outreach window has now officially passed — fifth consecutive ATLAS flag, unactioned. GUARDIAN is 15 cycles dark. Nightly report fires in about 25 minutes, then we're quiet until morning.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Morning sweep: 0 new prospects. Sonos in-house pivot confirmed — DeCourcy building internal studio, AOR review less likely. All 11 pipeline entries stable.",
-      "last_run": "11h ago",
+      "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. Sonos dashboard notes updated. 11 pipeline entries stable.",
+      "last_run": "13h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 102: Downloads clean — no new JARVIS assets since Run 101 filed the gallery deck. 8 standing issues still awaiting Rick's direction (delete approvals #2, #4, #5, #7; rename #6; NOLAN folder #3; Grain Haven #10).",
-      "last_run": "50m ago",
+      "last_action": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets. 8 standing issues still awaiting Rick's direction.",
+      "last_run": "1h ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's eyes. Dependency graph updated.",
-      "last_run": "8h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closing today.",
+      "last_run": "10h ago",
       "color": "teal"
     },
     {
@@ -54,15 +54,15 @@
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck. Sharpie Gallery Campaign Deck pptx filed by SARAH.",
+      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 14th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "14 cycles ago",
+      "last_action": "No activity — 15th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "15 cycles ago",
       "color": "dim"
     },
     {
@@ -75,6 +75,18 @@
   ],
   "activity": [
     {
+      "time": "11:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — state updated and committed to GitHub Pages.",
+      "color": "blue"
+    },
+    {
+      "time": "11:04 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets since Run 102.",
+      "color": "teal"
+    },
+    {
       "time": "9:40 PM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — state updated and committed to GitHub Pages.",
@@ -83,7 +95,7 @@
     {
       "time": "9:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 101: Found Sharpie_Gallery_Campaign_Deck.pptx in Downloads — filed to output/sharpie-gallery-campaign-deck-v1.pptx (249KB). 9 personal files untouched.",
+      "text": "Run 101: Found Sharpie_Gallery_Campaign_Deck.pptx in Downloads — filed to output/sharpie-gallery-campaign-deck-v1.pptx (249KB).",
       "color": "teal"
     },
     {
@@ -93,33 +105,27 @@
       "color": "teal"
     },
     {
-      "time": "8:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state updated and committed to GitHub Pages.",
-      "color": "blue"
-    },
-    {
       "time": "8:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 100: Downloads clean, 0 ops. Issue #10 still pending Rick's call on Grain Haven overlays.",
+      "text": "Run 100: Downloads clean, 0 ops. Issue #10 still pending Rick's call.",
       "color": "teal"
     },
     {
       "time": "7:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 99: Filed Gallery one-sheet V2 from Downloads. Fixed osascript scanner (SI #1 closed). SI #8 & #9 closed. New issue #10: Grain Haven 4K film grain overlays.",
+      "text": "Run 99: Filed Gallery one-sheet V2 from Downloads. Fixed osascript path issue.",
       "color": "teal"
     },
     {
       "time": "1:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files, 6 renders flagged, GUARDIAN 9-cycle dark streak noted.",
+      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files, 6 renders need Rick's eyes. LA Galaxy window closing today.",
       "color": "amber"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Morning pipeline sweep: 0 new prospects. Sonos in-house studio pivot confirmed — DeCourcy not opening AOR review.",
+      "text": "Morning pipeline sweep: 0 new prospects. Sonos confirmed in-house pivot. 11 entries stable.",
       "color": "teal"
     },
     {
@@ -127,80 +133,74 @@
       "agent": "JARVIS",
       "text": "Morning priorities delivered to Rick.",
       "color": "blue"
-    },
-    {
-      "time": "9:04 AM UTC",
-      "agent": "JARVIS",
-      "text": "Uber/Lyft receipt filer ran — receipts processed and filed to Dropbox.",
-      "color": "blue"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy — Jacobi window CLOSED",
-      "subtitle": "Optimal first-two-weeks window ended today without contact. Still reachable but warm timing is gone — it's now a cold outreach.",
+      "title": "LA Galaxy / Jessica Jacobi — window closed today",
+      "subtitle": "Five consecutive ATLAS flags. Optimal outreach period has passed. Decide: send anyway or close the file.",
       "severity": "red"
     },
     {
-      "title": "Macy's — Decide or close",
-      "subtitle": "6+ consecutive overdue flags. Q2 creative decisions happen May–June. Stasis is the wrong answer.",
+      "title": "Macy's — decision overdue",
+      "subtitle": "Six flags total. Decide today or formally close the file.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN offline — 14th cycle",
-      "subtitle": "Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries. This needs to be addressed.",
+      "title": "GUARDIAN — 15 consecutive missed cycles",
+      "subtitle": "Blocking Sharpie brand voice validation and Gallery + T2 client deliveries.",
       "severity": "amber"
     },
     {
-      "title": "6 new renders need review",
-      "subtitle": "output/renders/ — appeared Apr 24. Origin unconfirmed. Do not share with clients until Rick reviews.",
+      "title": "6 product renders unreviewed",
+      "subtitle": "output/renders/ — origin unconfirmed. Need Rick's eyes before any client use.",
       "severity": "amber"
     },
     {
-      "title": "Glossier / Solórzano",
-      "subtitle": "20+ days past optimal window. Still sendable with one line acknowledging the timing. Don't let this close.",
+      "title": "Glossier / Solórzano — 20+ days past optimal",
+      "subtitle": "Still sendable but window is closing. Alma Har'el angle is the hook.",
       "severity": "amber"
     },
     {
-      "title": "Grain Haven overlays (issue #10)",
-      "subtitle": "12 4K film grain overlays (Super 8mm/16mm/35mm/H+V) in Downloads. Potential NOLAN asset — move to output/2026-04-06_nolan/ or leave?",
+      "title": "SARAH — Downloads inaccessible in headless mode",
+      "subtitle": "Issue #1: osascript path unavailable without user presence. 8 standing issues also pending direction.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 19,
+    "tasks_today": 9,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 102
+    "files_swept": 103
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "10:04 PM UTC today"
+      "name": "Nightly Status Report",
+      "next_run": "Tonight 11:04 PM UTC"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "10:39 PM UTC today"
+      "name": "SARAH File Sweep",
+      "next_run": "Tomorrow 12:04 AM UTC"
     },
     {
-      "name": "Nightly status report",
-      "next_run": "11:04 PM UTC today"
+      "name": "Uber/Lyft Receipt Filer",
+      "next_run": "Tomorrow 9:04 AM UTC"
     },
     {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "9:04 AM UTC tomorrow"
+      "name": "Morning Priorities",
+      "next_run": "Tomorrow 10:06 AM UTC"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "10:06 AM UTC tomorrow"
+      "name": "SCOUT Pipeline Check",
+      "next_run": "Tomorrow 10:07 AM UTC"
     },
     {
-      "name": "SCOUT pipeline check",
-      "next_run": "10:07 AM UTC tomorrow"
+      "name": "ATLAS Dependency Check",
+      "next_run": "Tomorrow 1:04 PM UTC"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "1:05 PM UTC tomorrow"
+      "name": "JARVIS Dashboard Push",
+      "next_run": "Tonight 11:39 PM UTC"
     }
   ]
 }
