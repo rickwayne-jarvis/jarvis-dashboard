@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-25T11:41:00Z",
-  "status_line": "4:41 AM PT Saturday. SARAH's 4 AM run was the night's final move — filed the morning brief and pushed 6 Sharpie merch renders into output/renders/ for the first time, clean close on the overnight. Fleet is quiet before ATLAS at 6 AM. Red board unchanged: LA Galaxy and Jessica Jacobi is still today-or-never (first action of the day when Rick wakes up), Glossier is 20+ days past window and still unsent, Macy's is past urgent and into late. NOLAN and GUARDIAN remain dark.",
+  "updated_at": "2026-04-25T12:41:00Z",
+  "status_line": "5:41 AM Saturday. SARAH's 5:04 run confirmed Downloads is now accessible — scanned Grain Haven folder, 12 grain overlays confirmed duplicates, nothing moved. ATLAS due in 20 minutes for today's dependency check. Red board unchanged: LA Galaxy/Jacobi window closes today, Glossier is 20+ days past, Macy's is late. Fleet otherwise steady.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 25 daily scan — 0 new prospects. Sonos updated: CMO DeCourcy pivoting to in-house studio model (not opening external pitch). LA Galaxy/Jacobi: today is last viable outreach day. 11 active leads unchanged.",
-      "last_run": "~1.5h ago (Apr 25, 3:07 AM PT)",
+      "last_action": "Apr 25 daily scan — 0 new prospects. Sonos confirmed pivoting to in-house studio model (AOR review less likely). LA Galaxy/Jacobi: today is last viable outreach day. 11 active leads unchanged. Report saved to output/big-new-business/daily-scout-reports/.",
+      "last_run": "~2.5h ago (3:07 AM PDT, Apr 25)",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Overnight Apr 24 — 10 outputs: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT 3-level platform architecture, Rick Wayne director About page copy.",
-      "last_run": "~27h ago (overnight Apr 24, ~2 AM PT)",
+      "last_run": "~27h ago (overnight Apr 24, ~2 AM PDT)",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "ProcessSection copy filed by SARAH Apr 24 — sharpie-maestro-rickwayne-process-v1.md confirmed in output.",
-      "last_run": "~1d ago (Apr 24, ~7 PM PT)",
+      "last_run": "~1d ago (Apr 24, ~7 PM PDT)",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 100 — filed 7 files: morning brief → output + 6 Sharpie merch render PNGs into new output/renders/ directory (first time). Downloads still inaccessible. Output stable.",
-      "last_run": "~35m ago (Apr 25, 4:04 AM PT)",
+      "last_action": "Run 101 — Downloads now accessible via osascript passthrough. Grain Haven folder: 12 film grain overlay PNGs confirmed MD5 duplicates of output/nolan/shots/grain-haven/. Nothing moved. 4 new files confirmed (morning brief, scout report, dashboard HTML, renders/). Standing issues now 8.",
+      "last_run": "~37m ago (5:04 AM PDT, Apr 25)",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 24 daily — 21 new files since prior day. PARK broke 72h stale streak. T2 Hybrid 4.7★. TESTING re-run flagged. NOLAN stale (7th flag). GUARDIAN stale (7th flag). LA Galaxy deadline flagged critical.",
-      "last_run": "~22h ago (Apr 24, 6:05 AM PT) — next run at 6:04 AM today",
+      "last_run": "~23.5h ago (Apr 24, 6:05 AM PDT) — TODAY'S RUN DUE IN ~20 MIN",
       "color": "teal"
     },
     {
@@ -55,7 +55,7 @@
       "name": "PARK",
       "state": "idle",
       "last_action": "Broke 72-hour stale streak overnight Apr 24 — v6/v7/v8 Sharpie decks delivered to root output. v8 (43MB) is authoritative deck. Gallery package also complete.",
-      "last_run": "~27h ago (Apr 24, ~4 AM PT)",
+      "last_run": "~27h ago (Apr 24, ~4 AM PDT)",
       "color": "teal"
     },
     {
@@ -75,61 +75,61 @@
   ],
   "activity": [
     {
-      "time": "4:04 AM PT (Apr 25)",
+      "time": "5:04 AM PDT (Apr 25)",
+      "agent": "SARAH",
+      "text": "Run 101 — Downloads accessible. Grain Haven: 12 grain overlays confirmed duplicates, untouched. 4 new files logged. Standing issues: 8.",
+      "color": "teal"
+    },
+    {
+      "time": "4:39 AM PDT (Apr 25)",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 100 results pushed: renders/ directory created, 7 files filed. Red board unchanged.",
+      "color": "blue"
+    },
+    {
+      "time": "4:04 AM PDT (Apr 25)",
       "agent": "SARAH",
       "text": "Run 100 — filed morning brief to output + 6 Sharpie merch render PNGs into new output/renders/ directory. Clean overnight close.",
       "color": "teal"
     },
     {
-      "time": "3:07 AM PT (Apr 25)",
+      "time": "3:07 AM PDT (Apr 25)",
       "agent": "SCOUT",
       "text": "Daily scan — 0 new prospects. Sonos pivot to in-house model confirmed. LA Galaxy: today is last viable outreach day. 11 leads stable.",
       "color": "teal"
     },
     {
-      "time": "3:06 AM PT (Apr 25)",
+      "time": "3:06 AM PDT (Apr 25)",
       "agent": "JARVIS",
       "text": "Morning brief delivered — 5 priorities: LA Galaxy (today or never), Gallery 9.0/10 ready, Macy's decision, Glossier late outreach, GUARDIAN activation.",
       "color": "blue"
     },
     {
-      "time": "3:04 AM PT (Apr 25)",
-      "agent": "SARAH",
-      "text": "Run 99 — output stable, no new files, 6 standing issues unchanged.",
-      "color": "teal"
-    },
-    {
-      "time": "2:04 AM PT (Apr 25)",
-      "agent": "SARAH",
-      "text": "Run 97 — clean sweep, Downloads empty, no new files. 37 root files stable.",
-      "color": "teal"
-    },
-    {
-      "time": "2:04 AM PT (Apr 25)",
+      "time": "2:04 AM PDT (Apr 25)",
       "agent": "RECEIPT",
       "text": "Filed 1 receipt: TYDOTT Order #15774, $79.99, MC 6468 — April 2026 Personal folder.",
       "color": "blue"
     },
     {
-      "time": "12:04 AM PT (Apr 25)",
-      "agent": "SARAH",
-      "text": "Run 96 — Downloads inaccessible, no new files. Output stable.",
-      "color": "teal"
-    },
-    {
-      "time": "7:04 PM PT (Apr 24)",
+      "time": "7:04 PM PDT (Apr 24)",
       "agent": "NIGHTLY",
       "text": "Evening report: T2 Hybrid top 3% globally. MAESTRO 10 outputs. PARK broke stale streak. Gallery 9.0/10 cleared. 3 red items outstanding.",
       "color": "blue"
     },
     {
-      "time": "6:07 AM PT (Apr 24)",
+      "time": "6:07 AM PDT (Apr 24)",
       "agent": "ATLAS",
       "text": "Daily dependency check — 21 new files. T2 Hybrid 4.7★. NOLAN/GUARDIAN stale (7th flag each). LA Galaxy deadline critical.",
       "color": "teal"
     },
     {
-      "time": "~2 AM PT (Apr 24)",
+      "time": "~4 AM PDT (Apr 24)",
+      "agent": "PARK",
+      "text": "Broke 72-hour stale streak — v8 Sharpie deck (43MB) + Gallery package delivered to output root.",
+      "color": "teal"
+    },
+    {
+      "time": "~2 AM PDT (Apr 24)",
       "agent": "MAESTRO",
       "text": "10 outputs overnight: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform, About page copy.",
       "color": "amber"
@@ -153,7 +153,7 @@
     },
     {
       "title": "GUARDIAN offline — 13+ cycles dark",
-      "subtitle": "Blocks next Sharpie client delivery for both T2 and The Gallery. Morning brief flagged this as priority 5 today.",
+      "subtitle": "Blocks next Sharpie client delivery for both T2 and The Gallery. One session clears the path.",
       "severity": "amber"
     },
     {
@@ -168,39 +168,39 @@
     }
   ],
   "stats": {
-    "tasks_today": 5,
+    "tasks_today": 6,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 7
+    "files_swept": 4
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "5:04 AM PT (Apr 25)"
+      "name": "ATLAS dependency check",
+      "next_run": "6:04 AM PDT (Apr 25) — ~20 min"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "6:04 AM PT (Apr 25)"
+      "name": "SARAH file sweep",
+      "next_run": "6:04 AM PDT (Apr 25) — ~20 min"
     },
     {
       "name": "JARVIS dashboard",
-      "next_run": "5:39 AM PT (Apr 25)"
+      "next_run": "6:39 AM PDT (Apr 25)"
     },
     {
       "name": "Nightly status report",
-      "next_run": "4:04 PM PT (Apr 25)"
+      "next_run": "7:04 PM PDT (Apr 25)"
     },
     {
       "name": "Receipt filer",
-      "next_run": "2:04 AM PT (Apr 26)"
+      "next_run": "5:04 AM PDT (Apr 26)"
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "3:07 AM PT (Apr 26)"
+      "next_run": "6:07 AM PDT (Apr 26)"
     },
     {
       "name": "Morning priorities",
-      "next_run": "3:06 AM PT (Apr 26)"
+      "next_run": "6:06 AM PDT (Apr 26)"
     }
   ]
 }
