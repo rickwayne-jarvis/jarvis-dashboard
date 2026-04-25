@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-25T15:41:13Z",
-  "status_line": "SARAH just swept clean — Downloads empty, pipeline stable. The Gallery is at 9.0 and production-ready. LA Galaxy / Jacobi window is still open but only barely — today is the day. Macy's needs a call. GUARDIAN has been dark for 9 cycles and is still blocking Sharpie delivery.",
+  "updated_at": "2026-04-25T17:41:12Z",
+  "status_line": "SARAH just completed Run 99 with something to show for it — found and filed the Gallery one-sheet V2 from Downloads, fixed the scanner so it actually reads the real filesystem going forward. SCOUT saw nothing new in the market this morning. The Gallery is at 9.0 and sitting ready. GUARDIAN has been dark for 10 straight cycles and is still the bottleneck on both Sharpie and Gallery delivery. LA Galaxy window is at its edge — if Jacobi hasn't been reached today, that window is closing.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Daily sweep: 0 new prospects. Sonos in-house pivot logged, pipeline updated and pushed.",
-      "last_run": "5h ago",
+      "last_action": "Daily sweep: 0 new prospects. Sonos in-house pivot confirmed — DeCourcy building internal studio, AOR review less likely. All 11 pipeline entries stable.",
+      "last_run": "7h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director.",
+      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed.",
       "last_run": "yesterday",
       "color": "teal"
     },
@@ -26,119 +26,119 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces scored 9.0/10. T2 Hybrid V1 scored 4.7★ — top 3% globally.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready, all gaps resolved. T2 Hybrid V1: 4.7★ top 3% globally.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Sweep complete at 3:06 PM — Downloads empty, 0 files moved. 7 standing issues carry forward.",
+      "last_action": "Run 99 at 5:06 PM UTC — filed Gallery one-sheet V2. 1 duplicate flagged for delete confirm. Fixed osascript scanner (SI #1 resolved). 9 non-JARVIS files untouched.",
       "last_run": "35m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Morning report: Gallery 9.0 confirmed, 13 new files since Apr 24. Six renders flagged for review.",
-      "last_run": "6h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's eyes. Dependency graph updated.",
+      "last_run": "4h ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "7+ stale report flags. Parked pending Rick's direction.",
+      "last_action": "7+ stale report flags unresolved. Parked pending Rick's direction.",
       "last_run": "multiple days",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "v8 deck (43MB) delivered. Gallery content not yet integrated into deck.",
+      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "Offline for 9+ cycles. Blocking Sharpie client deliverables for T2 and The Gallery.",
-      "last_run": "9+ cycles ago",
-      "color": "amber"
+      "last_action": "No activity — 10th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "10 cycles ago",
+      "color": "dim"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — downstream of SCOUT, feeds MAESTRO.",
+      "last_action": "Dependency satisfied — SCOUT and MAESTRO both downstream and active.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
-      "time": "3:41 PM",
-      "agent": "JARVIS",
-      "text": "Dashboard state pushed to GitHub Pages",
-      "color": "blue"
-    },
-    {
-      "time": "3:06 PM",
+      "time": "5:06 PM UTC",
       "agent": "SARAH",
-      "text": "Sweep complete — Downloads empty, 0 files moved. Pipeline clean. 7 standing issues carry forward.",
+      "text": "Run 99: Filed Gallery one-sheet V2 from Downloads. Fixed osascript scanner (SI #1 closed). 1 duplicate pending delete.",
       "color": "teal"
     },
     {
-      "time": "2:41 PM",
+      "time": "4:43 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard state pushed to GitHub Pages (commit b438d01)",
+      "text": "Dashboard push — state updated and committed to GitHub Pages.",
       "color": "blue"
     },
     {
-      "time": "10:07 AM",
-      "agent": "SCOUT",
-      "text": "Pipeline sweep complete: 0 new prospects. Sonos pivot to in-house studio noted, dashboard updated.",
+      "time": "4:06 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 98: Downloads empty, 0 ops, 44 files clean.",
       "color": "teal"
     },
     {
-      "time": "10:06 AM",
-      "agent": "JARVIS",
-      "text": "Morning brief delivered: LA Galaxy deadline flagged as critical, Gallery 9.0 ready to present.",
-      "color": "blue"
-    },
-    {
-      "time": "9:05 AM",
+      "time": "1:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Dependency check: Gallery all-green, 13 new files, 6 renders need Rick's eyes before client use.",
+      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files, 6 renders flagged, GUARDIAN 9-cycle dark streak noted.",
+      "color": "amber"
+    },
+    {
+      "time": "10:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Morning pipeline sweep: 0 new prospects. Sonos in-house studio pivot confirmed — DeCourcy not opening AOR review.",
       "color": "teal"
     },
     {
-      "time": "9:04 AM",
+      "time": "10:06 AM UTC",
       "agent": "JARVIS",
-      "text": "Receipt filer ran — 1 receipt processed (TYDOTT $79.99, MC 6468) and filed to Dropbox.",
+      "text": "Morning priorities delivered to Rick.",
+      "color": "blue"
+    },
+    {
+      "time": "9:04 AM UTC",
+      "agent": "JARVIS",
+      "text": "Uber/Lyft receipt filer ran — receipts processed and filed to Dropbox.",
       "color": "blue"
     },
     {
       "time": "yesterday",
       "agent": "TESTING",
-      "text": "Gallery of Ordinary Masterpieces: 9.0/10. T2 Hybrid V1: 4.7★ — top 3% globally, cleared for production.",
+      "text": "Gallery of Ordinary Masterpieces scored 9.0/10. T2 Hybrid V1: 4.7★ — top 3% globally, cleared for production.",
       "color": "teal"
     },
     {
       "time": "yesterday",
       "agent": "MAESTRO",
-      "text": "Gallery Gold Package complete: strategy, treatment, content calendar, P&L model, UGC playbook all filed.",
+      "text": "Gallery Gold Package complete: strategy, treatment, content calendar, P&L model, UGC playbook, Smithsonian LOI strategy all filed.",
       "color": "teal"
     },
     {
       "time": "yesterday",
       "agent": "PARK",
-      "text": "Broke 72-hour stale streak. v6/v7/v8 Sharpie decks delivered. v8 is current authoritative deck.",
+      "text": "v8 Sharpie deck delivered (43MB). v6/v7/v8 all filed — v8 is current authoritative deck.",
       "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "LA Galaxy — Jessica Jacobi",
-      "subtitle": "TODAY IS THE LAST DAY. 11 days into CMO role. Window closes tonight. One LinkedIn DM.",
+      "subtitle": "Today is the last day of the optimal window. 11 days into CMO role. Fifth consecutive red flag. One LinkedIn DM is all it takes.",
       "severity": "red"
     },
     {
@@ -147,55 +147,60 @@
       "severity": "red"
     },
     {
-      "title": "Glossier / Solórzano",
-      "subtitle": "20+ days past optimal window. Still sendable with one line acknowledging the timing.",
+      "title": "GUARDIAN offline — 10th cycle",
+      "subtitle": "Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries. This needs to be addressed.",
       "severity": "amber"
     },
     {
       "title": "6 new renders need review",
-      "subtitle": "Output/renders/ — appeared Apr 24. Origin unconfirmed. Do not share with clients yet.",
+      "subtitle": "output/renders/ — appeared Apr 24. Origin unconfirmed. Do not share with clients until Rick reviews.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN offline — 9th cycle",
-      "subtitle": "Blocking Sharpie brand voice validation. Required before T2 and Gallery client deliveries.",
+      "title": "Glossier / Solórzano",
+      "subtitle": "20+ days past optimal window. Still sendable with one line acknowledging the timing. Don't let this close.",
+      "severity": "amber"
+    },
+    {
+      "title": "Downloads: 2 items pending confirmation",
+      "subtitle": "SARAH needs delete permission for Gallery one-sheet duplicate (SI #8) and one other file (SI #9).",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 14,
+    "tasks_today": 15,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 94
+    "files_swept": 95
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "4:04 PM today"
+      "next_run": "6:04 PM UTC today"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "4:39 PM today"
+      "next_run": "6:39 PM UTC today"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM today"
-    },
-    {
-      "name": "ATLAS dependency check",
-      "next_run": "9:05 AM tomorrow"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "6:07 AM tomorrow"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "6:06 AM tomorrow"
+      "next_run": "11:04 PM UTC today"
     },
     {
       "name": "Uber/Lyft receipt filer",
-      "next_run": "5:04 AM tomorrow"
+      "next_run": "9:04 AM UTC tomorrow"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "10:06 AM UTC tomorrow"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "10:07 AM UTC tomorrow"
+    },
+    {
+      "name": "ATLAS dependency check",
+      "next_run": "1:05 PM UTC tomorrow"
     }
   ]
 }
