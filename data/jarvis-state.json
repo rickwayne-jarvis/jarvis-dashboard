@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-25T19:40:00Z",
-  "status_line": "The LA Galaxy window officially closed today — Jacobi never got reached, five consecutive red flags and now the optimal first-two-weeks window is gone. SARAH just ran a clean sweep and flagged a set of 4K film grain overlays in Downloads that might be useful for NOLAN. Everything else holds: Gallery at 9.0, GUARDIAN still dark at 11 cycles, SCOUT quiet after this morning. The nightly report fires in a few hours.",
+  "updated_at": "2026-04-25T20:39:00Z",
+  "status_line": "Holding pattern on a quiet Saturday evening. SARAH just finished her 8 PM sweep — clean again, Downloads still clear. The standing attention items from earlier haven't moved: LA Galaxy window is closed, Macy's still needs a decision, GUARDIAN is dark for the 12th cycle. Nightly report fires in a couple hours. Nothing new to flag.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Morning sweep: 0 new prospects. Sonos in-house pivot confirmed — DeCourcy building internal studio, AOR review less likely. All 11 pipeline entries stable.",
-      "last_run": "9h ago",
+      "last_run": "10h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 100 at 7:04 PM UTC — Downloads clean, 0 JARVIS ops. SI #8 & #9 closed (Sharpie files gone). New issue #10: Grain Haven x EditorPacks (12 4K film grain overlays) — potential NOLAN asset, awaiting Rick's direction.",
-      "last_run": "36m ago",
+      "last_action": "8 PM sweep clean — Downloads clear, 0 JARVIS ops. Issue #10 (Grain Haven 4K film grain overlays) still awaiting Rick's direction. 7 standing issues open pending Rick's calls.",
+      "last_run": "35m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's eyes. Dependency graph updated.",
-      "last_run": "6h ago",
+      "last_run": "7h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 11th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "11 cycles ago",
+      "last_action": "No activity — 12th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "12 cycles ago",
       "color": "dim"
     },
     {
@@ -75,27 +75,33 @@
   ],
   "activity": [
     {
+      "time": "8:39 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — state updated and committed to GitHub Pages.",
+      "color": "blue"
+    },
+    {
+      "time": "8:04 PM UTC",
+      "agent": "SARAH",
+      "text": "8 PM sweep: Downloads clean, 0 ops. Issue #10 still pending Rick's call on Grain Haven overlays.",
+      "color": "teal"
+    },
+    {
+      "time": "7:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — LA Galaxy window-closed alert updated.",
+      "color": "blue"
+    },
+    {
       "time": "7:04 PM UTC",
       "agent": "SARAH",
       "text": "Run 100: Downloads clean, 0 ops. SI #8 & #9 closed. New issue #10: Grain Haven 4K film grain overlays flagged for NOLAN.",
       "color": "teal"
     },
     {
-      "time": "6:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state updated and committed to GitHub Pages.",
-      "color": "blue"
-    },
-    {
-      "time": "5:06 PM UTC",
+      "time": "6:04 PM UTC",
       "agent": "SARAH",
       "text": "Run 99: Filed Gallery one-sheet V2 from Downloads. Fixed osascript scanner (SI #1 closed). 1 duplicate pending delete.",
-      "color": "teal"
-    },
-    {
-      "time": "4:06 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 98: Downloads empty, 0 ops, 44 files clean.",
       "color": "teal"
     },
     {
@@ -127,18 +133,12 @@
       "agent": "TESTING",
       "text": "Gallery of Ordinary Masterpieces scored 9.0/10. T2 Hybrid V1: 4.7★ — top 3% globally, cleared for production.",
       "color": "teal"
-    },
-    {
-      "time": "yesterday",
-      "agent": "MAESTRO",
-      "text": "Gallery Gold Package complete: strategy, treatment, content calendar, P&L model, UGC playbook, Smithsonian LOI strategy all filed.",
-      "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "LA Galaxy — Jacobi window CLOSED",
-      "subtitle": "Optimal first-two-weeks window ended today without contact. Sixth consecutive flag. Still reachable but warm timing is gone — act now or accept a cold outreach.",
+      "subtitle": "Optimal first-two-weeks window ended today without contact. Still reachable but warm timing is gone — it's now a cold outreach.",
       "severity": "red"
     },
     {
@@ -147,7 +147,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN offline — 11th cycle",
+      "title": "GUARDIAN offline — 12th cycle",
       "subtitle": "Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries. This needs to be addressed.",
       "severity": "amber"
     },
@@ -168,19 +168,19 @@
     }
   ],
   "stats": {
-    "tasks_today": 16,
+    "tasks_today": 17,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 100
+    "files_swept": 101
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "8:04 PM UTC today"
+      "next_run": "9:04 PM UTC today"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "8:39 PM UTC today"
+      "next_run": "9:39 PM UTC today"
     },
     {
       "name": "Nightly status report",
