@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-25T23:40:00Z",
-  "status_line": "11:40 PM — SARAH Run 103 came back clean again: Downloads wasn't accessible in headless mode, no new JARVIS files in output or Desktop. LA Galaxy's optimal outreach window has now officially passed — fifth consecutive ATLAS flag, unactioned. GUARDIAN is 15 cycles dark. Nightly report fires in about 25 minutes, then we're quiet until morning.",
+  "updated_at": "2026-04-26T00:39:00Z",
+  "status_line": "Just past midnight — SARAH closed the evening with Run 104: output and Desktop still clean, Downloads still locked in headless mode. The nightly report confirmed the Gallery at 9.0 and made it official that the LA Galaxy window has closed. All creative work is production-ready. Overnight is quiet; morning crew fires at 10 AM UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. Sonos dashboard notes updated. 11 pipeline entries stable.",
-      "last_run": "13h ago",
+      "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. Dashboard notes updated. 11 pipeline entries stable.",
+      "last_run": "14h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed.",
+      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed. Cannes ceiling revised to Titanium Grand Prix.",
       "last_run": "yesterday",
       "color": "teal"
     },
@@ -33,7 +33,7 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets. 8 standing issues still awaiting Rick's direction.",
+      "last_action": "Run 104: output and Desktop clean. Downloads inaccessible in headless mode (Issue #1). No new JARVIS assets. 8 standing issues still awaiting Rick's direction.",
       "last_run": "1h ago",
       "color": "teal"
     },
@@ -41,7 +41,7 @@
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closing today.",
-      "last_run": "10h ago",
+      "last_run": "11h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 15th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "15 cycles ago",
+      "last_action": "No activity — 16th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "16 cycles ago",
       "color": "dim"
     },
     {
@@ -75,15 +75,27 @@
   ],
   "activity": [
     {
-      "time": "11:40 PM UTC",
+      "time": "12:39 AM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — state updated and committed to GitHub Pages.",
       "color": "blue"
     },
     {
+      "time": "11:06 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 104: output and Desktop clean. Downloads still inaccessible in headless mode. No new files since Run 103.",
+      "color": "teal"
+    },
+    {
+      "time": "11:05 PM UTC",
+      "agent": "JARVIS",
+      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared for production, LA Galaxy window officially closed.",
+      "color": "blue"
+    },
+    {
       "time": "11:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets since Run 102.",
+      "text": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets.",
       "color": "teal"
     },
     {
@@ -95,37 +107,25 @@
     {
       "time": "9:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 101: Found Sharpie_Gallery_Campaign_Deck.pptx in Downloads — filed to output/sharpie-gallery-campaign-deck-v1.pptx (249KB).",
-      "color": "teal"
-    },
-    {
-      "time": "8:50 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 102: Downloads clean — no new JARVIS assets. 8 standing issues pending Rick's direction.",
+      "text": "Run 101: Found Sharpie_Gallery_Campaign_Deck.pptx in Downloads — filed to output/sharpie-gallery-campaign-deck-v1.pptx.",
       "color": "teal"
     },
     {
       "time": "8:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 100: Downloads clean, 0 ops. Issue #10 still pending Rick's call.",
-      "color": "teal"
-    },
-    {
-      "time": "7:04 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 99: Filed Gallery one-sheet V2 from Downloads. Fixed osascript path issue.",
+      "text": "Run 100: Downloads clean, 0 ops. Issue #10 still pending Rick's review.",
       "color": "teal"
     },
     {
       "time": "1:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files, 6 renders need Rick's eyes. LA Galaxy window closing today.",
-      "color": "amber"
+      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders need Rick's eyes, LA Galaxy window closing today.",
+      "color": "teal"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Morning pipeline sweep: 0 new prospects. Sonos confirmed in-house pivot. 11 entries stable.",
+      "text": "Morning pipeline sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term.",
       "color": "teal"
     },
     {
@@ -137,70 +137,70 @@
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jessica Jacobi — window closed today",
-      "subtitle": "Five consecutive ATLAS flags. Optimal outreach period has passed. Decide: send anyway or close the file.",
+      "title": "LA Galaxy — window closed",
+      "subtitle": "5 consecutive ATLAS flags, today was the deadline. Decision needed: own the timing and reach out, or formally close the file.",
       "severity": "red"
     },
     {
-      "title": "Macy's — decision overdue",
-      "subtitle": "Six flags total. Decide today or formally close the file.",
+      "title": "Macy's — no decision",
+      "subtitle": "6 flags. Q2 partner conversations happen May–June. Send or close before the window opens.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 15 consecutive missed cycles",
-      "subtitle": "Blocking Sharpie brand voice validation and Gallery + T2 client deliveries.",
+      "title": "GUARDIAN — 16 cycles dark",
+      "subtitle": "One session clears it. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "severity": "red"
+    },
+    {
+      "title": "Glossier — 20+ days stale",
+      "subtitle": "Note is written. Still sendable — acknowledge the timing and send it.",
       "severity": "amber"
     },
     {
-      "title": "6 product renders unreviewed",
-      "subtitle": "output/renders/ — origin unconfirmed. Need Rick's eyes before any client use.",
+      "title": "6 renders need review",
+      "subtitle": "output/renders/ — origin unconfirmed per ATLAS. Need Rick's eyes before any client use.",
       "severity": "amber"
     },
     {
-      "title": "Glossier / Solórzano — 20+ days past optimal",
-      "subtitle": "Still sendable but window is closing. Alma Har'el angle is the hook.",
-      "severity": "amber"
-    },
-    {
-      "title": "SARAH — Downloads inaccessible in headless mode",
-      "subtitle": "Issue #1: osascript path unavailable without user presence. 8 standing issues also pending direction.",
+      "title": "8 standing SARAH file decisions",
+      "subtitle": "PPTX duplicates, PNG renders, Nolan folder naming, Downloads mount permission — all waiting on Rick.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 9,
+    "tasks_today": 12,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 103
+    "files_swept": 13
   },
   "scheduled": [
     {
-      "name": "Nightly Status Report",
-      "next_run": "Tonight 11:04 PM UTC"
+      "name": "SARAH file sweep",
+      "next_run": "1:04 AM UTC"
     },
     {
-      "name": "SARAH File Sweep",
-      "next_run": "Tomorrow 12:04 AM UTC"
+      "name": "Receipt filer",
+      "next_run": "9:04 AM UTC"
     },
     {
-      "name": "Uber/Lyft Receipt Filer",
-      "next_run": "Tomorrow 9:04 AM UTC"
+      "name": "Morning priorities",
+      "next_run": "10:06 AM UTC"
     },
     {
-      "name": "Morning Priorities",
-      "next_run": "Tomorrow 10:06 AM UTC"
+      "name": "SCOUT pipeline check",
+      "next_run": "10:07 AM UTC"
     },
     {
-      "name": "SCOUT Pipeline Check",
-      "next_run": "Tomorrow 10:07 AM UTC"
+      "name": "ATLAS dependency check",
+      "next_run": "1:05 PM UTC"
     },
     {
-      "name": "ATLAS Dependency Check",
-      "next_run": "Tomorrow 1:04 PM UTC"
+      "name": "Nightly status report",
+      "next_run": "7:05 PM UTC"
     },
     {
-      "name": "JARVIS Dashboard Push",
-      "next_run": "Tonight 11:39 PM UTC"
+      "name": "JARVIS dashboard push",
+      "next_run": "1:39 AM UTC"
     }
   ]
 }
