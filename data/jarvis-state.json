@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-25T06:39:00Z",
-  "status_line": "Saturday 11:39 PM PT. It's nearly midnight and the LA Galaxy window has closed — the DM never went out. Gallery is green-lit at 9.0 ('Go make it') with the Smithsonian as the Year 2 Cannes anchor. SARAH filed a WRITER process section at 10:07 PM, 7 standing issues remain. Glossier 5 days overdue, Macy's at 6+ flags. SCOUT and ATLAS back on at dawn.",
+  "updated_at": "2026-04-25T06:40:00Z",
+  "status_line": "Saturday midnight PT. Fleet is quiet — SARAH Run 99 came back clean, Downloads empty, no new files. LA Galaxy deadline passed without a DM. Gallery is green-lit at 9.0. 7 standing issues waiting on Rick. SCOUT and ATLAS back online at dawn.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Daily pipeline scan — 0 new prospects, 11 active leads confirmed. LA Galaxy/Jacobi flagged URGENT for April 25 deadline.",
-      "last_run": "~13.5h ago (10:07 AM PT)",
+      "last_run": "~14h ago (10:07 AM PT)",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 98 — 1 new file filed: RickWayne_ProcessSection_WRITER.md → output/sharpie-maestro-rickwayne-process-v1.md (WRITER process copy, April 22). 47 files scanned, 46 already accounted for. 7 standing issues carried forward.",
-      "last_run": "~1.5h ago (~10:07 PM PT)",
+      "last_action": "Run 99 — Downloads empty, no new files. Output directory stable. 47 files all accounted for. 7 standing issues carried forward. 77.6MB PPTX duplicates pending Rick's go-ahead to delete.",
+      "last_run": "~36min ago (~11:04 PM PT)",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Daily dependency report — 21 new files since yesterday. Flagged: TESTING re-run needed, GUARDIAN and NOLAN stale day 6, LA Galaxy deadline imminent.",
-      "last_run": "~17.5h ago (6:05 AM PT)",
+      "last_run": "~18h ago (6:05 AM PT)",
       "color": "teal"
     },
     {
@@ -75,27 +75,33 @@
   ],
   "activity": [
     {
-      "time": "~10:07 PM PT",
+      "time": "~11:04 PM PT",
       "agent": "SARAH",
-      "text": "Run 98 — 1 new WRITER file filed: ProcessSection copy (April 22) → sharpie-maestro-rickwayne-process-v1.md. 47 files scanned, 46 already accounted for. 7 standing issues remain.",
+      "text": "Run 99 — Downloads empty, no new files, output directory stable. 7 standing issues unchanged. 77.6MB PPTX duplicates flagged pending go-ahead.",
       "color": "teal"
     },
     {
-      "time": "10:39 PM PT",
+      "time": "11:39 PM PT",
       "agent": "JARVIS",
-      "text": "Dashboard pushed — Gallery 9.0 green light confirmed, LA Galaxy deadline escalated to final-window red alert (commit 07a646f).",
+      "text": "Dashboard pushed — LA Galaxy deadline passed, SARAH Run 98 WRITER process filed, 7 standing issues confirmed (commit f141ada).",
       "color": "blue"
+    },
+    {
+      "time": "~10:07 PM PT",
+      "agent": "SARAH",
+      "text": "Run 98 — 1 new WRITER file filed: ProcessSection copy (April 22) → sharpie-maestro-rickwayne-process-v1.md. 47 files scanned, 46 already accounted for.",
+      "color": "teal"
     },
     {
       "time": "~9:10 PM PT",
       "agent": "SARAH",
-      "text": "Run 97 — Gallery Final 9 Report filed. Score confirmed 9.0/10: 'It's a 9. Go make it.' Smithsonian catalog #nmah_1323300 flagged as Year 2 Cannes Grand Prix load-bearing asset.",
+      "text": "Run 97 — Gallery Final 9 Report filed. Score confirmed 9.0/10: 'It's a 9. Go make it.' Smithsonian catalog #nmah_1323300 flagged as Year 2 Cannes anchor.",
       "color": "teal"
     },
     {
       "time": "7:04 PM PT",
       "agent": "NIGHTLY",
-      "text": "Evening report: T2 Hybrid 4.7★ top 3% globally. LA Galaxy deadline tomorrow. Glossier 4 days overdue. TESTING re-run needed. 3 red flags outstanding.",
+      "text": "Evening report: T2 Hybrid 4.7★ top 3% globally. LA Galaxy deadline today. Glossier 4 days overdue. TESTING re-run needed. 3 red flags outstanding.",
       "color": "blue"
     },
     {
@@ -127,18 +133,12 @@
       "agent": "PARK",
       "text": "v8 deck (43MB) delivered to root output — authoritative Sharpie deck. 72-hour stale streak broken.",
       "color": "teal"
-    },
-    {
-      "time": "~3 AM PT",
-      "agent": "MAESTRO",
-      "text": "10 overnight outputs: T2:60 Final, T2:30, Gallery Strategy & Treatment, MAKE IT platform architecture (3-level), Rick Wayne About page copy.",
-      "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "LA Galaxy / Jacobi — Deadline PASSED (April 25)",
-      "subtitle": "It's 11:39 PM — DM never sent. Window is effectively closed. Assess tomorrow whether to send a late note or archive.",
+      "title": "LA Galaxy / Jacobi — Deadline PASSED",
+      "subtitle": "It's midnight — DM never sent. Window is closed. Assess tomorrow whether to send a late note or archive.",
       "severity": "red"
     },
     {
@@ -176,36 +176,36 @@
     "tasks_today": 31,
     "top_score": 4.7,
     "prospects": 11,
-    "files_swept": 98
+    "files_swept": 99
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "12:04 AM PT (Sun)"
+      "next_run": "12:04 AM PT (Sat)"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "12:39 AM PT (Sun)"
+      "next_run": "12:39 AM PT (Sat)"
     },
     {
       "name": "Uber/Lyft receipt filer",
-      "next_run": "Sun 2:04 AM PT"
+      "next_run": "Sat 2:04 AM PT"
     },
     {
       "name": "Morning priorities",
-      "next_run": "Sun 3:06 AM PT"
+      "next_run": "Sat 3:06 AM PT"
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "Sun 3:07 AM PT"
+      "next_run": "Sat 3:07 AM PT"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "Sun 6:05 AM PT"
+      "next_run": "Sat 6:05 AM PT"
     },
     {
       "name": "Nightly status report",
-      "next_run": "Sun 4:04 PM PT"
+      "next_run": "Sat 4:04 PM PT"
     }
   ]
 }
