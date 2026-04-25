@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-25T14:41:39Z",
-  "status_line": "The Gallery hit 9.0/10 overnight — all gaps closed, production-ready. SARAH is mid-sweep right now. Critical: today is the absolute last day to reach Jessica Jacobi at LA Galaxy, and Macy's needs a decision. GUARDIAN has been offline for 8 cycles and is blocking Sharpie delivery.",
+  "updated_at": "2026-04-25T15:41:13Z",
+  "status_line": "SARAH just swept clean — Downloads empty, pipeline stable. The Gallery is at 9.0 and production-ready. LA Galaxy / Jacobi window is still open but only barely — today is the day. Macy's needs a call. GUARDIAN has been dark for 9 cycles and is still blocking Sharpie delivery.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Daily sweep: 0 new prospects. Sonos in-house pivot logged, pipeline updated and pushed.",
-      "last_run": "4h ago",
+      "last_run": "5h ago",
       "color": "teal"
     },
     {
@@ -32,16 +32,16 @@
     },
     {
       "name": "SARAH",
-      "state": "running",
-      "last_action": "Active file sweep in progress — organizing JARVIS outputs, enforcing naming conventions.",
-      "last_run": "now",
-      "color": "amber"
+      "state": "idle",
+      "last_action": "Sweep complete at 3:06 PM — Downloads empty, 0 files moved. 7 standing issues carry forward.",
+      "last_run": "35m ago",
+      "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Morning report: Gallery 9.0 confirmed, 13 new files since Apr 24. Six renders flagged for review.",
-      "last_run": "5h ago",
+      "last_run": "6h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "Offline for 8+ cycles. Blocking Sharpie client deliverables for T2 and The Gallery.",
-      "last_run": "8+ cycles ago",
+      "last_action": "Offline for 9+ cycles. Blocking Sharpie client deliverables for T2 and The Gallery.",
+      "last_run": "9+ cycles ago",
       "color": "amber"
     },
     {
@@ -75,15 +75,21 @@
   ],
   "activity": [
     {
-      "time": "2:41 PM",
-      "agent": "SARAH",
-      "text": "File sweep started — active run in progress",
-      "color": "amber"
+      "time": "3:41 PM",
+      "agent": "JARVIS",
+      "text": "Dashboard state pushed to GitHub Pages",
+      "color": "blue"
     },
     {
-      "time": "1:40 PM",
+      "time": "3:06 PM",
+      "agent": "SARAH",
+      "text": "Sweep complete — Downloads empty, 0 files moved. Pipeline clean. 7 standing issues carry forward.",
+      "color": "teal"
+    },
+    {
+      "time": "2:41 PM",
       "agent": "JARVIS",
-      "text": "Dashboard state pushed to GitHub Pages (commit 317c412)",
+      "text": "Dashboard state pushed to GitHub Pages (commit b438d01)",
       "color": "blue"
     },
     {
@@ -107,7 +113,7 @@
     {
       "time": "9:04 AM",
       "agent": "JARVIS",
-      "text": "Uber/Lyft receipt filer ran — receipts processed and filed to Dropbox.",
+      "text": "Receipt filer ran — 1 receipt processed (TYDOTT $79.99, MC 6468) and filed to Dropbox.",
       "color": "blue"
     },
     {
@@ -126,12 +132,6 @@
       "time": "yesterday",
       "agent": "PARK",
       "text": "Broke 72-hour stale streak. v6/v7/v8 Sharpie decks delivered. v8 is current authoritative deck.",
-      "color": "teal"
-    },
-    {
-      "time": "yesterday",
-      "agent": "SARAH",
-      "text": "93 sweeps completed across the day. Pipeline stable, all outputs clean.",
       "color": "teal"
     }
   ],
@@ -153,33 +153,33 @@
     },
     {
       "title": "6 new renders need review",
-      "subtitle": "Output/renders/ — appeared at 11:07 AM Apr 24. Origin unconfirmed. Do not share with clients yet.",
+      "subtitle": "Output/renders/ — appeared Apr 24. Origin unconfirmed. Do not share with clients yet.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN offline — 8th cycle",
+      "title": "GUARDIAN offline — 9th cycle",
       "subtitle": "Blocking Sharpie brand voice validation. Required before T2 and Gallery client deliveries.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 13,
+    "tasks_today": 14,
     "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 93
+    "files_swept": 94
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "3:04 PM today"
+      "next_run": "4:04 PM today"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "4:39 PM today"
     },
     {
       "name": "Nightly status report",
       "next_run": "7:04 PM today"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "3:39 PM today"
     },
     {
       "name": "ATLAS dependency check",
