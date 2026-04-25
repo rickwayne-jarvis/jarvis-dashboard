@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-23T07:39:00Z",
-  "statusLine": "CEO pitch day. SARAH Run 67 wrapped clean — 12 Grain Haven film grain duplicates (~4.6 GB) confirmed in Downloads, ready to clear on your command. Glossier is 3 days past target and LA Galaxy closes in 2 days. SCOUT and ATLAS queue up this morning.",
+  "lastUpdated": "2026-04-25T16:43:00Z",
+  "statusLine": "Gallery of Ordinary Masterpieces scored 9.0 — production-ready, Smithsonian angle confirmed. LA Galaxy window closes today: Jacobi needs a message before end of business. GUARDIAN is at 8 straight no-runs and blocking Sharpie delivery. Everything else is running clean.",
   "agents": [
     {
       "id": "jarvis",
       "name": "JARVIS",
       "role": "Orchestrator",
       "state": "active",
-      "lastAction": "Dashboard state update — Run 67 captured, attention items refreshed",
+      "lastAction": "Dashboard push — Gallery 9.0, LA Galaxy deadline day, GUARDIAN offline 8 cycles",
       "lastActionAgo": "now",
       "nextRun": "Hourly push"
     },
@@ -17,17 +17,17 @@
       "name": "SCOUT",
       "role": "Researcher / Pipeline",
       "state": "idle",
-      "lastAction": "Pipeline sweep — Lands' End filed (4/5 BiG fit, first CMO in decade, blank creative roster)",
-      "lastActionAgo": "~21h ago",
-      "nextRun": "Today 10:07 AM UTC"
+      "lastAction": "Pipeline sweep — 0 new prospects. Sonos in-house pivot noted. LA Galaxy window closes today.",
+      "lastActionAgo": "~6h ago",
+      "nextRun": "Tomorrow 6:07 AM"
     },
     {
       "id": "maestro",
       "name": "MAESTRO",
       "role": "Executive Creative Director",
       "state": "idle",
-      "lastAction": "Product vision doc + WYMI campaign materials completed",
-      "lastActionAgo": "~11h ago",
+      "lastAction": "Gallery Gold Package — Version B elected (doorframe hero), Alma Har'el as director rec",
+      "lastActionAgo": "~5h ago",
       "nextRun": null
     },
     {
@@ -35,8 +35,8 @@
       "name": "WRITER",
       "role": "Copywriter / Content",
       "state": "idle",
-      "lastAction": "Director site About page + Process section drafts",
-      "lastActionAgo": "~11h ago",
+      "lastAction": "Rick Wayne director site — About page + Process section drafts",
+      "lastActionAgo": "2d ago",
       "nextRun": null
     },
     {
@@ -44,8 +44,8 @@
       "name": "TESTING",
       "role": "Research / Validation",
       "state": "idle",
-      "lastAction": "WYMI storyboard script scored — Hybrid V1 confirmed 4.7★ production-ready",
-      "lastActionAgo": "2d ago",
+      "lastAction": "Gallery of Ordinary Masterpieces final score: 9.0/10 — all 12 gaps closed",
+      "lastActionAgo": "~5h ago",
       "nextRun": null
     },
     {
@@ -53,35 +53,35 @@
       "name": "SARAH",
       "role": "File System / Operations",
       "state": "idle",
-      "lastAction": "Run 67 — Downloads: 13 items, 12 Grain Haven grain overlays (~4.6 GB) confirmed duplicate of output/2026-04-06_nolan/. 0 moves/deletes. Say 'yes delete grain haven downloads' to clear.",
-      "lastActionAgo": "~1h ago",
-      "nextRun": "~8:04 AM UTC"
+      "lastAction": "Run 98 — Downloads empty, 0 ops. 44 output files properly named. 7 standing issues await Rick.",
+      "lastActionAgo": "~37m ago",
+      "nextRun": "~5:04 PM"
     },
     {
       "id": "atlas",
       "name": "ATLAS",
       "role": "System Monitor",
       "state": "idle",
-      "lastAction": "April 22 report — PARK/NOLAN stale on Hybrid V1, GUARDIAN 4th no-run, Lands' End flagged as top prospect",
-      "lastActionAgo": "~18h ago",
-      "nextRun": "Today 1:05 PM UTC"
+      "lastAction": "Daily report — Gallery 9.0, 13 new files since yesterday, GUARDIAN 7th flag, Smithsonian catalog confirmed",
+      "lastActionAgo": "~7h ago",
+      "nextRun": "Tomorrow 9:05 AM"
     },
     {
       "id": "guardian",
       "name": "GUARDIAN",
       "role": "QA / Continuity",
       "state": "idle",
-      "lastAction": "Not run — multiple consecutive ATLAS flags. Blocks client delivery pipeline.",
+      "lastAction": "Not run — 8 consecutive cycles missed. Blocking Sharpie and Gallery client delivery.",
       "lastActionAgo": null,
       "nextRun": null
     },
     {
       "id": "persona",
       "name": "PERSONA",
-      "role": "Audience Builder",
+      "role": "Brand Strategist",
       "state": "idle",
-      "lastAction": "Profiles current",
-      "lastActionAgo": "3d ago",
+      "lastAction": "Brand personas complete — dependency resolved (ATLAS: PERSONA checked)",
+      "lastActionAgo": "2d+ ago",
       "nextRun": null
     },
     {
@@ -89,7 +89,7 @@
       "name": "NOLAN",
       "role": "Director / Post-Production",
       "state": "parked",
-      "lastAction": "Parked per Rick — stale on Hybrid V1",
+      "lastAction": "Parked per Rick — Sharpie campaign outputs complete",
       "lastActionAgo": null,
       "nextRun": null
     },
@@ -98,78 +98,68 @@
       "name": "PARK",
       "role": "Designer / Deck Builder",
       "state": "parked",
-      "lastAction": "Parked per Rick — decks show Rick's Deck Cut (4.1★), Hybrid V1 (4.7★) not loaded",
+      "lastAction": "Parked — Gallery content not integrated. Needs GUARDIAN to run first.",
       "lastActionAgo": null,
       "nextRun": null
     }
   ],
   "activity": [
-    { "agent": "SARAH",   "action": "Run 67 — Downloads: 13 items. 12 Grain Haven film grain overlays (~4.6 GB) confirmed duplicates. 0 moves. Pending: 'yes delete grain haven downloads'.", "time": "6:05 AM UTC" },
-    { "agent": "JARVIS",  "action": "Dashboard push — CEO pitch day, SARAH Run 66 dupes captured, Glossier 3d overdue, LA Galaxy 2d to deadline", "time": "6:40 AM UTC" },
-    { "agent": "SARAH",   "action": "Run 66 — Documents: 35 JARVIS files, 27 confirmed byte-for-byte duplicates ready to delete, 9 unique files flagged.", "time": "5:07 AM UTC" },
-    { "agent": "JARVIS",  "action": "Dashboard push — CEO pitch alert active, GUARDIAN 6th no-run flag, attention items refreshed", "time": "4:41 AM UTC" },
-    { "agent": "JARVIS",  "action": "Nightly report filed — CEO pitch today, Glossier overdue, LA Galaxy April 25, PARK/NOLAN stale, GUARDIAN flagged", "time": "Yest. 7:04 PM" },
-    { "agent": "ATLAS",   "action": "April 22 system report — PARK/NOLAN 48h stale on Hybrid V1, GUARDIAN 4th flag, SCOUT + MAESTRO + TESTING current", "time": "Yest. 9:05 AM" },
-    { "agent": "JARVIS",  "action": "Receipt filer — Uber/Lyft/restaurant receipts classified by card and filed to Dropbox", "time": "Yest. 9:04 AM" },
-    { "agent": "SCOUT",   "action": "Lands' End filed (BiG Fit 4/5) — Sarah Sylvester first CMO in decade, WHP Global acquisition, blank creative roster. April 30 outreach window.", "time": "Yest. 6:07 AM" },
-    { "agent": "JARVIS",  "action": "Morning priorities: Glossier, Michael Kors, Macy's, PARK re-run, GUARDIAN sequenced for the day", "time": "Yest. 6:06 AM" },
-    { "agent": "MAESTRO", "action": "Product vision doc and WYMI campaign materials completed", "time": "Apr 22" }
+    { "agent": "SARAH",    "action": "Run 98 — Downloads empty, 0 ops. 44 output files clean. 7 standing issues queued for Rick.", "time": "4:06 PM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — Gallery 9.0 cap, LA Galaxy last-day flag, GUARDIAN 9 cycles offline", "time": "3:41 PM" },
+    { "agent": "SARAH",    "action": "Run 97 — Downloads empty, 0 files moved, pipeline clean", "time": "3:04 PM" },
+    { "agent": "JARVIS",   "action": "Dashboard push — Gallery 9.0 in final board review, LA Galaxy window active", "time": "2:39 PM" },
+    { "agent": "SARAH",    "action": "Run 96 — Downloads clean, 0 ops performed", "time": "2:04 PM" },
+    { "agent": "TESTING",  "action": "Gallery of Ordinary Masterpieces: 9.0/10 final score — all 12 gaps closed, production-ready", "time": "~11 AM" },
+    { "agent": "MAESTRO",  "action": "Gallery Gold Package delivered — doorframe hero elected, Alma Har'el director rec, Rick Wayne Process section", "time": "~11 AM" },
+    { "agent": "SCOUT",    "action": "Pipeline sweep — Sonos in-house pivot confirmed, 0 new prospects added. LA Galaxy deadline today.", "time": "10:07 AM" },
+    { "agent": "ATLAS",    "action": "Daily report — Gallery 9.0 overnight, Smithsonian Sharpie in permanent collection (catalog nmah_1323300), 13 new files", "time": "9:05 AM" },
+    { "agent": "JARVIS",   "action": "Morning priorities — LA Galaxy today, Gallery read, Macy's decide, Glossier sendable, GUARDIAN queued", "time": "~9 AM" }
   ],
   "attention": [
     {
-      "title": "CEO Pitch — TODAY (April 23)",
-      "subtitle": "Deck exported, VO polished. Known gap: no KPIs / measurement framework slide.",
+      "title": "LA Galaxy — LAST DAY (Jessica Jacobi)",
+      "subtitle": "CMO Day 11. One LinkedIn DM. Materials ready in output/2026-04-16_rick-wayne-director/. After today it reads reactive.",
       "severity": "red"
     },
     {
-      "title": "Glossier — 3 days overdue",
-      "subtitle": "Nicole Solórzano, 30+ days in role. Target was April 20. Window barely still open.",
+      "title": "GUARDIAN — 8 consecutive no-runs",
+      "subtitle": "Blocking Sharpie and Gallery client delivery. One session clears the entire path.",
       "severity": "red"
     },
     {
-      "title": "LA Galaxy — deadline April 25",
-      "subtitle": "Jessica Jacobi, week 2 as CMO. BiG Fit 4/5. 2 days left.",
+      "title": "Macy's — decide or close",
+      "subtitle": "Six consecutive ATLAS flags. Q2 creative partner decisions May–June. Stasis is the only wrong answer.",
       "severity": "red"
     },
     {
-      "title": "4.6 GB Grain Haven dupes in Downloads",
-      "subtitle": "SARAH Run 67 confirmed checksums. Say 'yes delete grain haven downloads' to clear safely.",
+      "title": "Glossier / Solorzano — 20+ days overdue",
+      "subtitle": "Still sendable. One line acknowledging timing is stronger than silence. Five minutes.",
       "severity": "amber"
     },
     {
-      "title": "27 confirmed dupes in Documents — ready to clear",
-      "subtitle": "SARAH Run 66 verified checksums. Say 'yes clean Documents dupes' to remove safely.",
+      "title": "Gallery is production-ready (9.0/10)",
+      "subtitle": "Next: Alma Har'el meeting + Smithsonian LOI. Smithsonian holds Sharpie catalog nmah_1323300 — Cannes ceiling just went Titanium.",
       "severity": "amber"
     },
     {
-      "title": "Macy's — needs outreach this week",
-      "subtitle": "Q2 creative partner decision May–June. 100th Thanksgiving Parade on Nov 26 is the hook.",
+      "title": "6 new product renders need Rick's review",
+      "subtitle": "Appeared in output/renders/ at 11:07 AM, origin unconfirmed. Do not use with clients until reviewed.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — multiple consecutive no-run cycles",
-      "subtitle": "Blocks client delivery pipeline. Queue after CEO pitch today.",
-      "severity": "amber"
-    },
-    {
-      "title": "PARK + NOLAN stale on Hybrid V1",
-      "subtitle": "Decks still show Rick's Deck Cut (4.1★). Hybrid V1 (4.7★, production-ready) in script only.",
-      "severity": "amber"
-    },
-    {
-      "title": "Lands' End — top new prospect",
-      "subtitle": "Sarah Sylvester, new CMO April 1. Blank creative roster. Outreach window closes April 30.",
+      "title": "PARK — Gallery content not integrated",
+      "subtitle": "Decks don't reflect Gallery campaign. Needs GUARDIAN run first, then one PARK session.",
       "severity": "amber"
     }
   ],
   "scheduled": [
-    { "id": "sarah-file-sweep",       "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T06:04:56Z", "nextRun": "2026-04-23T08:04:06Z" },
-    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-23T06:40:06Z", "nextRun": "2026-04-23T08:39:16Z" },
-    { "id": "uber-lyft-receipt-filer","name": "Receipt Filer",       "schedule": "Daily 5:04 AM", "enabled": true,  "lastRun": "2026-04-22T09:04:46Z", "nextRun": "2026-04-23T09:04:00Z" },
-    { "id": "morning-priorities",     "name": "Morning Priorities",  "schedule": "Daily 6:06 AM", "enabled": true,  "lastRun": "2026-04-22T10:06:52Z", "nextRun": "2026-04-23T10:06:06Z" },
-    { "id": "scout-pipeline-check",   "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM", "enabled": true,  "lastRun": "2026-04-22T10:07:47Z", "nextRun": "2026-04-23T10:07:01Z" },
-    { "id": "atlas-dependency-check", "name": "ATLAS Dependency",    "schedule": "Daily 9:05 AM", "enabled": true,  "lastRun": "2026-04-22T13:05:38Z", "nextRun": "2026-04-23T13:04:52Z" },
-    { "id": "nightly-status-report",  "name": "Nightly Report",      "schedule": "Daily 7:04 PM", "enabled": true,  "lastRun": "2026-04-22T23:05:15Z", "nextRun": "2026-04-23T23:04:25Z" }
+    { "id": "sarah-file-sweep",       "name": "SARAH File Sweep",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-25T16:04:48Z", "nextRun": "2026-04-25T17:04:06Z" },
+    { "id": "jarvis-dashboard-push",  "name": "JARVIS Dashboard",    "schedule": "Hourly",        "enabled": true,  "lastRun": "2026-04-25T15:39:58Z", "nextRun": "2026-04-25T17:39:16Z" },
+    { "id": "atlas-dependency-check", "name": "ATLAS Dependency",    "schedule": "Daily 9:05 AM", "enabled": true,  "lastRun": "2026-04-25T13:05:23Z", "nextRun": "2026-04-26T13:04:52Z" },
+    { "id": "scout-pipeline-check",   "name": "SCOUT Pipeline",      "schedule": "Daily 6:07 AM", "enabled": true,  "lastRun": "2026-04-25T10:07:32Z", "nextRun": "2026-04-26T10:07:01Z" },
+    { "id": "morning-priorities",     "name": "Morning Priorities",  "schedule": "Daily 6:06 AM", "enabled": true,  "lastRun": "2026-04-25T10:06:37Z", "nextRun": "2026-04-26T10:06:06Z" },
+    { "id": "uber-lyft-receipt-filer","name": "Receipt Filer",       "schedule": "Daily 5:04 AM", "enabled": true,  "lastRun": "2026-04-25T09:04:31Z", "nextRun": "2026-04-26T09:04:00Z" },
+    { "id": "nightly-status-report",  "name": "Nightly Report",      "schedule": "Daily 7:04 PM", "enabled": true,  "lastRun": "2026-04-24T23:05:19Z", "nextRun": "2026-04-25T23:04:25Z" }
   ],
   "disabled": [
     { "id": "resy-monitor",                   "reason": "Terminated. Do not re-enable." },
@@ -177,14 +167,14 @@
   ],
   "stats": {
     "active_agents": 1,
-    "idle_agents": 7,
+    "idle_agents": 6,
     "parked_agents": 2,
-    "ready_agents": 1,
+    "ready_agents": 0,
     "scheduled_tasks_active": 7,
     "scheduled_tasks_disabled": 2,
     "prospects_in_pipeline": 18,
     "overdue_outreach": 3,
-    "files_swept_last_run": 13,
-    "receipts_filed_today": 0
+    "files_swept_last_run": 0,
+    "gallery_score": 9.0
   }
 }
