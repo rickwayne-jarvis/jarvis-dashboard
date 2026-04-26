@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T03:39:00Z",
-  "status_line": "3:39 AM — SARAH wrapped Sweep #104 at 3:04, catalogued four new files from yesterday's Gallery session (campaign deck, two one-sheet versions, SCOUT evening report) and flagged a fifth file sitting in Documents that needs a move-permission grant. GUARDIAN is now 19 consecutive cycles dark, still blocking Gallery and T2 deliveries. The three open decisions — LA Galaxy (window closed), Macy's, Glossier — are unchanged. System quiet until the morning crew fires at 10 AM UTC.",
+  "updated_at": "2026-04-26T03:40:00Z",
+  "status_line": "3:40 AM — SARAH just wrapped Sweep #105 at 3:08, found one personal email file in Documents (Barry forwarding Devyn's raise request) and left it alone — not a JARVIS file. Zero JARVIS moves this sweep. Standing issues climbed to 13, all awaiting Rick's authorization. GUARDIAN is 20 consecutive cycles dark, still the primary blocker for Gallery and T2 deliveries. The three open decisions — LA Galaxy (window closed), Macy's, Glossier — remain on the table. System quiet until SARAH runs again at 4:04, then the morning crew at 10 AM UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. 11 pipeline entries stable.",
-      "last_run": "17h ago",
+      "last_run": "18h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Sweep #104: 4 new canonical files logged (Gallery deck, two one-sheets, SCOUT evening report). Issue #13 flagged — OneSheet Presentation in Documents needs move-permission. 2 exact duplicates in Documents (already in output). 10 standing issues total.",
-      "last_run": "35m ago",
+      "last_action": "Sweep #105: 0 JARVIS files moved. Found barry-devyn-raise-email-summary.md in Documents — personal file, left untouched. 13 standing issues awaiting Rick's authorization. Downloads still unmounted (Issue #1).",
+      "last_run": "32m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. LA Galaxy window flagged closed. 6 renders in output/renders/ need Rick's review before client use.",
-      "last_run": "18h ago",
+      "last_run": "19h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 19th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "19 cycles ago",
+      "last_action": "No activity — 20th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "20 cycles ago",
       "color": "dim"
     },
     {
@@ -75,21 +75,21 @@
   ],
   "activity": [
     {
-      "time": "3:04 AM UTC",
+      "time": "3:08 AM UTC",
       "agent": "SARAH",
-      "text": "Sweep #104: 4 new files catalogued, Issue #13 logged (OneSheet Presentation needs move grant). 10 standing issues.",
+      "text": "Sweep #105: 0 JARVIS files moved. Personal email file (barry-devyn raise summary) found in Documents — not a JARVIS file, left untouched. 13 standing issues.",
       "color": "teal"
     },
     {
       "time": "2:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit 1138214).",
+      "text": "Dashboard push — state committed to GitHub Pages (commit 1a6500d).",
       "color": "blue"
     },
     {
-      "time": "2:04 AM UTC",
+      "time": "3:04 AM UTC",
       "agent": "SARAH",
-      "text": "Sweep complete: output and Desktop clean, zero new files since prior run.",
+      "text": "Sweep #104: 4 new canonical files logged (Gallery deck, two one-sheets, SCOUT evening report). Issue #13 logged — OneSheet Presentation needs move-permission.",
       "color": "teal"
     },
     {
@@ -99,15 +99,15 @@
       "color": "blue"
     },
     {
-      "time": "9:05 AM UTC",
-      "agent": "ATLAS",
-      "text": "Daily report: Gallery 9.0 locked, 13 new files, LA Galaxy window flagged as closed.",
-      "color": "teal"
-    },
-    {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
       "text": "Morning sweep: 0 new prospects, 11 pipeline entries stable. Sonos in-house pivot confirmed.",
+      "color": "teal"
+    },
+    {
+      "time": "9:05 AM UTC",
+      "agent": "ATLAS",
+      "text": "Daily report: Gallery 9.0 locked, 13 new files, LA Galaxy window flagged as closed.",
       "color": "teal"
     },
     {
@@ -147,7 +147,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 19 consecutive missed cycles",
+      "title": "GUARDIAN — 20 consecutive missed cycles",
       "subtitle": "Blocking Sharpie brand voice validation, Gallery delivery, and T2 client delivery.",
       "severity": "red"
     },
@@ -167,8 +167,8 @@
       "severity": "amber"
     },
     {
-      "title": "10 standing file decisions",
-      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder, new OneSheet — queued for Rick's approval.",
+      "title": "13 standing file decisions",
+      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder, OneSheet, Downloads unmounted — queued for Rick's approval.",
       "severity": "amber"
     }
   ],
@@ -176,7 +176,7 @@
     "tasks_today": 8,
     "top_score": 9,
     "prospects": 11,
-    "files_swept": 107
+    "files_swept": 108
   },
   "scheduled": [
     {
@@ -189,23 +189,23 @@
     },
     {
       "name": "Receipt filer",
-      "next_run": "9:04 AM UTC (tomorrow)"
+      "next_run": "9:04 AM UTC"
     },
     {
       "name": "Morning priorities",
-      "next_run": "10:06 AM UTC (tomorrow)"
+      "next_run": "10:06 AM UTC"
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "10:07 AM UTC (tomorrow)"
+      "next_run": "10:07 AM UTC"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "1:04 PM UTC (tomorrow)"
+      "next_run": "1:04 PM UTC"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM UTC (tomorrow)"
+      "next_run": "7:04 PM UTC"
     }
   ]
 }
