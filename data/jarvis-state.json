@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T20:40:34Z",
-  "status_line": "Sunday 8:40 PM UTC — SARAH Run 111 confirms system quiet: Downloads clean again. GUARDIAN is now 38 cycles dark and still blocking both T2 final scoring and Gallery client delivery. Lands' End is 4 days away — still needs a personal letter to Sarah Sylvester. SCOUT's Smucker commit is staged but the pipeline dashboard won't go live until someone runs the manual git push.",
+  "updated_at": "2026-04-26T21:40:43Z",
+  "status_line": "Sunday 9:40 PM UTC — SARAH Run 112 confirms the system is quiet: Downloads still not mounted, 4 cleanup items waiting on Rick's reply. GUARDIAN is now 39 consecutive cycles dark — still blocking both T2 final scoring and Gallery client delivery. Lands' End is 4 days out and a personal letter to Sarah Sylvester still hasn't been drafted. Everything else is holding steady.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Urgent: Lands' End Apr 30, Macy's window open, Glossier/Michael Kors ~20 days in. Local commit staged; git push awaits manual credentials.",
-      "last_run": "10h 33m ago",
+      "last_run": "11h 33m ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 111 at 20:05 UTC: Downloads not mounted — no files to move. 3 cleanup items still pending Rick's reply: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files.",
-      "last_run": "36m ago",
+      "last_action": "Run 112 at 21:07 UTC: Downloads not mounted — no files to move. 4 cleanup items awaiting Rick's reply: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files, move Sharpie Gallery onesheet docx.",
+      "last_run": "34m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery deck flag resolved. Three active flags: Lands' End 4 days, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending.",
-      "last_run": "7h 35m ago",
+      "last_run": "8h 35m ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 38 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "38 cycles dark",
+      "last_action": "No activity — 39 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "39 cycles dark",
       "color": "dim"
     },
     {
@@ -75,6 +75,18 @@
   ],
   "activity": [
     {
+      "time": "9:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 112: Downloads not mounted, 4 cleanup items pending. GUARDIAN at 39 cycles dark. Lands' End 4 days out.",
+      "color": "blue"
+    },
+    {
+      "time": "9:07 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 112: Downloads not mounted — no files to move. 4 cleanup items awaiting reply: gallery deck rename, dupe PPTXs (~77MB), zero-byte files, Gallery onesheet docx.",
+      "color": "teal"
+    },
+    {
       "time": "8:40 PM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — SARAH Run 111: Downloads not mounted, system clean. GUARDIAN at 38 cycles. Lands' End 4 days, SCOUT push needs manual credentials.",
@@ -83,7 +95,7 @@
     {
       "time": "8:05 PM UTC",
       "agent": "SARAH",
-      "text": "Run 111: Downloads not mounted — no files to move. 3 cleanup items still awaiting Rick's reply (gallery deck rename, dupe PPTXs, zero-byte files).",
+      "text": "Run 111: Downloads not mounted — no files to move. 3 cleanup items awaiting Rick's reply (gallery deck rename, dupe PPTXs, zero-byte files).",
       "color": "teal"
     },
     {
@@ -101,25 +113,13 @@
     {
       "time": "6:41 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 109: first osascript Downloads scan clean (7 items, none JARVIS). Music video resolved. GUARDIAN at 36 cycles.",
+      "text": "Dashboard push — SARAH Run 109: Downloads scan clean (7 items, none JARVIS). Music video resolved. GUARDIAN at 36 cycles.",
       "color": "blue"
     },
     {
       "time": "6:04 PM UTC",
       "agent": "SARAH",
       "text": "Run 109: First successful Downloads scan via osascript. 7 items found, none JARVIS-related. Music video download resolved. 4 open items awaiting Rick's reply.",
-      "color": "teal"
-    },
-    {
-      "time": "5:05 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 108: Issue #16 — 5 directing photos in Downloads (NOLAN destination TBD). Issue #17 — music video still downloading in Safari. 0 files moved.",
-      "color": "amber"
-    },
-    {
-      "time": "4:05 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 107: Downloads empty, no new files. Three cleanup items pending: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files.",
       "color": "teal"
     },
     {
@@ -142,7 +142,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 38 cycles dark",
+      "title": "GUARDIAN — 39 cycles dark",
       "subtitle": "Blocking T2 final scoring and Gallery + T2 client delivery.",
       "severity": "red"
     },
@@ -162,8 +162,8 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup items (3 pending)",
-      "subtitle": "Gallery deck rename + delete ~77MB dupe PPTXs + delete 2 zero-byte files. Reply to confirm.",
+      "title": "SARAH cleanup items (4 pending)",
+      "subtitle": "Gallery deck rename + delete ~77MB dupe PPTXs + delete 2 zero-byte files + move Gallery onesheet docx. Reply to confirm.",
       "severity": "amber"
     }
   ],
@@ -176,7 +176,7 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "9:04 PM UTC"
+      "next_run": "10:04 PM UTC"
     },
     {
       "name": "Nightly status report",
@@ -196,7 +196,7 @@
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "9:39 PM UTC"
+      "next_run": "10:39 PM UTC"
     }
   ]
 }
