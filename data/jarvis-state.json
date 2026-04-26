@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T13:40:00Z",
-  "status_line": "Sunday 1:40 PM UTC — ATLAS filed its daily report: Gallery deck flag cleared (PARK delivered the deck), GUARDIAN at 31 cycles dark, and a new strategic decision on the table — two PARK decks now exist (T2 v8 and Gallery v1), Rick needs to choose if Gallery is standalone or folds into MAKE IT v9. SARAH Run 110 complete: 54 files confirmed, 3 PPTX pairs (~77MB) awaiting your go-ahead. Lands' End is 4 days out.",
+  "updated_at": "2026-04-26T14:40:00Z",
+  "status_line": "Sunday 2:40 PM UTC — SARAH Run 111 in: created the NOLAN directory scaffold, confirmed those 3 PPTX duplicate pairs still awaiting your go-ahead, and flagged 2 zero-byte test files to clear. No Downloads to sweep. Everything else holding steady — GUARDIAN at 32 cycles dark, Lands' End still 4 days out, and the two-PARK-deck decision still on the table.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 26 sweep: 1 new prospect — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git push still needs manual run.",
-      "last_run": "3h 33m ago",
+      "last_action": "Apr 26 sweep: 1 new prospect — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9.",
+      "last_run": "4h 33m ago",
       "color": "teal"
     },
     {
@@ -26,43 +26,43 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — all gaps closed, production-ready. T2 Hybrid V1: 4.7★ top 3% globally. T2 final pass unscored per ATLAS.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — all gaps closed, production-ready. T2 Hybrid V1: 4.7★ top 3% globally.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 110: Downloads empty. Output: 54 files confirmed properly filed. 3 PPTX duplicate pairs (~77MB) found across output/ and big-new-business/ — awaiting Rick's go-ahead to clear older copies.",
-      "last_run": "33m ago",
+      "last_action": "Run 111: Created NOLAN directory scaffold (shots/, vo/, music/, storyboard/). Downloads not mounted. Flagged: gallery deck rename, 3 PPTX duplicate pairs (~77MB), 2 zero-byte test files — all awaiting Rick's go-ahead.",
+      "last_run": "36m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 26 report: Gallery deck flag resolved (PARK filed sharpie-gallery-campaign-deck-v1.pptx). GUARDIAN at 15+ cycles dark. New flag: Two PARK decks now exist — Gallery standalone vs. MAKE IT v9 decision needed.",
-      "last_run": "35m ago",
+      "last_action": "Apr 26 report: Gallery deck flag resolved — PARK filed sharpie-gallery-campaign-deck-v1.pptx. GUARDIAN at 15+ cycles dark. New flag: Two PARK decks now exist — Gallery standalone vs. MAKE IT v9 decision needed.",
+      "last_run": "1h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "7 stale script files in nolan/vo/ and 4 SFX files with original marketplace names flagged. Folder structure intact. Parked pending direction.",
+      "last_action": "Directory scaffold created by SARAH this run (shots/, vo/, music/, storyboard/). 7 stale script files in nolan/vo/ and 4 SFX files with original marketplace names flagged. Parked pending direction.",
       "last_run": "multiple days",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Gallery content integrated. Decision pending: standalone pitch or unified MAKE IT v9.",
+      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Decision pending: standalone pitch or unified MAKE IT v9.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 31 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "31 cycles ago",
+      "last_action": "No activity — 32 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "32 cycles ago",
       "color": "dim"
     },
     {
@@ -75,9 +75,21 @@
   ],
   "activity": [
     {
+      "time": "2:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — Run 111. SARAH: NOLAN scaffold built, 3 PPTX pairs + 2 zero-byte files still awaiting permission. GUARDIAN at 32 cycles. Lands' End 4 days.",
+      "color": "blue"
+    },
+    {
+      "time": "2:04 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 111 complete. Created NOLAN directory scaffold. Downloads not mounted. 3 PPTX pairs (~77MB) + 2 zero-byte test files flagged — awaiting permission.",
+      "color": "teal"
+    },
+    {
       "time": "1:40 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — Run 110. ATLAS confirmed: Gallery flag cleared. SARAH 54 files clean. GUARDIAN at 31 cycles. Two PARK decks now in play.",
+      "text": "Dashboard push — ATLAS confirmed Gallery flag cleared, SARAH Run 110 clean, GUARDIAN at 31 cycles, two PARK decks in play.",
       "color": "blue"
     },
     {
@@ -105,12 +117,6 @@
       "color": "teal"
     },
     {
-      "time": "11:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles.",
-      "color": "blue"
-    },
-    {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
       "text": "Pipeline sweep complete: 1 new prospect — J.M. Smucker Co. 90-day window closes June 9. Lands' End deadline flagged: April 30.",
@@ -127,12 +133,6 @@
       "agent": "JARVIS",
       "text": "Morning priorities brief delivered. LA Galaxy, Macy's, GUARDIAN, Gallery, Glossier flagged.",
       "color": "blue"
-    },
-    {
-      "time": "Apr 25 11:07 PM UTC",
-      "agent": "ATLAS",
-      "text": "Nightly report: Gallery 9.0 locked. T2 cleared. GUARDIAN 28 cycles dark flagged.",
-      "color": "teal"
     }
   ],
   "attention": [
@@ -147,7 +147,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 31 missed cycles",
+      "title": "GUARDIAN — 32 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
@@ -157,8 +157,8 @@
       "severity": "amber"
     },
     {
-      "title": "SARAH: 3 PPTX duplicate pairs (~77MB) awaiting permission",
-      "subtitle": "v6/v7/v8 decks exist in both output/ and big-new-business/ — older copies confirmed safe to clear.",
+      "title": "SARAH: 3 PPTX pairs (~77MB) + 2 zero-byte files awaiting permission",
+      "subtitle": "Gallery deck rename also pending. MD5-confirmed safe to clear on your say-so.",
       "severity": "amber"
     },
     {
@@ -175,27 +175,22 @@
       "title": "LA Galaxy — window passed, still sendable",
       "subtitle": "Timely framing is gone — own the timing and send anyway.",
       "severity": "amber"
-    },
-    {
-      "title": "SCOUT git push needs manual run",
-      "subtitle": "cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
-      "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 9,
+    "tasks_today": 10,
     "top_score": 9.0,
     "prospects": 13,
-    "files_swept": 110
+    "files_swept": 111
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "2:04 PM UTC"
+      "next_run": "3:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "2:39 PM UTC"
+      "next_run": "3:39 PM UTC"
     },
     {
       "name": "Nightly status report",
