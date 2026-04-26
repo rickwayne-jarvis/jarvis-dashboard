@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T09:41:00Z",
-  "status_line": "Sunday 9:41 AM UTC — SARAH's Run 106 came in clean an hour ago. The receipt filer hit a wall this morning: RAID volume is hung, Dropbox unreachable, zero receipts processed. That needs your attention. GUARDIAN is now 27 cycles dark — still the single biggest blocker on Gallery and T2 delivery. SCOUT's daily sweep fired at 10:07 UTC; results not yet confirmed. ATLAS runs at 13:04 UTC today. Three open decisions — LA Galaxy, Macy's, Glossier — carry over from last night.",
+  "updated_at": "2026-04-26T10:40:00Z",
+  "status_line": "Sunday 10:40 AM UTC — SCOUT came back with a live one: J.M. Smucker (Jif, Folgers, Milk-Bone) added to the pipeline. New CMO Katie Williams is 48 days in — 90-day window closes June 9. SARAH's sweep came in clean. GUARDIAN is now 28 cycles dark and still the biggest blocker on Gallery and T2 delivery. Lands' End deadline is April 30 — four days out. RAID is still hung; receipts unprocessed. ATLAS runs at 1 PM.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 25 sweep: 0 new prospects. Sonos confirmed in-house pivot — AOR review unlikely near-term. 11 pipeline entries stable. Today's run (10:07 UTC) just fired — results not yet confirmed.",
-      "last_run": "~23h ago (today's run pending)",
+      "last_action": "Apr 26 sweep: 1 new prospect added — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git commit staged locally; push requires manual credentials.",
+      "last_run": "33 min ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 106: 0 files moved. Output directory clean. Issue #5 (atlas-daily-report.md duplicate) confirmed byte-identical — safe to delete on Rick's go-ahead. 9 standing issues awaiting direction.",
-      "last_run": "~1.5h ago",
+      "last_action": "Run 107: 0 files moved. Downloads empty. 3 flagged items pending permission: PPTX duplicates (73.6 MB freeable), 2 empty 0-byte test artifacts. All logged to sarah-log.md.",
+      "last_run": "36 min ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. LA Galaxy window flagged closed. 6 renders in output/renders/ need Rick's review before any client use.",
-      "last_run": "~20h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. Dependency graph: PERSONA ✅ → SCOUT ✅ → MAESTRO ✅ → PARK ⚠️ → NOLAN 🔴 → GUARDIAN 🔴. 6 renders need review.",
+      "last_run": "~21h ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "7 stale .md script files in nolan/vo/ (Issue #11) and 4 SFX files with original marketplace names (Issue #12) flagged. Parked pending direction.",
+      "last_action": "7 stale script files in nolan/vo/ (Issue #11) and 4 SFX files with original marketplace names (Issue #12) flagged. Folder structure intact. Parked pending direction.",
       "last_run": "multiple days",
       "color": "dim"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 27th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "27 cycles ago",
+      "last_action": "No activity — 28th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "28 cycles ago",
       "color": "dim"
     },
     {
@@ -75,16 +75,28 @@
   ],
   "activity": [
     {
-      "time": "9:41 AM UTC",
+      "time": "10:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update committed to GitHub Pages.",
+      "text": "Dashboard push — hourly state update. SCOUT confirmed: J.M. Smucker added to pipeline.",
       "color": "blue"
     },
     {
-      "time": "9:07 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 106: 0 files moved. Issue #5 confirmed byte-identical duplicate — safe to delete on go-ahead.",
+      "time": "10:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Pipeline sweep complete: 1 new prospect — J.M. Smucker Co. 90-day window closes June 9. Lands' End deadline flagged: April 30.",
       "color": "teal"
+    },
+    {
+      "time": "10:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 107 complete. Downloads empty, output clean. 3 flagged items await permission.",
+      "color": "teal"
+    },
+    {
+      "time": "9:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — RAID issue and receipt filer failure flagged. GUARDIAN at 27 cycles.",
+      "color": "blue"
     },
     {
       "time": "9:04 AM UTC",
@@ -93,85 +105,78 @@
       "color": "amber"
     },
     {
-      "time": "8:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit 96440c8).",
-      "color": "blue"
-    },
-    {
-      "time": "8:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 105: 0 files moved. Clean sweep. No new activity since prior run.",
+      "time": "6:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Daily sweep fired (results confirmed at 10:07 UTC run).",
       "color": "teal"
     },
     {
-      "time": "7:39 AM UTC",
+      "time": "6:06 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit 8656850).",
+      "text": "Morning priorities brief delivered. LA Galaxy, Macy's, GUARDIAN, Gallery, Glossier flagged.",
       "color": "blue"
     },
     {
-      "time": "Apr 25 11:05 PM UTC",
-      "agent": "JARVIS",
-      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared, 3 open decisions flagged.",
-      "color": "blue"
+      "time": "Apr 25 11:07 PM UTC",
+      "agent": "ATLAS",
+      "text": "Nightly report: Gallery 9.0 locked. T2 cleared. GUARDIAN 15 cycles dark flagged.",
+      "color": "teal"
     },
     {
-      "time": "Apr 25 ~5 PM UTC",
+      "time": "Apr 25 afternoon",
       "agent": "TESTING",
-      "text": "Gallery final score: 9.0/10. All 12 gaps closed. Cannes ceiling: Titanium Grand Prix.",
+      "text": "Gallery of Ordinary Masterpieces final score: 9.0/10. Titanium Grand Prix ceiling confirmed.",
       "color": "teal"
     },
     {
-      "time": "Apr 25 ~3 PM UTC",
+      "time": "Apr 25 afternoon",
       "agent": "MAESTRO",
       "text": "Gallery Gold Package complete — doorframe hero, Alma Har'el Version B treatment delivered.",
-      "color": "teal"
-    },
-    {
-      "time": "Apr 25 10:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "Daily pipeline sweep: 0 new prospects. Sonos confirmed in-house pivot. 11 entries stable.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "RAID Volume Hung — Receipt Filer Failed",
-      "subtitle": "Dropbox unreachable. Run diskutil unmount /Volumes/RAID and remount to restore.",
+      "title": "Lands' End / Sarah Sylvester — April 30 deadline",
+      "subtitle": "4 days out. SCOUT flagged this as the active outreach window. Outreach in output/2026-04-16_rick-wayne-director/.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 27 missed cycles",
+      "title": "RAID Volume Hung — Receipt Filer Failed",
+      "subtitle": "Dropbox unreachable. Run: diskutil unmount /Volumes/RAID and remount to restore.",
+      "severity": "red"
+    },
+    {
+      "title": "GUARDIAN — 28 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
     {
-      "title": "LA Galaxy — window closed",
-      "subtitle": "5 flags, deadline passed. Not dead but timely moment is gone.",
+      "title": "Macy's — Q2 window opening now",
+      "subtitle": "Partner decisions happen May–June. This week is the time. Send or close the file.",
       "severity": "amber"
     },
     {
-      "title": "Macy's — no decision",
-      "subtitle": "Q2 partner conversations happen May–June. Send or close.",
+      "title": "LA Galaxy — window passed, still sendable",
+      "subtitle": "5 flags. Timely framing is gone — own the timing and send anyway.",
       "severity": "amber"
     },
     {
-      "title": "Glossier — Day 20+",
-      "subtitle": "Note is written. Acknowledge the timing and send it.",
+      "title": "Glossier / Solórzano — Day 21+",
+      "subtitle": "Draft is written. One line acknowledging the timing makes it human. Five minutes.",
       "severity": "amber"
     },
     {
-      "title": "9 standing file decisions",
-      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder, atlas duplicate — awaiting go-ahead.",
+      "title": "SCOUT git push needs manual run",
+      "subtitle": "Local commit staged. cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 5,
+    "tasks_today": 6,
     "top_score": 9.0,
-    "prospects": 11,
-    "files_swept": 106
+    "prospects": 12,
+    "files_swept": 107
   },
   "scheduled": [
     {
@@ -200,7 +205,7 @@
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "10:39 AM UTC"
+      "next_run": "11:39 AM UTC"
     }
   ]
 }
