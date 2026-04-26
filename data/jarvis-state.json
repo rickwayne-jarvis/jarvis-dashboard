@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T02:39:00Z",
-  "status_line": "Early hours — SARAH just wrapped Run 106 at 2:04 AM, moved the evening report and logged two new file issues (12 standing total). System is quiet otherwise. GUARDIAN is now 18 consecutive cycles dark, still blocking Gallery and T2 deliveries. The big decisions from yesterday — LA Galaxy window, Macy's, Glossier — are still sitting. Morning crew fires at 10 AM UTC.",
+  "updated_at": "2026-04-26T03:39:00Z",
+  "status_line": "3:39 AM — SARAH wrapped Sweep #104 at 3:04, catalogued four new files from yesterday's Gallery session (campaign deck, two one-sheet versions, SCOUT evening report) and flagged a fifth file sitting in Documents that needs a move-permission grant. GUARDIAN is now 19 consecutive cycles dark, still blocking Gallery and T2 deliveries. The three open decisions — LA Galaxy (window closed), Macy's, Glossier — are unchanged. System quiet until the morning crew fires at 10 AM UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. 11 pipeline entries stable.",
-      "last_run": "16h ago",
+      "last_run": "17h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 106: 1 file moved (evening report → output). Issues #11 and #12 logged (Nolan folder cleanup). 12 standing issues total. Downloads still inaccessible (Issue #1).",
+      "last_action": "Sweep #104: 4 new canonical files logged (Gallery deck, two one-sheets, SCOUT evening report). Issue #13 flagged — OneSheet Presentation in Documents needs move-permission. 2 exact duplicates in Documents (already in output). 10 standing issues total.",
       "last_run": "35m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closed.",
-      "last_run": "13h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. LA Galaxy window flagged closed. 6 renders in output/renders/ need Rick's review before client use.",
+      "last_run": "18h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 18th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "18 cycles ago",
+      "last_action": "No activity — 19th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "19 cycles ago",
       "color": "dim"
     },
     {
@@ -75,132 +75,137 @@
   ],
   "activity": [
     {
-      "time": "2:04 AM UTC",
+      "time": "3:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 106: 1 file moved, Issues #11 & #12 logged — Nolan folder cleanup flagged.",
+      "text": "Sweep #104: 4 new files catalogued, Issue #13 logged (OneSheet Presentation needs move grant). 10 standing issues.",
       "color": "teal"
     },
     {
-      "time": "1:39 AM UTC",
+      "time": "2:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — state updated and committed to GitHub Pages (commit ef24f5c).",
+      "text": "Dashboard push — state committed to GitHub Pages (commit 1138214).",
       "color": "blue"
     },
     {
-      "time": "1:04 AM UTC",
+      "time": "2:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 105: output and Desktop clean. Zero new files since Run 104.",
+      "text": "Sweep complete: output and Desktop clean, zero new files since prior run.",
       "color": "teal"
     },
     {
       "time": "11:05 PM UTC",
       "agent": "JARVIS",
-      "text": "Nightly report filed: Gallery 9.0, T2 4.7★, GUARDIAN 17 cycles dark.",
+      "text": "Nightly report filed: Gallery 9.0, T2 4.7★, GUARDIAN 18 cycles dark.",
       "color": "blue"
     },
     {
       "time": "9:05 AM UTC",
       "agent": "ATLAS",
-      "text": "Daily dependency report: Gallery production-ready, 6 renders need Rick's eyes, LA Galaxy window closing.",
+      "text": "Daily report: Gallery 9.0 locked, 13 new files, LA Galaxy window flagged as closed.",
+      "color": "teal"
+    },
+    {
+      "time": "10:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Morning sweep: 0 new prospects, 11 pipeline entries stable. Sonos in-house pivot confirmed.",
+      "color": "teal"
+    },
+    {
+      "time": "yesterday",
+      "agent": "TESTING",
+      "text": "Gallery of Ordinary Masterpieces scored 9.0/10 — production green light. All 12 gaps resolved.",
       "color": "amber"
     },
     {
-      "time": "6:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "Morning pipeline sweep: 0 new prospects, 11 entries stable.",
-      "color": "teal"
-    },
-    {
-      "time": "6:06 AM UTC",
-      "agent": "JARVIS",
-      "text": "Morning priorities briefing delivered.",
-      "color": "blue"
-    },
-    {
-      "time": "5:04 AM UTC",
-      "agent": "JARVIS",
-      "text": "Receipt filer ran: Uber/Lyft and subscription receipts scanned and filed.",
-      "color": "blue"
-    },
-    {
-      "time": "Yesterday",
-      "agent": "TESTING",
-      "text": "Gallery of Ordinary Masterpieces final score: 9.0/10 — all 12 gaps closed, Cannes ceiling Titanium.",
-      "color": "teal"
-    },
-    {
-      "time": "Yesterday",
+      "time": "yesterday",
       "agent": "MAESTRO",
-      "text": "Gallery Gold Package delivered: doorframe hero, Alma Har'el director recommendation, Rick Wayne Process section.",
+      "text": "Gallery Gold Package delivered — doorframe hero, Alma Har'el as director rec. Cannes ceiling: Titanium Grand Prix.",
+      "color": "amber"
+    },
+    {
+      "time": "yesterday",
+      "agent": "TESTING",
+      "text": "T2 Hybrid V1 scored 4.7★ — top 3% globally. Cleared for production.",
+      "color": "teal"
+    },
+    {
+      "time": "yesterday",
+      "agent": "WRITER",
+      "text": "Rick Wayne director About page copy and Gallery treatment prose completed and filed.",
       "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "LA Galaxy — window closed",
-      "subtitle": "April 25 was the deadline. Five consecutive flags. Still actionable but 'timely' moment is gone.",
+      "subtitle": "Five consecutive flags. No outreach sent. Not dead, but the timely moment is gone.",
       "severity": "red"
     },
     {
-      "title": "Macy's — no decision",
-      "subtitle": "Q2 partner conversations happen May–June. Send or close the file.",
+      "title": "Macy's — still no decision",
+      "subtitle": "Six flags. Q2 partner conversations happen May–June. Send or close the file.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 18 cycles dark",
-      "subtitle": "Blocking brand voice validation for Gallery and T2 client deliveries.",
+      "title": "GUARDIAN — 19 consecutive missed cycles",
+      "subtitle": "Blocking Sharpie brand voice validation, Gallery delivery, and T2 client delivery.",
       "severity": "red"
     },
     {
-      "title": "Glossier — 20+ days stale",
-      "subtitle": "Note is written. Acknowledge the timing and send it.",
+      "title": "Glossier — 20+ days past optimal",
+      "subtitle": "Note is written. Acknowledge the timing gap and send it.",
       "severity": "amber"
     },
     {
-      "title": "6 product renders unreviewed",
+      "title": "6 renders unreviewed",
       "subtitle": "output/renders/ — origin unconfirmed, need Rick's eyes before any client use.",
       "severity": "amber"
     },
     {
-      "title": "12 standing file decisions",
-      "subtitle": "Issues #2, #4, #5, #7, #11, #12 confirmed safe to clean on Rick's go-ahead.",
+      "title": "Issue #13 — OneSheet Presentation needs move-permission",
+      "subtitle": "Sharpie_Gallery_OneSheet_Presentation.docx in ~/Documents — different from v1 already in output.",
+      "severity": "amber"
+    },
+    {
+      "title": "10 standing file decisions",
+      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder, new OneSheet — queued for Rick's approval.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 6,
+    "tasks_today": 8,
     "top_score": 9,
     "prospects": 11,
-    "files_swept": 106
+    "files_swept": 107
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "3:04 AM UTC"
-    },
-    {
-      "name": "Receipt filer",
-      "next_run": "5:04 AM UTC (tomorrow)"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "10:06 AM UTC"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "10:07 AM UTC"
-    },
-    {
-      "name": "ATLAS dependency check",
-      "next_run": "9:05 AM UTC (tomorrow)"
-    },
-    {
-      "name": "Nightly status report",
-      "next_run": "7:04 PM UTC"
+      "next_run": "4:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "3:39 AM UTC"
+      "next_run": "4:39 AM UTC"
+    },
+    {
+      "name": "Receipt filer",
+      "next_run": "9:04 AM UTC (tomorrow)"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "10:06 AM UTC (tomorrow)"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "10:07 AM UTC (tomorrow)"
+    },
+    {
+      "name": "ATLAS dependency check",
+      "next_run": "1:04 PM UTC (tomorrow)"
+    },
+    {
+      "name": "Nightly status report",
+      "next_run": "7:04 PM UTC (tomorrow)"
     }
   ]
 }
