@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T12:40:00Z",
-  "status_line": "Sunday 12:40 PM UTC — SARAH just finished Run 109: Documents clean, 1 new file filed (today's morning brief), 48 confirmed duplicates — ready to clear on your go. GUARDIAN is at 30 missed cycles, still blocking Gallery and T2 delivery. Lands' End is 4 days out. ATLAS comes online in about 25 minutes. Everything else is holding.",
+  "updated_at": "2026-04-26T13:40:00Z",
+  "status_line": "Sunday 1:40 PM UTC — ATLAS filed its daily report: Gallery deck flag cleared (PARK delivered the deck), GUARDIAN at 31 cycles dark, and a new strategic decision on the table — two PARK decks now exist (T2 v8 and Gallery v1), Rick needs to choose if Gallery is standalone or folds into MAKE IT v9. SARAH Run 110 complete: 54 files confirmed, 3 PPTX pairs (~77MB) awaiting your go-ahead. Lands' End is 4 days out.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 26 sweep: 1 new prospect added — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git commit staged locally; push requires manual credentials.",
-      "last_run": "2h 33m ago",
+      "last_action": "Apr 26 sweep: 1 new prospect — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git push still needs manual run.",
+      "last_run": "3h 33m ago",
       "color": "teal"
     },
     {
@@ -26,43 +26,43 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — all gaps closed, production-ready. T2 Hybrid V1: 4.7★ top 3% globally. Cleared pending GUARDIAN sign-off.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — all gaps closed, production-ready. T2 Hybrid V1: 4.7★ top 3% globally. T2 final pass unscored per ATLAS.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 109: Downloads not mounted (add to Cowork to fix). Documents: 49 JARVIS files found — 1 new morning brief filed to output/. 48 confirmed duplicates in ~/Documents — all hashes match output/. No deletions; awaiting Rick's go-ahead to clear 148 MB of PPTX duplicates.",
-      "last_run": "36 min ago",
+      "last_action": "Run 110: Downloads empty. Output: 54 files confirmed properly filed. 3 PPTX duplicate pairs (~77MB) found across output/ and big-new-business/ — awaiting Rick's go-ahead to clear older copies.",
+      "last_run": "33m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. Dependency graph: PERSONA ✅ → SCOUT ✅ → MAESTRO ✅ → PARK ⚠️ → NOLAN 🔴 → GUARDIAN 🔴. 6 renders need review.",
-      "last_run": "~23h ago",
-      "color": "amber"
+      "last_action": "Apr 26 report: Gallery deck flag resolved (PARK filed sharpie-gallery-campaign-deck-v1.pptx). GUARDIAN at 15+ cycles dark. New flag: Two PARK decks now exist — Gallery standalone vs. MAKE IT v9 decision needed.",
+      "last_run": "35m ago",
+      "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "7 stale script files in nolan/vo/ (Issue #11) and 4 SFX files with original marketplace names (Issue #12) flagged. Folder structure intact. Parked pending direction.",
+      "last_action": "7 stale script files in nolan/vo/ and 4 SFX files with original marketplace names flagged. Folder structure intact. Parked pending direction.",
       "last_run": "multiple days",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck. Parked pending next direction.",
+      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Gallery content integrated. Decision pending: standalone pitch or unified MAKE IT v9.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 30th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "30 cycles ago",
+      "last_action": "No activity — 31 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "31 cycles ago",
       "color": "dim"
     },
     {
@@ -75,45 +75,45 @@
   ],
   "activity": [
     {
+      "time": "1:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — Run 110. ATLAS confirmed: Gallery flag cleared. SARAH 54 files clean. GUARDIAN at 31 cycles. Two PARK decks now in play.",
+      "color": "blue"
+    },
+    {
+      "time": "1:07 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 110 complete. Downloads empty. 54 output files verified. 3 PPTX duplicate pairs (~77MB) flagged — awaiting permission to clear.",
+      "color": "teal"
+    },
+    {
+      "time": "1:05 PM UTC",
+      "agent": "ATLAS",
+      "text": "Daily report filed. Gallery deck flag resolved — PARK delivered. Two PARK decks now exist. GUARDIAN at 15+ cycles. Lands' End 4 days. Macy's window open.",
+      "color": "teal"
+    },
+    {
       "time": "12:40 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update. SARAH Run 109 confirmed: 49 JARVIS files in Documents, all matched to output/. 1 new brief filed.",
+      "text": "Dashboard push — SARAH Run 109 confirmed: 49 files, 48 duplicates matched. GUARDIAN at 30 missed cycles. ATLAS scheduled imminently.",
       "color": "blue"
     },
     {
       "time": "12:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 109 complete. Documents: 49 JARVIS files found, 48 confirmed duplicates. 1 new file filed (morning brief). Downloads folder not mounted — add to Cowork to enable sweep.",
+      "text": "Run 109 complete. Documents: 49 JARVIS files found, 48 confirmed duplicates. 1 new file filed (morning brief). Downloads folder not mounted.",
       "color": "teal"
     },
     {
       "time": "11:41 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles. Stale git lock cleared before push.",
-      "color": "blue"
-    },
-    {
-      "time": "11:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 108 complete. Downloads empty. 2 new duplicate pairs flagged (sharpie-maestro-wymi-rooftop-scene-v1/v2.md). PPTX duplicates still awaiting permission.",
-      "color": "teal"
-    },
-    {
-      "time": "10:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SCOUT confirmed: J.M. Smucker added to pipeline. Lands' End deadline promoted to red.",
+      "text": "Dashboard push — SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles.",
       "color": "blue"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
       "text": "Pipeline sweep complete: 1 new prospect — J.M. Smucker Co. 90-day window closes June 9. Lands' End deadline flagged: April 30.",
-      "color": "teal"
-    },
-    {
-      "time": "10:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 107 complete. Downloads empty, output clean. 3 flagged items await permission.",
       "color": "teal"
     },
     {
@@ -147,18 +147,18 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 30 missed cycles",
+      "title": "GUARDIAN — 31 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
     {
-      "title": "SARAH: Downloads folder not connected",
-      "subtitle": "Add ~/Downloads as a Cowork workspace folder so SARAH can sweep it automatically.",
+      "title": "Two PARK decks — strategic decision needed",
+      "subtitle": "T2 v8 and Gallery v1 both exist. Is Gallery a standalone pitch or does it fold into MAKE IT v9?",
       "severity": "amber"
     },
     {
-      "title": "SARAH: 148 MB PPTX duplicates awaiting permission",
-      "subtitle": "All hashes confirmed matched. One word from Rick and SARAH clears them.",
+      "title": "SARAH: 3 PPTX duplicate pairs (~77MB) awaiting permission",
+      "subtitle": "v6/v7/v8 decks exist in both output/ and big-new-business/ — older copies confirmed safe to clear.",
       "severity": "amber"
     },
     {
@@ -173,33 +173,29 @@
     },
     {
       "title": "LA Galaxy — window passed, still sendable",
-      "subtitle": "5 flags. Timely framing is gone — own the timing and send anyway.",
+      "subtitle": "Timely framing is gone — own the timing and send anyway.",
       "severity": "amber"
     },
     {
       "title": "SCOUT git push needs manual run",
-      "subtitle": "Local commit staged. cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
+      "subtitle": "cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 8,
+    "tasks_today": 9,
     "top_score": 9.0,
-    "prospects": 12,
-    "files_swept": 109
+    "prospects": 13,
+    "files_swept": 110
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "1:04 PM UTC"
-    },
-    {
-      "name": "ATLAS dependency check",
-      "next_run": "1:04 PM UTC (overdue — running shortly)"
+      "next_run": "2:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "1:39 PM UTC"
+      "next_run": "2:39 PM UTC"
     },
     {
       "name": "Nightly status report",
@@ -210,12 +206,16 @@
       "next_run": "5:04 AM UTC tomorrow"
     },
     {
+      "name": "Morning priorities",
+      "next_run": "6:06 AM UTC tomorrow"
+    },
+    {
       "name": "SCOUT pipeline check",
       "next_run": "6:07 AM UTC tomorrow"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "6:06 AM UTC tomorrow"
+      "name": "ATLAS dependency check",
+      "next_run": "9:05 AM UTC tomorrow"
     }
   ]
 }
