@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T01:39:00Z",
-  "status_line": "Deep overnight — SARAH just completed Run 105 with a clean bill of health, and the system is quiet. The big headlines from yesterday hold: Gallery at 9.0, T2 at 4.7★, both production-ready. GUARDIAN is now 17 cycles dark — that's the one thing that could move the needle before morning. Morning crew fires at 10 AM UTC.",
+  "updated_at": "2026-04-26T02:39:00Z",
+  "status_line": "Early hours — SARAH just wrapped Run 106 at 2:04 AM, moved the evening report and logged two new file issues (12 standing total). System is quiet otherwise. GUARDIAN is now 18 consecutive cycles dark, still blocking Gallery and T2 deliveries. The big decisions from yesterday — LA Galaxy window, Macy's, Glossier — are still sitting. Morning crew fires at 10 AM UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. Dashboard notes updated. 11 pipeline entries stable.",
-      "last_run": "15h ago",
+      "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. 11 pipeline entries stable.",
+      "last_run": "16h ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 105: output and Desktop clean. Downloads still inaccessible in headless mode (Issue #1). Zero new files since Run 104. 8 standing issues still awaiting Rick's direction.",
-      "last_run": "1h ago",
+      "last_action": "Run 106: 1 file moved (evening report → output). Issues #11 and #12 logged (Nolan folder cleanup). 12 standing issues total. Downloads still inaccessible (Issue #1).",
+      "last_run": "35m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closed.",
-      "last_run": "12h ago",
+      "last_run": "13h ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "7+ stale report flags unresolved. Parked pending Rick's direction.",
+      "last_action": "7 stale .md script files in nolan/vo/ (Issue #11) and 4 SFX files with original marketplace names (Issue #12) flagged. Parked pending direction.",
       "last_run": "multiple days",
       "color": "dim"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 17th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "17 cycles ago",
+      "last_action": "No activity — 18th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "18 cycles ago",
       "color": "dim"
     },
     {
@@ -75,112 +75,112 @@
   ],
   "activity": [
     {
-      "time": "1:39 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state updated and committed to GitHub Pages.",
-      "color": "blue"
-    },
-    {
-      "time": "12:08 AM UTC",
+      "time": "2:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 105: output and Desktop clean. Downloads inaccessible in headless mode (Issue #1). Zero new files since Run 104. 8 standing decisions unchanged.",
+      "text": "Run 106: 1 file moved, Issues #11 & #12 logged — Nolan folder cleanup flagged.",
       "color": "teal"
     },
     {
-      "time": "12:39 AM UTC",
+      "time": "1:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push (f6ce72e) — Gallery 9.0 locked, GUARDIAN at 16 cycles, LA Galaxy window closed.",
+      "text": "Dashboard push — state updated and committed to GitHub Pages (commit ef24f5c).",
       "color": "blue"
     },
     {
-      "time": "11:07 PM UTC",
+      "time": "1:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 104: output and Desktop clean. Downloads still inaccessible. No new JARVIS assets.",
+      "text": "Run 105: output and Desktop clean. Zero new files since Run 104.",
       "color": "teal"
     },
     {
       "time": "11:05 PM UTC",
       "agent": "JARVIS",
-      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared for production, LA Galaxy window officially closed.",
+      "text": "Nightly report filed: Gallery 9.0, T2 4.7★, GUARDIAN 17 cycles dark.",
       "color": "blue"
     },
     {
-      "time": "10:05 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 103: Downloads inaccessible in headless mode. Output and Desktop clean — no new JARVIS assets.",
-      "color": "teal"
-    },
-    {
-      "time": "9:04 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 101: Found Sharpie_Gallery_Campaign_Deck.pptx in Downloads — filed to output/sharpie-gallery-campaign-deck-v1.pptx.",
-      "color": "teal"
-    },
-    {
-      "time": "1:05 PM UTC",
+      "time": "9:05 AM UTC",
       "agent": "ATLAS",
-      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders need Rick's eyes, LA Galaxy window closed today.",
-      "color": "teal"
+      "text": "Daily dependency report: Gallery production-ready, 6 renders need Rick's eyes, LA Galaxy window closing.",
+      "color": "amber"
     },
     {
-      "time": "10:07 AM UTC",
+      "time": "6:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Morning pipeline sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term.",
+      "text": "Morning pipeline sweep: 0 new prospects, 11 entries stable.",
       "color": "teal"
     },
     {
-      "time": "10:06 AM UTC",
+      "time": "6:06 AM UTC",
       "agent": "JARVIS",
-      "text": "Morning priorities delivered to Rick.",
+      "text": "Morning priorities briefing delivered.",
       "color": "blue"
+    },
+    {
+      "time": "5:04 AM UTC",
+      "agent": "JARVIS",
+      "text": "Receipt filer ran: Uber/Lyft and subscription receipts scanned and filed.",
+      "color": "blue"
+    },
+    {
+      "time": "Yesterday",
+      "agent": "TESTING",
+      "text": "Gallery of Ordinary Masterpieces final score: 9.0/10 — all 12 gaps closed, Cannes ceiling Titanium.",
+      "color": "teal"
+    },
+    {
+      "time": "Yesterday",
+      "agent": "MAESTRO",
+      "text": "Gallery Gold Package delivered: doorframe hero, Alma Har'el director recommendation, Rick Wayne Process section.",
+      "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "LA Galaxy — window closed",
-      "subtitle": "5 consecutive ATLAS flags, deadline passed Apr 25. Decision needed: own the timing and reach out, or formally close the file.",
+      "subtitle": "April 25 was the deadline. Five consecutive flags. Still actionable but 'timely' moment is gone.",
       "severity": "red"
     },
     {
       "title": "Macy's — no decision",
-      "subtitle": "6 flags. Q2 partner conversations happen May–June. Send or close before the window opens.",
+      "subtitle": "Q2 partner conversations happen May–June. Send or close the file.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 17 cycles dark",
-      "subtitle": "One session clears it. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "title": "GUARDIAN — 18 cycles dark",
+      "subtitle": "Blocking brand voice validation for Gallery and T2 client deliveries.",
       "severity": "red"
     },
     {
       "title": "Glossier — 20+ days stale",
-      "subtitle": "Note is written. Still sendable — acknowledge the timing and send it.",
+      "subtitle": "Note is written. Acknowledge the timing and send it.",
       "severity": "amber"
     },
     {
-      "title": "6 renders need review",
-      "subtitle": "output/renders/ — origin unconfirmed per ATLAS. Need Rick's eyes before any client use.",
+      "title": "6 product renders unreviewed",
+      "subtitle": "output/renders/ — origin unconfirmed, need Rick's eyes before any client use.",
       "severity": "amber"
     },
     {
-      "title": "8 standing SARAH file decisions",
-      "subtitle": "PPTX duplicates, PNG renders, Nolan folder naming, Downloads mount permission — all waiting on Rick.",
+      "title": "12 standing file decisions",
+      "subtitle": "Issues #2, #4, #5, #7, #11, #12 confirmed safe to clean on Rick's go-ahead.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 12,
-    "top_score": 9.0,
+    "tasks_today": 6,
+    "top_score": 9,
     "prospects": 11,
-    "files_swept": 13
+    "files_swept": 106
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "2:04 AM UTC"
+      "next_run": "3:04 AM UTC"
     },
     {
       "name": "Receipt filer",
-      "next_run": "9:04 AM UTC"
+      "next_run": "5:04 AM UTC (tomorrow)"
     },
     {
       "name": "Morning priorities",
@@ -192,7 +192,7 @@
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "1:05 PM UTC"
+      "next_run": "9:05 AM UTC (tomorrow)"
     },
     {
       "name": "Nightly status report",
@@ -200,7 +200,7 @@
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "2:39 AM UTC"
+      "next_run": "3:39 AM UTC"
     }
   ]
 }
