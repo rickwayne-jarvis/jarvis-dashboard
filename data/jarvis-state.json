@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T10:40:00Z",
-  "status_line": "Sunday 10:40 AM UTC — SCOUT came back with a live one: J.M. Smucker (Jif, Folgers, Milk-Bone) added to the pipeline. New CMO Katie Williams is 48 days in — 90-day window closes June 9. SARAH's sweep came in clean. GUARDIAN is now 28 cycles dark and still the biggest blocker on Gallery and T2 delivery. Lands' End deadline is April 30 — four days out. RAID is still hung; receipts unprocessed. ATLAS runs at 1 PM.",
+  "updated_at": "2026-04-26T11:41:00Z",
+  "status_line": "Sunday 11:41 AM UTC — System holding steady. SARAH just ran (Run 108) — Downloads still clean, two new duplicate pairs flagged for review. GUARDIAN is at 29 missed cycles and still blocking Gallery and T2 delivery. Lands' End deadline is April 30 — three days out. ATLAS runs at 1 PM. SCOUT git push still needs a manual run from Rick.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apr 26 sweep: 1 new prospect added — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git commit staged locally; push requires manual credentials.",
-      "last_run": "33 min ago",
+      "last_run": "1h 34m ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 107: 0 files moved. Downloads empty. 3 flagged items pending permission: PPTX duplicates (73.6 MB freeable), 2 empty 0-byte test artifacts. All logged to sarah-log.md.",
-      "last_run": "36 min ago",
+      "last_action": "Run 108: Downloads empty, output clean. 2 new duplicate pairs flagged — sharpie-maestro-wymi-rooftop-scene-v1/v2.md. PPTX duplicates (148 MB freeable) still awaiting Rick's go-ahead. Logged to sarah-log.md.",
+      "last_run": "37 min ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. Dependency graph: PERSONA ✅ → SCOUT ✅ → MAESTRO ✅ → PARK ⚠️ → NOLAN 🔴 → GUARDIAN 🔴. 6 renders need review.",
-      "last_run": "~21h ago",
+      "last_run": "~22h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 28th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "28 cycles ago",
+      "last_action": "No activity — 29th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "29 cycles ago",
       "color": "dim"
     },
     {
@@ -75,9 +75,21 @@
   ],
   "activity": [
     {
+      "time": "11:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — hourly state update. SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles.",
+      "color": "blue"
+    },
+    {
+      "time": "11:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 108 complete. Downloads empty. 2 new duplicate pairs flagged (sharpie-maestro-wymi-rooftop-scene-v1/v2.md). PPTX duplicates still awaiting permission.",
+      "color": "teal"
+    },
+    {
       "time": "10:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update. SCOUT confirmed: J.M. Smucker added to pipeline.",
+      "text": "Dashboard push — SCOUT confirmed: J.M. Smucker added to pipeline. Lands' End deadline promoted to red.",
       "color": "blue"
     },
     {
@@ -93,22 +105,10 @@
       "color": "teal"
     },
     {
-      "time": "9:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — RAID issue and receipt filer failure flagged. GUARDIAN at 27 cycles.",
-      "color": "blue"
-    },
-    {
       "time": "9:04 AM UTC",
       "agent": "RECEIPT FILER",
       "text": "FAILED — RAID volume hung (EINTR). Dropbox unreachable. 0 receipts processed.",
       "color": "amber"
-    },
-    {
-      "time": "6:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "Daily sweep fired (results confirmed at 10:07 UTC run).",
-      "color": "teal"
     },
     {
       "time": "6:06 AM UTC",
@@ -119,7 +119,7 @@
     {
       "time": "Apr 25 11:07 PM UTC",
       "agent": "ATLAS",
-      "text": "Nightly report: Gallery 9.0 locked. T2 cleared. GUARDIAN 15 cycles dark flagged.",
+      "text": "Nightly report: Gallery 9.0 locked. T2 cleared. GUARDIAN 28 cycles dark flagged.",
       "color": "teal"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "Lands' End / Sarah Sylvester — April 30 deadline",
-      "subtitle": "4 days out. SCOUT flagged this as the active outreach window. Outreach in output/2026-04-16_rick-wayne-director/.",
+      "subtitle": "3 days out. Outreach window active now. Draft is in output/2026-04-16_rick-wayne-director/.",
       "severity": "red"
     },
     {
@@ -147,7 +147,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 28 missed cycles",
+      "title": "GUARDIAN — 29 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
@@ -157,13 +157,13 @@
       "severity": "amber"
     },
     {
-      "title": "LA Galaxy — window passed, still sendable",
-      "subtitle": "5 flags. Timely framing is gone — own the timing and send anyway.",
+      "title": "Glossier / Solórzano — Day 21+",
+      "subtitle": "Draft is written. One line acknowledging the timing makes it human. Five minutes.",
       "severity": "amber"
     },
     {
-      "title": "Glossier / Solórzano — Day 21+",
-      "subtitle": "Draft is written. One line acknowledging the timing makes it human. Five minutes.",
+      "title": "LA Galaxy — window passed, still sendable",
+      "subtitle": "5 flags. Timely framing is gone — own the timing and send anyway.",
       "severity": "amber"
     },
     {
@@ -173,15 +173,15 @@
     }
   ],
   "stats": {
-    "tasks_today": 6,
+    "tasks_today": 7,
     "top_score": 9.0,
     "prospects": 12,
-    "files_swept": 107
+    "files_swept": 108
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "11:04 AM UTC"
+      "next_run": "12:04 PM UTC"
     },
     {
       "name": "ATLAS dependency check",
@@ -205,7 +205,7 @@
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "11:39 AM UTC"
+      "next_run": "12:39 PM UTC"
     }
   ]
 }
