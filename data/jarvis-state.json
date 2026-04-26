@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T00:39:00Z",
-  "status_line": "Just past midnight — SARAH closed the evening with Run 104: output and Desktop still clean, Downloads still locked in headless mode. The nightly report confirmed the Gallery at 9.0 and made it official that the LA Galaxy window has closed. All creative work is production-ready. Overnight is quiet; morning crew fires at 10 AM UTC.",
+  "updated_at": "2026-04-26T01:39:00Z",
+  "status_line": "Deep overnight — SARAH just completed Run 105 with a clean bill of health, and the system is quiet. The big headlines from yesterday hold: Gallery at 9.0, T2 at 4.7★, both production-ready. GUARDIAN is now 17 cycles dark — that's the one thing that could move the needle before morning. Morning crew fires at 10 AM UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. Dashboard notes updated. 11 pipeline entries stable.",
-      "last_run": "14h ago",
+      "last_run": "15h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 104: output and Desktop clean. Downloads inaccessible in headless mode (Issue #1). No new JARVIS assets. 8 standing issues still awaiting Rick's direction.",
+      "last_action": "Run 105: output and Desktop clean. Downloads still inaccessible in headless mode (Issue #1). Zero new files since Run 104. 8 standing issues still awaiting Rick's direction.",
       "last_run": "1h ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closing today.",
-      "last_run": "11h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders in output/renders/ need Rick's review. LA Galaxy window flagged as closed.",
+      "last_run": "12h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 16th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "16 cycles ago",
+      "last_action": "No activity — 17th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "17 cycles ago",
       "color": "dim"
     },
     {
@@ -75,15 +75,27 @@
   ],
   "activity": [
     {
-      "time": "12:39 AM UTC",
+      "time": "1:39 AM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — state updated and committed to GitHub Pages.",
       "color": "blue"
     },
     {
-      "time": "11:06 PM UTC",
+      "time": "12:08 AM UTC",
       "agent": "SARAH",
-      "text": "Run 104: output and Desktop clean. Downloads still inaccessible in headless mode. No new files since Run 103.",
+      "text": "Run 105: output and Desktop clean. Downloads inaccessible in headless mode (Issue #1). Zero new files since Run 104. 8 standing decisions unchanged.",
+      "color": "teal"
+    },
+    {
+      "time": "12:39 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push (f6ce72e) — Gallery 9.0 locked, GUARDIAN at 16 cycles, LA Galaxy window closed.",
+      "color": "blue"
+    },
+    {
+      "time": "11:07 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 104: output and Desktop clean. Downloads still inaccessible. No new JARVIS assets.",
       "color": "teal"
     },
     {
@@ -93,16 +105,10 @@
       "color": "blue"
     },
     {
-      "time": "11:04 PM UTC",
+      "time": "10:05 PM UTC",
       "agent": "SARAH",
-      "text": "Run 103: Downloads inaccessible in headless mode (Issue #1). Output and Desktop clean — no new JARVIS assets.",
+      "text": "Run 103: Downloads inaccessible in headless mode. Output and Desktop clean — no new JARVIS assets.",
       "color": "teal"
-    },
-    {
-      "time": "9:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state updated and committed to GitHub Pages.",
-      "color": "blue"
     },
     {
       "time": "9:04 PM UTC",
@@ -111,15 +117,9 @@
       "color": "teal"
     },
     {
-      "time": "8:04 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 100: Downloads clean, 0 ops. Issue #10 still pending Rick's review.",
-      "color": "teal"
-    },
-    {
       "time": "1:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders need Rick's eyes, LA Galaxy window closing today.",
+      "text": "Daily dependency report: Gallery 9.0 locked, 13 new files since Apr 24, 6 renders need Rick's eyes, LA Galaxy window closed today.",
       "color": "teal"
     },
     {
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "LA Galaxy — window closed",
-      "subtitle": "5 consecutive ATLAS flags, today was the deadline. Decision needed: own the timing and reach out, or formally close the file.",
+      "subtitle": "5 consecutive ATLAS flags, deadline passed Apr 25. Decision needed: own the timing and reach out, or formally close the file.",
       "severity": "red"
     },
     {
@@ -147,7 +147,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 16 cycles dark",
+      "title": "GUARDIAN — 17 cycles dark",
       "subtitle": "One session clears it. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
       "severity": "red"
     },
@@ -176,7 +176,7 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "1:04 AM UTC"
+      "next_run": "2:04 AM UTC"
     },
     {
       "name": "Receipt filer",
@@ -196,11 +196,11 @@
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:05 PM UTC"
+      "next_run": "7:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "1:39 AM UTC"
+      "next_run": "2:39 AM UTC"
     }
   ]
 }
