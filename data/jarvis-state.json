@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T21:40:43Z",
-  "status_line": "Sunday 9:40 PM UTC — SARAH Run 112 confirms the system is quiet: Downloads still not mounted, 4 cleanup items waiting on Rick's reply. GUARDIAN is now 39 consecutive cycles dark — still blocking both T2 final scoring and Gallery client delivery. Lands' End is 4 days out and a personal letter to Sarah Sylvester still hasn't been drafted. Everything else is holding steady.",
+  "updated_at": "2026-04-26T23:39:00Z",
+  "status_line": "Sunday 11:39 PM UTC — Big news from SARAH: 9.11 GB of Nolan assets finally landed from Downloads — 3 hero MOV cuts and 49 Artlist SFX now in the pipeline. GUARDIAN hits 41 cycles dark with no sign of life, still blocking T2 final and Gallery delivery. Lands' End is 4 days out and the personal letter to Sarah Sylvester still isn't drafted. SCOUT's Smucker commit is staged but needs a manual push.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Urgent: Lands' End Apr 30, Macy's window open, Glossier/Michael Kors ~20 days in. Local commit staged; git push awaits manual credentials.",
-      "last_run": "11h 33m ago",
+      "last_action": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Glossier/Michael Kors both ~20 days in. Git commit staged; push needs manual credentials.",
+      "last_run": "13h 32m ago",
       "color": "teal"
     },
     {
@@ -26,43 +26,43 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7★, top 3% globally. T2 Final still unscored pending GUARDIAN.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7★, top 3% globally. T2 Final still unscored — pending GUARDIAN.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 112 at 21:07 UTC: Downloads not mounted — no files to move. 4 cleanup items awaiting Rick's reply: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files, move Sharpie Gallery onesheet docx.",
-      "last_run": "34m ago",
+      "last_action": "Run at 22:07 UTC: Downloads mounted — moved 3 hero MOV files (9.11 GB total) + 49 Artlist WAV SFX to NOLAN directories. ASMR.mp4 left in Downloads pending classification. 6 cleanup items in sarah-log.md.",
+      "last_run": "1h 32m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 26 daily report: Gallery deck flag resolved. Three active flags: Lands' End 4 days, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending.",
-      "last_run": "8h 35m ago",
+      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Three active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9).",
+      "last_run": "10h 34m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "Directory scaffold in place (shots/, vo/, music/, storyboard/). 7 stale script files and 4 SFX files flagged. 5 directing photos may be incoming from Downloads. Awaiting activation.",
+      "last_action": "SARAH just delivered: 3 Sharpie hero MOV cuts + 49 Artlist SFX now in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
       "last_run": "parked",
-      "color": "dim"
+      "color": "amber"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1 (sharpie-gallery-campaign-deck-v1.pptx). Decision pending: Gallery standalone vs. unified MAKE IT v9.",
+      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Decision pending: Gallery standalone vs. unified MAKE IT v9.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 39 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "39 cycles dark",
+      "last_action": "No activity — 41 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "41 cycles dark",
       "color": "dim"
     },
     {
@@ -75,112 +75,120 @@
   ],
   "activity": [
     {
-      "time": "9:40 PM UTC",
+      "time": "11:39 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 112: Downloads not mounted, 4 cleanup items pending. GUARDIAN at 39 cycles dark. Lands' End 4 days out.",
+      "text": "Dashboard push — SARAH moved 9.11 GB Nolan assets from Downloads. GUARDIAN at 41 cycles dark. Lands' End 4 days out.",
       "color": "blue"
     },
     {
-      "time": "9:07 PM UTC",
+      "time": "10:07 PM UTC",
       "agent": "SARAH",
-      "text": "Run 112: Downloads not mounted — no files to move. 4 cleanup items awaiting reply: gallery deck rename, dupe PPTXs (~77MB), zero-byte files, Gallery onesheet docx.",
+      "text": "Run complete: Downloads mounted. Moved 3 Sharpie hero MOV files (9.11 GB) → NOLAN shots/. Moved 49 Artlist WAV files → NOLAN music/Sound Effects/. ASMR.mp4 flagged.",
+      "color": "teal"
+    },
+    {
+      "time": "9:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 112: Downloads not mounted. GUARDIAN at 39 cycles. Lands' End 4 days, SCOUT push needs manual credentials.",
+      "color": "blue"
+    },
+    {
+      "time": "9:05 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 112: Downloads not mounted — no files to move. Gallery onesheet docx added to cleanup items (now 4 total awaiting reply).",
       "color": "teal"
     },
     {
       "time": "8:40 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 111: Downloads not mounted, system clean. GUARDIAN at 38 cycles. Lands' End 4 days, SCOUT push needs manual credentials.",
+      "text": "Dashboard push — SARAH Run 111: Downloads not mounted. 3 cleanup items pending. GUARDIAN at 38 cycles.",
       "color": "blue"
     },
     {
       "time": "8:05 PM UTC",
       "agent": "SARAH",
-      "text": "Run 111: Downloads not mounted — no files to move. 3 cleanup items awaiting Rick's reply (gallery deck rename, dupe PPTXs, zero-byte files).",
+      "text": "Run 111: Downloads not mounted — no files to move. 3 cleanup items awaiting reply.",
       "color": "teal"
     },
     {
-      "time": "7:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 110: Downloads empty. GUARDIAN at 37 cycles. Lands' End 4 days, SCOUT push needs manual credentials.",
-      "color": "blue"
-    },
-    {
-      "time": "7:06 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 110: Downloads empty — no JARVIS-related files. 3 cleanup items pending Rick's reply (gallery deck rename, dupe PPTXs, zero-byte files).",
-      "color": "teal"
-    },
-    {
-      "time": "6:41 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 109: Downloads scan clean (7 items, none JARVIS). Music video resolved. GUARDIAN at 36 cycles.",
-      "color": "blue"
-    },
-    {
-      "time": "6:04 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 109: First successful Downloads scan via osascript. 7 items found, none JARVIS-related. Music video download resolved. 4 open items awaiting Rick's reply.",
-      "color": "teal"
-    },
-    {
-      "time": "1:05 PM UTC",
+      "time": "3:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Daily report filed: Gallery deck flag resolved. Flags: Lands' End 4 days, Macy's Q2 open, GUARDIAN 15+ cycles, two-deck decision needed.",
+      "text": "Daily check complete: Gallery deck flag resolved. Flags: Lands' End Apr 30, Macy's Q2 open, GUARDIAN 15 cycles dark. Two-PARK-deck decision surfaced.",
       "color": "teal"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Urgent: Lands' End Apr 30, Macy's window open, Glossier/Michael Kors ~20 days in.",
-      "color": "amber"
+      "text": "BiG sweep: J.M. Smucker added (Katie Williams, CMO, June 9 window, fit 3/5). 5 false positives cleared. Lands' End Apr 30 and Macy's flagged. Git commit staged.",
+      "color": "teal"
+    },
+    {
+      "time": "10:06 AM UTC",
+      "agent": "JARVIS",
+      "text": "Morning priorities briefing delivered.",
+      "color": "blue"
+    },
+    {
+      "time": "9:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Uber/Lyft receipt filer ran — receipts scanned, classified by card, filed to Dropbox.",
+      "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "Lands' End — April 30 deadline",
-      "subtitle": "4 days. Personal letter to Sarah Sylvester. Not drafted yet.",
+      "title": "Lands' End — 4 days",
+      "subtitle": "April 30 deadline. Personal letter to Sarah Sylvester not drafted. Do this today.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 39 cycles dark",
-      "subtitle": "Blocking T2 final scoring and Gallery + T2 client delivery.",
+      "title": "GUARDIAN — 41 cycles dark",
+      "subtitle": "Blocking T2 final score and Gallery + T2 client deliveries. One session unblocks both.",
       "severity": "red"
-    },
-    {
-      "title": "SCOUT pipeline push pending",
-      "subtitle": "J.M. Smucker commit staged locally. Run: cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
-      "severity": "amber"
     },
     {
       "title": "Macy's — Q2 window open now",
-      "subtitle": "Creative decisions start May–June. Send or close the file this week.",
+      "subtitle": "Creative decisions begin May–June. 7+ consecutive flags. Send or close the file.",
       "severity": "amber"
     },
     {
-      "title": "PARK deck decision pending",
-      "subtitle": "Two decks exist: T2 v8 and Gallery campaign v1. Standalone Gallery or unified MAKE IT v9?",
+      "title": "SCOUT push needs manual run",
+      "subtitle": "Smucker commit staged locally. Run: cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
       "severity": "amber"
     },
     {
-      "title": "SARAH cleanup items (4 pending)",
-      "subtitle": "Gallery deck rename + delete ~77MB dupe PPTXs + delete 2 zero-byte files + move Gallery onesheet docx. Reply to confirm.",
+      "title": "NOLAN now has assets",
+      "subtitle": "SARAH just delivered 3 hero MOVs + 49 SFX. Activate NOLAN when ready.",
+      "severity": "amber"
+    },
+    {
+      "title": "ASMR.mp4 in Downloads",
+      "subtitle": "Too generic to auto-classify. Reply 'SARAH move ASMR' if it belongs to the pipeline.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 13,
+    "tasks_today": 11,
     "top_score": 9.0,
     "prospects": 13,
-    "files_swept": 0
+    "files_swept": 53
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "10:04 PM UTC"
+      "next_run": "Sun 11:04 PM UTC"
     },
     {
       "name": "Nightly status report",
-      "next_run": "11:04 PM UTC"
+      "next_run": "Sun 11:04 PM UTC"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "Mon 12:39 AM UTC"
+    },
+    {
+      "name": "Uber/Lyft receipt filer",
+      "next_run": "Mon 5:04 AM UTC"
     },
     {
       "name": "Morning priorities",
@@ -188,15 +196,11 @@
     },
     {
       "name": "SCOUT pipeline check",
-      "next_run": "Mon 10:07 AM UTC"
+      "next_run": "Mon 6:07 AM UTC"
     },
     {
       "name": "ATLAS dependency check",
       "next_run": "Mon 9:05 AM UTC"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "10:39 PM UTC"
     }
   ]
 }
