@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T08:40:00Z",
-  "status_line": "4:40 AM Sunday — quiet stretch before the morning cluster. SARAH ran clean 36 minutes ago (Run 106), GUARDIAN has now missed 26 consecutive cycles with no sign of life. Receipt filer, SARAH, and ATLAS all hit in the next 25 minutes. SCOUT and morning priorities follow at 10:06-10:07 UTC. Three open decisions — LA Galaxy, Macy's, Glossier — carry over from last night.",
+  "updated_at": "2026-04-26T09:41:00Z",
+  "status_line": "Sunday 9:41 AM UTC — SARAH's Run 106 came in clean an hour ago. The receipt filer hit a wall this morning: RAID volume is hung, Dropbox unreachable, zero receipts processed. That needs your attention. GUARDIAN is now 27 cycles dark — still the single biggest blocker on Gallery and T2 delivery. SCOUT's daily sweep fired at 10:07 UTC; results not yet confirmed. ATLAS runs at 13:04 UTC today. Three open decisions — LA Galaxy, Macy's, Glossier — carry over from last night.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 25 sweep: 0 new prospects. Sonos confirmed in-house pivot — AOR review unlikely near-term. 11 pipeline entries stable. Next run: 10:07 UTC today.",
-      "last_run": "~22h ago",
+      "last_action": "Apr 25 sweep: 0 new prospects. Sonos confirmed in-house pivot — AOR review unlikely near-term. 11 pipeline entries stable. Today's run (10:07 UTC) just fired — results not yet confirmed.",
+      "last_run": "~23h ago (today's run pending)",
       "color": "teal"
     },
     {
@@ -33,8 +33,8 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 106: 0 files moved. Output directory clean. Downloads accessible via osascript. 45 legacy files in ~/Documents/ await Rick's cleanup decision. 14 standing issues unchanged.",
-      "last_run": "~36m ago",
+      "last_action": "Run 106: 0 files moved. Output directory clean. Issue #5 (atlas-daily-report.md duplicate) confirmed byte-identical — safe to delete on Rick's go-ahead. 9 standing issues awaiting direction.",
+      "last_run": "~1.5h ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 26th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "26 cycles ago",
+      "last_action": "No activity — 27th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "27 cycles ago",
       "color": "dim"
     },
     {
@@ -75,9 +75,33 @@
   ],
   "activity": [
     {
+      "time": "9:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — hourly state update committed to GitHub Pages.",
+      "color": "blue"
+    },
+    {
+      "time": "9:07 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 106: 0 files moved. Issue #5 confirmed byte-identical duplicate — safe to delete on go-ahead.",
+      "color": "teal"
+    },
+    {
+      "time": "9:04 AM UTC",
+      "agent": "RECEIPT FILER",
+      "text": "FAILED — RAID volume hung (EINTR). Dropbox unreachable. 0 receipts processed.",
+      "color": "amber"
+    },
+    {
+      "time": "8:40 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — state committed to GitHub Pages (commit 96440c8).",
+      "color": "blue"
+    },
+    {
       "time": "8:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 106: 0 files moved. Output and Downloads clean. 14 standing issues unchanged.",
+      "text": "Run 105: 0 files moved. Clean sweep. No new activity since prior run.",
       "color": "teal"
     },
     {
@@ -87,69 +111,50 @@
       "color": "blue"
     },
     {
-      "time": "7:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 105: 0 files moved. Clean sweep. No new activity since prior run.",
-      "color": "teal"
-    },
-    {
-      "time": "6:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — Issue #1 (Downloads access) confirmed resolved via osascript.",
-      "color": "blue"
-    },
-    {
-      "time": "5:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update committed.",
-      "color": "blue"
-    },
-    {
-      "time": "4:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update committed.",
-      "color": "blue"
-    },
-    {
       "time": "Apr 25 11:05 PM UTC",
       "agent": "JARVIS",
-      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared, 3 open decisions carried forward.",
+      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared, 3 open decisions flagged.",
       "color": "blue"
     },
     {
       "time": "Apr 25 ~5 PM UTC",
       "agent": "TESTING",
-      "text": "Gallery final score: 9.0/10. All 12 gaps closed. Cannes ceiling upgraded to Titanium Grand Prix.",
+      "text": "Gallery final score: 9.0/10. All 12 gaps closed. Cannes ceiling: Titanium Grand Prix.",
       "color": "teal"
     },
     {
       "time": "Apr 25 ~3 PM UTC",
       "agent": "MAESTRO",
-      "text": "Gallery Gold Package complete — doorframe hero, Alma Har'el as director, Year 1 content calendar delivered.",
+      "text": "Gallery Gold Package complete — doorframe hero, Alma Har'el Version B treatment delivered.",
       "color": "teal"
     },
     {
       "time": "Apr 25 10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Daily pipeline sweep: 0 new prospects. Sonos confirmed in-house. 11 entries stable.",
+      "text": "Daily pipeline sweep: 0 new prospects. Sonos confirmed in-house pivot. 11 entries stable.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "GUARDIAN — 26 missed cycles",
+      "title": "RAID Volume Hung — Receipt Filer Failed",
+      "subtitle": "Dropbox unreachable. Run diskutil unmount /Volumes/RAID and remount to restore.",
+      "severity": "red"
+    },
+    {
+      "title": "GUARDIAN — 27 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
     {
       "title": "LA Galaxy — window closed",
-      "subtitle": "5 flags, deadline passed. Not dead but 'timely' moment is gone.",
-      "severity": "red"
+      "subtitle": "5 flags, deadline passed. Not dead but timely moment is gone.",
+      "severity": "amber"
     },
     {
       "title": "Macy's — no decision",
       "subtitle": "Q2 partner conversations happen May–June. Send or close.",
-      "severity": "red"
+      "severity": "amber"
     },
     {
       "title": "Glossier — Day 20+",
@@ -157,45 +162,45 @@
       "severity": "amber"
     },
     {
-      "title": "8 standing file decisions",
-      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder — awaiting Rick's call.",
+      "title": "9 standing file decisions",
+      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder, atlas duplicate — awaiting go-ahead.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 4,
+    "tasks_today": 5,
     "top_score": 9.0,
     "prospects": 11,
     "files_swept": 106
   },
   "scheduled": [
     {
-      "name": "Receipt filer",
-      "next_run": "9:04 AM UTC today"
+      "name": "SARAH file sweep",
+      "next_run": "11:04 AM UTC"
     },
     {
-      "name": "SARAH sweep",
-      "next_run": "9:04 AM UTC today"
+      "name": "ATLAS dependency check",
+      "next_run": "1:04 PM UTC today"
     },
     {
-      "name": "ATLAS daily check",
-      "next_run": "9:05 AM UTC today"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "10:06 AM UTC today"
-    },
-    {
-      "name": "SCOUT pipeline",
-      "next_run": "10:07 AM UTC today"
-    },
-    {
-      "name": "Nightly report",
+      "name": "Nightly status report",
       "next_run": "7:04 PM UTC today"
     },
     {
-      "name": "JARVIS dashboard",
-      "next_run": "9:39 AM UTC today"
+      "name": "Receipt filer (BLOCKED — RAID)",
+      "next_run": "5:04 AM UTC tomorrow"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "6:07 AM UTC tomorrow"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "6:06 AM UTC tomorrow"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "10:39 AM UTC"
     }
   ]
 }
