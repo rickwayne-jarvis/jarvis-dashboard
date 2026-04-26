@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T15:41:00Z",
-  "status_line": "Sunday 3:41 PM UTC — SARAH Run 107 in at 3:07: four new files logged, 10 standing issues holding steady (all waiting on your go-ahead), NOLAN scaffold in place. SCOUT's J.M. Smucker lead is live on the pipeline dashboard but the git push still needs a manual credential run. Lands' End is 4 days out — that letter needs to happen today. GUARDIAN at 33 cycles dark. Everything else steady.",
+  "updated_at": "2026-04-26T16:41:00Z",
+  "status_line": "Sunday 4:41 PM UTC — SARAH's clean at 4:05: Downloads empty, no new files, three cleanup items still waiting on your go-ahead. GUARDIAN is now at 34 cycles dark — still the main unresolved blocker across T2 and Gallery delivery. Lands' End is 4 days out. Everything else holding steady.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 26 sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, 48 days in). June 9 window closes. Dashboard updated; git push needs manual credentials.",
-      "last_run": "5h 34m ago",
+      "last_action": "Apr 26 sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, 48 days in). June 9 window closes. Dashboard updated locally; git push needs manual credentials.",
+      "last_run": "6h 33m ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 107 at 15:07 UTC: 4 new files logged (SCOUT brief, MAESTRO one-sheet v2, process doc, Gold Package). Issue #15 flagged (scout-pipeline-check/SKILL.md in Scheduled/ — informational). 10 standing issues unchanged.",
-      "last_run": "34m ago",
+      "last_action": "Run 108 at 16:05 UTC: Downloads empty, no new files. Three cleanup items pending your go-ahead: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files.",
+      "last_run": "36m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery deck flag resolved (PARK filed campaign deck v1). Three flags: Lands' End 4 days, Macy's Q2 window now open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending.",
-      "last_run": "2h 36m ago",
+      "last_run": "3h 35m ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 33 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "33 cycles dark",
+      "last_action": "No activity — 34 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "34 cycles dark",
       "color": "dim"
     },
     {
@@ -74,6 +74,18 @@
     }
   ],
   "activity": [
+    {
+      "time": "4:41 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 108 clean (no new files), GUARDIAN at 34 cycles, Lands' End still 4 days.",
+      "color": "blue"
+    },
+    {
+      "time": "4:05 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 108: Downloads empty, no new files. Three cleanup items pending: gallery deck rename, delete 3 dupe PPTXs (~77MB), delete 2 zero-byte test files.",
+      "color": "teal"
+    },
     {
       "time": "3:41 PM UTC",
       "agent": "JARVIS",
@@ -99,27 +111,15 @@
       "color": "teal"
     },
     {
-      "time": "1:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — ATLAS Gallery flag cleared, GUARDIAN 31 cycles, two PARK decks in play.",
-      "color": "blue"
-    },
-    {
       "time": "1:05 PM UTC",
       "agent": "ATLAS",
       "text": "Daily report filed: Gallery deck flag resolved. Flags: Lands' End 4 days, Macy's Q2 open, GUARDIAN 15+ cycles, two-deck decision needed.",
       "color": "teal"
     },
     {
-      "time": "10:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SCOUT: J.M. Smucker added (Katie Williams, June 9 window). Lands' End 4-day deadline surfaced.",
-      "color": "blue"
-    },
-    {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "BiG sweep: 1 new prospect — J.M. Smucker Co. 5 false positives cleared. Urgent: Lands' End Apr 30, Macy's window open, Glossier/Michael Kors ~20 days in.",
+      "text": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Urgent: Lands' End Apr 30, Macy's window open, Glossier/Michael Kors ~20 days in.",
       "color": "amber"
     },
     {
@@ -147,7 +147,7 @@
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN — 33 cycles dark",
+      "title": "GUARDIAN — 34 cycles dark",
       "subtitle": "Blocking Sharpie brand voice validation and Gallery + T2 client deliveries.",
       "severity": "amber"
     },
@@ -163,39 +163,39 @@
     }
   ],
   "stats": {
-    "tasks_today": 11,
+    "tasks_today": 12,
     "top_score": 9.0,
     "prospects": 13,
-    "files_swept": 107
+    "files_swept": 108
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "4:04 PM UTC"
+      "next_run": "5:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "4:39 PM UTC"
+      "next_run": "5:39 PM UTC"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM UTC"
-    },
-    {
-      "name": "ATLAS dependency check",
-      "next_run": "Tomorrow 9:05 AM"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "Tomorrow 6:07 AM"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "Tomorrow 6:06 AM"
+      "next_run": "11:04 PM UTC"
     },
     {
       "name": "Uber/Lyft receipt filer",
-      "next_run": "Tomorrow 5:04 AM"
+      "next_run": "Tomorrow 9:04 AM UTC"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "Tomorrow 10:06 AM UTC"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "Tomorrow 10:07 AM UTC"
+    },
+    {
+      "name": "ATLAS dependency check",
+      "next_run": "Tomorrow 1:05 PM UTC"
     }
   ]
 }
