@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-26T06:40:00Z",
-  "status_line": "6:40 AM — SARAH wrapped Run 104 at 6:04 UTC with a clean sweep, and the long-standing Downloads access issue (Issue #1) is now resolved via osascript. GUARDIAN clocks 23 consecutive dark cycles — still the critical blocker for Gallery and T2 deliveries. ATLAS and SCOUT on deck for the 9–10 AM UTC morning crew. Three open decisions (LA Galaxy window closed, Macy's, Glossier) still waiting.",
+  "updated_at": "2026-04-26T08:39:00Z",
+  "status_line": "8:39 AM UTC — Sunday morning, system running clean. SARAH completed Runs 105 and 106 (7:04 and 8:04 UTC) — both spotless, Downloads staying accessible. GUARDIAN clocks 25 consecutive dark cycles, still the one thing blocking Gallery and T2 from client delivery. Morning crew coming up: receipt filer at 9:04, ATLAS at 9:05, then SCOUT and priorities at 10:06. Three open decisions — LA Galaxy, Macy's, Glossier — remain on the board.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Apr 25 morning sweep: 0 new prospects. Sonos confirmed in-house studio pivot — AOR review unlikely near-term. 11 pipeline entries stable.",
-      "last_run": "~21h ago",
+      "last_action": "Apr 25 sweep: 0 new prospects. Sonos confirmed in-house pivot — AOR review unlikely near-term. 11 pipeline entries stable. Next run: 10:07 UTC today.",
+      "last_run": "~22h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed. Cannes ceiling revised to Titanium Grand Prix.",
+      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed. Cannes ceiling: Titanium Grand Prix.",
       "last_run": "yesterday",
       "color": "teal"
     },
@@ -26,22 +26,22 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready, all gaps resolved. T2 Hybrid V1: 4.7★ top 3% globally.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — all gaps closed, production-ready. T2 Hybrid V1: 4.7★ top 3% globally. Cleared pending GUARDIAN sign-off.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 104: 0 files moved. 9 items in Downloads scanned — all personal/non-pipeline, untouched. Issue #1 (Downloads access) RESOLVED via osascript. 14 standing issues unchanged.",
-      "last_run": "~36m ago",
+      "last_action": "Run 106: 0 files moved. Output directory clean. Downloads accessible via osascript. 45 legacy files in ~/Documents/ await Rick's cleanup decision. 14 standing issues unchanged.",
+      "last_run": "~35m ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. LA Galaxy window flagged closed. 6 renders in output/renders/ need Rick's review before client use.",
-      "last_run": "~21h ago",
+      "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. LA Galaxy window flagged closed. 6 renders in output/renders/ need Rick's review before any client use.",
+      "last_run": "~20h ago",
       "color": "teal"
     },
     {
@@ -54,15 +54,15 @@
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck.",
+      "last_action": "v8 Sharpie deck (43MB) delivered. Gallery content not yet integrated into deck. Parked pending next direction.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 23rd consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "23 cycles ago",
+      "last_action": "No activity — 25th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "25 cycles ago",
       "color": "dim"
     },
     {
@@ -75,33 +75,33 @@
   ],
   "activity": [
     {
+      "time": "8:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 106: 0 files moved. Output and Downloads clean. 14 standing issues unchanged.",
+      "color": "teal"
+    },
+    {
+      "time": "7:39 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — state committed to GitHub Pages (commit c277238).",
+      "color": "blue"
+    },
+    {
+      "time": "7:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 105: 0 files moved. Clean sweep. No new activity since prior run.",
+      "color": "teal"
+    },
+    {
+      "time": "6:40 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — Issue #1 (Downloads access) confirmed resolved via osascript.",
+      "color": "blue"
+    },
+    {
       "time": "6:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 104: 0 files moved. Downloads now accessible via osascript — Issue #1 resolved. 14 standing issues unchanged.",
-      "color": "teal"
-    },
-    {
-      "time": "5:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit d758521).",
-      "color": "blue"
-    },
-    {
-      "time": "5:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 103: 0 files moved. Output directory stable. 14 standing issues unchanged.",
-      "color": "teal"
-    },
-    {
-      "time": "4:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit c31d6bf).",
-      "color": "blue"
-    },
-    {
-      "time": "4:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 102: Issue #14 logged — Sharpie_Gallery_OneSheet_V2.md in Documents is exact duplicate of output copy; awaiting delete permission.",
+      "text": "Run 104: Downloads accessible via osascript — Issue #1 RESOLVED. 9 items scanned, 0 moved.",
       "color": "teal"
     },
     {
@@ -125,35 +125,35 @@
     {
       "time": "yesterday",
       "agent": "TESTING",
-      "text": "T2 Hybrid V1 locked at 4.7★ — top 3% globally. Cleared for production pending GUARDIAN brand voice sign-off.",
+      "text": "T2 Hybrid V1 locked at 4.7★ — top 3% globally. Cleared for production pending GUARDIAN sign-off.",
       "color": "teal"
     },
     {
       "time": "yesterday",
       "agent": "SCOUT",
-      "text": "Morning sweep: 0 new prospects. Sonos in-house pivot confirmed — AOR review unlikely near-term.",
+      "text": "Apr 25 sweep: 0 new prospects. Sonos in-house pivot confirmed — AOR review unlikely near-term.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "GUARDIAN dark — 23 cycles",
-      "subtitle": "Blocking brand voice validation for Gallery and T2 deliveries. One session clears it.",
+      "title": "GUARDIAN dark — 25 cycles",
+      "subtitle": "Blocking brand voice validation for both Gallery and T2 deliveries. One session clears it.",
       "severity": "red"
     },
     {
       "title": "LA Galaxy window closed",
-      "subtitle": "5 flags hit, deadline passed. Not dead — but the timely moment is gone. Move or close.",
+      "subtitle": "5 flags hit, deadline passed April 25. Not dead — but the timely moment is gone. Move or close.",
       "severity": "red"
     },
     {
       "title": "Macy's — no decision",
-      "subtitle": "Q2 partner conversations happen May–June. Window is now. Send or close.",
+      "subtitle": "Q2 partner conversations happen May–June. Window is now. Send or close the file.",
       "severity": "red"
     },
     {
-      "title": "Glossier — Day 21+",
-      "subtitle": "Note is written. Acknowledge the timing and send it.",
+      "title": "Glossier — Day 22+",
+      "subtitle": "Note is written and ready. Acknowledge the timing and send it.",
       "severity": "amber"
     },
     {
@@ -162,25 +162,21 @@
       "severity": "amber"
     },
     {
-      "title": "Issue #1 RESOLVED: Downloads now accessible",
-      "subtitle": "osascript via Control_your_Mac MCP can reach ~/Downloads in headless mode. Standing issue closed.",
+      "title": "6 renders in output/renders/ need Rick's review",
+      "subtitle": "Origin unconfirmed — flagged by ATLAS before any client use.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 4,
+    "tasks_today": 2,
     "top_score": 90,
     "prospects": 11,
-    "files_swept": 9
+    "files_swept": 0
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "7:04 AM UTC"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "7:39 AM UTC"
+      "next_run": "9:04 AM UTC"
     },
     {
       "name": "Receipt filer",
@@ -188,7 +184,7 @@
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "9:04 AM UTC"
+      "next_run": "9:05 AM UTC"
     },
     {
       "name": "Morning priorities",
@@ -197,6 +193,10 @@
     {
       "name": "SCOUT pipeline check",
       "next_run": "10:07 AM UTC"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "9:39 AM UTC"
     },
     {
       "name": "Nightly status report",
