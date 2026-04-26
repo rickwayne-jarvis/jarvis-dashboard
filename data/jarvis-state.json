@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-26T08:39:00Z",
-  "status_line": "8:39 AM UTC — Sunday morning, system running clean. SARAH completed Runs 105 and 106 (7:04 and 8:04 UTC) — both spotless, Downloads staying accessible. GUARDIAN clocks 25 consecutive dark cycles, still the one thing blocking Gallery and T2 from client delivery. Morning crew coming up: receipt filer at 9:04, ATLAS at 9:05, then SCOUT and priorities at 10:06. Three open decisions — LA Galaxy, Macy's, Glossier — remain on the board.",
+  "updated_at": "2026-04-26T08:40:00Z",
+  "status_line": "4:40 AM Sunday — quiet stretch before the morning cluster. SARAH ran clean 36 minutes ago (Run 106), GUARDIAN has now missed 26 consecutive cycles with no sign of life. Receipt filer, SARAH, and ATLAS all hit in the next 25 minutes. SCOUT and morning priorities follow at 10:06-10:07 UTC. Three open decisions — LA Galaxy, Macy's, Glossier — carry over from last night.",
   "agents": [
     {
       "name": "SCOUT",
@@ -34,7 +34,7 @@
       "name": "SARAH",
       "state": "idle",
       "last_action": "Run 106: 0 files moved. Output directory clean. Downloads accessible via osascript. 45 legacy files in ~/Documents/ await Rick's cleanup decision. 14 standing issues unchanged.",
-      "last_run": "~35m ago",
+      "last_run": "~36m ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 25th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "25 cycles ago",
+      "last_action": "No activity — 26th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "26 cycles ago",
       "color": "dim"
     },
     {
@@ -83,7 +83,7 @@
     {
       "time": "7:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — state committed to GitHub Pages (commit c277238).",
+      "text": "Dashboard push — state committed to GitHub Pages (commit 8656850).",
       "color": "blue"
     },
     {
@@ -99,108 +99,103 @@
       "color": "blue"
     },
     {
-      "time": "6:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 104: Downloads accessible via osascript — Issue #1 RESOLVED. 9 items scanned, 0 moved.",
-      "color": "teal"
-    },
-    {
-      "time": "11:05 PM UTC (Apr 25)",
+      "time": "5:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Nightly report filed: Gallery 9.0, T2 4.7★, GUARDIAN 21 cycles dark. LA Galaxy window flagged closed.",
+      "text": "Dashboard push — hourly state update committed.",
       "color": "blue"
     },
     {
-      "time": "yesterday",
+      "time": "4:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — hourly state update committed.",
+      "color": "blue"
+    },
+    {
+      "time": "Apr 25 11:05 PM UTC",
+      "agent": "JARVIS",
+      "text": "Nightly report filed: Gallery 9.0 locked, T2 4.7★ cleared, 3 open decisions carried forward.",
+      "color": "blue"
+    },
+    {
+      "time": "Apr 25 ~5 PM UTC",
       "agent": "TESTING",
-      "text": "Gallery of Ordinary Masterpieces scored 9.0/10 across 4 board rounds. All gaps closed — production-ready.",
+      "text": "Gallery final score: 9.0/10. All 12 gaps closed. Cannes ceiling upgraded to Titanium Grand Prix.",
       "color": "teal"
     },
     {
-      "time": "yesterday",
+      "time": "Apr 25 ~3 PM UTC",
       "agent": "MAESTRO",
-      "text": "Gallery Gold Package delivered. Cannes ceiling upgraded to Titanium Grand Prix. Alma Har'el recommended as director.",
-      "color": "amber"
-    },
-    {
-      "time": "yesterday",
-      "agent": "TESTING",
-      "text": "T2 Hybrid V1 locked at 4.7★ — top 3% globally. Cleared for production pending GUARDIAN sign-off.",
+      "text": "Gallery Gold Package complete — doorframe hero, Alma Har'el as director, Year 1 content calendar delivered.",
       "color": "teal"
     },
     {
-      "time": "yesterday",
+      "time": "Apr 25 10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Apr 25 sweep: 0 new prospects. Sonos in-house pivot confirmed — AOR review unlikely near-term.",
+      "text": "Daily pipeline sweep: 0 new prospects. Sonos confirmed in-house. 11 entries stable.",
       "color": "teal"
     }
   ],
   "attention": [
     {
-      "title": "GUARDIAN dark — 25 cycles",
-      "subtitle": "Blocking brand voice validation for both Gallery and T2 deliveries. One session clears it.",
+      "title": "GUARDIAN — 26 missed cycles",
+      "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
     },
     {
-      "title": "LA Galaxy window closed",
-      "subtitle": "5 flags hit, deadline passed April 25. Not dead — but the timely moment is gone. Move or close.",
+      "title": "LA Galaxy — window closed",
+      "subtitle": "5 flags, deadline passed. Not dead but 'timely' moment is gone.",
       "severity": "red"
     },
     {
       "title": "Macy's — no decision",
-      "subtitle": "Q2 partner conversations happen May–June. Window is now. Send or close the file.",
+      "subtitle": "Q2 partner conversations happen May–June. Send or close.",
       "severity": "red"
     },
     {
-      "title": "Glossier — Day 22+",
-      "subtitle": "Note is written and ready. Acknowledge the timing and send it.",
+      "title": "Glossier — Day 20+",
+      "subtitle": "Note is written. Acknowledge the timing and send it.",
       "severity": "amber"
     },
     {
-      "title": "Issue #14: Duplicate file needs delete permission",
-      "subtitle": "Sharpie_Gallery_OneSheet_V2.md in Documents is a byte-for-byte duplicate of output copy.",
-      "severity": "amber"
-    },
-    {
-      "title": "6 renders in output/renders/ need Rick's review",
-      "subtitle": "Origin unconfirmed — flagged by ATLAS before any client use.",
+      "title": "8 standing file decisions",
+      "subtitle": "PPTX duplicates, 6 PNG renders, Nolan folder — awaiting Rick's call.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 2,
-    "top_score": 90,
+    "tasks_today": 4,
+    "top_score": 9.0,
     "prospects": 11,
-    "files_swept": 0
+    "files_swept": 106
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "9:04 AM UTC"
-    },
-    {
       "name": "Receipt filer",
-      "next_run": "9:04 AM UTC"
+      "next_run": "9:04 AM UTC today"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "9:05 AM UTC"
+      "name": "SARAH sweep",
+      "next_run": "9:04 AM UTC today"
+    },
+    {
+      "name": "ATLAS daily check",
+      "next_run": "9:05 AM UTC today"
     },
     {
       "name": "Morning priorities",
-      "next_run": "10:06 AM UTC"
+      "next_run": "10:06 AM UTC today"
     },
     {
-      "name": "SCOUT pipeline check",
-      "next_run": "10:07 AM UTC"
+      "name": "SCOUT pipeline",
+      "next_run": "10:07 AM UTC today"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "9:39 AM UTC"
+      "name": "Nightly report",
+      "next_run": "7:04 PM UTC today"
     },
     {
-      "name": "Nightly status report",
-      "next_run": "11:04 PM UTC"
+      "name": "JARVIS dashboard",
+      "next_run": "9:39 AM UTC today"
     }
   ]
 }
