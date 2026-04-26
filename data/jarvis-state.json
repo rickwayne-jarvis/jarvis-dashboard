@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T23:39:00Z",
-  "status_line": "Sunday 11:39 PM UTC — Big news from SARAH: 9.11 GB of Nolan assets finally landed from Downloads — 3 hero MOV cuts and 49 Artlist SFX now in the pipeline. GUARDIAN hits 41 cycles dark with no sign of life, still blocking T2 final and Gallery delivery. Lands' End is 4 days out and the personal letter to Sarah Sylvester still isn't drafted. SCOUT's Smucker commit is staged but needs a manual push.",
+  "updated_at": "2026-04-27T00:39:00Z",
+  "status_line": "Monday 12:39 AM UTC — SARAH's Run 112 came up empty: Downloads still not a connected workspace, nothing moved. GUARDIAN ticks to 42 cycles dark with T2 final and Gallery delivery still blocked. Nightly report filed: Lands' End is 4 days out, personal letter to Sarah Sylvester still not drafted. SCOUT's Smucker commit is staged and waiting for a manual push.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Glossier/Michael Kors both ~20 days in. Git commit staged; push needs manual credentials.",
-      "last_run": "13h 32m ago",
+      "last_run": "14h 32m ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run at 22:07 UTC: Downloads mounted — moved 3 hero MOV files (9.11 GB total) + 49 Artlist WAV SFX to NOLAN directories. ASMR.mp4 left in Downloads pending classification. 6 cleanup items in sarah-log.md.",
-      "last_run": "1h 32m ago",
-      "color": "teal"
+      "last_action": "Run 112 at 23:06 UTC: Downloads not mounted — ~/Downloads not a connected workspace. No files moved. 5 cleanup items still pending authorization.",
+      "last_run": "1h 33m ago",
+      "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Three active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9).",
-      "last_run": "10h 34m ago",
+      "last_run": "11h 34m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "SARAH just delivered: 3 Sharpie hero MOV cuts + 49 Artlist SFX now in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
+      "last_action": "Assets loaded: 3 Sharpie hero MOV cuts (9.11 GB) + 49 Artlist SFX in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
       "last_run": "parked",
       "color": "amber"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 41 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "41 cycles dark",
+      "last_action": "No activity — 42 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "42 cycles dark",
       "color": "dim"
     },
     {
@@ -75,15 +75,33 @@
   ],
   "activity": [
     {
+      "time": "12:39 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 112: Downloads not mounted, nothing moved. GUARDIAN now 42 cycles dark. Nightly report filed. Lands' End 4 days.",
+      "color": "blue"
+    },
+    {
       "time": "11:39 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH moved 9.11 GB Nolan assets from Downloads. GUARDIAN at 41 cycles dark. Lands' End 4 days out.",
+      "text": "Dashboard push — SARAH moved 9.11 GB Nolan assets from Downloads. GUARDIAN 41 cycles dark. Lands' End 4 days out.",
       "color": "blue"
+    },
+    {
+      "time": "11:05 PM UTC",
+      "agent": "JARVIS",
+      "text": "Nightly report filed: GUARDIAN 41 cycles, Lands' End April 30 unaddressed, ASMR.mp4 unclassified, NYC DOF $5,211 still outstanding.",
+      "color": "blue"
+    },
+    {
+      "time": "11:06 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 112: Downloads not accessible — ~/Downloads not in connected workspace. No files moved. 5 cleanup items pending authorization.",
+      "color": "amber"
     },
     {
       "time": "10:07 PM UTC",
       "agent": "SARAH",
-      "text": "Run complete: Downloads mounted. Moved 3 Sharpie hero MOV files (9.11 GB) → NOLAN shots/. Moved 49 Artlist WAV files → NOLAN music/Sound Effects/. ASMR.mp4 flagged.",
+      "text": "Run at 22:07 UTC: Downloads mounted — moved 3 Sharpie hero MOV files (9.11 GB) → NOLAN shots/. Moved 49 Artlist WAV files → NOLAN music/Sound Effects/. ASMR.mp4 flagged.",
       "color": "teal"
     },
     {
@@ -93,33 +111,15 @@
       "color": "blue"
     },
     {
-      "time": "9:05 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 112: Downloads not mounted — no files to move. Gallery onesheet docx added to cleanup items (now 4 total awaiting reply).",
-      "color": "teal"
-    },
-    {
-      "time": "8:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 111: Downloads not mounted. 3 cleanup items pending. GUARDIAN at 38 cycles.",
-      "color": "blue"
-    },
-    {
-      "time": "8:05 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 111: Downloads not mounted — no files to move. 3 cleanup items awaiting reply.",
-      "color": "teal"
-    },
-    {
-      "time": "3:05 PM UTC",
+      "time": "1:05 PM UTC",
       "agent": "ATLAS",
-      "text": "Daily check complete: Gallery deck flag resolved. Flags: Lands' End Apr 30, Macy's Q2 open, GUARDIAN 15 cycles dark. Two-PARK-deck decision surfaced.",
+      "text": "Daily report: Gallery flag resolved (PARK filed deck). Flags: Lands' End Apr 30, Macy's Q2 now open, GUARDIAN 15 cycles dark. Two-deck decision pending.",
       "color": "teal"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "BiG sweep: J.M. Smucker added (Katie Williams, CMO, June 9 window, fit 3/5). 5 false positives cleared. Lands' End Apr 30 and Macy's flagged. Git commit staged.",
+      "text": "BiG sweep complete: J.M. Smucker added (Katie Williams CMO, June 9 window, fit 3/5). Git commit staged, push requires manual credentials.",
       "color": "teal"
     },
     {
@@ -130,77 +130,82 @@
     },
     {
       "time": "9:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Uber/Lyft receipt filer ran — receipts scanned, classified by card, filed to Dropbox.",
-      "color": "teal"
+      "agent": "JARVIS",
+      "text": "Uber/Lyft receipt filer ran — scanning Apple Mail for unread receipts.",
+      "color": "blue"
     }
   ],
   "attention": [
     {
-      "title": "Lands' End — 4 days",
-      "subtitle": "April 30 deadline. Personal letter to Sarah Sylvester not drafted. Do this today.",
+      "title": "Lands' End — Sarah Sylvester outreach",
+      "subtitle": "April 30 deadline. Personal letter not drafted. 4 days.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 41 cycles dark",
-      "subtitle": "Blocking T2 final score and Gallery + T2 client deliveries. One session unblocks both.",
+      "title": "GUARDIAN: 42 cycles dark",
+      "subtitle": "Blocking T2 Final score and Gallery client delivery. One session fixes it.",
       "severity": "red"
     },
     {
-      "title": "Macy's — Q2 window open now",
-      "subtitle": "Creative decisions begin May–June. 7+ consecutive flags. Send or close the file.",
+      "title": "SCOUT git push needs manual run",
+      "subtitle": "cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
       "severity": "amber"
     },
     {
-      "title": "SCOUT push needs manual run",
-      "subtitle": "Smucker commit staged locally. Run: cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
+      "title": "Macy's — Q2 creative window opening",
+      "subtitle": "May–June decisions start now. Seven consecutive flags. Move this week.",
       "severity": "amber"
     },
     {
-      "title": "NOLAN now has assets",
-      "subtitle": "SARAH just delivered 3 hero MOVs + 49 SFX. Activate NOLAN when ready.",
+      "title": "SARAH: Downloads not connected",
+      "subtitle": "Add ~/Downloads as a Cowork workspace folder to enable future sweeps.",
       "severity": "amber"
     },
     {
-      "title": "ASMR.mp4 in Downloads",
-      "subtitle": "Too generic to auto-classify. Reply 'SARAH move ASMR' if it belongs to the pipeline.",
+      "title": "ASMR.mp4 — unclassified asset",
+      "subtitle": "Surfaced in Downloads during sweep. Needs routing decision.",
+      "severity": "amber"
+    },
+    {
+      "title": "NYC DOF balance: $5,211.94",
+      "subtitle": "Outstanding since December 2025, penalties accruing. Verify and pay at nyc.gov/eservices.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 11,
-    "top_score": 9.0,
+    "tasks_today": 6,
+    "top_score": 90,
     "prospects": 13,
-    "files_swept": 53
+    "files_swept": 1045
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "Sun 11:04 PM UTC"
+      "name": "sarah-file-sweep",
+      "next_run": "Mon 1:04 AM UTC"
     },
     {
-      "name": "Nightly status report",
-      "next_run": "Sun 11:04 PM UTC"
+      "name": "morning-priorities",
+      "next_run": "Mon 10:06 AM UTC"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "Mon 12:39 AM UTC"
+      "name": "scout-pipeline-check",
+      "next_run": "Mon 10:07 AM UTC"
     },
     {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "Mon 5:04 AM UTC"
+      "name": "uber-lyft-receipt-filer",
+      "next_run": "Mon 9:04 AM UTC"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "Mon 6:06 AM UTC"
+      "name": "atlas-dependency-check",
+      "next_run": "Mon 1:05 PM UTC"
     },
     {
-      "name": "SCOUT pipeline check",
-      "next_run": "Mon 6:07 AM UTC"
+      "name": "nightly-status-report",
+      "next_run": "Mon 7:05 PM UTC"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "Mon 9:05 AM UTC"
+      "name": "jarvis-dashboard-push",
+      "next_run": "Mon 1:39 AM UTC"
     }
   ]
 }
