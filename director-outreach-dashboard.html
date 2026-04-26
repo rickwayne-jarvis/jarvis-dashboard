@@ -190,6 +190,19 @@ a:hover{text-decoration:underline}
 .reset-btn{background:none;border:1px solid var(--dim);color:var(--muted);padding:5px 10px;border-radius:4px;font-size:11px;cursor:pointer;letter-spacing:1px}
 .reset-btn:hover{border-color:var(--red);color:var(--red)}
 
+
+/* ─── TIMELINE BAR ─── */
+.timeline-bar{background:var(--panel);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.timeline-week{flex:1;min-width:80px}
+.timeline-week .tw-label{font-size:10px;letter-spacing:1px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between}
+.timeline-week .tw-label b{color:var(--text)}
+.timeline-week .tw-bar{height:6px;background:var(--dim);border-radius:3px;overflow:hidden}
+.timeline-week .tw-bar .tw-fill{height:100%;border-radius:3px;transition:width .4s}
+.timeline-week .tw-check{font-size:10px;color:var(--green);text-align:center;margin-top:2px}
+.timeline-total{text-align:center;min-width:80px;padding-left:12px;border-left:1px solid var(--border)}
+.timeline-total .tt-pct{font-size:22px;font-weight:700;color:var(--accent)}
+.timeline-total .tt-label{font-size:9px;color:var(--muted);letter-spacing:1.5px}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   .playbook-layout{grid-template-columns:1fr}
@@ -210,6 +223,8 @@ a:hover{text-decoration:underline}
     <button class="reset-btn" onclick="resetAll()">RESET</button>
   </div>
 </div>
+
+<div class="timeline-bar" id="timelineBar"></div>
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('playbook')">DAILY PLAYBOOK</button>
@@ -526,14 +541,35 @@ function resetAll() { if(confirm('Reset all progress? Cannot be undone.')) { sta
 
 function getTaskKey(w,d,t) { return 'w'+w+'d'+d+'t'+t; }
 function isChecked(w,d,t) { return !!state[getTaskKey(w,d,t)]; }
-function toggleTask(w,d,t) { const k=getTaskKey(w,d,t); state[k]=!state[k]; saveState(); render(); }
+function toggleTask(w,d,t) { const k=getTaskKey(w,d,t); state[k]=!state[k]; if(state[k]) recordActivity(); saveState(); render(); }
 
-function toggleLiAdd(key) { if(!state.liAdds) state.liAdds={}; state.liAdds[key]=!state.liAdds[key]; saveState(); renderTargets(); }
+function toggleLiAdd(key) { if(!state.liAdds) state.liAdds={}; state.liAdds[key]=!state.liAdds[key]; if(state.liAdds[key]) recordActivity(); saveState(); renderTargets(); }
 
 function getDayComp(w,d) { const day=DATA.weeks[w].days[d]; let tot=day.tasks.length,done=day.tasks.filter((_,t)=>isChecked(w,d,t)).length; return {tot,done,pct:tot?Math.round(done/tot*100):0}; }
 function getWeekComp(w) { let tot=0,done=0; DATA.weeks[w].days.forEach((day,d)=>{ day.tasks.forEach((_,t)=>{ tot++; if(isChecked(w,d,t)) done++; }); }); return {tot,done,pct:tot?Math.round(done/tot*100):0}; }
 function getTotalComp() { let tot=0,done=0; DATA.weeks.forEach((wk,w)=>{ wk.days.forEach((day,d)=>{ day.tasks.forEach((_,t)=>{ tot++; if(isChecked(w,d,t)) done++; }); }); }); return {tot,done,pct:tot?Math.round(done/tot*100):0}; }
-function getStreak() { let s=0; for(let w=0;w<DATA.weeks.length;w++) for(let d=0;d<DATA.weeks[w].days.length;d++) { if(getDayComp(w,d).pct===100) s++; else return s; } return s; }
+function recordActivity() {
+  const today = new Date().toISOString().slice(0,10);
+  if(!state._activityDates) state._activityDates = [];
+  if(!state._activityDates.includes(today)) { state._activityDates.push(today); state._activityDates.sort(); }
+  saveState();
+}
+
+function getStreak() {
+  if(!state._activityDates || !state._activityDates.length) return 0;
+  const dates = [...state._activityDates].sort().reverse();
+  const today = new Date(); today.setHours(0,0,0,0);
+  const yesterday = new Date(today); yesterday.setDate(yesterday.getDate()-1);
+  const latest = new Date(dates[0]+'T00:00:00'); latest.setHours(0,0,0,0);
+  if(latest < yesterday) return 0;
+  let streak = 1;
+  for(let i=0; i<dates.length-1; i++) {
+    const d1 = new Date(dates[i]+'T00:00:00'), d2 = new Date(dates[i+1]+'T00:00:00');
+    const diff = Math.round((d1-d2)/(1000*60*60*24));
+    if(diff===1) streak++; else break;
+  }
+  return streak;
+}
 
 
 // ═══════════════════════════════════════════════════════
@@ -556,11 +592,31 @@ function switchTab(tab) {
 // ═══════════════════════════════════════════════════════
 function render() {
   document.getElementById('streakCount').textContent = getStreak();
+  renderTimeline();
   if (currentTab==='playbook') renderPlaybook();
   else if (currentTab==='targets') renderTargets();
   else if (currentTab==='linkedin') renderLinkedIn();
   else if (currentTab==='submissions') renderSubmissions();
   else if (currentTab==='strategy') renderStrategy();
+}
+
+// ─── TIMELINE ───
+function renderTimeline() {
+  const bar = document.getElementById('timelineBar');
+  if(!bar) return;
+  const total = getTotalComp();
+  let h = '';
+  DATA.weeks.forEach((wk, w) => {
+    const c = getWeekComp(w);
+    const color = c.pct===100 ? 'var(--green)' : c.pct>0 ? 'linear-gradient(90deg,var(--accent2),var(--accent))' : 'var(--dim)';
+    const bg = c.pct===100 ? 'var(--green)' : color;
+    h += '<div class="timeline-week"><div class="tw-label"><span>W'+(w+1)+'</span><b>'+c.done+'/'+c.tot+'</b></div>';
+    h += '<div class="tw-bar"><div class="tw-fill" style="width:'+c.pct+'%;background:'+bg+'"></div></div>';
+    if(c.pct===100) h += '<div class="tw-check">\u2713</div>';
+    h += '</div>';
+  });
+  h += '<div class="timeline-total"><div class="tt-pct">'+total.pct+'%</div><div class="tt-label">COMPLETE</div></div>';
+  bar.innerHTML = h;
 }
 
 // ─── PLAYBOOK ───
@@ -844,8 +900,17 @@ function copyText(btn, text) {
   setTimeout(() => btn.textContent = orig, 1500);
 }
 
-// ─── INIT ───
-render();
+// ─── INIT: auto-expand to resume point ───
+(function autoExpand() {
+  for(let w=0; w<DATA.weeks.length; w++) {
+    for(let d=0; d<DATA.weeks[w].days.length; d++) {
+      const comp = getDayComp(w,d);
+      if(comp.pct < 100) { currentWeek=w; currentDay=d; render(); return; }
+    }
+  }
+  currentWeek=0; currentDay=0;
+  render();
+})();
 </script>
 </body>
 </html>
