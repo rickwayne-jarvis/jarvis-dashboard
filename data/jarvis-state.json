@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-04-26T11:41:00Z",
-  "status_line": "Sunday 11:41 AM UTC — System holding steady. SARAH just ran (Run 108) — Downloads still clean, two new duplicate pairs flagged for review. GUARDIAN is at 29 missed cycles and still blocking Gallery and T2 delivery. Lands' End deadline is April 30 — three days out. ATLAS runs at 1 PM. SCOUT git push still needs a manual run from Rick.",
+  "updated_at": "2026-04-26T12:40:00Z",
+  "status_line": "Sunday 12:40 PM UTC — SARAH just finished Run 109: Documents clean, 1 new file filed (today's morning brief), 48 confirmed duplicates — ready to clear on your go. GUARDIAN is at 30 missed cycles, still blocking Gallery and T2 delivery. Lands' End is 4 days out. ATLAS comes online in about 25 minutes. Everything else is holding.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apr 26 sweep: 1 new prospect added — J.M. Smucker Co. (Jif, Folgers, Milk-Bone, Uncrustables). CMO Katie Williams, 48 days in, 90-day window closes ~June 9. Git commit staged locally; push requires manual credentials.",
-      "last_run": "1h 34m ago",
+      "last_run": "2h 33m ago",
       "color": "teal"
     },
     {
@@ -33,16 +33,16 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 108: Downloads empty, output clean. 2 new duplicate pairs flagged — sharpie-maestro-wymi-rooftop-scene-v1/v2.md. PPTX duplicates (148 MB freeable) still awaiting Rick's go-ahead. Logged to sarah-log.md.",
-      "last_run": "37 min ago",
+      "last_action": "Run 109: Downloads not mounted (add to Cowork to fix). Documents: 49 JARVIS files found — 1 new morning brief filed to output/. 48 confirmed duplicates in ~/Documents — all hashes match output/. No deletions; awaiting Rick's go-ahead to clear 148 MB of PPTX duplicates.",
+      "last_run": "36 min ago",
       "color": "teal"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 25 report: Gallery 9.0 locked, 13 new files since Apr 24. Dependency graph: PERSONA ✅ → SCOUT ✅ → MAESTRO ✅ → PARK ⚠️ → NOLAN 🔴 → GUARDIAN 🔴. 6 renders need review.",
-      "last_run": "~22h ago",
-      "color": "teal"
+      "last_run": "~23h ago",
+      "color": "amber"
     },
     {
       "name": "NOLAN",
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 29th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "29 cycles ago",
+      "last_action": "No activity — 30th consecutive missed cycle. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
+      "last_run": "30 cycles ago",
       "color": "dim"
     },
     {
@@ -75,9 +75,21 @@
   ],
   "activity": [
     {
+      "time": "12:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — hourly state update. SARAH Run 109 confirmed: 49 JARVIS files in Documents, all matched to output/. 1 new brief filed.",
+      "color": "blue"
+    },
+    {
+      "time": "12:04 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 109 complete. Documents: 49 JARVIS files found, 48 confirmed duplicates. 1 new file filed (morning brief). Downloads folder not mounted — add to Cowork to enable sweep.",
+      "color": "teal"
+    },
+    {
       "time": "11:41 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — hourly state update. SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles.",
+      "text": "Dashboard push — SARAH Run 108 confirmed clean. GUARDIAN at 29 missed cycles. Stale git lock cleared before push.",
       "color": "blue"
     },
     {
@@ -121,24 +133,12 @@
       "agent": "ATLAS",
       "text": "Nightly report: Gallery 9.0 locked. T2 cleared. GUARDIAN 28 cycles dark flagged.",
       "color": "teal"
-    },
-    {
-      "time": "Apr 25 afternoon",
-      "agent": "TESTING",
-      "text": "Gallery of Ordinary Masterpieces final score: 9.0/10. Titanium Grand Prix ceiling confirmed.",
-      "color": "teal"
-    },
-    {
-      "time": "Apr 25 afternoon",
-      "agent": "MAESTRO",
-      "text": "Gallery Gold Package complete — doorframe hero, Alma Har'el Version B treatment delivered.",
-      "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "Lands' End / Sarah Sylvester — April 30 deadline",
-      "subtitle": "3 days out. Outreach window active now. Draft is in output/2026-04-16_rick-wayne-director/.",
+      "subtitle": "4 days out. Outreach window active now. Draft is in output/2026-04-16_rick-wayne-director/.",
       "severity": "red"
     },
     {
@@ -147,9 +147,19 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN — 29 missed cycles",
+      "title": "GUARDIAN — 30 missed cycles",
       "subtitle": "Blocking Gallery and T2 client delivery. One session clears it.",
       "severity": "red"
+    },
+    {
+      "title": "SARAH: Downloads folder not connected",
+      "subtitle": "Add ~/Downloads as a Cowork workspace folder so SARAH can sweep it automatically.",
+      "severity": "amber"
+    },
+    {
+      "title": "SARAH: 148 MB PPTX duplicates awaiting permission",
+      "subtitle": "All hashes confirmed matched. One word from Rick and SARAH clears them.",
+      "severity": "amber"
     },
     {
       "title": "Macy's — Q2 window opening now",
@@ -173,23 +183,27 @@
     }
   ],
   "stats": {
-    "tasks_today": 7,
+    "tasks_today": 8,
     "top_score": 9.0,
     "prospects": 12,
-    "files_swept": 108
+    "files_swept": 109
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "12:04 PM UTC"
+      "next_run": "1:04 PM UTC"
     },
     {
       "name": "ATLAS dependency check",
-      "next_run": "1:04 PM UTC today"
+      "next_run": "1:04 PM UTC (overdue — running shortly)"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "1:39 PM UTC"
     },
     {
       "name": "Nightly status report",
-      "next_run": "7:04 PM UTC today"
+      "next_run": "7:04 PM UTC"
     },
     {
       "name": "Receipt filer (BLOCKED — RAID)",
@@ -202,10 +216,6 @@
     {
       "name": "Morning priorities",
       "next_run": "6:06 AM UTC tomorrow"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "12:39 PM UTC"
     }
   ]
 }
