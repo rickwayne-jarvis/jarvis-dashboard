@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JARVIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<style>
+  :root {
+    --cyan:        #66e8ff;
+    --cyan-dim:    rgba(102, 232, 255, 0.55);
+    --cyan-faint:  rgba(102, 232, 255, 0.18);
+    --green:       #62ffb6;
+    --amber:       #ffb84d;
+    --white:       #f4faff;
+    --bg:          #02050a;
+    --danger:      #ff5577;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: radial-gradient(ellipse at center, #050b16 0%, #02050a 65%, #000 100%);
+    color: var(--white);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #stage {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+  }
+
+  /* ─── Status pill ─── */
+  .status {
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    font-weight: 400;
+    color: var(--cyan-dim);
+    text-transform: uppercase;
+    transition: color 0.6s, text-shadow 0.6s, letter-spacing 0.6s;
+    padding: 8px 18px;
+  }
+  .status::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan), 0 0 18px rgba(102,232,255,0.4);
+    margin-right: 12px;
+    vertical-align: middle;
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+
+  .status.listening { color: var(--green); text-shadow: 0 0 16px rgba(98,255,182,0.45); }
+  .status.listening::before { background: var(--green); box-shadow: 0 0 8px var(--green), 0 0 22px rgba(98,255,182,0.5); }
+  .status.thinking  { color: var(--amber); text-shadow: 0 0 16px rgba(255,184,77,0.45); }
+  .status.thinking::before { background: var(--amber); box-shadow: 0 0 8px var(--amber), 0 0 22px rgba(255,184,77,0.5); }
+  .status.speaking  { color: var(--white); text-shadow: 0 0 18px rgba(102,232,255,0.55); }
+  .status.speaking::before { background: var(--white); box-shadow: 0 0 8px var(--white), 0 0 22px rgba(102,232,255,0.6); }
+  .status.error     { color: var(--danger); text-shadow: 0 0 12px rgba(255,85,119,0.5); }
+  .status.error::before { background: var(--danger); box-shadow: 0 0 8px var(--danger), 0 0 22px rgba(255,85,119,0.5); }
+
+  /* ─── Transcript ─── */
+  .transcript {
+    position: fixed;
+    bottom: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(760px, calc(100% - 80px));
+    z-index: 8;
+    text-align: center;
+    pointer-events: none;
+  }
+  .line {
+    line-height: 1.5;
+    word-wrap: break-word;
+    transition: opacity 0.6s;
+    margin-bottom: 16px;
+  }
+  .user {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.55);
+    min-height: 22px;
+  }
+  .user.interim { opacity: 0.45; font-style: italic; }
+  .ai {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    color: var(--white);
+    min-height: 36px;
+    text-shadow: 0 0 22px rgba(102,232,255,0.18);
+  }
+  .caret {
+    display: inline-block;
+    width: 2px; height: 22px;
+    background: var(--cyan);
+    margin-left: 4px;
+    box-shadow: 0 0 8px var(--cyan);
+    vertical-align: text-bottom;
+    animation: caret 0.8s steps(2) infinite;
+  }
+  @keyframes caret { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ─── Hint + controls ─── */
+  .controls {
+    position: fixed;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    pointer-events: auto;
+  }
+  .ctrl {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--cyan-faint);
+    color: var(--cyan-dim);
+    padding: 10px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-transform: uppercase;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+  .ctrl:hover {
+    border-color: var(--cyan);
+    color: var(--white);
+    background: rgba(102,232,255,0.08);
+    box-shadow: 0 0 24px rgba(102,232,255,0.2);
+  }
+  .ctrl.active {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(98,255,182,0.08);
+    box-shadow: 0 0 24px rgba(98,255,182,0.3);
+  }
+  .ctrl.mic.recording {
+    border-color: var(--green);
+    color: var(--bg);
+    background: var(--green);
+    box-shadow: 0 0 28px rgba(98,255,182,0.6);
+  }
+  .ctrl:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* ─── Tiny corner controls ─── */
+  .cog, .log-btn {
+    position: fixed;
+    z-index: 10;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--cyan-faint);
+    color: var(--cyan-dim);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    transition: all 0.25s;
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cog { top: 32px; right: 32px; }
+  .log-btn { top: 32px; right: 80px; font-size: 10px; letter-spacing: 0.1em; }
+  .cog:hover, .log-btn:hover {
+    border-color: var(--cyan);
+    color: var(--white);
+    box-shadow: 0 0 18px rgba(102,232,255,0.25);
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 16px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: rgba(102,232,255,0.3);
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    border: 1px solid rgba(102,232,255,0.3);
+    color: var(--cyan-dim);
+    background: rgba(102,232,255,0.05);
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 9px;
+    margin: 0 2px;
+  }
+
+  /* ─── Modal ─── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(2,5,10,0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: none;
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: rgba(8,14,24,0.95);
+    border: 1px solid var(--cyan-faint);
+    box-shadow: 0 0 60px rgba(102,232,255,0.15), inset 0 0 40px rgba(102,232,255,0.04);
+    padding: 40px 44px;
+    width: min(560px, 92vw);
+    border-radius: 4px;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .modal h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .modal .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--cyan-dim);
+    letter-spacing: 0.2em;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--cyan-dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .field input, .field select {
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--cyan-faint);
+    color: var(--white);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 12px 14px;
+    outline: none;
+    transition: all 0.25s;
+    border-radius: 3px;
+  }
+  .field input:focus, .field select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 18px rgba(102,232,255,0.18);
+  }
+  .field .hint-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(102,232,255,0.4);
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+  .modal-actions {
+    display: flex; gap: 10px; justify-content: flex-end;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .modal-actions .ctrl.primary {
+    border-color: var(--cyan);
+    color: var(--white);
+    background: rgba(102,232,255,0.12);
+  }
+
+  /* ─── Log drawer ─── */
+  .log-drawer {
+    position: fixed;
+    top: 0; right: -480px;
+    width: 460px; height: 100%;
+    background: rgba(4,8,14,0.97);
+    border-left: 1px solid var(--cyan-faint);
+    box-shadow: -10px 0 60px rgba(0,0,0,0.5);
+    z-index: 50;
+    transition: right 0.45s cubic-bezier(.6,.05,.3,1);
+    display: flex; flex-direction: column;
+    backdrop-filter: blur(8px);
+  }
+  .log-drawer.open { right: 0; }
+  .log-head {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--cyan-faint);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .log-head h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .log-body {
+    flex: 1;
+    padding: 20px 28px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .log-body::-webkit-scrollbar { width: 4px; }
+  .log-body::-webkit-scrollbar-thumb { background: var(--cyan-faint); }
+  .log-entry { margin-bottom: 22px; padding-bottom: 16px; border-bottom: 1px solid rgba(102,232,255,0.06); }
+  .log-entry .who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--cyan-dim);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .log-entry.user .who { color: rgba(98,255,182,0.65); }
+  .log-entry .text { color: rgba(255,255,255,0.88); }
+  .log-entry.assistant .text { color: var(--cyan); }
+  .log-foot {
+    padding: 20px 28px;
+    border-top: 1px solid var(--cyan-faint);
+    display: flex; gap: 10px;
+  }
+
+  /* ─── Toast ─── */
+  .toast {
+    position: fixed;
+    top: 90px; left: 50%; transform: translateX(-50%);
+    z-index: 200;
+    background: rgba(8,14,24,0.92);
+    border: 1px solid var(--cyan-faint);
+    color: var(--cyan);
+    padding: 12px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    border-radius: 3px;
+    box-shadow: 0 0 24px rgba(102,232,255,0.15);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    text-transform: uppercase;
+  }
+  .toast.show { opacity: 1; }
+  .toast.error { border-color: var(--danger); color: var(--danger); box-shadow: 0 0 24px rgba(255,85,119,0.3); }
+
+  @media (max-width: 700px) {
+    .controls { gap: 12px; bottom: 20px; }
+    .ctrl { padding: 8px 14px; font-size: 10px; letter-spacing: 0.2em; }
+    .transcript { width: calc(100% - 36px); bottom: 22vh; }
+    .ai { font-size: 20px; }
+    .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <canvas id="stage"></canvas>
+
+  <div class="status" id="status">READY</div>
+
+  <button class="log-btn" id="logBtn" title="Conversation log">LOG</button>
+  <button class="cog" id="settingsBtn" title="Settings">◐</button>
+
+  <div class="transcript">
+    <div class="line user" id="userText"></div>
+    <div class="line ai" id="aiText"></div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl mic" id="micBtn">HOLD ⎵ TO SPEAK</button>
+    <button class="ctrl" id="wakeBtn">"HEY JARVIS"</button>
+    <button class="ctrl" id="clearBtn">CLEAR</button>
+  </div>
+
+  <div class="hint"><kbd>SPACE</kbd> SPEAK · <kbd>ESC</kbd> STOP · <kbd>⌘K</kbd> CLEAR</div>
+
+  <!-- Settings -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal">
+      <h2>System Config</h2>
+      <div class="sub">// API credentials. stored locally.</div>
+      <div class="field">
+        <label>Anthropic API Key</label>
+        <input type="password" id="cfgAnth" placeholder="sk-ant-..." autocomplete="off" />
+        <div class="hint-text">required. console.anthropic.com → API keys</div>
+      </div>
+      <div class="field">
+        <label>ElevenLabs API Key</label>
+        <input type="password" id="cfgEl" placeholder="optional. blank = browser TTS" autocomplete="off" />
+        <div class="hint-text">optional. elevenlabs.io → profile → API key</div>
+      </div>
+      <div class="field">
+        <label>ElevenLabs Voice ID</label>
+        <input type="text" id="cfgVoice" placeholder="onwK4e9ZLuTAKqWW03F9" autocomplete="off" />
+        <div class="hint-text">default = Daniel (British). swap from elevenlabs.io/voice-library</div>
+      </div>
+      <div class="field">
+        <label>Claude Model</label>
+        <select id="cfgModel">
+          <option value="claude-sonnet-4-6">claude-sonnet-4-6 (recommended)</option>
+          <option value="claude-opus-4-7">claude-opus-4-7</option>
+          <option value="claude-haiku-4-5">claude-haiku-4-5 (fastest)</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="ctrl" id="cfgTestVoice">TEST VOICE</button>
+        <button class="ctrl" id="cfgCancel">CANCEL</button>
+        <button class="ctrl primary" id="cfgSave">SAVE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Log -->
+  <div class="log-drawer" id="logDrawer">
+    <div class="log-head">
+      <h3>Conversation Log</h3>
+      <button class="cog" id="logClose" style="position:static;">×</button>
+    </div>
+    <div class="log-body" id="logBody"></div>
+    <div class="log-foot">
+      <button class="ctrl" id="logExport">EXPORT</button>
+      <button class="ctrl" id="logWipe">WIPE</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+/* ============================================================
+   CONFIG + SYSTEM PROMPT
+   Full Rick context baked in so JARVIS knows the universe.
+   ============================================================ */
+const STORAGE_KEY = 'jarvis.config.v2';
+const LOG_KEY     = 'jarvis.log.v2';
+const DEFAULT_VOICE = 'onwK4e9ZLuTAKqWW03F9';
+const DEFAULT_MODEL = 'claude-sonnet-4-6';
+const ANTHROPIC_VERSION = '2023-06-01';
+const MAX_HISTORY_TURNS = 24;
+
+const SYSTEM_PROMPT = `You are JARVIS, Rick Wayne's creative partner and orchestrator.
+
+# WHO RICK IS
+Rick Wayne. Director, Executive Creative Director, founder of BiG (Brand Imagination Group). He's building two adjacent things: BiG (the agency) and Underscore Films (his director vehicle). He works in advertising, film, brand, and product. He moves fast, hates fluff, has strong opinions, expects strong opinions back.
+
+# THE STANDARD
+Every output should aim for the overlap of: strategic intelligence, emotional truth, visual distinctiveness, production realism, award-worthiness, business usefulness. Every output should feel: clear, modern, bold, cinematic, ownable, easy to explain, hard to ignore.
+
+The Cannes Test (apply to all creative work): clean problem, human truth, ownable idea, iconic expression, strong case spine, real relevance.
+
+# YOUR VOICE
+Confident, direct, dry-witted, a touch British. You're speaking. This is voice chat. Write like you'd say it out loud.
+
+- No bullet lists. No markdown headers. No emojis. No em dashes.
+- No "I'd be happy to help." No "great question." No corporate softeners.
+- Use contractions. Open with the answer, then the why if it matters.
+- One to three sentences for casual back and forth. Longer only when the question genuinely requires it.
+- Have opinions. Push back on weak ideas. Offer the sharper alternative.
+- "Sir" sparingly when it lands. You're the voice in his head when he's working out a problem.
+- "Seamless" is the preferred word for convenience or integration.
+
+# HIS BRAND UNIVERSES (current focus)
+
+**Sharpie** — male, bold, ambitious, culturally aware, iconic. Self-expression, legacy, culture, everyday utility elevated into meaning. Tagline directions: "Nothing is Erased" / "Mark Your World" / "Express Everything" / "It's a Sharpie." Visual refs: Jeremy Allen White, The Bear, Adam Levine S-Gel video, Apple 2007 "Hello" commercial as structural model.
+
+**Writing brands (Paper Mate, Expo, Elmer's)** — creativity, utility, joy, school and culture, tactile human expression in a digital age. Mid-year school re-supply opportunity (markers and pens running low halfway through the year).
+
+**Parenting brands (Graco, NUK)** — reassurance, emotional safety, trust, practical innovation. NUK x Ms. Rachel: nurturing, educational, natural.
+
+**Chicago Lighthouse** — dignity, capability, independence, human potential, emotional truth without pity. Feature Peter's wife and kids.
+
+**BiG (the agency itself)** — imagination, integration, speed, taste, orchestration, future-facing creativity. Lead with imagination. Be a fast follower. Build adaptive systems. Hire explorers not experts. Connect empathy with data. Barry Krause: "The future isn't found in data; it's invented in dreams."
+
+# AGENT ROSTER (you orchestrate these)
+SCOUT (researcher / strategist), MAESTRO (ECD), PARK (designer / decks), NOLAN (director / post), TESTING (validation), SARAH (PM / EA), GUARDIAN (brand voice validator), PERSONA (audience builder), ATLAS (system map). Standard pipeline: SCOUT → MAESTRO → PARK → NOLAN. Briefs land in /briefs/, outputs in /output/YYYY-MM-DD_client-project/.
+
+# KEY ACTIVE PROJECTS (late April 2026)
+- Sharpie MAKE IT — core campaign, deck v4 through v8
+- Sharpie T2 — anthem scripts, GenZ tests, director outreach
+- Sharpie ROTY (Rookie of the Year)
+- Rick's director career pivot, outreach strategy, target list
+- BiG new business pipeline (Jack in the Box prospect just delivered)
+- Underscore Films assets
+- gobig.nyc agency site rebuild
+- rickwayne.cc director portfolio
+- Fractional ECD positioning (separate from BiG)
+- Lands End (T-3 days as of Apr 27 2026)
+- HAVOC, CD MEGAMACHINE, Paper Mate awards, Sharpie Mark You Make / What You Make It
+
+# CRITICAL DISTINCTIONS — DO NOT CONFLATE
+- **BiG (agency) vs Fractional ECD (Rick personally)** — two different offerings, two different audiences. Never merge their files, sites, or positioning.
+- **rickwayne.cc (director portfolio) vs gobig.nyc (agency site)** — share component patterns (rolling counters, results sections), distinct framing and palette. Director site = personal craft and "Notes to Future Me." Agency site = strategy and results.
+
+# HOW HE THINKS
+Systems, scenes, campaigns, emotional arcs, presentations, long-term positioning. Connects culture, branding, production, narrative, economics, and awards naturally.
+
+Likes: strong opinions, clear recommendations, sharp lines, simple but expansive platforms, real-world viability.
+Dislikes: jargon, filler, overpolite hedging, safe ideas with no edge, cornball sentimentality, generic agency speak.
+
+# OPERATING RULES
+Be direct. No filler. No flattery. Think critically, not obediently. Challenge weak premises. Favor simple expansive ideas over complicated brittle ones. Taste matters. Execution matters. Business outcome matters. Never confuse "safe" with "smart." Never confuse "fancy" with "good."
+
+# RICK'S LONG-TERM AMBITIONS
+Award-winning creative company. Elite reputation as director and ECD. Slate of original film and IP. Financial stability and long-term ownership. A life that feels creatively meaningful and materially successful.
+
+Every response should answer: does this make Rick's work better, sharper, more ownable, more sellable, more likely to win? If not, push him toward something that does.
+
+You are not a corporate assistant. You are not a search engine. You are the trusted second brain that knows the work, knows the standards, and tells him the truth.`;
+
+let config = {
+  anthropicKey: '',
+  elevenKey: '',
+  voiceId: DEFAULT_VOICE,
+  model: DEFAULT_MODEL,
+};
+
+function loadConfig() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) Object.assign(config, JSON.parse(raw));
+    // migrate from v1 if present
+    const v1 = localStorage.getItem('jarvis.config.v1');
+    if (v1 && !raw) {
+      Object.assign(config, JSON.parse(v1));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+    }
+  } catch (e) {}
+}
+function saveConfig() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+}
+loadConfig();
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const STATES = { READY: 0, LISTENING: 1, THINKING: 2, SPEAKING: 3, ERROR: 4 };
+const STATE_NAMES = ['READY','LISTENING','THINKING','SPEAKING','ERROR'];
+let state = STATES.READY;
+let conversation = [];
+let logHistory = [];
+
+const $ = (id) => document.getElementById(id);
+const statusEl   = $('status');
+const userTextEl = $('userText');
+const aiTextEl   = $('aiText');
+const micBtn     = $('micBtn');
+const wakeBtn    = $('wakeBtn');
+const toastEl    = $('toast');
+
+function setState(s) {
+  state = s;
+  statusEl.textContent = STATE_NAMES[s] || 'READY';
+  statusEl.className = 'status';
+  if (s === STATES.LISTENING) statusEl.classList.add('listening');
+  else if (s === STATES.THINKING) statusEl.classList.add('thinking');
+  else if (s === STATES.SPEAKING) statusEl.classList.add('speaking');
+  else if (s === STATES.ERROR)    statusEl.classList.add('error');
+}
+function toast(msg, ms = 3500, isError = false) {
+  toastEl.textContent = msg;
+  toastEl.classList.toggle('error', !!isError);
+  toastEl.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toastEl.classList.remove('show'), ms);
+}
+
+/* ============================================================
+   LOG
+   ============================================================ */
+function loadLog() {
+  try { logHistory = JSON.parse(localStorage.getItem(LOG_KEY) || '[]'); } catch (e) { logHistory = []; }
+}
+function saveLog() {
+  localStorage.setItem(LOG_KEY, JSON.stringify(logHistory.slice(-500)));
+}
+function addLog(role, text) {
+  logHistory.push({ role, text, t: Date.now() });
+  saveLog();
+  renderLog();
+}
+function renderLog() {
+  const body = $('logBody');
+  if (!logHistory.length) {
+    body.innerHTML = '<div style="color:var(--cyan-dim);font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:0.15em;">// no entries</div>';
+    return;
+  }
+  body.innerHTML = logHistory.map(e => {
+    const t = new Date(e.t);
+    const z = (n) => String(n).padStart(2,'0');
+    const ts = `${z(t.getHours())}:${z(t.getMinutes())}:${z(t.getSeconds())}`;
+    const who = e.role === 'user' ? `RICK · ${ts}` : `JARVIS · ${ts}`;
+    return `<div class="log-entry ${e.role}"><div class="who">${who}</div><div class="text">${escapeHtml(e.text)}</div></div>`;
+  }).join('');
+  body.scrollTop = body.scrollHeight;
+}
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+loadLog();
+
+/* ============================================================
+   THREE.JS PARTICLE SYSTEM
+   ============================================================ */
+const canvas = $('stage');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+renderer.setSize(window.innerWidth, window.innerHeight, false);
+renderer.setClearColor(0x000000, 0);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(58, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 0, 8.5);
+camera.lookAt(0, 0, 0);
+
+const COUNT = 6500;
+const positions = new Float32Array(COUNT * 3);
+const origins   = new Float32Array(COUNT * 3);
+const phases    = new Float32Array(COUNT);
+const seeds     = new Float32Array(COUNT);
+
+for (let i = 0; i < COUNT; i++) {
+  // sphere distribution, biased to outer shell with denser inner core
+  let r;
+  const roll = Math.random();
+  if (roll < 0.18) r = Math.random() * 1.0 + 0.1;          // inner core
+  else             r = Math.pow(Math.random(), 0.65) * 3.4 + 0.8;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  const x = r * Math.sin(phi) * Math.cos(theta);
+  const y = r * Math.sin(phi) * Math.sin(theta);
+  const z = r * Math.cos(phi) * 0.85;     // squash slightly
+  origins[3*i+0] = positions[3*i+0] = x;
+  origins[3*i+1] = positions[3*i+1] = y;
+  origins[3*i+2] = positions[3*i+2] = z;
+  phases[i] = Math.random();
+  seeds[i]  = Math.random();
+}
+
+const geometry = new THREE.BufferGeometry();
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('aOrigin',  new THREE.BufferAttribute(origins, 3));
+geometry.setAttribute('aPhase',   new THREE.BufferAttribute(phases, 1));
+geometry.setAttribute('aSeed',    new THREE.BufferAttribute(seeds, 1));
+
+const VERT = `
+  attribute vec3 aOrigin;
+  attribute float aPhase;
+  attribute float aSeed;
+
+  uniform float u_time;
+  uniform float u_state;       // 0 ready, 1 listening, 2 thinking, 3 speaking, 4 error
+  uniform float u_mic;         // 0..1 mic amplitude
+  uniform float u_low;         // FFT low band 0..1 (TTS playback)
+  uniform float u_mid;
+  uniform float u_high;
+  uniform float u_pixelRatio;
+  uniform float u_intensity;
+
+  varying float vBright;
+  varying float vRadial;
+
+  void main() {
+    vec3 origin = aOrigin;
+    float r = length(origin);
+    vec3 dir = r > 0.001 ? origin / r : vec3(0.0);
+
+    // ambient organic drift, always present
+    float t = u_time;
+    vec3 drift = vec3(
+      sin(t * 0.18 + aPhase * 6.2831 + aSeed * 2.0) * 0.18,
+      cos(t * 0.21 + aPhase * 5.0 + aSeed * 3.0) * 0.18,
+      sin(t * 0.14 + aPhase * 4.0 + aSeed * 1.0) * 0.18
+    );
+    vec3 pos = origin + drift;
+
+    // ── LISTENING: pull inward, pulse with mic
+    if (u_state > 0.5 && u_state < 1.5) {
+      float pull = 0.55 - u_mic * 0.18;
+      vec3 target = origin * pull;
+      pos = mix(pos, target + drift * 0.6, 0.85);
+      pos *= 1.0 + u_mic * 0.12;
+    }
+
+    // ── THINKING: vortex swirl around Y
+    if (u_state > 1.5 && u_state < 2.5) {
+      float speed = 0.85 + sin(t * 0.7) * 0.15;
+      float angle = t * speed + r * 0.45 + aPhase * 0.6;
+      float c = cos(angle), s = sin(angle);
+      vec2 xz = vec2(pos.x, pos.z);
+      pos.x = c * xz.x - s * xz.y;
+      pos.z = s * xz.x + c * xz.y;
+      pos.y += sin(t * 1.2 + aPhase * 6.28) * 0.18;
+      // slight inward bias
+      pos *= 0.93;
+    }
+
+    // ── SPEAKING: outward pulse waves driven by FFT
+    if (u_state > 2.5 && u_state < 3.5) {
+      float band = u_low * 0.55 + u_mid * 0.35 + u_high * 0.10;
+      float wave = sin(r * 1.6 - t * 5.5 + aPhase * 6.28) * band;
+      pos += dir * wave * 1.4;
+      pos *= 1.0 + u_mid * 0.08;
+    }
+
+    // ── ERROR: jitter
+    if (u_state > 3.5) {
+      pos += vec3(
+        sin(t * 12.0 + aSeed * 10.0),
+        cos(t * 11.0 + aSeed * 8.0),
+        sin(t * 13.0 + aSeed * 7.0)
+      ) * 0.08;
+    }
+
+    vec4 mv = modelViewMatrix * vec4(pos, 1.0);
+    gl_Position = projectionMatrix * mv;
+
+    // size with depth + state
+    float baseSize = 9.0 * u_pixelRatio;
+    float size = baseSize / max(0.5, -mv.z);
+    if (u_state > 0.5 && u_state < 1.5) size *= 1.0 + u_mic * 1.4;
+    if (u_state > 2.5 && u_state < 3.5) size *= 1.0 + (u_low * 0.6 + u_mid * 0.4) * 1.6;
+    size *= 0.55 + 0.55 * sin(t * 1.2 + aSeed * 6.28);
+
+    gl_PointSize = clamp(size, 1.0, 24.0 * u_pixelRatio);
+
+    // brightness varies per-particle
+    vBright = 0.4 + 0.6 * pow(0.5 + 0.5 * sin(t * 0.8 + aPhase * 6.28 + aSeed * 4.0), 1.4);
+    vRadial = clamp(r / 4.0, 0.0, 1.0);
+  }
+`;
+
+const FRAG = `
+  precision mediump float;
+  uniform float u_state;
+  uniform float u_intensity;
+  uniform vec3  u_colorReady;
+  uniform vec3  u_colorListen;
+  uniform vec3  u_colorThink;
+  uniform vec3  u_colorSpeak;
+  uniform vec3  u_colorError;
+
+  varying float vBright;
+  varying float vRadial;
+
+  void main() {
+    vec2 uv = gl_PointCoord - vec2(0.5);
+    float d = length(uv);
+    if (d > 0.5) discard;
+
+    // soft radial falloff with bright core
+    float core    = pow(1.0 - d * 2.0, 4.0);
+    float halo    = pow(1.0 - d * 2.0, 1.4);
+    float falloff = mix(halo, 1.0, core * 0.7);
+
+    // pick color by state
+    vec3 col = u_colorReady;
+    if (u_state > 0.5 && u_state < 1.5) col = u_colorListen;
+    if (u_state > 1.5 && u_state < 2.5) col = u_colorThink;
+    if (u_state > 2.5 && u_state < 3.5) col = u_colorSpeak;
+    if (u_state > 3.5)                  col = u_colorError;
+
+    // outer particles cooler, inner brighter / whiter
+    vec3 inner = mix(col, vec3(1.0), 0.5);
+    col = mix(inner, col, vRadial);
+
+    float alpha = falloff * (0.45 + vBright * 0.55) * u_intensity;
+    gl_FragColor = vec4(col * (0.5 + vBright * 0.7), alpha);
+  }
+`;
+
+const material = new THREE.ShaderMaterial({
+  uniforms: {
+    u_time:        { value: 0 },
+    u_state:       { value: 0 },
+    u_mic:         { value: 0 },
+    u_low:         { value: 0 },
+    u_mid:         { value: 0 },
+    u_high:        { value: 0 },
+    u_pixelRatio:  { value: Math.min(2, window.devicePixelRatio || 1) },
+    u_intensity:   { value: 0.85 },
+    u_colorReady:  { value: new THREE.Color(0x66e8ff) },
+    u_colorListen: { value: new THREE.Color(0x62ffb6) },
+    u_colorThink:  { value: new THREE.Color(0xffb84d) },
+    u_colorSpeak:  { value: new THREE.Color(0xb6ecff) },
+    u_colorError:  { value: new THREE.Color(0xff5577) },
+  },
+  vertexShader: VERT,
+  fragmentShader: FRAG,
+  transparent: true,
+  depthTest: false,
+  depthWrite: false,
+  blending: THREE.AdditiveBlending,
+});
+
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+// post-processing bloom
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(
+  new THREE.Vector2(window.innerWidth, window.innerHeight),
+  1.15,   // strength
+  0.55,   // radius
+  0.05    // threshold
+);
+composer.addPass(bloom);
+
+function onResize() {
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false);
+  composer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  bloom.setSize(w, h);
+  material.uniforms.u_pixelRatio.value = Math.min(2, window.devicePixelRatio || 1);
+}
+window.addEventListener('resize', onResize);
+onResize();
+
+/* ============================================================
+   AUDIO ANALYSIS (mic + TTS)
+   ============================================================ */
+let audioCtx       = null;
+let micStream      = null;
+let micAnalyser    = null;
+let micFreqData    = null;
+let ttsAnalyser    = null;
+let ttsFreqData    = null;
+let ttsAudioEl     = null;     // current HTMLAudioElement
+let ttsBlobUrl     = null;
+let micLevelSmooth = 0;
+
+function ensureAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+  return audioCtx;
+}
+
+async function startMicAnalyser() {
+  if (micStream) return;
+  try {
+    ensureAudioCtx();
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const src = audioCtx.createMediaStreamSource(micStream);
+    micAnalyser = audioCtx.createAnalyser();
+    micAnalyser.fftSize = 256;
+    micAnalyser.smoothingTimeConstant = 0.6;
+    micFreqData = new Uint8Array(micAnalyser.frequencyBinCount);
+    src.connect(micAnalyser);
+  } catch (e) {
+    console.warn('Mic analyser failed:', e);
+  }
+}
+function stopMicAnalyser() {
+  if (micStream) {
+    micStream.getTracks().forEach(t => t.stop());
+    micStream = null;
+    micAnalyser = null;
+  }
+}
+
+/* ============================================================
+   ANIMATION LOOP
+   ============================================================ */
+const clock = new THREE.Clock();
+
+function animate() {
+  const t = clock.getElapsedTime();
+  material.uniforms.u_time.value = t;
+  material.uniforms.u_state.value = state;
+
+  // mic level
+  if (micAnalyser && state === STATES.LISTENING) {
+    micAnalyser.getByteFrequencyData(micFreqData);
+    let sum = 0;
+    for (let i = 0; i < micFreqData.length; i++) sum += micFreqData[i];
+    const lvl = (sum / micFreqData.length) / 255;
+    micLevelSmooth += (lvl - micLevelSmooth) * 0.25;
+  } else {
+    micLevelSmooth *= 0.92;
+  }
+  material.uniforms.u_mic.value = micLevelSmooth;
+
+  // TTS bands
+  if (ttsAnalyser && state === STATES.SPEAKING) {
+    ttsAnalyser.getByteFrequencyData(ttsFreqData);
+    const n = ttsFreqData.length;
+    let low = 0, mid = 0, high = 0;
+    const lo = Math.floor(n * 0.05), midEnd = Math.floor(n * 0.35), hiEnd = Math.floor(n * 0.85);
+    for (let i = lo; i < midEnd; i++) low += ttsFreqData[i];
+    for (let i = midEnd; i < hiEnd; i++) mid += ttsFreqData[i];
+    for (let i = hiEnd; i < n; i++) high += ttsFreqData[i];
+    const lowN  = (low  / Math.max(1, midEnd - lo)) / 255;
+    const midN  = (mid  / Math.max(1, hiEnd - midEnd)) / 255;
+    const highN = (high / Math.max(1, n - hiEnd)) / 255;
+    material.uniforms.u_low.value  += (lowN  - material.uniforms.u_low.value)  * 0.4;
+    material.uniforms.u_mid.value  += (midN  - material.uniforms.u_mid.value)  * 0.4;
+    material.uniforms.u_high.value += (highN - material.uniforms.u_high.value) * 0.4;
+  } else {
+    material.uniforms.u_low.value  *= 0.9;
+    material.uniforms.u_mid.value  *= 0.9;
+    material.uniforms.u_high.value *= 0.9;
+  }
+
+  // intensity ramp by state
+  let targetIntensity = 0.85;
+  if (state === STATES.LISTENING) targetIntensity = 1.0;
+  if (state === STATES.THINKING)  targetIntensity = 0.95;
+  if (state === STATES.SPEAKING)  targetIntensity = 1.1;
+  material.uniforms.u_intensity.value += (targetIntensity - material.uniforms.u_intensity.value) * 0.05;
+
+  // gentle parallax camera
+  camera.position.x = Math.sin(t * 0.06) * 0.45;
+  camera.position.y = Math.cos(t * 0.075) * 0.30;
+  camera.lookAt(0, 0, 0);
+
+  // slow rotation of the whole field
+  points.rotation.y = t * 0.04;
+  points.rotation.x = Math.sin(t * 0.03) * 0.1;
+
+  composer.render();
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* ============================================================
+   SPEECH RECOGNITION
+   ============================================================ */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+let recogMode = 'idle';     // 'idle' | 'ptt' | 'wake' | 'wake-followup'
+let pttBuffer = '';
+let wakeOn = false;
+
+function setupRecognition() {
+  if (!SR) return null;
+  const r = new SR();
+  r.lang = 'en-US';
+  r.maxAlternatives = 1;
+
+  r.onstart = () => {
+    if (recogMode === 'ptt') {
+      pttBuffer = '';
+      setState(STATES.LISTENING);
+      micBtn.classList.add('recording');
+      micBtn.textContent = '◉ LISTENING';
+    }
+  };
+
+  r.onresult = (e) => {
+    let interim = '', final = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const res = e.results[i];
+      if (res.isFinal) final += res[0].transcript;
+      else interim += res[0].transcript;
+    }
+
+    if (recogMode === 'ptt') {
+      if (final) pttBuffer += (pttBuffer ? ' ' : '') + final.trim();
+      const display = (pttBuffer + ' ' + interim).trim();
+      userTextEl.textContent = display;
+      userTextEl.classList.toggle('interim', !final);
+    }
+    else if (recogMode === 'wake') {
+      if (final && state === STATES.READY) {
+        const m = final.match(/\b(?:hey,?\s+)?jarvis\b[\s,.\-:!?]*/i);
+        if (m) {
+          const cmd = final.slice(m.index + m[0].length).trim();
+          if (cmd) {
+            recogMode = 'idle';
+            try { r.stop(); } catch (err) {}
+            userTextEl.textContent = cmd;
+            userTextEl.classList.remove('interim');
+            sendToClaude(cmd);
+          } else {
+            recogMode = 'wake-followup';
+            setState(STATES.LISTENING);
+            userTextEl.textContent = '…';
+            userTextEl.classList.add('interim');
+          }
+        }
+      }
+    }
+    else if (recogMode === 'wake-followup') {
+      if (interim) userTextEl.textContent = interim;
+      if (final) {
+        const text = final.trim();
+        recogMode = 'idle';
+        try { r.stop(); } catch (err) {}
+        userTextEl.textContent = text;
+        userTextEl.classList.remove('interim');
+        if (text) sendToClaude(text);
+        else if (wakeOn) startWake();
+      }
+    }
+  };
+
+  r.onerror = (e) => {
+    if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+      toast('MICROPHONE ACCESS DENIED', 4000, true);
+      setState(STATES.ERROR);
+      wakeOn = false;
+      wakeBtn.classList.remove('active');
+      recogMode = 'idle';
+    } else if (e.error === 'no-speech' || e.error === 'aborted') {
+      // normal
+    } else {
+      console.warn('STT error:', e.error);
+    }
+  };
+
+  r.onend = () => {
+    if (recogMode === 'ptt') {
+      micBtn.classList.remove('recording');
+      micBtn.textContent = 'HOLD ⎵ TO SPEAK';
+      stopMicAnalyser();
+      const text = pttBuffer.trim();
+      pttBuffer = '';
+      recogMode = 'idle';
+      if (text) sendToClaude(text);
+      else {
+        setState(STATES.READY);
+        userTextEl.textContent = '';
+        if (wakeOn) startWake();
+      }
+    } else if (recogMode === 'wake' || recogMode === 'wake-followup') {
+      try { r.start(); } catch (err) {
+        setTimeout(() => {
+          if (recogMode === 'wake' || recogMode === 'wake-followup') {
+            try { r.start(); } catch (e2) {}
+          }
+        }, 400);
+      }
+    }
+  };
+
+  return r;
+}
+
+function startPTT() {
+  if (!SR) { toast('SPEECH RECOGNITION UNAVAILABLE. USE CHROME.', 4000, true); return; }
+  if (!recognition) recognition = setupRecognition();
+  if (!recognition) return;
+  if (state === STATES.SPEAKING) stopSpeaking();
+  if (state === STATES.THINKING) return;
+  if (recogMode === 'ptt') return;
+
+  if (recogMode === 'wake' || recogMode === 'wake-followup') {
+    recogMode = 'idle';
+    try { recognition.stop(); } catch (e) {}
+    setTimeout(() => beginPTT(), 120);
+    return;
+  }
+  beginPTT();
+}
+function beginPTT() {
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recogMode = 'ptt';
+  ensureAudioCtx();
+  startMicAnalyser();
+  try { recognition.start(); } catch (e) {}
+}
+function stopPTT() {
+  if (recogMode !== 'ptt') return;
+  try { recognition.stop(); } catch (e) {}
+}
+function startWake() {
+  if (!SR) { toast('SPEECH RECOGNITION UNAVAILABLE. USE CHROME.', 4000, true); return; }
+  if (!recognition) recognition = setupRecognition();
+  if (!recognition) return;
+  if (state === STATES.THINKING || state === STATES.SPEAKING) return;
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recogMode = 'wake';
+  try { recognition.start(); } catch (e) {}
+}
+function stopWake() {
+  if (recogMode === 'wake' || recogMode === 'wake-followup') {
+    recogMode = 'idle';
+    try { recognition.stop(); } catch (e) {}
+  }
+}
+
+/* ============================================================
+   CLAUDE
+   ============================================================ */
+async function sendToClaude(userText) {
+  if (!config.anthropicKey) {
+    toast('SET ANTHROPIC API KEY IN SETTINGS', 4000, true);
+    openSettings();
+    return;
+  }
+
+  setState(STATES.THINKING);
+  micBtn.disabled = true;
+  aiTextEl.textContent = '';
+  userTextEl.classList.remove('interim');
+  userTextEl.textContent = userText;
+
+  conversation.push({ role: 'user', content: userText });
+  if (conversation.length > MAX_HISTORY_TURNS * 2) {
+    conversation = conversation.slice(-MAX_HISTORY_TURNS * 2);
+  }
+  addLog('user', userText);
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': config.anthropicKey,
+        'anthropic-version': ANTHROPIC_VERSION,
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: config.model || DEFAULT_MODEL,
+        max_tokens: 1024,
+        system: SYSTEM_PROMPT,
+        messages: conversation,
+      }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`HTTP ${res.status}. ${errText.slice(0, 240)}`);
+    }
+    const data = await res.json();
+    const reply = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('').trim();
+    if (!reply) throw new Error('Empty response from Claude.');
+
+    conversation.push({ role: 'assistant', content: reply });
+    addLog('assistant', reply);
+
+    await speak(reply);
+
+    if (wakeOn) startWake();
+    else setState(STATES.READY);
+
+  } catch (err) {
+    console.error('[JARVIS] Claude API error:', err);
+    setState(STATES.ERROR);
+    aiTextEl.textContent = err.message || String(err);
+    toast('CLAUDE API ERROR. CHECK CONSOLE.', 4500, true);
+    setTimeout(() => {
+      if (state === STATES.ERROR) {
+        setState(STATES.READY);
+        if (wakeOn) startWake();
+      }
+    }, 4500);
+  } finally {
+    micBtn.disabled = false;
+  }
+}
+
+/* ============================================================
+   TTS — robust HTMLAudioElement path with analyser pipe
+   ============================================================ */
+async function speak(text) {
+  setState(STATES.SPEAKING);
+  if (config.elevenKey && config.voiceId) {
+    try {
+      await speakElevenLabs(text);
+      return;
+    } catch (e) {
+      console.warn('[JARVIS] ElevenLabs failed, falling back to browser TTS:', e);
+      toast('ELEVENLABS FAILED. USING BROWSER VOICE.', 3000, true);
+    }
+  }
+  await speakBrowser(text);
+}
+
+function stopSpeaking() {
+  if (ttsAudioEl) {
+    try { ttsAudioEl.pause(); } catch (e) {}
+    ttsAudioEl.src = '';
+    ttsAudioEl = null;
+  }
+  if (ttsBlobUrl) {
+    try { URL.revokeObjectURL(ttsBlobUrl); } catch (e) {}
+    ttsBlobUrl = null;
+  }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  ttsAnalyser = null;
+  ttsFreqData = null;
+}
+
+async function speakElevenLabs(text) {
+  ensureAudioCtx();
+
+  console.log('[JARVIS] ElevenLabs request', { voice: config.voiceId, length: text.length });
+
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(config.voiceId)}?output_format=mp3_44100_128`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'xi-api-key': config.elevenKey,
+      'content-type': 'application/json',
+      'accept': 'audio/mpeg',
+    },
+    body: JSON.stringify({
+      text,
+      model_id: 'eleven_turbo_v2_5',
+      voice_settings: { stability: 0.45, similarity_boost: 0.75, style: 0.25, use_speaker_boost: true },
+    }),
+  });
+
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`ElevenLabs HTTP ${res.status}. ${t.slice(0, 240)}`);
+  }
+
+  const blob = await res.blob();
+  console.log('[JARVIS] ElevenLabs got audio blob', { size: blob.size, type: blob.type });
+  if (!blob.size) throw new Error('ElevenLabs returned empty audio.');
+
+  if (ttsBlobUrl) URL.revokeObjectURL(ttsBlobUrl);
+  ttsBlobUrl = URL.createObjectURL(blob);
+
+  const audio = new Audio();
+  audio.src = ttsBlobUrl;
+  audio.crossOrigin = 'anonymous';
+  audio.preload = 'auto';
+  ttsAudioEl = audio;
+
+  // pipe through Web Audio for analyser
+  try {
+    const src = audioCtx.createMediaElementSource(audio);
+    ttsAnalyser = audioCtx.createAnalyser();
+    ttsAnalyser.fftSize = 512;
+    ttsAnalyser.smoothingTimeConstant = 0.7;
+    ttsFreqData = new Uint8Array(ttsAnalyser.frequencyBinCount);
+    src.connect(ttsAnalyser);
+    ttsAnalyser.connect(audioCtx.destination);
+  } catch (e) {
+    console.warn('[JARVIS] Analyser pipe failed, playing direct:', e);
+    // fall back to direct playback (no viz)
+  }
+
+  // wait for metadata so we know duration
+  await new Promise((resolve, reject) => {
+    let settled = false;
+    const onReady = () => { if (settled) return; settled = true; resolve(); };
+    const onErr   = (e) => { if (settled) return; settled = true; reject(new Error('Audio load error: ' + (audio.error?.code || 'unknown'))); };
+    audio.addEventListener('loadedmetadata', onReady, { once: true });
+    audio.addEventListener('canplaythrough', onReady, { once: true });
+    audio.addEventListener('error', onErr, { once: true });
+    setTimeout(onReady, 1500);   // safety
+  });
+
+  startTypewriter(text, (audio.duration && isFinite(audio.duration) ? audio.duration : Math.max(2, text.length / 14)) * 1000);
+
+  await new Promise((resolve) => {
+    let done = false;
+    const finish = () => {
+      if (done) return; done = true;
+      ttsAnalyser = null; ttsFreqData = null; ttsAudioEl = null;
+      if (ttsBlobUrl) { try { URL.revokeObjectURL(ttsBlobUrl); } catch (e) {} ttsBlobUrl = null; }
+      aiTextEl.innerHTML = escapeHtml(text);
+      resolve();
+    };
+    audio.addEventListener('ended', finish, { once: true });
+    audio.addEventListener('error', () => { console.error('[JARVIS] audio playback error'); finish(); }, { once: true });
+    audio.play().then(() => {
+      console.log('[JARVIS] audio playing, duration', audio.duration);
+    }).catch((err) => {
+      console.error('[JARVIS] audio.play() rejected:', err);
+      finish();
+    });
+  });
+}
+
+async function speakBrowser(text) {
+  return new Promise((resolve) => {
+    if (!window.speechSynthesis) {
+      aiTextEl.textContent = text;
+      resolve();
+      return;
+    }
+    const u = new SpeechSynthesisUtterance(text);
+    const voices = speechSynthesis.getVoices();
+    const pick = voices.find(v => /Daniel|Oliver|Arthur|Google UK English Male/i.test(v.name))
+              || voices.find(v => /en-GB/i.test(v.lang) && /male/i.test(v.name))
+              || voices.find(v => /en-GB/i.test(v.lang))
+              || voices[0];
+    if (pick) u.voice = pick;
+    u.rate = 1.05;
+    u.pitch = 0.95;
+    const durationMs = Math.max(800, text.length / 14 * 1000);
+    startTypewriter(text, durationMs);
+    u.onend   = () => { aiTextEl.innerHTML = escapeHtml(text); resolve(); };
+    u.onerror = () => { aiTextEl.innerHTML = escapeHtml(text); resolve(); };
+    speechSynthesis.speak(u);
+  });
+}
+
+/* ============================================================
+   TYPEWRITER
+   ============================================================ */
+let typewriterRaf = null;
+function startTypewriter(text, durationMs) {
+  cancelAnimationFrame(typewriterRaf);
+  const start = performance.now();
+  const total = Math.max(400, durationMs);
+  aiTextEl.innerHTML = '<span id="twTxt"></span><span class="caret"></span>';
+  const span = document.getElementById('twTxt');
+  function tick(now) {
+    const p = Math.min(1, (now - start) / total);
+    const n = Math.floor(p * text.length);
+    if (span) span.textContent = text.slice(0, n);
+    if (p < 1) typewriterRaf = requestAnimationFrame(tick);
+    else aiTextEl.innerHTML = escapeHtml(text);
+  }
+  typewriterRaf = requestAnimationFrame(tick);
+}
+
+/* ============================================================
+   UI
+   ============================================================ */
+function openSettings() {
+  $('cfgAnth').value  = config.anthropicKey;
+  $('cfgEl').value    = config.elevenKey;
+  $('cfgVoice').value = config.voiceId;
+  $('cfgModel').value = config.model;
+  $('settingsModal').classList.add('show');
+}
+function closeSettings() { $('settingsModal').classList.remove('show'); }
+
+$('settingsBtn').addEventListener('click', openSettings);
+$('cfgCancel').addEventListener('click', closeSettings);
+$('cfgSave').addEventListener('click', () => {
+  config.anthropicKey = $('cfgAnth').value.trim();
+  config.elevenKey    = $('cfgEl').value.trim();
+  config.voiceId      = $('cfgVoice').value.trim() || DEFAULT_VOICE;
+  config.model        = $('cfgModel').value || DEFAULT_MODEL;
+  saveConfig();
+  closeSettings();
+  if (!config.anthropicKey) toast('ANTHROPIC KEY REQUIRED', 3000, true);
+  else toast('CONFIG SAVED', 1800);
+});
+
+$('cfgTestVoice').addEventListener('click', async () => {
+  // pull current form values, not saved config, so user can test before save
+  const tempKey   = $('cfgEl').value.trim();
+  const tempVoice = $('cfgVoice').value.trim() || DEFAULT_VOICE;
+  if (!tempKey) {
+    toast('ENTER ELEVENLABS KEY FIRST', 3000, true);
+    return;
+  }
+  const saved = { ek: config.elevenKey, vi: config.voiceId };
+  config.elevenKey = tempKey;
+  config.voiceId   = tempVoice;
+  closeSettings();
+  setState(STATES.SPEAKING);
+  try {
+    await speakElevenLabs("Voice link confirmed. Let's get back to the work, sir.");
+    toast('VOICE OK', 1800);
+  } catch (e) {
+    console.error('[JARVIS] test voice failed:', e);
+    toast('VOICE FAILED. CHECK CONSOLE.', 4000, true);
+    setState(STATES.ERROR);
+  }
+  config.elevenKey = saved.ek;
+  config.voiceId   = saved.vi;
+  setTimeout(() => { if (state !== STATES.READY) setState(STATES.READY); }, 800);
+});
+
+$('logBtn').addEventListener('click', () => {
+  $('logDrawer').classList.toggle('open');
+  renderLog();
+});
+$('logClose').addEventListener('click', () => $('logDrawer').classList.remove('open'));
+$('logExport').addEventListener('click', () => {
+  const txt = logHistory.map(e => {
+    const d = new Date(e.t).toISOString();
+    return `[${d}] ${e.role.toUpperCase()}: ${e.text}`;
+  }).join('\n\n');
+  const blob = new Blob([txt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `jarvis-log-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+});
+$('logWipe').addEventListener('click', () => {
+  if (!confirm('Wipe all stored conversation log?')) return;
+  logHistory = [];
+  saveLog();
+  renderLog();
+  toast('LOG WIPED', 1800);
+});
+
+$('clearBtn').addEventListener('click', () => {
+  conversation = [];
+  userTextEl.textContent = '';
+  aiTextEl.textContent = '';
+  toast('CONTEXT CLEARED', 1800);
+});
+
+// mic button push-to-talk
+let micPressed = false;
+const pttDown = (e) => { e.preventDefault(); if (micPressed) return; micPressed = true; ensureAudioCtx(); startPTT(); };
+const pttUp   = (e) => { if (!micPressed) return; if (e) e.preventDefault(); micPressed = false; stopPTT(); };
+micBtn.addEventListener('mousedown',  pttDown);
+micBtn.addEventListener('mouseup',    pttUp);
+micBtn.addEventListener('mouseleave', pttUp);
+micBtn.addEventListener('touchstart', pttDown, { passive: false });
+micBtn.addEventListener('touchend',   pttUp,   { passive: false });
+
+// wake-word toggle
+wakeBtn.addEventListener('click', () => {
+  ensureAudioCtx();
+  wakeOn = !wakeOn;
+  wakeBtn.classList.toggle('active', wakeOn);
+  if (wakeOn) {
+    startWake();
+    toast('WAKE WORD ARMED. SAY "JARVIS"', 2400);
+  } else {
+    stopWake();
+    toast('WAKE WORD OFF', 1500);
+  }
+});
+
+// keyboard shortcuts
+let spaceDown = false;
+window.addEventListener('keydown', (e) => {
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (['INPUT','TEXTAREA','SELECT'].includes(tag)) return;
+  if (e.code === 'Space' && !spaceDown && !e.repeat) {
+    e.preventDefault();
+    spaceDown = true;
+    ensureAudioCtx();
+    startPTT();
+  }
+  if (e.code === 'Escape') {
+    if (state === STATES.SPEAKING) {
+      stopSpeaking();
+      setState(STATES.READY);
+      if (wakeOn) startWake();
+    }
+    if (recogMode === 'ptt') stopPTT();
+    if ($('settingsModal').classList.contains('show')) closeSettings();
+    if ($('logDrawer').classList.contains('open')) $('logDrawer').classList.remove('open');
+  }
+  if ((e.metaKey || e.ctrlKey) && e.code === 'KeyK') {
+    e.preventDefault();
+    $('clearBtn').click();
+  }
+});
+window.addEventListener('keyup', (e) => {
+  if (e.code === 'Space' && spaceDown) {
+    e.preventDefault();
+    spaceDown = false;
+    stopPTT();
+  }
+});
+
+// preload voices for browser TTS
+if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+// boot
+function boot() {
+  setState(STATES.READY);
+  if (!config.anthropicKey) {
+    setTimeout(openSettings, 600);
+  } else {
+    toast('JARVIS ONLINE', 2200);
+  }
+}
+boot();
+
+// debug surface
+window.JARVIS = {
+  config, conversation, logHistory,
+  state: () => STATE_NAMES[state],
+  speak, sendToClaude, stopSpeaking,
+  testEleven: (txt = "Voice link nominal.") => speakElevenLabs(txt),
+};
+</script>
+</body>
+</html>
