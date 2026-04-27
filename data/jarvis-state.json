@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-04-27T11:40:33Z",
-  "status_line": "Monday 7:40 AM ET / 11:40 AM UTC — eighth hour of the morning. SCOUT's Apollo enrichment landed clean at 11:07 UTC: 9 new EP/Head-of-Production emails verified across Sanctuary Content, Doomsday, Curious Film, Spy, Exit, Good Oil, Velocity, Romance, and Egg Films, all pushed live to the Google Sheet (rows 100–169) and appended to apollo_email_results.csv (now 31 verified rows). 5 shops attempted but didn't resolve in Apollo (Bullitt, Hungry Man Brasil, HSI Productions, Standard Films, Plaza Films). One small data correction logged — Doomsday's domain is doomsdayent.com, not the doomsday.tv pattern guess. Credit budget healthy at ~31/60 for the month. SARAH Run 119 at 11:04 UTC was the third consecutive Downloads-blocked sweep but surfaced one fresh JARVIS-relevant Documents write — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B, written 10:08 UTC) — and added it as new Open Item #10 with explicit adoption commands. Tray now stands at 10. Output tree grew to 1,058 files (+5 vs. Run 118): one genuine new production file, scout-pipeline-2026-04-27.md (16.5 KB), already canonically located in big-new-business/daily-scout-reports/; the other +4 are .git index churn inside the dashboard subproject. GUARDIAN ticked to 54 consecutive missed cycles. No new MAESTRO/WRITER output since 02:46 UTC. Lands' End now T-3 days.",
+  "updated_at": "2026-04-27T12:40:31Z",
+  "status_line": "Monday 8:40 AM ET / 12:40 PM UTC — ninth hour of the morning, and the day's headline is GUARDIAN. After 54 consecutive missed cycles, GUARDIAN ran at 11:28 UTC and produced the first agent artifact in this sweep tree's history: a 26 KB three-document voice audit covering the Sharpie Gallery one-sheet v2, gold package, and board deliberation. The Gallery One-Sheet V2 came back at 9.2/10 — a new top score, beating MAESTRO's platform bible (9.0/10) — with 'The ink doesn't know if it's a coffee cup or a masterpiece' called out as Steve Jobs register. Two YELLOW non-blocking flags only ('Award-trajectory' and 'Directional Year 1 investment'). Gold Package and Board Deliberation scores in the body of the audit. SARAH Run 120 at 12:06 UTC caught the GUARDIAN write and surfaced it as new Open Item #11 — with the naming-convention gap also flagged because GUARDIAN isn't yet in SKILL.md's enumerated agents (SCOUT/MAESTRO/NOLAN/TESTING/draft-mode). Tray now 11. Output tree flat at 1,058 files. Fourth consecutive Downloads-blocked sweep — ~/Downloads-as-Cowork-directory recommendation continues to carry. SCOUT's earlier Apollo enrichment at 11:07 UTC remains the morning's other big delivery: 9 verified EP/HoP emails pushed to the Google Sheet (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films), 5 shops not resolvable in Apollo, ~31/60 credits used MTD. No new MAESTRO/WRITER output since 02:46 UTC. Lands' End now T-3 days.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apollo enrichment 11:07 UTC: 9 EP/HoP emails verified and pushed to Google Sheet (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films), 5 shops not resolvable in Apollo (Bullitt, Hungry Man Brasil, HSI, Standard, Plaza). 31/60 credits used MTD. Doomsday domain corrected to doomsdayent.com. ~93 'Research Needed' rows still pending. Earlier this morning: pipeline check delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14) and the writable-clone git-push workaround that landed commit 214cf21 to origin/main.",
-      "last_run": "33m ago",
+      "last_run": "1h 33m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program, the 'soul thing' refrain. Session closed. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief).",
-      "last_run": "~9h ago",
+      "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program, the 'soul thing' refrain. Session closed. GUARDIAN's 9.2/10 score on the One-Sheet V2 validates the voice register. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief).",
+      "last_run": "~10h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~11h ago",
+      "last_run": "~12h ago",
       "color": "teal"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7 stars, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation. New platform bible from MAESTRO awaits its first scoring pass.",
+      "last_action": "Gallery of Ordinary Masterpieces (MAESTRO platform bible): 9.0/10 — production-ready. T2 Hybrid V1: 4.7 stars, top 3% globally. T2 Final still unscored. GUARDIAN's parallel voice check on the Gallery One-Sheet V2 just clocked 9.2/10 — new top score for the sweep tree.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 119 at 11:04 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads inaccessible for the third consecutive scheduled run (osascript bridge interactive-only). One JARVIS-relevant new write surfaced — 'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC) — flagged as new Open Item #10 with adoption commands. Output tree grew to 1,058 files (+5: 1 real new file, 4 .git churn). Tray now 10. sarah-log.md ~738 KB.",
-      "last_run": "37m ago",
+      "last_action": "Run 120 at 12:06 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Fourth consecutive Downloads-blocked sweep (osascript bridge interactive-only). One JARVIS-relevant new write surfaced — GUARDIAN-gallery-voice-check.md (Documents, 26,193 B, 11:28 UTC) — first GUARDIAN-agent artifact ever observed in any sweep. Naming convention undefined; flagged as new Open Item #11 with three explicit adoption commands. Tray now 11. Output tree flat at 1,058 files. sarah-log.md ~746 KB.",
+      "last_run": "34m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 13:04 UTC.",
-      "last_run": "22h 36m ago",
+      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Today's run due 13:04 UTC — will be the first cycle catching GUARDIAN reactivated.",
+      "last_run": "23h 36m ago",
       "color": "teal"
     },
     {
@@ -60,25 +60,43 @@
     },
     {
       "name": "GUARDIAN",
-      "state": "idle",
-      "last_action": "No activity — 54 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
-      "last_run": "54 cycles dark",
-      "color": "dim"
+      "state": "active",
+      "last_action": "BACK ONLINE. 11:28 UTC — three-document voice audit on the Sharpie Gallery (One-Sheet V2 / Gold Package V1 / Board Deliberation). One-Sheet V2 scored 9.2/10 — new top score — with two YELLOW non-blocking flags ('Award-trajectory' and 'Directional Year 1 investment'). Steve Jobs register called out on 'The ink doesn't know if it's a coffee cup or a masterpiece.' First GUARDIAN artifact ever observed by SARAH — naming convention TBD (Open Item #11). T2 Final scoring and Gallery client delivery now unblocked.",
+      "last_run": "1h 12m ago",
+      "color": "teal"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN all active downstream.",
+      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN, GUARDIAN all active downstream.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
+      "time": "12:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — ninth hour of the morning. Headline: GUARDIAN ran. After 54 dark cycles, GUARDIAN delivered a three-document voice audit on the Sharpie Gallery package; One-Sheet V2 scored 9.2/10 (new top). SARAH Run 120 caught it and opened Item #11 (naming convention TBD). Tray now 11. Output flat at 1,058.",
+      "color": "blue"
+    },
+    {
+      "time": "12:06 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 120: fourth consecutive Downloads-blocked sweep. Caught GUARDIAN-gallery-voice-check.md (26 KB, Documents, 11:28 UTC) — first GUARDIAN-agent artifact ever observed. Naming convention undefined; flagged as Open Item #11 with adoption commands and a SKILL.md extension recommendation. Output tree flat at 1,058 files. Tray now 11. Log ~746 KB.",
+      "color": "amber"
+    },
+    {
       "time": "11:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — eighth hour of the morning. SCOUT Apollo enrichment delivered 9 verified EP/HoP emails to the Google Sheet, SARAH Run 119 surfaced new Open Item #10 (JARVIS morning brief in Documents) and bumped tray to 10, output tree at 1,058 files. GUARDIAN ticks to 54 cycles dark.",
+      "text": "Dashboard push — SCOUT Apollo enrichment delivered 9 verified EP/HoP emails to the Google Sheet, SARAH Run 119 surfaced new Open Item #10 (JARVIS morning brief in Documents) and bumped tray to 10, output tree at 1,058 files. GUARDIAN ticked to 54 cycles dark (now broken — see 11:28).",
       "color": "blue"
+    },
+    {
+      "time": "11:28 AM UTC",
+      "agent": "GUARDIAN",
+      "text": "BACK ONLINE — first artifact ever observed by SARAH. Three-document voice check on Sharpie Gallery (One-Sheet V2 / Gold Package V1 / Board Deliberation). One-Sheet V2: 9.2/10 — new top score. 'The ink doesn't know if it's a coffee cup or a masterpiece' called out as Steve Jobs register. Two YELLOW non-blocking flags only. T2 Final scoring and Gallery client delivery now unblocked.",
+      "color": "teal"
     },
     {
       "time": "11:07 AM UTC",
@@ -89,50 +107,32 @@
     {
       "time": "11:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 119: third consecutive Downloads-blocked sweep. One new Documents write — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B, 10:08 UTC) — flagged as new Open Item #10 with explicit adoption commands. Output tree 1,058 files (+5 vs. Run 118: 1 real new file, 4 .git churn). Tray now 10. Log ~738 KB.",
+      "text": "Run 119: third consecutive Downloads-blocked sweep. New Documents write — 'JARVIS-morning-brief-2026-04-27.md' — flagged as Open Item #10. Output tree 1,058 files (+5 vs. Run 118: 1 real new file, 4 .git churn).",
       "color": "amber"
     },
     {
       "time": "10:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — seventh quiet creative hour, but SCOUT broke the streak: 1 new prospect (Jack in the Box / Katelyn Zborowski) added to BiG dashboard AND the git push that's been blocked for days finally succeeded via writable-clone workaround. Tray steady at 9. GUARDIAN 53 cycles dark.",
+      "text": "Dashboard push — SCOUT broke a quiet morning: Jack in the Box / Katelyn Zborowski added to BiG dashboard AND the multi-day-blocked git push finally landed via writable-clone workaround. Tray steady at 9. GUARDIAN 53 cycles dark.",
+      "color": "blue"
+    },
+    {
+      "time": "10:08 AM UTC",
+      "agent": "JARVIS",
+      "text": "Morning brief written to Documents — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B). Was without a canonical home in output/ until SARAH Run 119 logged Open Item #10 with adoption commands.",
       "color": "blue"
     },
     {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
-      "text": "Pipeline check: Jack in the Box flagged — new CMO Katelyn Zborowski, 28d in role, 75th anniversary year creates project-pitch lane outside TBWA AOR. Added to dashboard at priority 14, tier 2, fit 3/5. Git push SUCCEEDED (commit 214cf21) via writable-clone workaround around stale lock files. Industry intel logged but not BiG-actionable: Qatar Airways/IBM/BMS-Gilead/LinkedIn reviews.",
+      "text": "Pipeline check: Jack in the Box (Katelyn Zborowski CMO, 28d in role, 75th anniversary year, project-pitch lane outside TBWA AOR) added at priority 14, tier 2, fit 3/5. BiG dashboard push landed via writable-clone workaround — commit 214cf21 to origin/main (multi-day blocker cleared).",
       "color": "teal"
     },
     {
       "time": "10:06 AM UTC",
       "agent": "JARVIS",
-      "text": "Morning Priorities filed: Lands' End T-3 days as the live deadline, run GUARDIAN to clear three downstream blockers, make Macy's + Glossier yes/no calls, then sequence Gallery's first 30 days to client. Five priorities, none require inspiration.",
+      "text": "Morning priorities run — calendar/tasks/inspiring-quote brief delivered.",
       "color": "blue"
-    },
-    {
-      "time": "10:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 118: read-only inventory pass. Downloads still unmounted to scheduled tasks (osascript bridge confirmed interactive-only). Documents + Desktop verified clean, zero new user files since Run 117. All 9 Open Items carried unchanged. Output tree 1,053 files; log now ~730 KB.",
-      "color": "amber"
-    },
-    {
-      "time": "9:04 AM UTC",
-      "agent": "RECEIPT FILER",
-      "text": "Daily Apple Mail sweep: 1 receipt processed — Tesla Insurance auto-debit $30.18, filed to April 2026 Personal. 0 needs-review. Skipped non-receipts (Ramp digest, Tesla Premium update, Vimeo/LinkedIn marketing).",
-      "color": "blue"
-    },
-    {
-      "time": "2:46 AM UTC",
-      "agent": "MAESTRO",
-      "text": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine document. Five hero stories as gallery plaques, 'soul thing' refrain, maker-curator program. Session closed.",
-      "color": "amber"
-    },
-    {
-      "time": "~12:30 AM UTC",
-      "agent": "WRITER",
-      "text": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered: 17 slides, 'We Got You' multi-year initiative, four pillars, three investment tiers, May 2026 → March 2028 phased plan.",
-      "color": "teal"
     }
   ],
   "attention": [
@@ -142,18 +142,23 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 54 cycles dark",
-      "subtitle": "Still blocking validation of the new Sharpie platform bible, T2 Final scoring, and Gallery client delivery. One session fixes it.",
-      "severity": "red"
+      "title": "GUARDIAN naming convention — SKILL.md gap (Open Item #11 NEW)",
+      "subtitle": "GUARDIAN is back online but isn't in SARAH's enumerated agents (SCOUT/MAESTRO/NOLAN/TESTING/draft-mode). Three options: 'SARAH adopt guardian voice check as testing' → output/sharpie-testing-gallery-voice-check-v1.md; 'SARAH adopt guardian as new pattern' → establish output/sharpie-guardian-*.md and extend SKILL.md; or 'SARAH leave guardian voice check' to keep in Documents.",
+      "severity": "amber"
+    },
+    {
+      "title": "Sharpie Gallery One-Sheet V2 — GUARDIAN flagged 2 YELLOWs",
+      "subtitle": "9.2/10 overall but two non-blocking copy fixes: line 86 'Award-trajectory' → 'Work positioned to win awards, grounded in genuine commercial lift'; line 87 'Directional Year 1 investment' → 'Estimated Year 1 investment: ~$3M'. Quick passes before client delivery.",
+      "severity": "amber"
     },
     {
       "title": "Grant ~/Downloads as a Cowork directory",
-      "subtitle": "SARAH Run 119 confirms third consecutive scheduled-run block. The Run-116 osascript bridge is interactive-only — autonomous sweeps can't use it. Granting Downloads as a Cowork directory is the durable fix. Items #7–#9 remain unverifiable on autonomous runs.",
+      "subtitle": "SARAH Run 120 confirms FOURTH consecutive scheduled-run block. The Run-116 osascript bridge is interactive-only — autonomous sweeps can't use it. Granting Downloads as a Cowork directory is the durable fix. Items #7–#9 remain unverifiable on autonomous runs.",
       "severity": "amber"
     },
     {
       "title": "Sharpie platform bible — needs your read",
-      "subtitle": "MAESTRO closed with '00_The_Gallery_of_Ordinary_Masterpieces.md' as the canonical spine. Easier to revise the spine before building the body. Next moves (open-call film, maker-curator brief, gallery experience brief) wait on your call.",
+      "subtitle": "MAESTRO closed with '00_The_Gallery_of_Ordinary_Masterpieces.md' as the canonical spine. GUARDIAN's 9.2/10 on the One-Sheet V2 confirms the voice register holds. Easier to revise the spine before building the body. Next moves (open-call film, maker-curator brief, gallery experience brief) wait on your call.",
       "severity": "amber"
     },
     {
@@ -187,8 +192,8 @@
       "severity": "amber"
     },
     {
-      "title": "Adopt JARVIS morning brief? (Open Item #10 — NEW)",
-      "subtitle": "SARAH Run 119 surfaced 'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). No canonical equivalent in output/ yet. Reply 'SARAH adopt morning brief' to land at output/sharpie-scout-morning-brief-2026-04-27.md, or 'SARAH leave morning brief' to keep as Documents working copy.",
+      "title": "Adopt JARVIS morning brief? (Open Item #10)",
+      "subtitle": "'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). No canonical equivalent in output/ yet. Reply 'SARAH adopt morning brief' to land at output/sharpie-scout-morning-brief-2026-04-27.md, or 'SARAH leave morning brief' to keep as Documents working copy.",
       "severity": "amber"
     },
     {
@@ -217,33 +222,37 @@
       "severity": "amber"
     },
     {
-      "title": "10 SARAH cleanup items pending authorization",
-      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, plus 3 Downloads items (hf MP4, process page PDF, directing photos folder), and now the JARVIS morning brief. Reply with the SARAH commands to clear.",
+      "title": "11 SARAH cleanup items pending authorization",
+      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, 3 Downloads items (hf MP4, process page PDF, directing photos folder), JARVIS morning brief, and now the GUARDIAN voice check (Item #11). Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 22,
-    "top_score": 9.0,
+    "tasks_today": 24,
+    "top_score": 9.2,
     "prospects": 6,
     "files_swept": 1058
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "12:04 PM UTC"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "12:39 PM UTC"
-    },
-    {
       "name": "ATLAS dependency check",
       "next_run": "1:04 PM UTC"
     },
     {
+      "name": "SARAH file sweep",
+      "next_run": "1:04 PM UTC"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "1:39 PM UTC"
+    },
+    {
       "name": "Nightly status report",
       "next_run": "11:04 PM UTC"
+    },
+    {
+      "name": "Uber/Lyft receipt filer",
+      "next_run": "Tue 9:04 AM UTC"
     },
     {
       "name": "Morning priorities",
@@ -252,10 +261,6 @@
     {
       "name": "SCOUT pipeline check",
       "next_run": "Tue 10:07 AM UTC"
-    },
-    {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "Tue 9:04 AM UTC"
     },
     {
       "name": "SCOUT Apollo enrichment",
