@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-27T08:40:31Z",
-  "status_line": "Monday 4:40 AM ET / 8:40 AM UTC — fifth straight quiet creative hour, but SARAH's 08:07 sweep (Run 116) just broke a four-run streak: Downloads is finally accessible again via an osascript bridge, the recurring 'not mounted' condition is resolved at the agent level. Run 116 moved one unambiguous JARVIS asset — Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified, output tree now at 1,053 files. Three new Downloads items flagged as ambiguous and parked for Rick's call: a Higgsfield-generated MP4 (likely a NOLAN shot), a 'Process Page — Structure Spec' PDF (likely paired with the rickwayne.cc Process page), and a 'Rick Directing Photos' folder. Open-item tray jumps 6 → 9. GUARDIAN ticks to 51 consecutive cycles dark — still gating Sharpie platform-bible validation, T2 Final scoring, and Gallery client delivery; one session fixes it. NOLAN still iterating the Sharpie outro. Lands' End / Sarah Sylvester letter clock holds at T-3 days. No new MAESTRO/WRITER output since 02:46.",
+  "updated_at": "2026-04-27T09:41:00Z",
+  "status_line": "Monday 5:41 AM ET / 9:41 AM UTC — sixth straight quiet creative hour, and SARAH Run 117 (09:06 UTC) walked back Run 116's Downloads-access claim: the osascript bridge that broke through last hour only works in interactive sessions where Rick can approve Mac control, so scheduled-task runs can't use it. Downloads is unreadable again from autonomous SARAH; the durable fix is granting ~/Downloads as a Cowork directory. Tray holds at 9 — Open Items #7–#9 (Higgsfield MP4, Process Page spec PDF, Rick Directing Photos folder) all still parked, just unverifiable this hour. Output tree steady at 1,053 files; sarah-log.md now ~725 KB. The 09:04 receipt filer caught a single Tesla Insurance $30.18 auto-debit and filed it to April 2026 Personal — clean run, 0 needs-review. GUARDIAN ticks to 52 consecutive cycles dark, still gating Sharpie platform-bible validation, T2 Final scoring, and Gallery client delivery. NOLAN still iterating the Sharpie outro. Lands' End / Sarah Sylvester clock now at T-3 days and counting. No new MAESTRO/WRITER output since 02:46.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Apollo enrichment results still parked in Documents (verified emails + misses). Git commit staged; push needs manual credentials. Next sweep 10:07 UTC.",
-      "last_run": "22h ago",
+      "last_run": "23h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program, the 'soul thing' refrain. Session closed. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief).",
-      "last_run": "~6h ago",
+      "last_run": "~7h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~8h ago",
+      "last_run": "~9h ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 116 at 08:07 UTC — Downloads access RESTORED via osascript bridge (resolves the 'not mounted' streak from Runs 112–115). 14 Downloads items inventoried; 1 unambiguous JARVIS asset moved (Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified). 3 new ambiguous items flagged as Open Items #7–#9 (Higgsfield MP4, Process Page spec PDF, Rick Directing Photos folder). Tray now at 9. sarah-log.md ≈ 720K.",
-      "last_run": "33m ago",
+      "last_action": "Run 117 at 09:06 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads access REGRESSED vs. Run 116: the osascript bridge that worked at 08:07 only operates in interactive Cowork sessions where Rick can approve Mac control; scheduled invocations can't acquire that approval. Documents + Desktop confirmed mounted, no new user-created files since Run 116. All 9 Open Items carried unchanged (Items #7–#9 in Downloads couldn't be re-verified). Output tree still 1,053 files. sarah-log.md ~725 KB.",
+      "last_run": "35m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 13:04 UTC.",
-      "last_run": "19h 35m ago",
+      "last_run": "20h 36m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "active",
-      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded. Possible new Higgsfield render (hf_20260427_003857) sitting in Downloads — flagged by SARAH as Open Item #7, awaits adopt call.",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded. Possible new Higgsfield render (hf_20260427_003857) still parked in Downloads as Open Item #7 — unverifiable this hour, awaits Rick's adopt call.",
       "last_run": "active",
       "color": "amber"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 51 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
-      "last_run": "51 cycles dark",
+      "last_action": "No activity — 52 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
+      "last_run": "52 cycles dark",
       "color": "dim"
     },
     {
@@ -75,51 +75,51 @@
   ],
   "activity": [
     {
+      "time": "9:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — sixth quiet creative hour. SARAH Run 117 walked back the osascript-bridge claim (interactive-only, doesn't apply to scheduled runs); Downloads unreadable again from autonomous SARAH. Tray steady at 9. GUARDIAN 52 cycles dark.",
+      "color": "blue"
+    },
+    {
+      "time": "9:06 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 117: read-only inventory pass. Downloads access REGRESSED — osascript bridge requires interactive Mac-control approval, unavailable to scheduled tasks. Documents + Desktop clean, 0 new user files since Run 116. Output tree stable at 1,053 files. All 9 Open Items carried unchanged.",
+      "color": "amber"
+    },
+    {
+      "time": "9:04 AM UTC",
+      "agent": "RECEIPT FILER",
+      "text": "Daily Apple Mail sweep: 1 receipt processed — Tesla Insurance auto-debit $30.18, filed to April 2026 Personal. 0 needs-review. Skipped non-receipts (Ramp digest, Tesla Premium update, Vimeo/LinkedIn marketing).",
+      "color": "blue"
+    },
+    {
       "time": "8:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — fifth quiet creative hour, but SARAH Run 116 broke the Downloads-blocked streak: osascript bridge restores access, 1 asset filed, 3 new Open Items, tray now at 9. GUARDIAN 51 cycles dark.",
+      "text": "Dashboard push — fifth quiet creative hour, but SARAH Run 116 broke the Downloads-blocked streak: osascript bridge restored access, 1 asset filed, 3 new Open Items (#7–#9), tray now at 9.",
       "color": "blue"
     },
     {
       "time": "8:07 AM UTC",
       "agent": "SARAH",
-      "text": "Run 116: Downloads access RESTORED via osascript bridge (after 4 runs blocked). Moved Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified. 3 ambiguous Downloads items flagged as Open Items #7–#9 (hf MP4, Process Page spec, Rick Directing Photos folder).",
+      "text": "Run 116: Downloads access RESTORED via osascript bridge (after 4 runs blocked). Moved Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified. 3 ambiguous Downloads items flagged as Open Items #7–#9.",
       "color": "amber"
     },
     {
       "time": "7:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — fourth straight quiet hour. SARAH Run 115 clean no-op, GUARDIAN ticks to 50 cycles dark, Lands' End now at T-3 days. No new creative output since 02:46.",
+      "text": "Dashboard push — fourth straight quiet hour. SARAH Run 115 clean no-op, GUARDIAN ticks to 50 cycles dark, Lands' End now at T-3 days.",
       "color": "blue"
     },
     {
       "time": "7:06 AM UTC",
       "agent": "SARAH",
-      "text": "Run 115: Downloads still unmounted, 0 user-file deltas across Documents/Desktop since 06:06, output tree stable. 6 open items still awaiting authorization. Sharpie project drafts (Open Item #6) unchanged.",
+      "text": "Run 115: Downloads still unmounted, 0 user-file deltas across Documents/Desktop since 06:06, output tree stable. 6 open items still awaiting authorization.",
       "color": "amber"
     },
     {
       "time": "6:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — third straight quiet hour. SARAH 06:06 sweep surfaced 4 Sharpie creative-track docs in Documents/Claude/Projects/Sharpie/ (Open Item #6). Open items 5 → 6. GUARDIAN 49 cycles dark.",
-      "color": "blue"
-    },
-    {
-      "time": "6:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 114: read-only inventory pass. 4 Sharpie docs (Gallery, 2 Hero Films, Territory Map) + 2 Graco docs newly visible in Documents/Claude/Projects/. Filed as Open Item #6 — adopt into output/ under maestro naming, or leave as working drafts? Tray now at 6.",
-      "color": "amber"
-    },
-    {
-      "time": "5:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — second straight quiet hour. SARAH Run 118 clean no-op, GUARDIAN ticks to 48 cycles dark, no new creative output since the 04:40 push.",
-      "color": "blue"
-    },
-    {
-      "time": "4:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — quiet hour. SARAH Run 117 clean no-op, GUARDIAN 47 cycles dark, no new creative output since the 03:40 push.",
+      "text": "Dashboard push — third straight quiet hour. SARAH 06:06 sweep surfaced 4 Sharpie creative-track docs in Documents/Claude/Projects/Sharpie/ (Open Item #6).",
       "color": "blue"
     },
     {
@@ -142,9 +142,14 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 51 cycles dark",
+      "title": "GUARDIAN: 52 cycles dark",
       "subtitle": "Still blocking validation of the new Sharpie platform bible, T2 Final scoring, and Gallery client delivery. One session fixes it.",
       "severity": "red"
+    },
+    {
+      "title": "Grant ~/Downloads as a Cowork directory",
+      "subtitle": "SARAH Run 117 confirmed: the Run-116 osascript bridge is interactive-only — scheduled sweeps can't use it. Granting Downloads as a Cowork directory is the durable fix for autonomous coverage. Items #7–#9 currently unverifiable on autonomous runs.",
+      "severity": "amber"
     },
     {
       "title": "Sharpie platform bible — needs your read",
@@ -157,18 +162,18 @@
       "severity": "amber"
     },
     {
-      "title": "NEW — adopt Higgsfield MP4 as NOLAN shot? (Open Item #7)",
-      "subtitle": "SARAH Run 116 surfaced hf_20260427_003857_c50820d1-...mp4 (407 KB) in Downloads. Likely a NOLAN render. Reply 'SARAH adopt hf video as nolan shot' or 'SARAH ignore hf video'.",
+      "title": "Adopt Higgsfield MP4 as NOLAN shot? (Open Item #7)",
+      "subtitle": "hf_20260427_003857_c50820d1-…mp4 (407 KB) in Downloads. Likely a NOLAN render. Reply 'SARAH adopt hf video as nolan shot' or 'SARAH ignore hf video'.",
       "severity": "amber"
     },
     {
-      "title": "NEW — adopt Process Page Structure Spec? (Open Item #8)",
-      "subtitle": "SARAH Run 116: 'Process Page — Structure Spec.pdf' (30 KB) in Downloads. Likely paired with sharpie-maestro-rickwayne-process-v1.md / rickwayne.cc Process page. Reply 'SARAH adopt process page spec' or 'SARAH ignore process page spec'.",
+      "title": "Adopt Process Page Structure Spec? (Open Item #8)",
+      "subtitle": "'Process Page — Structure Spec.pdf' (30 KB) in Downloads. Likely paired with sharpie-maestro-rickwayne-process-v1.md / rickwayne.cc Process page. Reply 'SARAH adopt process page spec' or 'SARAH ignore process page spec'.",
       "severity": "amber"
     },
     {
-      "title": "NEW — adopt Rick Directing Photos folder? (Open Item #9)",
-      "subtitle": "SARAH Run 116 spotted 'Rick Directing Photos/' in Downloads. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
+      "title": "Adopt Rick Directing Photos folder? (Open Item #9)",
+      "subtitle": "'Rick Directing Photos/' in Downloads. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
       "severity": "amber"
     },
     {
@@ -198,12 +203,12 @@
     },
     {
       "title": "9 SARAH cleanup items pending authorization",
-      "subtitle": "Gallery deck rename (now with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, plus 3 new Downloads items (hf MP4, process page PDF, directing photos folder). Reply with the SARAH commands to clear.",
+      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, plus 3 Downloads items (hf MP4, process page PDF, directing photos folder). Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 16,
+    "tasks_today": 17,
     "top_score": 9.0,
     "prospects": 5,
     "files_swept": 1053
@@ -211,15 +216,7 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "9:04 AM UTC"
-    },
-    {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "9:04 AM UTC"
-    },
-    {
-      "name": "JARVIS dashboard push",
-      "next_run": "9:39 AM UTC"
+      "next_run": "10:04 AM UTC"
     },
     {
       "name": "Morning priorities",
@@ -228,6 +225,10 @@
     {
       "name": "SCOUT pipeline check",
       "next_run": "10:07 AM UTC"
+    },
+    {
+      "name": "JARVIS dashboard push",
+      "next_run": "10:39 AM UTC"
     },
     {
       "name": "SCOUT Apollo enrichment",
@@ -240,6 +241,10 @@
     {
       "name": "Nightly status report",
       "next_run": "11:04 PM UTC"
+    },
+    {
+      "name": "Uber/Lyft receipt filer",
+      "next_run": "Tue 9:04 AM UTC"
     }
   ]
 }
