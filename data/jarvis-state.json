@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-27T22:40:00Z",
-  "status_line": "Monday 6:40 PM ET / 22:40 UTC — nineteenth hour. Three consecutive effectively quiet sweeps now on the books: SARAH Run 130 at 22:05 UTC posted zero deltas in SARAH-scope (Documents, Desktop SARAH-scope, output tree, naming, dupe set, open-items roster) — making it Runs 128, 129, and 130 all clean. Note that Run 130 ran without ~/Downloads mounted, so the four Downloads-resident Open Items (#7, #9, #15, #18) are assumed unchanged but not byte-verified this window. Top-level production count holds firm at 48 (51 total counting sarah-log.md and the two 0-byte test stragglers). Output tree at 1,064 files for the fifth straight push. The 12-item open-slate is fully stable. SARAH did flag one positive-direction signal: jarvis-state.json heartbeat resumed at 21:38 UTC after two silent runs (128, 129) — pipeline activity is back. dispatch-inbox.jsonl, however, is now silent for four consecutive runs (still 18:55 UTC) — likely just a normal-state artifact (no inbound voice messages). Creative wing dark cycle continues: ninth cycle since the 14:40 MAESTRO/WRITER/GUARDIAN drop. Lands' End now T-3 days; PARK Gallery deck and T2 v8 still GUARDIAN-unvalidated — that's still the urgency lane. hf_*.mp4 pair (#7 + #18) now ~25.4h and ~7.5h stale — bulk-adopt or bulk-ignore remains the highest-leverage one-line prompt. Repo still 5 commits behind origin locally; writable-clone workaround stays in play for this push.",
+  "updated_at": "2026-04-27T23:40:00Z",
+  "status_line": "Monday 7:40 PM ET / 23:40 UTC — twentieth hour. SARAH Run 131 broke the four-sweep production-tree hush with a single net delta in scope: a new SCOUT deliverable, 'Sharpie_Gallery_Research_Momentous_Marks.md' (23,575 B / 22:09 UTC), landed in two non-canonical places at once — both ~/Documents/ and ~/Desktop/CLAUDE/ root — byte-identical (MD5 8a91…28d4). It's the first JARVIS-relevant file ever observed at Desktop/CLAUDE root outside the JARVIS subtree. Logged as new Open Item #19; canonical destination would be output/sharpie-scout-momentous-marks-research-v1.md. Tray now 13 (was 12). Output tree itself stayed zero-delta for the fourth straight push (1,064 files, 48 top-level production). The JARVIS pipeline heartbeat is now confirmed back on its hourly cadence — jarvis-state.json ticked at 21:38 then 22:42 UTC, two consecutive heartbeats after the silent stretch through Runs 128–129. dispatch-inbox.jsonl is silent for a fifth run (still 18:55 UTC) but now decoupled from heartbeat, looking like normal-state. Creative wing dark cycle continues — tenth since the 14:40 MAESTRO/WRITER/GUARDIAN drop. Lands' End is now T-3 days; PARK Gallery deck and T2 v8 still GUARDIAN-unvalidated — urgency lane unchanged. The hf_*.mp4 pair (#7 + #18) is now ~26.4h and ~8.5h stale; Downloads still not mounted (sixth consecutive run), so all four Downloads-resident Open Items (#7, #9, #15, #18) are assumed unchanged but not byte-verified. New SCOUT file (#19) is the highest-leverage one-line prompt this hour, displacing the Higgsfield bulk-decision. Repo still 8 commits behind origin locally with .git/index.lock pinned; writable-clone workaround stays in play.",
   "agents": [
     {
       "name": "SCOUT",
-      "state": "idle",
-      "last_action": "Apollo enrichment 11:07 UTC: 9 EP/HoP emails verified and pushed to Google Sheet (Sanctuary/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg). 5 shops not resolvable. 31/60 credits used MTD. ~93 'Research Needed' rows pending. Pipeline check 10:07 UTC delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14) plus the writable-clone git-push workaround.",
-      "last_run": "11h 33m ago",
+      "state": "active",
+      "last_action": "Sharpie Gallery research deliverable landed at 22:09 UTC: 'Sharpie_Gallery_Research_Momentous_Marks.md' (23,575 B), SCOUT-attributed (signed 'Research compiled April 27, 2026 | BiG Creative Agency | SCOUT Research Agent'). Logged by SARAH as Open Item #19 — sitting in two non-canonical locations simultaneously (~/Documents AND ~/Desktop/CLAUDE root, byte-identical). First JARVIS-named file ever observed at Desktop/CLAUDE root outside the JARVIS subtree. Canonical destination would be output/sharpie-scout-momentous-marks-research-v1.md. Earlier today: Apollo enrichment 11:07 UTC pushed 9 EP/HoP emails to Sheet (31/60 credits MTD, ~93 'Research Needed' rows pending); 10:07 UTC pipeline check delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14).",
+      "last_run": "1h 31m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief). GUARDIAN's 9.2/10 on the One-Sheet V2 validates the voice register.",
-      "last_run": "~20h ago",
+      "last_run": "~21h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~22h ago",
+      "last_run": "~23h ago",
       "color": "teal"
     },
     {
@@ -33,7 +33,7 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 130 at 22:05 UTC — third consecutive effectively quiet sweep. Zero deltas in SARAH-scope (Documents, Desktop SARAH-scope, output tree, naming, dupe set, open-items roster). Downloads not mounted this run — 4 carry-forward Open Items (#7, #9, #15, #18) assumed unchanged at last-verified sizes but not byte-verified this window. Top-level production count holds at 48. Open-slate stable at 12 items: 8 non-Downloads (#1, #2, #3, #4, #5, #6, #10, #11) + 4 Downloads (#7, #9, #15, #18). Positive signal: jarvis-state.json heartbeat resumed at 21:38 UTC after two silent runs. dispatch-inbox.jsonl silent for 4th consecutive run (18:55 UTC, decoupled from heartbeat). hf_*.mp4 pair (#7 + #18) now ~25.4h / ~7.5h stale.",
+      "last_action": "Run 131 at 23:05 UTC — broke the four-sweep production-tree hush with one net delta in SARAH scope: NEW Open Item #19, 'Sharpie_Gallery_Research_Momentous_Marks.md' (23,575 B / 22:09 UTC, MD5 8a91…28d4), SCOUT-authored, sitting byte-identical at both ~/Documents/ AND ~/Desktop/CLAUDE root — first JARVIS-relevant file ever at Desktop/CLAUDE root outside JARVIS subtree. Tray now 13. Output tree itself zero-delta for the 4th consecutive sweep — top-level production count holds at 48 (51 total counting sarah-log.md and the 2 known 0-byte test stragglers). Downloads not mounted (sixth straight run); 4 Downloads Open Items (#7/#9/#15/#18) assumed unchanged but not byte-verified. JARVIS heartbeat now confirmed back on hourly cadence (21:38 → 22:42 UTC, two ticks). dispatch-inbox.jsonl silent for 5th consecutive run (still 18:55 UTC).",
       "last_run": "35m ago",
       "color": "amber"
     },
@@ -41,13 +41,13 @@
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 27 daily report delivered at 13:05 UTC. Headline: GUARDIAN broke silence after 15 dark cycles — first GUARDIAN artifact landed (three-document voice check on the Gallery suite). Doc 1 ships clean at 9.2. Docs 2 and 3 require rework. NOLAN added 3 reference .mov files (~9 GB) plus 49 SFX — first NOLAN tree activity in 9 reports. PARK Gallery deck and T2 v8 remain unvalidated by GUARDIAN. Lands' End T-3 days. Jack in the Box is the new prospect.",
-      "last_run": "9h 35m ago",
+      "last_run": "10h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "active",
-      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded in tree. Higgsfield render hf_20260427_003857 (416 KB, Open Item #7) now ~25.4h stale. Second hf render (hf_20260427_010045, 4.81 MB, Open Item #18) ~7.5h stale. Both await Rick's adopt/ignore call. Output/nolan/storyboard/ remains empty after the Run 125 ROTY-series closures.",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded in tree. Higgsfield render hf_20260427_003857 (416 KB, Open Item #7) now ~26.4h stale. Second hf render (hf_20260427_010045, 4.81 MB, Open Item #18) ~8.5h stale. Both await Rick's adopt/ignore call. Output/nolan/storyboard/ remains empty after the Run 125 ROTY-series closures.",
       "last_run": "active",
       "color": "amber"
     },
@@ -62,7 +62,7 @@
       "name": "GUARDIAN",
       "state": "idle",
       "last_action": "BACK ONLINE at 11:28 UTC — three-document voice audit on the Sharpie Gallery (One-Sheet V2 / Gold Package V1 / Board Deliberation). One-Sheet V2: 9.2/10 — top score for the sweep tree, two YELLOW non-blocking flags only. Gold Package V1 and Board Deliberation flagged for rework before external use. Steve Jobs register called out on 'The ink doesn't know if it's a coffee cup or a masterpiece.' First GUARDIAN artifact ever observed by SARAH — naming convention TBD (Open Item #11). T2 Final scoring and Gallery client delivery now unblocked.",
-      "last_run": "11h 12m ago",
+      "last_run": "12h 12m ago",
       "color": "teal"
     },
     {
@@ -75,10 +75,34 @@
   ],
   "activity": [
     {
+      "time": "11:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — twentieth hour. SARAH Run 131 broke the four-sweep production-tree hush with one net delta: NEW Open Item #19, a SCOUT-authored Sharpie Gallery research file landed in two non-canonical locations simultaneously (~/Documents AND ~/Desktop/CLAUDE root, byte-identical). Tray now 13. Output tree itself still zero-delta for the 4th straight push at 1,064 files. Heartbeat now confirmed back on hourly cadence (two consecutive ticks).",
+      "color": "blue"
+    },
+    {
+      "time": "11:05 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 131: ONE net delta in scope. NEW Open Item #19 — 'Sharpie_Gallery_Research_Momentous_Marks.md' (23,575 B / 22:09 UTC, MD5 8a91…28d4), SCOUT-authored, byte-identical pair at ~/Documents AND ~/Desktop/CLAUDE root. Pattern-novel — first JARVIS-relevant file ever at Desktop/CLAUDE root outside JARVIS subtree. Tray now 13. Output tree zero-delta for 4th consecutive sweep.",
+      "color": "amber"
+    },
+    {
+      "time": "10:42 PM UTC",
+      "agent": "JARVIS",
+      "text": "Heartbeat tick #2 — pipeline cadence confirmed back. jarvis-state.json mtime advanced 21:38 → 22:42 UTC, second consecutive hourly heartbeat after the silent stretch through Runs 128–129.",
+      "color": "blue"
+    },
+    {
       "time": "10:40 PM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — nineteenth hour. Three consecutive effectively quiet sweeps. SARAH Run 130 zero-delta in SARAH-scope. Downloads not mounted this run — Open Items #7/#9/#15/#18 assumed unchanged but not byte-verified. Output tree unchanged at 1,064 for the fifth straight push. Top-level production count holds at 48. Ninth dark cycle for the creative wing.",
       "color": "blue"
+    },
+    {
+      "time": "10:09 PM UTC",
+      "agent": "SCOUT",
+      "text": "New Sharpie Gallery research deliverable: 'Sharpie_Gallery_Research_Momentous_Marks.md' (23.5 KB), SCOUT-attributed. Logged downstream by SARAH as Open Item #19 — sitting in two non-canonical locations at once, awaiting canonical adoption at output/sharpie-scout-momentous-marks-research-v1.md.",
+      "color": "teal"
     },
     {
       "time": "10:05 PM UTC",
@@ -89,37 +113,13 @@
     {
       "time": "9:36 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — eighteenth hour. Two consecutive zero-delta sweeps. SARAH Run 129 confirmed fully quiet — no moves, no closures, no new items. Tray held at 12. Output tree unchanged at 1,064 for the fourth straight push. Production-file count corrected to 48 (Run 128 miscount). Eighth dark cycle for the creative wing.",
+      "text": "Dashboard push — eighteenth hour. Two consecutive zero-delta sweeps. SARAH Run 129 confirmed fully quiet. Tray held at 12. Output tree unchanged at 1,064 for the fourth straight push. Production-file count corrected to 48. Eighth dark cycle for the creative wing.",
       "color": "blue"
     },
     {
       "time": "9:06 PM UTC",
       "agent": "SARAH",
       "text": "Run 129: fully quiet sweep — zero deltas across Downloads, Documents, Desktop, output. Second consecutive zero-delta run. Production-file count corrected to 48 (Run 128 reported 52 in miscount). hf_*.mp4 pair (#7 + #18) now ~24.4h and ~6.5h stale.",
-      "color": "amber"
-    },
-    {
-      "time": "8:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — seventeenth hour. SARAH Run 128 was the first zero-delta sweep since Run 124. Tray held at 12. Output tree unchanged at 1,064. Six dark cycles for the creative wing. Pushed via writable-clone workaround through /tmp/jarvis-push-2040-loving — local .git/index.lock still pinned.",
-      "color": "blue"
-    },
-    {
-      "time": "8:07 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 128: fully quiet sweep — zero deltas, zero moves, zero renames, zero deletions. Downloads byte-identical to Run 127. First zero-delta sweep since Run 124 four hours ago. All 12 Open Items re-verified at unchanged sizes/mtimes.",
-      "color": "amber"
-    },
-    {
-      "time": "7:06 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 127: quiet sweep, single new ambiguity. NEW Open Item #18: hf_20260427_010045_*.mp4 (4.81 MB / Apr 27 14:33 EDT) — second Higgsfield video, same ambiguity class as #7. Tray now 12 (was 11, +1 new).",
-      "color": "amber"
-    },
-    {
-      "time": "6:08 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 126: quiet sweep, single closure. #17 (IMG_2497.heic) gone from Downloads, did NOT land in JARVIS output tree — closed RESOLVED-OUT-OF-SCOPE. Tray now 11 active (was 12).",
       "color": "amber"
     },
     {
@@ -137,8 +137,8 @@
   ],
   "attention": [
     {
-      "title": "Two Higgsfield videos in Downloads — bulk-decision lane (Open Items #7 + #18)",
-      "subtitle": "hf_20260427_003857 (416 KB, #7, ~25.4h stale) + hf_20260427_010045 (4.81 MB, #18, ~7.5h stale) both ambiguous JARVIS-adjacent (NOLAN/Higgsfield pipeline) but no JARVIS keyword in filenames. Reply 'SARAH bulk adopt hf videos' to land both at output/nolan/shots/, 'SARAH bulk ignore hf videos' to dismiss both, or single-resolve each. Highest-leverage open-slate item.",
+      "title": "NEW: SCOUT 'Momentous Marks' research file in two non-canonical spots (Open Item #19)",
+      "subtitle": "'Sharpie_Gallery_Research_Momentous_Marks.md' (23,575 B / 22:09 UTC) byte-identical at ~/Documents AND ~/Desktop/CLAUDE root — pattern-novel (first JARVIS-relevant file ever at Desktop/CLAUDE root outside JARVIS subtree). Reply 'SARAH adopt momentous marks as scout v1' to land it at output/sharpie-scout-momentous-marks-research-v1.md and clear the Desktop dupe — highest-leverage one-line prompt this hour.",
       "severity": "amber"
     },
     {
@@ -147,8 +147,13 @@
       "severity": "red"
     },
     {
+      "title": "Two Higgsfield videos in Downloads — bulk-decision lane (Open Items #7 + #18)",
+      "subtitle": "hf_20260427_003857 (416 KB, #7, ~26.4h stale) + hf_20260427_010045 (4.81 MB, #18, ~8.5h stale) both ambiguous JARVIS-adjacent (NOLAN/Higgsfield pipeline) but no JARVIS keyword in filenames. Reply 'SARAH bulk adopt hf videos' to land both at output/nolan/shots/, 'SARAH bulk ignore hf videos' to dismiss both, or single-resolve each.",
+      "severity": "amber"
+    },
+    {
       "title": "Rick Wayne Outreach Database CSV (Open Item #15)",
-      "subtitle": "'Rick Wayne Full Outreach Database (500) - Full Database.csv' (55,614 B, Apr 27 07:09) in Downloads — assumed unchanged Run 130 (Downloads not mounted this window). Feeds the existing director-outreach-dashboard.html in repo root. SCOUT pattern is .md only, so naming convention needs extension. Reply 'SARAH adopt outreach csv as scout-csv', 'SARAH adopt outreach csv into data', or 'SARAH bulk adopt outreach' (consolidates with #5 Documents CSVs).",
+      "subtitle": "'Rick Wayne Full Outreach Database (500) - Full Database.csv' (55,614 B, Apr 27 07:09) in Downloads — assumed unchanged Run 131 (Downloads not mounted this window). Feeds the existing director-outreach-dashboard.html in repo root. SCOUT pattern is .md only, so naming convention needs extension. Reply 'SARAH adopt outreach csv as scout-csv', 'SARAH adopt outreach csv into data', or 'SARAH bulk adopt outreach' (consolidates with #5 Documents CSVs).",
       "severity": "amber"
     },
     {
@@ -183,7 +188,7 @@
     },
     {
       "title": "Adopt Rick Directing Photos folder? (Open Item #9)",
-      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — assumed unchanged Run 130 (Downloads not mounted this window). Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
+      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — assumed unchanged Run 131 (Downloads not mounted this window). Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
       "severity": "amber"
     },
     {
@@ -218,7 +223,7 @@
     }
   ],
   "stats": {
-    "tasks_today": 32,
+    "tasks_today": 33,
     "top_score": 9.2,
     "prospects": 6,
     "files_swept": 1064
@@ -226,15 +231,11 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "11:04 PM UTC"
+      "next_run": "12:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "11:39 PM UTC"
-    },
-    {
-      "name": "Nightly status report",
-      "next_run": "11:04 PM UTC"
+      "next_run": "12:39 AM UTC"
     },
     {
       "name": "Uber/Lyft receipt filer",
@@ -255,6 +256,10 @@
     {
       "name": "ATLAS dependency check",
       "next_run": "Tue 1:04 PM UTC"
+    },
+    {
+      "name": "Nightly status report",
+      "next_run": "Tue 11:04 PM UTC"
     }
   ]
 }
