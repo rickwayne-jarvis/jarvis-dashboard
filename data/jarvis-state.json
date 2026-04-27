@@ -1,101 +1,119 @@
 {
-  "updated_at": "2026-04-27T02:40:28Z",
-  "status_line": "Monday 2:40 AM UTC — MAESTRO is mid-session on the Sharpie Gallery rebuild: two hero film treatments drafted ('The Things We Made' v1 and 'Still Writing' v2) plus a 20K product territory map landed in the Sharpie/ project scaffold inside the last 90 minutes. SARAH Run 115 at 02:05 came back clean again — no Downloads, no deltas, all 5 cleanup items still parked awaiting your nod. GUARDIAN ticks to 45 cycles dark and continues to block T2 Final scoring, Sharpie voice validation, and Gallery client delivery. Lands' End is 3 days out; the Sarah Sylvester letter still needs to be written.",
+  "updated_at": "2026-04-27T03:40:30Z",
+  "status_line": "Sunday 11:40 PM ET / Monday 3:40 AM UTC — big hour. MAESTRO closed the Sharpie session by landing the canonical platform bible (26K, '00_The_Gallery_of_Ordinary_Masterpieces.md') in ~/Documents/Claude/Projects/Sharpie/ — that's the spine document the rest of the campaign hangs off of. WRITER quietly shipped the Graco 'Next Arms' Cannes 2028 roadmap deck (17 slides, three investment tiers from $0.5M POC to $15–20M Full Chapter, organized around the 'We Got You' idea). NOLAN is iterating Sharpie outro animation prompts in Higgsfield. SARAH Run 116 at 03:06 came back clean — Downloads still unmounted, 2 new Apollo CSVs flagged in Documents but not moved per policy. GUARDIAN ticks to 46 cycles dark — still blocking T2 Final scoring, Sharpie voice validation, and Gallery client delivery. Lands' End is 3 days out and the Sarah Sylvester letter still needs to be written.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Git commit staged; push needs manual credentials. Next sweep 06:07 ET.",
-      "last_run": "16h ago",
+      "last_run": "17h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
-      "state": "active",
-      "last_action": "Sharpie Gallery rebuild in progress: hero film treatment v1 'The Things We Made' (12K), v2 'Still Writing' (11K), and Product Territory Map (20K) all drafted in ~/Documents/Claude/Projects/Sharpie/ over the last 90 minutes. Session still running.",
-      "last_run": "now",
-      "color": "amber"
+      "state": "idle",
+      "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine document, woven from the v1/v2 hero film treatments and the 20K product territory map. Includes the unlock line, the three verbs (preserve / intend / transform), the maker-curator program, the five hero stories as gallery plaques, and the 'soul thing' refrain. Session closed.",
+      "last_run": "55m ago",
+      "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "Graco Effectiveness Read memo delivered — campaign moved the business (BHT funnel up across the board) but flagged the Safety claim and impressions number as unsupportable. Rick Wayne Director Process Page spec drafted with The Crack chapter as the centerpiece.",
-      "last_run": "8h ago",
+      "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). Built around 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — with four pillars (lullabies, service program, adaptive product, Gen Z social), three investment tiers ($0.5M / $5–8M / $15–20M), and a May 2026 → March 2028 phased plan timed to the Cannes entry window.",
+      "last_run": "~3h ago",
       "color": "teal"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7 stars, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7 stars, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation. New platform bible from MAESTRO awaits its first scoring pass.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 115 at 02:05 UTC — Downloads still not mounted, 0 deltas across Documents/Desktop/output. Output tree stable (50+ files compliant). 5 cleanup items still pending authorization — no destructive actions taken per policy.",
-      "last_run": "35m ago",
+      "last_action": "Run 116 at 03:06 UTC — Downloads still not mounted, 0 deltas across watched output dirs. Flagged 2 new Apollo enrichment CSVs in ~/Documents/ (apollo_email_results.csv, apollo_not_found.csv) — companions to existing director-outreach DB. Open items now total 5 (with the outreach-files item growing to 5 files). No destructive actions taken per policy.",
+      "last_run": "34m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 09:05 ET / 13:05 UTC.",
-      "last_run": "13h 35m ago",
+      "last_run": "14h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
-      "state": "parked",
-      "last_action": "Assets loaded and staged: 3 Sharpie hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
-      "last_run": "parked",
+      "state": "active",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset, marker-tip-as-camera continuous-stroke prompt for the MAKE IT / Bold → Last → Sharpie wordmark sequence. Reference cards and prompt v2 staged. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded.",
+      "last_run": "active",
       "color": "amber"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Decision pending: Gallery standalone vs. unified MAKE IT v9.",
+      "last_action": "Two decks delivered: T2 v8 (43MB) and Gallery campaign deck v1. Decision pending: Gallery standalone vs. unified MAKE IT v9. New Graco 'Next Arms' roadmap deck queued for review.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 45 consecutive missed cycles. Blocking Sharpie brand voice validation, T2 Final scoring, and Gallery client delivery. One session fixes it.",
-      "last_run": "45 cycles dark",
+      "last_action": "No activity — 46 consecutive missed cycles. Now also blocking validation of the new Sharpie platform bible. Blocking T2 Final scoring, Sharpie voice validation, and Gallery client delivery. One session fixes it.",
+      "last_run": "46 cycles dark",
       "color": "dim"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — SCOUT and MAESTRO both active downstream.",
+      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN all active downstream.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
-      "time": "2:40 AM UTC",
+      "time": "3:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — MAESTRO mid-session on Sharpie Gallery rebuild, SARAH Run 115 clean, GUARDIAN now 45 cycles dark. Lands' End 3 days.",
+      "text": "Dashboard push — Sharpie platform bible delivered, Graco 'Next Arms' roadmap deck shipped, NOLAN iterating outro animation, SARAH Run 116 clean, GUARDIAN 46 cycles dark.",
       "color": "blue"
+    },
+    {
+      "time": "3:06 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 116: Downloads still not mounted, output tree stable. 2 new Apollo CSVs flagged in Documents (verified emails + misses). 5 cleanup items still pending Rick's nod.",
+      "color": "amber"
+    },
+    {
+      "time": "2:46 AM UTC",
+      "agent": "MAESTRO",
+      "text": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine document. Five hero stories as gallery plaques, 'soul thing' refrain, maker-curator program, three-verbs framework. Session closed.",
+      "color": "amber"
+    },
+    {
+      "time": "2:35 AM UTC",
+      "agent": "SCOUT",
+      "text": "Apollo.io enrichment results landed in Documents: apollo_email_results.csv (verified emails) + apollo_not_found.csv (misses) for the director-outreach DB.",
+      "color": "teal"
     },
     {
       "time": "2:34 AM UTC",
       "agent": "MAESTRO",
-      "text": "Sharpie Product Territory Map drafted (20K) — landed in ~/Documents/Claude/Projects/Sharpie/03_Product_Territory_Map.md. Session still active.",
+      "text": "Sharpie Product Territory Map drafted (20K) — landed in ~/Documents/Claude/Projects/Sharpie/03_Product_Territory_Map.md.",
       "color": "amber"
     },
     {
       "time": "2:10 AM UTC",
       "agent": "MAESTRO",
-      "text": "Sharpie Hero Film treatment v2 'Still Writing' delivered (11K) — present-tense corrective to the past-tense lean that came up in last night's strategy session.",
+      "text": "Sharpie Hero Film treatment v2 'Still Writing' delivered (11K) — present-tense corrective to the past-tense lean from the strategy session.",
       "color": "amber"
     },
     {
       "time": "2:05 AM UTC",
       "agent": "SARAH",
-      "text": "Run 115: Downloads still not mounted, 0 file deltas across all watched dirs. Output tree stable. 5 cleanup items still parked awaiting Rick.",
+      "text": "Run 115: Downloads still not mounted, 0 file deltas. Output tree stable. 5 cleanup items still parked.",
       "color": "amber"
     },
     {
@@ -105,34 +123,16 @@
       "color": "amber"
     },
     {
-      "time": "1:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 113 clean, Documents scaffolded with Sharpie/ + Graco/ project dirs. WRITER delivered Graco effectiveness memo today. GUARDIAN 44 cycles dark.",
-      "color": "blue"
-    },
-    {
-      "time": "1:05 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 113: Downloads not mounted. Output tree clean (1,052 files). Heads-up: empty Sharpie/ and Graco/ project directories appeared in ~/Documents/Claude/Projects/.",
-      "color": "amber"
-    },
-    {
-      "time": "11:05 PM UTC",
-      "agent": "JARVIS",
-      "text": "Nightly status report filed: NOLAN ramped to amber on staged assets, dashboard live at 4366e1c, GUARDIAN 41 cycles dark, Lands' End/ASMR/NYC DOF still open.",
-      "color": "blue"
-    },
-    {
-      "time": "~9:00 PM UTC",
+      "time": "~12:30 AM UTC",
       "agent": "WRITER",
-      "text": "Graco Effectiveness Read memo delivered — BHT funnel moved across the board, but Safety ranking claim is circular and impressions number is media output not behavior. Swap recommendations enclosed.",
+      "text": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered: 17 slides, 'We Got You' multi-year initiative, four pillars (lullabies, service, adaptive product, Gen Z social), three investment tiers, May 2026 → March 2028 phased plan.",
       "color": "teal"
     },
     {
-      "time": "~6:00 PM UTC",
-      "agent": "MAESTRO",
-      "text": "Sharpie Gallery campaign strategy: pressure-tested 'Still Real' as weakest piece; flagged past-tense lean; recommended at least one 'mark being made now' beat. Six follow-on directions queued — and now executing.",
-      "color": "teal"
+      "time": "~12:00 AM UTC",
+      "agent": "NOLAN",
+      "text": "Sharpie outro animation: Higgsfield Wild Card prompt iterated to a continuous marker-tip-as-camera draw — MAKE IT / Bold → Last → full Sharpie cursive lockup, no pop-on letters.",
+      "color": "amber"
     }
   ],
   "attention": [
@@ -142,13 +142,18 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 45 cycles dark",
-      "subtitle": "Blocking T2 Final score, Sharpie voice validation, and Gallery client delivery. One session fixes it.",
+      "title": "GUARDIAN: 46 cycles dark",
+      "subtitle": "Now also blocking validation of the new Sharpie platform bible. T2 Final score, Sharpie voice validation, and Gallery client delivery all still gated. One session fixes it.",
       "severity": "red"
     },
     {
-      "title": "MAESTRO Sharpie session still running",
-      "subtitle": "Hero film v1 + v2 + Product Territory Map landed in last 90 min. Worth a glance to see where it's headed before the next batch ships.",
+      "title": "Sharpie platform bible — needs your read",
+      "subtitle": "MAESTRO closed with '00_The_Gallery_of_Ordinary_Masterpieces.md' as the canonical spine. Easier to revise the spine before building the body — flagged as draft.",
+      "severity": "amber"
+    },
+    {
+      "title": "Graco 'Next Arms' roadmap — review window",
+      "subtitle": "WRITER shipped the 17-slide Cannes 2028 deck with 4 asks needing greenlight in the next 30 days for the timeline to hold.",
       "severity": "amber"
     },
     {
@@ -178,24 +183,24 @@
     },
     {
       "title": "5 SARAH cleanup items pending authorization",
-      "subtitle": "Gallery deck rename, big-new-business duplicate PPTXs, 2 zero-byte test files, onesheet docx move, outreach files move. Reply with the SARAH commands to clear.",
+      "subtitle": "Gallery deck rename, big-new-business duplicate PPTXs, 2 zero-byte test files, onesheet docx move, outreach files (now 5 with new Apollo CSVs). Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 11,
+    "tasks_today": 13,
     "top_score": 9.0,
     "prospects": 5,
-    "files_swept": 1052
+    "files_swept": 1054
   },
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "3:04 AM UTC"
+      "next_run": "4:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "3:39 AM UTC"
+      "next_run": "4:39 AM UTC"
     },
     {
       "name": "Uber/Lyft receipt filer",
