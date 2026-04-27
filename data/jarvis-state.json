@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-27T18:41:00Z",
-  "status_line": "Monday 2:41 PM ET / 18:41 UTC — fifteenth hour. Quiet hour. SARAH Run 126 at 18:08 UTC caught the post-cleanup settling: Downloads dropped from 15 → 13 visible top-level entries with the only JARVIS-adjacent removal being yesterday's new Open Item #17 (IMG_2497.heic, 1.83 MB). Per the same conservative-attribution policy that closed the Run-125 batch, #17 closes RESOLVED-OUT-OF-SCOPE — file gone from Downloads, never landed in JARVIS output tree, no SARAH-owned move ever fired. The other removal was a non-JARVIS-candidate (no SARAH-domain candidate disappeared). All 11 carry-forward Open Items (#1–#7, #9–#11, #15) re-verified unchanged. Tray now 11 active (was 12, −1 closed, +0 new). Output tree unchanged at 1,064. Documents and Desktop top-level clean — only voice-chat infra (bridge.js 18:01, index.html 17:50) plus jarvis-state.json heartbeat re-touched. Voice-relay scheduled task is currently disabled (was previously polling clean). No new MAESTRO/WRITER/GUARDIAN/NOLAN/ATLAS/PARK output since the 14:40 push. Lands' End now T-3 days. Macy's + Glossier still parked.",
+  "updated_at": "2026-04-27T19:40:00Z",
+  "status_line": "Monday 3:40 PM ET / 19:40 UTC — sixteenth hour. Quiet hour with one new ambiguity. SARAH Run 127 at 19:06 UTC: a second Higgsfield video landed in Downloads (hf_20260427_010045_*.mp4, 4.81 MB / 14:33 EDT) — ~10× larger than carry-forward Open Item #7, same naming pattern. Logged as new Open Item #18, not auto-moved (filename has no JARVIS keyword; conservative-attribution policy held). Two hf_*.mp4 videos now sit in Downloads — clear bulk-decision opportunity: reply 'SARAH bulk adopt hf videos' or 'SARAH bulk ignore hf videos' to clear both. All other carry-forward Open Items (#1–#7, #9–#11, #15) re-verified unchanged. Tray now 12 active (was 11, +1 new #18, 0 closed). Output tree unchanged at 1,064. Documents and Desktop top-level clean — only voice-chat infra (dispatch-inbox.jsonl) plus jarvis-state.json heartbeat re-touched. Voice-relay scheduled task still disabled. No new MAESTRO/WRITER/GUARDIAN/NOLAN/ATLAS/PARK output since the 14:40 push. Lands' End now T-3 days. Macy's + Glossier still parked. Note: JARVIS git repo is one commit behind origin — fast-forward pull queued ahead of this push.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apollo enrichment 11:07 UTC: 9 EP/HoP emails verified and pushed to Google Sheet (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films). 5 shops not resolvable in Apollo. 31/60 credits used MTD. ~93 'Research Needed' rows pending. Pipeline check at 10:07 UTC delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14) plus the writable-clone git-push workaround (commit 214cf21 to origin/main).",
-      "last_run": "7h 34m ago",
+      "last_run": "8h 33m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief). GUARDIAN's 9.2/10 on the One-Sheet V2 validates the voice register.",
-      "last_run": "~16h ago",
+      "last_run": "~17h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~18h ago",
+      "last_run": "~19h ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 126 at 18:08 UTC — quiet sweep, single closure. Open Item #17 (IMG_2497.heic, 1.83 MB / Apr 27 12:47 PDT) gone from Downloads between 17:07 and 18:08 UTC, did NOT land in JARVIS output tree — closed RESOLVED-OUT-OF-SCOPE per conservative-attribution policy (same pattern as the Run-125 batch). Downloads dropped 15 → 13 visible entries; second removal was a non-JARVIS-candidate. All 11 carry-forward Open Items (#1–#7, #9–#11, #15) re-verified at unchanged sizes/mtimes. 0 moves / 0 renames / 0 deletes. Output tree 1,064 unchanged. Sixth consecutive scheduled run with the osascript Downloads bridge holding. Tray now 11 active (was 12).",
-      "last_run": "33m ago",
+      "last_action": "Run 127 at 19:06 UTC — quiet sweep, single new ambiguity. NEW Open Item #18: hf_20260427_010045_dc7cc6f7-*.mp4 (4,807,086 B / Apr 27 14:33 EDT) landed in Downloads — second Higgsfield video of the day, ~10× larger than carry-forward Item #7. Same hf_*.mp4 ambiguity class; conservative-attribution policy held (no JARVIS keyword in filename → not auto-moved into output/nolan/shots/). All 11 carry-forward Open Items (#1–#7, #9–#11, #15) re-verified at unchanged sizes/mtimes. 0 moves / 0 renames / 0 deletes. Output tree 1,064 unchanged. Seventh consecutive scheduled run with the osascript Downloads bridge holding. Tray now 12 active (was 11). Bulk-decision opportunity: 'SARAH bulk adopt hf videos' or 'SARAH bulk ignore hf videos'.",
+      "last_run": "34m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 27 daily report delivered at 13:05 UTC. Headline: GUARDIAN broke silence after 15 dark cycles — first GUARDIAN artifact landed (three-document voice check on the Gallery suite). Doc 1 ships clean at 9.2. Docs 2 and 3 require rework. NOLAN added 3 reference .mov files (~9 GB) plus 49 SFX — first NOLAN tree activity in 9 reports. PARK Gallery deck and T2 v8 remain unvalidated by GUARDIAN. Lands' End T-3 days. Jack in the Box is the new prospect.",
-      "last_run": "5h 36m ago",
+      "last_run": "6h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "active",
-      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded in tree. Higgsfield render hf_20260427_003857 (416 KB, Open Item #7) re-verified by SARAH Run 126 in Downloads — still awaiting Rick's adopt call. Output/nolan/storyboard/ remains empty after the Run 125 ROTY-series closures.",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded in tree. Higgsfield render hf_20260427_003857 (416 KB, Open Item #7) re-verified by SARAH Run 127 in Downloads — still awaiting Rick's adopt call. Second hf render landed at 14:33 EDT (hf_20260427_010045, 4.81 MB, new Open Item #18). Output/nolan/storyboard/ remains empty after the Run 125 ROTY-series closures.",
       "last_run": "active",
       "color": "amber"
     },
@@ -62,7 +62,7 @@
       "name": "GUARDIAN",
       "state": "idle",
       "last_action": "BACK ONLINE at 11:28 UTC — three-document voice audit on the Sharpie Gallery (One-Sheet V2 / Gold Package V1 / Board Deliberation). One-Sheet V2: 9.2/10 — top score for the sweep tree, two YELLOW non-blocking flags only. Gold Package V1 and Board Deliberation flagged for rework before external use. Steve Jobs register called out on 'The ink doesn't know if it's a coffee cup or a masterpiece.' First GUARDIAN artifact ever observed by SARAH — naming convention TBD (Open Item #11). T2 Final scoring and Gallery client delivery now unblocked.",
-      "last_run": "7h 13m ago",
+      "last_run": "8h 12m ago",
       "color": "teal"
     },
     {
@@ -74,6 +74,18 @@
     }
   ],
   "activity": [
+    {
+      "time": "7:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — sixteenth hour. Quiet hour, single new ambiguity. SARAH Run 127 added Open Item #18 (second hf_*.mp4 in Downloads, 4.81 MB) — bulk-decision opportunity now live alongside carry-forward Item #7. Output tree unchanged at 1,064. Repo was 1 commit behind origin — fast-forward pull queued ahead of push.",
+      "color": "blue"
+    },
+    {
+      "time": "7:06 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 127: quiet sweep, single new ambiguity. NEW Open Item #18: hf_20260427_010045_*.mp4 (4.81 MB / Apr 27 14:33 EDT) — second Higgsfield video, same ambiguity class as #7. Not auto-moved (no JARVIS keyword); conservative-attribution policy held. All 11 carry-forward Open Items re-verified unchanged. Tray now 12 (was 11, +1 new).",
+      "color": "amber"
+    },
     {
       "time": "6:41 PM UTC",
       "agent": "JARVIS",
@@ -105,18 +117,6 @@
       "color": "amber"
     },
     {
-      "time": "4:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — thirteenth hour. Quiet hour. SARAH Run 124 logged one ambiguous Downloads delta (UUID-named iPhone JPEG, 2.45 MB) as Open Item #16, conservative-hold by silence. All ten carry-forward Run 122/123 Open Items re-verified unchanged. ROTY Year 2 boards still standing as top-confidence Sharpie adopt candidate.",
-      "color": "blue"
-    },
-    {
-      "time": "4:07 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 124: fourth consecutive scheduled run with osascript Downloads bridge holding. Quiet sweep — 21 Downloads top-level entries, 1 new (UUID JPEG, no JARVIS keyword, logged as Open Item #16). All Run 122/123 carry-forward Open Items re-verified at unchanged byte-counts and mtimes. 0 moves / 0 renames / 0 deletes.",
-      "color": "amber"
-    },
-    {
       "time": "1:05 PM UTC",
       "agent": "ATLAS",
       "text": "Daily report Apr 27. Headline: GUARDIAN broke silence after 15 dark cycles. Doc 1 ships clean at 9.2. Docs 2/3 require rework. NOLAN added 3 reference .mov (~9 GB) + 49 SFX — first NOLAN tree activity in 9 reports. PARK decks still unvalidated. Lands' End T-3 days.",
@@ -137,8 +137,13 @@
   ],
   "attention": [
     {
+      "title": "Two Higgsfield videos in Downloads — bulk-decision lane (Open Items #7 + #18)",
+      "subtitle": "hf_20260427_003857 (416 KB, #7) + new hf_20260427_010045 (4.81 MB, #18) both ambiguous JARVIS-adjacent (NOLAN/Higgsfield pipeline) but no JARVIS keyword in filenames. Reply 'SARAH bulk adopt hf videos' to land both at output/nolan/shots/, 'SARAH bulk ignore hf videos' to dismiss both, or single-resolve each.",
+      "severity": "amber"
+    },
+    {
       "title": "Rick Wayne Outreach Database CSV (Open Item #15)",
-      "subtitle": "'Rick Wayne Full Outreach Database (500) - Full Database.csv' (55,614 B, Apr 27 07:09) in Downloads — re-verified unchanged in Run 126. Feeds the existing director-outreach-dashboard.html in repo root. SCOUT pattern is .md only, so naming convention needs extension. Three options: 'SARAH adopt outreach csv as scout-csv' (extend pattern → output/sharpie-scout-director-outreach-database-v1.csv), 'SARAH adopt outreach csv into data' (→ JARVIS/data/director-outreach-database.csv), or 'SARAH bulk adopt outreach' (consolidates with #5 Documents CSVs).",
+      "subtitle": "'Rick Wayne Full Outreach Database (500) - Full Database.csv' (55,614 B, Apr 27 07:09) in Downloads — re-verified unchanged in Run 127. Feeds the existing director-outreach-dashboard.html in repo root. SCOUT pattern is .md only, so naming convention needs extension. Three options: 'SARAH adopt outreach csv as scout-csv' (extend pattern → output/sharpie-scout-director-outreach-database-v1.csv), 'SARAH adopt outreach csv into data' (→ JARVIS/data/director-outreach-database.csv), or 'SARAH bulk adopt outreach' (consolidates with #5 Documents CSVs).",
       "severity": "amber"
     },
     {
@@ -158,7 +163,7 @@
     },
     {
       "title": "Grant ~/Downloads as a Cowork directory (downgraded — no longer blocking)",
-      "subtitle": "SARAH Runs 121–126 confirmed osascript bridge via Control_your_Mac MCP has standing scheduled access — autonomous Downloads reads now work consistently across six consecutive scheduled runs. Granting Downloads as a Cowork directory remains preferred (native bash, no AppleScript hop) but is no longer a blocker.",
+      "subtitle": "SARAH Runs 121–127 confirmed osascript bridge via Control_your_Mac MCP has standing scheduled access — autonomous Downloads reads now work consistently across seven consecutive scheduled runs. Granting Downloads as a Cowork directory remains preferred (native bash, no AppleScript hop) but is no longer a blocker.",
       "severity": "amber"
     },
     {
@@ -182,13 +187,8 @@
       "severity": "amber"
     },
     {
-      "title": "Adopt Higgsfield MP4 as NOLAN shot? (Open Item #7)",
-      "subtitle": "hf_20260427_003857_c50820d1-...mp4 (416 KB) in Downloads — re-verified by SARAH Run 126. Likely a NOLAN render. Reply 'SARAH adopt hf video as nolan shot' or 'SARAH ignore hf video'.",
-      "severity": "amber"
-    },
-    {
       "title": "Adopt Rick Directing Photos folder? (Open Item #9)",
-      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — re-verified by SARAH Run 126. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
+      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — re-verified by SARAH Run 127. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
       "severity": "amber"
     },
     {
@@ -222,8 +222,8 @@
       "severity": "amber"
     },
     {
-      "title": "11 SARAH cleanup items pending authorization (down from 12)",
-      "subtitle": "Run 126 closed Open Item #17 (IMG_2497.heic) as RESOLVED-OUT-OF-SCOPE — file vanished from Downloads without landing in JARVIS tree, conservative-attribution policy held for the second consecutive run. Remaining 11: Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, hf MP4, directing photos folder, JARVIS morning brief, GUARDIAN voice check (Item #11), outreach CSV (Item #15). Reply with the SARAH commands to clear.",
+      "title": "12 SARAH cleanup items pending authorization (up from 11)",
+      "subtitle": "Run 127 added Open Item #18 (second hf_*.mp4 video, 4.81 MB) — bulk-decision lane now active for the hf_* family alongside #7. Remaining items unchanged: Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, 2 hf MP4s (#7 + #18), directing photos folder, JARVIS morning brief, GUARDIAN voice check (#11), outreach CSV (#15). Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
@@ -236,11 +236,11 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "7:04 PM UTC"
+      "next_run": "8:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "7:39 PM UTC"
+      "next_run": "8:39 PM UTC"
     },
     {
       "name": "Nightly status report",
