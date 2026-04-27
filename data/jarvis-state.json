@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-04-27T00:39:00Z",
-  "status_line": "Monday 12:39 AM UTC — SARAH's Run 112 came up empty: Downloads still not a connected workspace, nothing moved. GUARDIAN ticks to 42 cycles dark with T2 final and Gallery delivery still blocked. Nightly report filed: Lands' End is 4 days out, personal letter to Sarah Sylvester still not drafted. SCOUT's Smucker commit is staged and waiting for a manual push.",
+  "updated_at": "2026-04-27T01:40:00Z",
+  "status_line": "Monday 1:40 AM UTC — SARAH's 00:06 sweep found three new production outreach files in Documents (full director database, 104-contact CSV, agency exec list) but Downloads still not a connected workspace. Rick ran a Sharpie outro card prompt through Higgsfield earlier tonight. GUARDIAN ticks to 43 cycles dark — T2 Final and Gallery delivery remain blocked. Lands' End is now 3 days out. Everything routine is running clean.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "BiG sweep: 1 new prospect — J.M. Smucker Co. (Katie Williams, CMO, June 9 window). Glossier/Michael Kors both ~20 days in. Git commit staged; push needs manual credentials.",
-      "last_run": "14h 32m ago",
+      "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Git commit staged; push needs manual credentials.",
+      "last_run": "15h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "Delivered Gallery Gold Package — doorframe as hero visual, Alma Har'el recommended as director. All 12 gaps closed. Cannes ceiling: Titanium Grand Prix.",
-      "last_run": "yesterday",
+      "last_action": "Gallery Gold Package delivered — doorframe as hero visual, Alma Har'el recommended as director, all 12 gaps closed. Cannes ceiling: Titanium Grand Prix. Sharpie outro card (MAKE IT BOLD / LAST / SHARPIE) prompt generated for Higgsfield.",
+      "last_run": "earlier today",
       "color": "teal"
     },
     {
@@ -26,28 +26,28 @@
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7★, top 3% globally. T2 Final still unscored — pending GUARDIAN.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7★, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 112 at 23:06 UTC: Downloads not mounted — ~/Downloads not a connected workspace. No files moved. 5 cleanup items still pending authorization.",
-      "last_run": "1h 33m ago",
+      "last_action": "Run at 00:06 UTC: Downloads not mounted — no JARVIS files to move. Found 3 new outreach/production files in Documents (AGENCY_DATABASE_SUMMARY.txt, Rick_Wayne_Full_Outreach_Database.csv, agency_production_contacts.csv). 4 cleanup items still pending authorization. Output tree clean.",
+      "last_run": "1h 34m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Three active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9).",
-      "last_run": "11h 34m ago",
+      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9).",
+      "last_run": "12h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "parked",
-      "last_action": "Assets loaded: 3 Sharpie hero MOV cuts (9.11 GB) + 49 Artlist SFX in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
+      "last_action": "Assets loaded and staged: 3 Sharpie hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX in shots/ and music/ dirs. Directory scaffold ready. Awaiting activation.",
       "last_run": "parked",
       "color": "amber"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 42 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 client deliveries.",
-      "last_run": "42 cycles dark",
+      "last_action": "No activity — 43 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 Final client deliveries.",
+      "last_run": "43 cycles dark",
       "color": "dim"
     },
     {
@@ -75,16 +75,22 @@
   ],
   "activity": [
     {
+      "time": "1:40 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH 00:06 sweep: outreach files detected in Documents, Downloads still not mounted. GUARDIAN 43 cycles dark. Lands' End 3 days.",
+      "color": "blue"
+    },
+    {
       "time": "12:39 AM UTC",
       "agent": "JARVIS",
       "text": "Dashboard push — SARAH Run 112: Downloads not mounted, nothing moved. GUARDIAN now 42 cycles dark. Nightly report filed. Lands' End 4 days.",
       "color": "blue"
     },
     {
-      "time": "11:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH moved 9.11 GB Nolan assets from Downloads. GUARDIAN 41 cycles dark. Lands' End 4 days out.",
-      "color": "blue"
+      "time": "12:06 AM UTC",
+      "agent": "SARAH",
+      "text": "Sweep at 00:06 UTC: Downloads empty/not mounted. Detected 3 new outreach files in Documents (director DB, 104-contact CSV, agency execs). 4 pending items carried forward.",
+      "color": "amber"
     },
     {
       "time": "11:05 PM UTC",
@@ -105,10 +111,10 @@
       "color": "teal"
     },
     {
-      "time": "9:40 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 112: Downloads not mounted. GUARDIAN at 39 cycles. Lands' End 4 days, SCOUT push needs manual credentials.",
-      "color": "blue"
+      "time": "~8:00 PM UTC",
+      "agent": "MAESTRO",
+      "text": "Sharpie outro card animation prompt generated for Higgsfield Marketing Studio (Wild Card preset). Three-beat sequence: MAKE IT BOLD → MAKE IT LAST → MAKE IT SHARPIE.",
+      "color": "teal"
     },
     {
       "time": "1:05 PM UTC",
@@ -123,12 +129,6 @@
       "color": "teal"
     },
     {
-      "time": "10:06 AM UTC",
-      "agent": "JARVIS",
-      "text": "Morning priorities briefing delivered.",
-      "color": "blue"
-    },
-    {
       "time": "9:04 AM UTC",
       "agent": "JARVIS",
       "text": "Uber/Lyft receipt filer ran — scanning Apple Mail for unread receipts.",
@@ -138,11 +138,11 @@
   "attention": [
     {
       "title": "Lands' End — Sarah Sylvester outreach",
-      "subtitle": "April 30 deadline. Personal letter not drafted. 4 days.",
+      "subtitle": "April 30 deadline. Personal letter not drafted. 3 days.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 42 cycles dark",
+      "title": "GUARDIAN: 43 cycles dark",
       "subtitle": "Blocking T2 Final score and Gallery client delivery. One session fixes it.",
       "severity": "red"
     },
@@ -173,15 +173,19 @@
     }
   ],
   "stats": {
-    "tasks_today": 6,
+    "tasks_today": 7,
     "top_score": 90,
     "prospects": 13,
-    "files_swept": 1045
+    "files_swept": 1048
   },
   "scheduled": [
     {
       "name": "sarah-file-sweep",
-      "next_run": "Mon 1:04 AM UTC"
+      "next_run": "Mon 2:04 AM UTC"
+    },
+    {
+      "name": "uber-lyft-receipt-filer",
+      "next_run": "Mon 9:04 AM UTC"
     },
     {
       "name": "morning-priorities",
@@ -190,10 +194,6 @@
     {
       "name": "scout-pipeline-check",
       "next_run": "Mon 10:07 AM UTC"
-    },
-    {
-      "name": "uber-lyft-receipt-filer",
-      "next_run": "Mon 9:04 AM UTC"
     },
     {
       "name": "atlas-dependency-check",
@@ -205,7 +205,7 @@
     },
     {
       "name": "jarvis-dashboard-push",
-      "next_run": "Mon 1:39 AM UTC"
+      "next_run": "Mon 2:39 AM UTC"
     }
   ]
 }
