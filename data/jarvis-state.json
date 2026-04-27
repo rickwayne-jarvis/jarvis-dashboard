@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-27T09:41:00Z",
-  "status_line": "Monday 5:41 AM ET / 9:41 AM UTC — sixth straight quiet creative hour, and SARAH Run 117 (09:06 UTC) walked back Run 116's Downloads-access claim: the osascript bridge that broke through last hour only works in interactive sessions where Rick can approve Mac control, so scheduled-task runs can't use it. Downloads is unreadable again from autonomous SARAH; the durable fix is granting ~/Downloads as a Cowork directory. Tray holds at 9 — Open Items #7–#9 (Higgsfield MP4, Process Page spec PDF, Rick Directing Photos folder) all still parked, just unverifiable this hour. Output tree steady at 1,053 files; sarah-log.md now ~725 KB. The 09:04 receipt filer caught a single Tesla Insurance $30.18 auto-debit and filed it to April 2026 Personal — clean run, 0 needs-review. GUARDIAN ticks to 52 consecutive cycles dark, still gating Sharpie platform-bible validation, T2 Final scoring, and Gallery client delivery. NOLAN still iterating the Sharpie outro. Lands' End / Sarah Sylvester clock now at T-3 days and counting. No new MAESTRO/WRITER output since 02:46.",
+  "updated_at": "2026-04-27T10:40:30Z",
+  "status_line": "Monday 6:40 AM ET / 10:40 AM UTC — seventh straight quiet creative hour, but the morning batch fired clean and SCOUT actually moved the needle. The 10:07 UTC pipeline check landed one new actionable prospect — Jack in the Box, with new CMO Katelyn Zborowski (28 days in) sitting on a 75th-anniversary year that traditionally gets carved off from the AOR — added to the BiG dashboard at priority 14, tier 2, fit 3/5. The git push that's been blocked for days finally succeeded too: SCOUT cloned past the stale .git/index.lock and HEAD.lock files in the dashboard repo, committed (214cf21), pushed origin/main, then synced refs back. Stale locks still on disk but harmless; flag if it recurs. SARAH Run 118 at 10:06 UTC was a clean no-op — Downloads still unmounted to scheduled runs (the osascript bridge confirmed last hour as interactive-only), tray still 9, output tree still 1,053 files. Morning Priorities filed at 10:06 UTC: Lands' End T-3 days, run GUARDIAN (now 53 cycles dark), make the Macy's + Glossier yes/no calls, then map Gallery's first 30 days to client. Receipt Filer earlier this morning caught one Tesla Insurance auto-debit ($30.18, April 2026 Personal). No new MAESTRO/WRITER output since 02:46 UTC.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Apollo enrichment results still parked in Documents (verified emails + misses). Git commit staged; push needs manual credentials. Next sweep 10:07 UTC.",
-      "last_run": "23h ago",
+      "last_action": "Pipeline check 10:07 UTC: 1 new actionable prospect — Jack in the Box (Katelyn Zborowski CMO, 28d in role, 75th anniversary year, fit 3/5, tier 2, priority 14). Industry intel filed but not actionable: Qatar Airways/IBM (too big), BMS-Gilead/LinkedIn (out-of-lane), NDC's Susie Dewey (small). Confirmed Mondelez US creative review timing. Git push SUCCEEDED — commit 214cf21 to origin/main via writable-clone workaround around stale lock files. J.M. Smucker prospect from yesterday's run also now reflected upstream.",
+      "last_run": "33m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program, the 'soul thing' refrain. Session closed. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief).",
-      "last_run": "~7h ago",
+      "last_run": "~8h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~9h ago",
+      "last_run": "~10h ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 117 at 09:06 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads access REGRESSED vs. Run 116: the osascript bridge that worked at 08:07 only operates in interactive Cowork sessions where Rick can approve Mac control; scheduled invocations can't acquire that approval. Documents + Desktop confirmed mounted, no new user-created files since Run 116. All 9 Open Items carried unchanged (Items #7–#9 in Downloads couldn't be re-verified). Output tree still 1,053 files. sarah-log.md ~725 KB.",
-      "last_run": "35m ago",
+      "last_action": "Run 118 at 10:06 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads still unmounted in scheduled context (osascript bridge confirmed interactive-only last hour). Documents + Desktop verified clean — zero new user files since Run 117. All 9 Open Items carried unchanged. Output tree 1,053 files. sarah-log.md ~730 KB.",
+      "last_run": "34m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 13:04 UTC.",
-      "last_run": "20h 36m ago",
+      "last_run": "21h 36m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "active",
-      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded. Possible new Higgsfield render (hf_20260427_003857) still parked in Downloads as Open Item #7 — unverifiable this hour, awaits Rick's adopt call.",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded. Possible new Higgsfield render (hf_20260427_003857) still parked in Downloads as Open Item #7 — unverifiable from scheduled SARAH, awaits Rick's adopt call.",
       "last_run": "active",
       "color": "amber"
     },
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 52 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
-      "last_run": "52 cycles dark",
+      "last_action": "No activity — 53 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
+      "last_run": "53 cycles dark",
       "color": "dim"
     },
     {
@@ -75,15 +75,39 @@
   ],
   "activity": [
     {
+      "time": "10:40 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — seventh quiet creative hour, but SCOUT broke the streak: 1 new prospect (Jack in the Box / Katelyn Zborowski) added to BiG dashboard AND the git push that's been blocked for days finally succeeded via writable-clone workaround. Tray steady at 9. GUARDIAN 53 cycles dark.",
+      "color": "blue"
+    },
+    {
+      "time": "10:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Pipeline check: Jack in the Box flagged — new CMO Katelyn Zborowski, 28d in role, 75th anniversary year creates project-pitch lane outside TBWA AOR. Added to dashboard at priority 14, tier 2, fit 3/5. Git push SUCCEEDED (commit 214cf21) via writable-clone workaround around stale lock files. Industry intel logged but not BiG-actionable: Qatar Airways/IBM/BMS-Gilead/LinkedIn reviews.",
+      "color": "teal"
+    },
+    {
+      "time": "10:06 AM UTC",
+      "agent": "JARVIS",
+      "text": "Morning Priorities filed: Lands' End T-3 days as the live deadline, run GUARDIAN to clear three downstream blockers, make Macy's + Glossier yes/no calls, then sequence Gallery's first 30 days to client. Five priorities, none require inspiration.",
+      "color": "blue"
+    },
+    {
+      "time": "10:06 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 118: read-only inventory pass. Downloads still unmounted to scheduled tasks (osascript bridge confirmed interactive-only). Documents + Desktop verified clean, zero new user files since Run 117. All 9 Open Items carried unchanged. Output tree 1,053 files; log now ~730 KB.",
+      "color": "amber"
+    },
+    {
       "time": "9:41 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — sixth quiet creative hour. SARAH Run 117 walked back the osascript-bridge claim (interactive-only, doesn't apply to scheduled runs); Downloads unreadable again from autonomous SARAH. Tray steady at 9. GUARDIAN 52 cycles dark.",
+      "text": "Dashboard push — sixth quiet creative hour. SARAH Run 117 walked back the osascript-bridge claim (interactive-only, doesn't apply to scheduled runs); Downloads unreadable again from autonomous SARAH.",
       "color": "blue"
     },
     {
       "time": "9:06 AM UTC",
       "agent": "SARAH",
-      "text": "Run 117: read-only inventory pass. Downloads access REGRESSED — osascript bridge requires interactive Mac-control approval, unavailable to scheduled tasks. Documents + Desktop clean, 0 new user files since Run 116. Output tree stable at 1,053 files. All 9 Open Items carried unchanged.",
+      "text": "Run 117: read-only inventory pass. Downloads access REGRESSED — osascript bridge requires interactive Mac-control approval, unavailable to scheduled tasks.",
       "color": "amber"
     },
     {
@@ -93,34 +117,10 @@
       "color": "blue"
     },
     {
-      "time": "8:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — fifth quiet creative hour, but SARAH Run 116 broke the Downloads-blocked streak: osascript bridge restored access, 1 asset filed, 3 new Open Items (#7–#9), tray now at 9.",
-      "color": "blue"
-    },
-    {
       "time": "8:07 AM UTC",
       "agent": "SARAH",
       "text": "Run 116: Downloads access RESTORED via osascript bridge (after 4 runs blocked). Moved Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified. 3 ambiguous Downloads items flagged as Open Items #7–#9.",
       "color": "amber"
-    },
-    {
-      "time": "7:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — fourth straight quiet hour. SARAH Run 115 clean no-op, GUARDIAN ticks to 50 cycles dark, Lands' End now at T-3 days.",
-      "color": "blue"
-    },
-    {
-      "time": "7:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 115: Downloads still unmounted, 0 user-file deltas across Documents/Desktop since 06:06, output tree stable. 6 open items still awaiting authorization.",
-      "color": "amber"
-    },
-    {
-      "time": "6:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — third straight quiet hour. SARAH 06:06 sweep surfaced 4 Sharpie creative-track docs in Documents/Claude/Projects/Sharpie/ (Open Item #6).",
-      "color": "blue"
     },
     {
       "time": "2:46 AM UTC",
@@ -142,7 +142,7 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 52 cycles dark",
+      "title": "GUARDIAN: 53 cycles dark",
       "subtitle": "Still blocking validation of the new Sharpie platform bible, T2 Final scoring, and Gallery client delivery. One session fixes it.",
       "severity": "red"
     },
@@ -154,6 +154,16 @@
     {
       "title": "Sharpie platform bible — needs your read",
       "subtitle": "MAESTRO closed with '00_The_Gallery_of_Ordinary_Masterpieces.md' as the canonical spine. Easier to revise the spine before building the body. Next moves (open-call film, maker-curator brief, gallery experience brief) wait on your call.",
+      "severity": "amber"
+    },
+    {
+      "title": "New prospect: Jack in the Box (Katelyn Zborowski)",
+      "subtitle": "SCOUT 10:07 UTC: 28d into CMO tenure, 75th anniversary year, project-pitch lane outside TBWA AOR. Tier 2, fit 3/5, priority 14. Window starts narrowing once another shop locks the anniversary scope.",
+      "severity": "amber"
+    },
+    {
+      "title": "Macy's + Glossier — yes/no calls",
+      "subtitle": "Macy's seven-plus flags; Glossier / Nicole Solórzano now Day 22 (note already drafted, parked four mornings). Past 'timely' — own the timing or close the files. 30-minute block.",
       "severity": "amber"
     },
     {
@@ -187,13 +197,13 @@
       "severity": "amber"
     },
     {
-      "title": "SCOUT git push needs manual run",
-      "subtitle": "J.M. Smucker prospect commit staged but unpushed — credentials required.",
+      "title": "Two-PARK-deck decision still pending",
+      "subtitle": "Gallery standalone vs. unified MAKE IT v9 — call needed before next pitch window.",
       "severity": "amber"
     },
     {
-      "title": "Two-PARK-deck decision still pending",
-      "subtitle": "Gallery standalone vs. unified MAKE IT v9 — call needed before next pitch window.",
+      "title": "Stale .git lock files in BiG dashboard repo",
+      "subtitle": "SCOUT pushed via writable-clone workaround around .git/index.lock + .git/HEAD.lock — sandbox can't unlink them. Harmless but worth a manual rm next interactive session before they bite a different agent.",
       "severity": "amber"
     },
     {
@@ -208,31 +218,23 @@
     }
   ],
   "stats": {
-    "tasks_today": 17,
+    "tasks_today": 19,
     "top_score": 9.0,
-    "prospects": 5,
+    "prospects": 6,
     "files_swept": 1053
   },
   "scheduled": [
     {
+      "name": "SCOUT Apollo enrichment",
+      "next_run": "11:06 AM UTC"
+    },
+    {
       "name": "SARAH file sweep",
-      "next_run": "10:04 AM UTC"
-    },
-    {
-      "name": "Morning priorities",
-      "next_run": "10:06 AM UTC"
-    },
-    {
-      "name": "SCOUT pipeline check",
-      "next_run": "10:07 AM UTC"
+      "next_run": "11:04 AM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "10:39 AM UTC"
-    },
-    {
-      "name": "SCOUT Apollo enrichment",
-      "next_run": "11:06 AM UTC"
+      "next_run": "11:39 AM UTC"
     },
     {
       "name": "ATLAS dependency check",
@@ -241,6 +243,14 @@
     {
       "name": "Nightly status report",
       "next_run": "11:04 PM UTC"
+    },
+    {
+      "name": "Morning priorities",
+      "next_run": "Tue 10:06 AM UTC"
+    },
+    {
+      "name": "SCOUT pipeline check",
+      "next_run": "Tue 10:07 AM UTC"
     },
     {
       "name": "Uber/Lyft receipt filer",
