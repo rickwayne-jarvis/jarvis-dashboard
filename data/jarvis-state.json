@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-04-27T13:40:31Z",
-  "status_line": "Monday 9:40 AM ET / 13:40 PM UTC — tenth hour of the morning. Two big shifts since the last push: ATLAS finally ran (its first daily report of the cycle, at 13:05 UTC) and SARAH Run 121 broke the four-run Downloads blackout — osascript bridge via Control_your_Mac MCP turned out to have standing scheduled access, no user prompt needed. SARAH took her first verifiable Downloads inventory since Run 116: 14 entries, zero JARVIS keyword matches, and Open Items #7-9 re-verified at unchanged sizes (hf MP4 416 KB, Process Page PDF 30 KB, Rick Directing Photos folder ~1.6 MB). ATLAS's headline calls GUARDIAN's return the pipeline event of the day — One-Sheet V2 ships clean at 9.2, Gold Package and Board Deliberation need rework before they go external, and the PARK Gallery deck plus T2 v8 still aren't GUARDIAN-validated. Output tree flat at 1,058 files. Tray still 11. Lands' End now T-3 days. No new MAESTRO, WRITER, or NOLAN output since 02:46 UTC.",
+  "updated_at": "2026-04-27T14:40:47Z",
+  "status_line": "Monday 10:40 AM ET / 14:40 PM UTC — eleventh hour. Headline: SARAH Run 122 lit up Downloads with the highest-confidence Sharpie adopt candidate since Run 116 — a ROTY Year 2 folder of 19 storyboard PNGs every one of which literally begins with 'Sharpie ROTY boards'. Plus a paired Year 1 PDF (with byte-identical duplicate), a Year 3 folder of Higgsfield-rendered stills, source .zip archives for both, and the 500-contact outreach CSV that feeds the director-outreach dashboard. Seven new Open Items (#12–#15 + duplicate-pair siblings), tray jumps from 11 to 15. Output tree at 1,059 (+1 — ATLAS daily report dated mirror). Standing osascript bridge confirmed working a second consecutive run. No new MAESTRO, WRITER, GUARDIAN, or NOLAN output since 11:28 UTC. Lands' End still T-3 days. The ROTY Year 2 boards are the first NOLAN-tree storyboard content the pipeline has ever surfaced — proposed canonical home output/nolan/storyboard/sharpie-roty-year-2/ awaits one 'SARAH adopt ROTY year 2' from Rick.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apollo enrichment 11:07 UTC: 9 EP/HoP emails verified and pushed to Google Sheet (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films). 5 shops not resolvable in Apollo. 31/60 credits used MTD. ~93 'Research Needed' rows pending. Pipeline check at 10:07 UTC delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14) plus the writable-clone git-push workaround (commit 214cf21 to origin/main).",
-      "last_run": "2h 33m ago",
+      "last_run": "3h 33m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief). GUARDIAN's 9.2/10 on the One-Sheet V2 validates the voice register.",
-      "last_run": "~11h ago",
+      "last_run": "~12h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~13h ago",
+      "last_run": "~14h ago",
       "color": "teal"
     },
     {
@@ -33,21 +33,21 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 121 at 13:07 UTC — Downloads access RESTORED. osascript bridge via Control_your_Mac MCP has standing scheduled access (no request_access prompt needed). First verifiable Downloads inventory since Run 116: 14 entries, 0 JARVIS keyword matches, Open Items #7–9 re-verified at unchanged sizes. Output tree flat at 1,058 files. 0 moves / 0 renames / 0 deletes per standing conservative policy in autonomous context. Tray still 11. Standing recommendation updated: granting Downloads as a Cowork directory remains preferred (native bash, no AppleScript hop) but the autonomous read gap is no longer a blocker.",
-      "last_run": "33m ago",
+      "last_action": "Run 122 at 14:09 UTC — first non-trivial Downloads sweep since Run 116. Seven new JARVIS-adjacent items detected: ROTY Year 1.pdf (+ exact-byte duplicate), ROTY Year 2/ folder (19 PNGs explicitly named 'Sharpie ROTY boards_009.png' through '_028.png' — highest-confidence Sharpie adopt candidate observed since Run 116), ROTY Year 3/ folder (4 UUID-named PNGs + 12 Higgsfield-generated stills, ~24 MB), ROTY Year 2.zip + ROTY Year 3.zip source archives, and Rick Wayne Full Outreach Database (500) - Full Database.csv (feeds director-outreach-dashboard.html). Three pre-existing Downloads items (#7, #8, #9) re-verified at unchanged sizes. Output tree 1,059 files (+1 ATLAS daily report dated mirror). 0 moves / 0 renames / 0 deletes per standing conservative-attribution policy. Tray now 15. Standing osascript bridge worked again — Downloads access stable in scheduled context for second run.",
+      "last_run": "31m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 27 daily report delivered at 13:05 UTC. Headline: GUARDIAN broke silence after 15 dark cycles — first GUARDIAN artifact landed (three-document voice check on the Gallery suite). Doc 1 ships clean at 9.2. Docs 2 and 3 require rework. NOLAN added 3 reference .mov files (~9 GB) plus 49 SFX — first NOLAN tree activity in 9 reports. PARK Gallery deck and T2 v8 remain unvalidated by GUARDIAN. Lands' End T-3 days. Jack in the Box is the new prospect.",
-      "last_run": "35m ago",
+      "last_run": "1h 35m ago",
       "color": "teal"
     },
     {
       "name": "NOLAN",
       "state": "active",
-      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded. Higgsfield render hf_20260427_003857 (416 KB) re-verified by SARAH Run 121 in Downloads — Open Item #7 awaiting Rick's adopt call.",
+      "last_action": "Iterating Sharpie outro animation in Higgsfield Marketing Studio — Wild Card preset. Latest revision: single continuous marker-stroke camera that follows the wet ink tip through 'MAKE IT Bold → Last → Sharpie' wordmark. 3 hero MOV cuts (9.11 GB) + 49 Artlist WAV SFX still loaded in tree. Higgsfield render hf_20260427_003857 (416 KB) re-verified by SARAH Run 122 in Downloads — Open Item #7 awaiting Rick's adopt call. Run 122 also surfaced 19 storyboard PNGs ('Sharpie ROTY boards_009-028') and 12 Higgsfield-generated Year 3 stills awaiting NOLAN-tree adoption.",
       "last_run": "active",
       "color": "amber"
     },
@@ -62,7 +62,7 @@
       "name": "GUARDIAN",
       "state": "active",
       "last_action": "BACK ONLINE at 11:28 UTC — three-document voice audit on the Sharpie Gallery (One-Sheet V2 / Gold Package V1 / Board Deliberation). One-Sheet V2: 9.2/10 — top score for the sweep tree, two YELLOW non-blocking flags only. Gold Package V1 and Board Deliberation flagged for rework before external use. Steve Jobs register called out on 'The ink doesn't know if it's a coffee cup or a masterpiece.' First GUARDIAN artifact ever observed by SARAH — naming convention TBD (Open Item #11). T2 Final scoring and Gallery client delivery now unblocked.",
-      "last_run": "2h 12m ago",
+      "last_run": "3h 12m ago",
       "color": "teal"
     },
     {
@@ -74,6 +74,18 @@
     }
   ],
   "activity": [
+    {
+      "time": "2:40 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — eleventh hour. Headline: SARAH Run 122 lit up Downloads with the highest-confidence Sharpie adopt candidate since Run 116 — ROTY Year 2 folder, 19 PNGs explicitly named 'Sharpie ROTY boards'. Seven new Open Items (#12–#15 + dup siblings). Tray now 15. Output 1,059.",
+      "color": "blue"
+    },
+    {
+      "time": "2:09 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 122: first non-trivial Downloads sweep since Run 116. ROTY Year 1 PDF (+ byte-identical duplicate), ROTY Year 2 folder (19 PNGs literally named 'Sharpie ROTY boards_009-028'), ROTY Year 3 folder (4 UUID PNGs + 12 Higgsfield stills, ~24 MB), source .zip archives for Years 2 + 3, and the 500-contact outreach CSV. 7 new Open Items #12–#15. 0 moves per standing policy. Tray 15. Output 1,059.",
+      "color": "amber"
+    },
     {
       "time": "1:40 PM UTC",
       "agent": "JARVIS",
@@ -117,18 +129,6 @@
       "color": "teal"
     },
     {
-      "time": "11:04 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 119: third consecutive Downloads-blocked sweep. New Documents write — 'JARVIS-morning-brief-2026-04-27.md' — flagged as Open Item #10. Output tree 1,058 files.",
-      "color": "amber"
-    },
-    {
-      "time": "10:08 AM UTC",
-      "agent": "JARVIS",
-      "text": "Morning brief written to Documents — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B). Was without a canonical home in output/ until SARAH Run 119 logged Open Item #10 with adoption commands.",
-      "color": "blue"
-    },
-    {
       "time": "10:07 AM UTC",
       "agent": "SCOUT",
       "text": "Pipeline check: Jack in the Box (Katelyn Zborowski CMO, 28d in role, 75th anniversary year, project-pitch lane outside TBWA AOR) added at priority 14, tier 2, fit 3/5. BiG dashboard push landed via writable-clone workaround — commit 214cf21 to origin/main (multi-day blocker cleared).",
@@ -147,6 +147,26 @@
       "severity": "red"
     },
     {
+      "title": "ROTY Year 2 boards — strongest Sharpie adopt candidate this cycle (Open Item #13)",
+      "subtitle": "SARAH Run 122 surfaced ROTY Year 2/ folder in Downloads — 19 PNGs literally named 'Sharpie ROTY boards_009.png' through '_028.png'. Highest-confidence Sharpie keyword match observed since Run 116. Reply 'SARAH adopt ROTY year 2' to land at output/nolan/storyboard/sharpie-roty-year-2/ (proposed first NOLAN-tree storyboard content) or 'SARAH ignore ROTY year 2'. Companion source archive ROTY Year 2.zip (#13a) auto-handled within same command.",
+      "severity": "amber"
+    },
+    {
+      "title": "ROTY Year 1 PDF + duplicate (Open Item #12)",
+      "subtitle": "ROTY Year 1.pdf and ROTY Year 1 (1).pdf — byte-identical (md5 dd01dc5d4b77bc7a81f415a83ee2e5f4, 1.59 MB each) in Downloads. Likely Sharpie ROTY Year 1 boards PDF compilation, sibling to the explicitly-named Year 2 boards. Reply 'SARAH adopt ROTY year 1' to land at output/nolan/storyboard/sharpie-roty-year-1-boards-v1.pdf (newer copy kept, older quarantined to _duplicates/) or 'SARAH ignore ROTY year 1'.",
+      "severity": "amber"
+    },
+    {
+      "title": "ROTY Year 3 stills — Higgsfield-generated production assets (Open Item #14)",
+      "subtitle": "ROTY Year 3/ folder in Downloads: 4 UUID-named PNGs (Apr 15) + 12 hf_2026022[2-3]_*.png Higgsfield stills, ~24.3 MB total. No explicit 'Sharpie' keyword in filenames but folder name parallels Year 2's confirmed Sharpie series. Reply 'SARAH adopt ROTY year 3' to land at output/nolan/shots/sharpie-roty-year-3/ or 'SARAH ignore ROTY year 3'. Source archive ROTY Year 3.zip (#14a) auto-handled.",
+      "severity": "amber"
+    },
+    {
+      "title": "Rick Wayne Outreach Database CSV (Open Item #15)",
+      "subtitle": "'Rick Wayne Full Outreach Database (500) - Full Database.csv' (55,614 B, Apr 27 07:09) in Downloads — feeds the existing director-outreach-dashboard.html in repo root. SCOUT pattern is .md only, so naming convention needs extension. Three options: 'SARAH adopt outreach csv as scout-csv' (extend pattern → output/sharpie-scout-director-outreach-database-v1.csv), 'SARAH adopt outreach csv into data' (→ JARVIS/data/director-outreach-database.csv), or 'SARAH bulk adopt outreach' (consolidates with #5 Documents CSVs).",
+      "severity": "amber"
+    },
+    {
       "title": "GUARDIAN naming convention — SKILL.md gap (Open Item #11)",
       "subtitle": "GUARDIAN is back online but isn't in SARAH's enumerated agents (SCOUT/MAESTRO/NOLAN/TESTING/draft-mode). Three options: 'SARAH adopt guardian voice check as testing' → output/sharpie-testing-gallery-voice-check-v1.md; 'SARAH adopt guardian as new pattern' → establish output/sharpie-guardian-*.md and extend SKILL.md; or 'SARAH leave guardian voice check' to keep in Documents.",
       "severity": "amber"
@@ -163,7 +183,7 @@
     },
     {
       "title": "Grant ~/Downloads as a Cowork directory (downgraded — no longer blocking)",
-      "subtitle": "SARAH Run 121 confirmed osascript bridge via Control_your_Mac MCP has standing scheduled access — autonomous Downloads reads now work. Granting Downloads as a Cowork directory remains preferred (native bash, no AppleScript hop) but is no longer a blocker.",
+      "subtitle": "SARAH Runs 121 + 122 confirmed osascript bridge via Control_your_Mac MCP has standing scheduled access — autonomous Downloads reads now work consistently. Granting Downloads as a Cowork directory remains preferred (native bash, no AppleScript hop) but is no longer a blocker.",
       "severity": "amber"
     },
     {
@@ -188,17 +208,17 @@
     },
     {
       "title": "Adopt Higgsfield MP4 as NOLAN shot? (Open Item #7)",
-      "subtitle": "hf_20260427_003857_c50820d1-…mp4 (416 KB) in Downloads — re-verified by SARAH Run 121. Likely a NOLAN render. Reply 'SARAH adopt hf video as nolan shot' or 'SARAH ignore hf video'.",
+      "subtitle": "hf_20260427_003857_c50820d1-…mp4 (416 KB) in Downloads — re-verified by SARAH Run 122. Likely a NOLAN render. Reply 'SARAH adopt hf video as nolan shot' or 'SARAH ignore hf video'.",
       "severity": "amber"
     },
     {
       "title": "Adopt Process Page Structure Spec? (Open Item #8)",
-      "subtitle": "'Process Page — Structure Spec.pdf' (30 KB) in Downloads — re-verified by SARAH Run 121. Likely paired with sharpie-maestro-rickwayne-process-v1.md / rickwayne.cc Process page. Reply 'SARAH adopt process page spec' or 'SARAH ignore process page spec'.",
+      "subtitle": "'Process Page — Structure Spec.pdf' (30 KB) in Downloads — re-verified by SARAH Run 122. Likely paired with sharpie-maestro-rickwayne-process-v1.md / rickwayne.cc Process page. Reply 'SARAH adopt process page spec' or 'SARAH ignore process page spec'.",
       "severity": "amber"
     },
     {
       "title": "Adopt Rick Directing Photos folder? (Open Item #9)",
-      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — re-verified by SARAH Run 121. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
+      "subtitle": "'Rick Directing Photos/' (5 photos, ~1.6 MB) in Downloads — re-verified by SARAH Run 122. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
       "severity": "amber"
     },
     {
@@ -232,25 +252,25 @@
       "severity": "amber"
     },
     {
-      "title": "11 SARAH cleanup items pending authorization",
-      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, 3 Downloads items (hf MP4, process page PDF, directing photos folder), JARVIS morning brief, and the GUARDIAN voice check (Item #11). Reply with the SARAH commands to clear.",
+      "title": "15 SARAH cleanup items pending authorization",
+      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, 3 carry-forward Downloads items (hf MP4, process page PDF, directing photos folder), JARVIS morning brief, GUARDIAN voice check (Item #11), and 4 new ROTY-series + outreach CSV items (#12–#15). Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 26,
+    "tasks_today": 27,
     "top_score": 9.2,
     "prospects": 6,
-    "files_swept": 1058
+    "files_swept": 1059
   },
   "scheduled": [
     {
       "name": "JARVIS dashboard push",
-      "next_run": "2:39 PM UTC"
+      "next_run": "3:39 PM UTC"
     },
     {
       "name": "SARAH file sweep",
-      "next_run": "2:04 PM UTC"
+      "next_run": "3:04 PM UTC"
     },
     {
       "name": "Nightly status report",
