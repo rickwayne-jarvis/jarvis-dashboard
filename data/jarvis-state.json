@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-04-27T10:40:30Z",
-  "status_line": "Monday 6:40 AM ET / 10:40 AM UTC — seventh straight quiet creative hour, but the morning batch fired clean and SCOUT actually moved the needle. The 10:07 UTC pipeline check landed one new actionable prospect — Jack in the Box, with new CMO Katelyn Zborowski (28 days in) sitting on a 75th-anniversary year that traditionally gets carved off from the AOR — added to the BiG dashboard at priority 14, tier 2, fit 3/5. The git push that's been blocked for days finally succeeded too: SCOUT cloned past the stale .git/index.lock and HEAD.lock files in the dashboard repo, committed (214cf21), pushed origin/main, then synced refs back. Stale locks still on disk but harmless; flag if it recurs. SARAH Run 118 at 10:06 UTC was a clean no-op — Downloads still unmounted to scheduled runs (the osascript bridge confirmed last hour as interactive-only), tray still 9, output tree still 1,053 files. Morning Priorities filed at 10:06 UTC: Lands' End T-3 days, run GUARDIAN (now 53 cycles dark), make the Macy's + Glossier yes/no calls, then map Gallery's first 30 days to client. Receipt Filer earlier this morning caught one Tesla Insurance auto-debit ($30.18, April 2026 Personal). No new MAESTRO/WRITER output since 02:46 UTC.",
+  "updated_at": "2026-04-27T11:40:33Z",
+  "status_line": "Monday 7:40 AM ET / 11:40 AM UTC — eighth hour of the morning. SCOUT's Apollo enrichment landed clean at 11:07 UTC: 9 new EP/Head-of-Production emails verified across Sanctuary Content, Doomsday, Curious Film, Spy, Exit, Good Oil, Velocity, Romance, and Egg Films, all pushed live to the Google Sheet (rows 100–169) and appended to apollo_email_results.csv (now 31 verified rows). 5 shops attempted but didn't resolve in Apollo (Bullitt, Hungry Man Brasil, HSI Productions, Standard Films, Plaza Films). One small data correction logged — Doomsday's domain is doomsdayent.com, not the doomsday.tv pattern guess. Credit budget healthy at ~31/60 for the month. SARAH Run 119 at 11:04 UTC was the third consecutive Downloads-blocked sweep but surfaced one fresh JARVIS-relevant Documents write — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B, written 10:08 UTC) — and added it as new Open Item #10 with explicit adoption commands. Tray now stands at 10. Output tree grew to 1,058 files (+5 vs. Run 118): one genuine new production file, scout-pipeline-2026-04-27.md (16.5 KB), already canonically located in big-new-business/daily-scout-reports/; the other +4 are .git index churn inside the dashboard subproject. GUARDIAN ticked to 54 consecutive missed cycles. No new MAESTRO/WRITER output since 02:46 UTC. Lands' End now T-3 days.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "Pipeline check 10:07 UTC: 1 new actionable prospect — Jack in the Box (Katelyn Zborowski CMO, 28d in role, 75th anniversary year, fit 3/5, tier 2, priority 14). Industry intel filed but not actionable: Qatar Airways/IBM (too big), BMS-Gilead/LinkedIn (out-of-lane), NDC's Susie Dewey (small). Confirmed Mondelez US creative review timing. Git push SUCCEEDED — commit 214cf21 to origin/main via writable-clone workaround around stale lock files. J.M. Smucker prospect from yesterday's run also now reflected upstream.",
+      "last_action": "Apollo enrichment 11:07 UTC: 9 EP/HoP emails verified and pushed to Google Sheet (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films), 5 shops not resolvable in Apollo (Bullitt, Hungry Man Brasil, HSI, Standard, Plaza). 31/60 credits used MTD. Doomsday domain corrected to doomsdayent.com. ~93 'Research Needed' rows still pending. Earlier this morning: pipeline check delivered Jack in the Box (Katelyn Zborowski CMO, 75th anniversary, priority 14) and the writable-clone git-push workaround that landed commit 214cf21 to origin/main.",
       "last_run": "33m ago",
       "color": "teal"
     },
@@ -13,14 +13,14 @@
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "Sharpie platform bible delivered: '00_The_Gallery_of_Ordinary_Masterpieces.md' (26K) — the canonical spine, woven from the v1/v2 hero film treatments and the 20K product territory map. Five hero stories as gallery plaques, three verbs (preserve / intend / transform), maker-curator program, the 'soul thing' refrain. Session closed. Awaiting Rick's read before next moves (open-call film, maker-curator brief, gallery experience design brief).",
-      "last_run": "~8h ago",
+      "last_run": "~9h ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
       "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days for the timeline to hold.",
-      "last_run": "~10h ago",
+      "last_run": "~11h ago",
       "color": "teal"
     },
     {
@@ -33,15 +33,15 @@
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 118 at 10:06 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads still unmounted in scheduled context (osascript bridge confirmed interactive-only last hour). Documents + Desktop verified clean — zero new user files since Run 117. All 9 Open Items carried unchanged. Output tree 1,053 files. sarah-log.md ~730 KB.",
-      "last_run": "34m ago",
+      "last_action": "Run 119 at 11:04 UTC — read-only inventory pass. 0 moves, 0 renames, 0 deletes. Downloads inaccessible for the third consecutive scheduled run (osascript bridge interactive-only). One JARVIS-relevant new write surfaced — 'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC) — flagged as new Open Item #10 with adoption commands. Output tree grew to 1,058 files (+5: 1 real new file, 4 .git churn). Tray now 10. sarah-log.md ~738 KB.",
+      "last_run": "37m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 13:04 UTC.",
-      "last_run": "21h 36m ago",
+      "last_run": "22h 36m ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 53 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
-      "last_run": "53 cycles dark",
+      "last_action": "No activity — 54 consecutive missed cycles. Still blocking validation of the new Sharpie platform bible plus T2 Final scoring and Gallery client delivery. One session fixes it.",
+      "last_run": "54 cycles dark",
       "color": "dim"
     },
     {
@@ -74,6 +74,24 @@
     }
   ],
   "activity": [
+    {
+      "time": "11:40 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — eighth hour of the morning. SCOUT Apollo enrichment delivered 9 verified EP/HoP emails to the Google Sheet, SARAH Run 119 surfaced new Open Item #10 (JARVIS morning brief in Documents) and bumped tray to 10, output tree at 1,058 files. GUARDIAN ticks to 54 cycles dark.",
+      "color": "blue"
+    },
+    {
+      "time": "11:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Apollo enrichment: 9 new EP/Head-of-Production emails verified and pushed to Google Sheet rows 100–169 (Sanctuary Content/Doomsday/Curious/Spy/Exit/Good Oil/Velocity/Romance/Egg Films). 5 shops attempted but not resolvable (Bullitt, Hungry Man Brasil, HSI, Standard, Plaza). Doomsday domain corrected to doomsdayent.com. ~31/60 credits used MTD. ~93 'Research Needed' rows still pending.",
+      "color": "teal"
+    },
+    {
+      "time": "11:04 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 119: third consecutive Downloads-blocked sweep. One new Documents write — 'JARVIS-morning-brief-2026-04-27.md' (2,590 B, 10:08 UTC) — flagged as new Open Item #10 with explicit adoption commands. Output tree 1,058 files (+5 vs. Run 118: 1 real new file, 4 .git churn). Tray now 10. Log ~738 KB.",
+      "color": "amber"
+    },
     {
       "time": "10:40 AM UTC",
       "agent": "JARVIS",
@@ -99,28 +117,10 @@
       "color": "amber"
     },
     {
-      "time": "9:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — sixth quiet creative hour. SARAH Run 117 walked back the osascript-bridge claim (interactive-only, doesn't apply to scheduled runs); Downloads unreadable again from autonomous SARAH.",
-      "color": "blue"
-    },
-    {
-      "time": "9:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 117: read-only inventory pass. Downloads access REGRESSED — osascript bridge requires interactive Mac-control approval, unavailable to scheduled tasks.",
-      "color": "amber"
-    },
-    {
       "time": "9:04 AM UTC",
       "agent": "RECEIPT FILER",
       "text": "Daily Apple Mail sweep: 1 receipt processed — Tesla Insurance auto-debit $30.18, filed to April 2026 Personal. 0 needs-review. Skipped non-receipts (Ramp digest, Tesla Premium update, Vimeo/LinkedIn marketing).",
       "color": "blue"
-    },
-    {
-      "time": "8:07 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 116: Downloads access RESTORED via osascript bridge (after 4 runs blocked). Moved Sharpie_Gallery_Campaign_Deck.pdf → output/sharpie-maestro-gallery-campaign-deck-v1.pdf, MD5-verified. 3 ambiguous Downloads items flagged as Open Items #7–#9.",
-      "color": "amber"
     },
     {
       "time": "2:46 AM UTC",
@@ -142,13 +142,13 @@
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 53 cycles dark",
+      "title": "GUARDIAN: 54 cycles dark",
       "subtitle": "Still blocking validation of the new Sharpie platform bible, T2 Final scoring, and Gallery client delivery. One session fixes it.",
       "severity": "red"
     },
     {
       "title": "Grant ~/Downloads as a Cowork directory",
-      "subtitle": "SARAH Run 117 confirmed: the Run-116 osascript bridge is interactive-only — scheduled sweeps can't use it. Granting Downloads as a Cowork directory is the durable fix for autonomous coverage. Items #7–#9 currently unverifiable on autonomous runs.",
+      "subtitle": "SARAH Run 119 confirms third consecutive scheduled-run block. The Run-116 osascript bridge is interactive-only — autonomous sweeps can't use it. Granting Downloads as a Cowork directory is the durable fix. Items #7–#9 remain unverifiable on autonomous runs.",
       "severity": "amber"
     },
     {
@@ -187,6 +187,11 @@
       "severity": "amber"
     },
     {
+      "title": "Adopt JARVIS morning brief? (Open Item #10 — NEW)",
+      "subtitle": "SARAH Run 119 surfaced 'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). No canonical equivalent in output/ yet. Reply 'SARAH adopt morning brief' to land at output/sharpie-scout-morning-brief-2026-04-27.md, or 'SARAH leave morning brief' to keep as Documents working copy.",
+      "severity": "amber"
+    },
+    {
       "title": "Graco 'Next Arms' roadmap — review window",
       "subtitle": "WRITER shipped the 17-slide Cannes 2028 deck with 4 asks needing greenlight in the next 30 days for the timeline to hold.",
       "severity": "amber"
@@ -212,29 +217,25 @@
       "severity": "amber"
     },
     {
-      "title": "9 SARAH cleanup items pending authorization",
-      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, plus 3 Downloads items (hf MP4, process page PDF, directing photos folder). Reply with the SARAH commands to clear.",
+      "title": "10 SARAH cleanup items pending authorization",
+      "subtitle": "Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4 Sharpie project drafts, plus 3 Downloads items (hf MP4, process page PDF, directing photos folder), and now the JARVIS morning brief. Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 19,
+    "tasks_today": 22,
     "top_score": 9.0,
     "prospects": 6,
-    "files_swept": 1053
+    "files_swept": 1058
   },
   "scheduled": [
     {
-      "name": "SCOUT Apollo enrichment",
-      "next_run": "11:06 AM UTC"
-    },
-    {
       "name": "SARAH file sweep",
-      "next_run": "11:04 AM UTC"
+      "next_run": "12:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "11:39 AM UTC"
+      "next_run": "12:39 PM UTC"
     },
     {
       "name": "ATLAS dependency check",
@@ -255,6 +256,10 @@
     {
       "name": "Uber/Lyft receipt filer",
       "next_run": "Tue 9:04 AM UTC"
+    },
+    {
+      "name": "SCOUT Apollo enrichment",
+      "next_run": "Tue 11:06 AM UTC"
     }
   ]
 }
