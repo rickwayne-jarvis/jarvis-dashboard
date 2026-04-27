@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-04-27T01:40:00Z",
-  "status_line": "Monday 1:40 AM UTC — SARAH's 00:06 sweep found three new production outreach files in Documents (full director database, 104-contact CSV, agency exec list) but Downloads still not a connected workspace. Rick ran a Sharpie outro card prompt through Higgsfield earlier tonight. GUARDIAN ticks to 43 cycles dark — T2 Final and Gallery delivery remain blocked. Lands' End is now 3 days out. Everything routine is running clean.",
+  "updated_at": "2026-04-27T02:40:28Z",
+  "status_line": "Monday 2:40 AM UTC — MAESTRO is mid-session on the Sharpie Gallery rebuild: two hero film treatments drafted ('The Things We Made' v1 and 'Still Writing' v2) plus a 20K product territory map landed in the Sharpie/ project scaffold inside the last 90 minutes. SARAH Run 115 at 02:05 came back clean again — no Downloads, no deltas, all 5 cleanup items still parked awaiting your nod. GUARDIAN ticks to 45 cycles dark and continues to block T2 Final scoring, Sharpie voice validation, and Gallery client delivery. Lands' End is 3 days out; the Sarah Sylvester letter still needs to be written.",
   "agents": [
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Git commit staged; push needs manual credentials.",
-      "last_run": "15h ago",
+      "last_action": "BiG sweep Apr 26: 1 new prospect — J.M. Smucker Co. (Katie Williams CMO, June 9 window, fit 3/5). Glossier + Michael Kors both ~20 days into new CMOs — flagged. Git commit staged; push needs manual credentials. Next sweep 06:07 ET.",
+      "last_run": "16h ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
-      "state": "idle",
-      "last_action": "Gallery Gold Package delivered — doorframe as hero visual, Alma Har'el recommended as director, all 12 gaps closed. Cannes ceiling: Titanium Grand Prix. Sharpie outro card (MAKE IT BOLD / LAST / SHARPIE) prompt generated for Higgsfield.",
-      "last_run": "earlier today",
-      "color": "teal"
+      "state": "active",
+      "last_action": "Sharpie Gallery rebuild in progress: hero film treatment v1 'The Things We Made' (12K), v2 'Still Writing' (11K), and Product Territory Map (20K) all drafted in ~/Documents/Claude/Projects/Sharpie/ over the last 90 minutes. Session still running.",
+      "last_run": "now",
+      "color": "amber"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "Rick Wayne director About page copy and Gallery treatment prose delivered.",
-      "last_run": "yesterday",
-      "color": "dim"
+      "last_action": "Graco Effectiveness Read memo delivered — campaign moved the business (BHT funnel up across the board) but flagged the Safety claim and impressions number as unsupportable. Rick Wayne Director Process Page spec drafted with The Crack chapter as the centerpiece.",
+      "last_run": "8h ago",
+      "color": "teal"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7★, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation.",
+      "last_action": "Gallery of Ordinary Masterpieces: 9.0/10 — production-ready. T2 Hybrid V1: 4.7 stars, top 3% globally. T2 Final still unscored — pending GUARDIAN reactivation.",
       "last_run": "yesterday",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run at 00:06 UTC: Downloads not mounted — no JARVIS files to move. Found 3 new outreach/production files in Documents (AGENCY_DATABASE_SUMMARY.txt, Rick_Wayne_Full_Outreach_Database.csv, agency_production_contacts.csv). 4 cleanup items still pending authorization. Output tree clean.",
-      "last_run": "1h 34m ago",
+      "last_action": "Run 115 at 02:05 UTC — Downloads still not mounted, 0 deltas across Documents/Desktop/output. Output tree stable (50+ files compliant). 5 cleanup items still pending authorization — no destructive actions taken per policy.",
+      "last_run": "35m ago",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN 15+ cycles dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9).",
-      "last_run": "12h 35m ago",
+      "last_action": "Apr 26 daily report: Gallery flag resolved (PARK filed deck). Active flags: Lands' End Apr 30, Macy's Q2 window open, GUARDIAN dark. Two-PARK-deck decision pending (Gallery standalone vs. MAKE IT v9). Next run 09:05 ET / 13:05 UTC.",
+      "last_run": "13h 35m ago",
       "color": "teal"
     },
     {
@@ -61,8 +61,8 @@
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "No activity — 43 consecutive missed cycles. Blocking Sharpie brand voice validation and both Gallery and T2 Final client deliveries.",
-      "last_run": "43 cycles dark",
+      "last_action": "No activity — 45 consecutive missed cycles. Blocking Sharpie brand voice validation, T2 Final scoring, and Gallery client delivery. One session fixes it.",
+      "last_run": "45 cycles dark",
       "color": "dim"
     },
     {
@@ -75,137 +75,151 @@
   ],
   "activity": [
     {
-      "time": "1:40 AM UTC",
+      "time": "2:40 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — SARAH 00:06 sweep: outreach files detected in Documents, Downloads still not mounted. GUARDIAN 43 cycles dark. Lands' End 3 days.",
+      "text": "Dashboard push — MAESTRO mid-session on Sharpie Gallery rebuild, SARAH Run 115 clean, GUARDIAN now 45 cycles dark. Lands' End 3 days.",
       "color": "blue"
     },
     {
-      "time": "12:39 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — SARAH Run 112: Downloads not mounted, nothing moved. GUARDIAN now 42 cycles dark. Nightly report filed. Lands' End 4 days.",
-      "color": "blue"
+      "time": "2:34 AM UTC",
+      "agent": "MAESTRO",
+      "text": "Sharpie Product Territory Map drafted (20K) — landed in ~/Documents/Claude/Projects/Sharpie/03_Product_Territory_Map.md. Session still active.",
+      "color": "amber"
     },
     {
-      "time": "12:06 AM UTC",
+      "time": "2:10 AM UTC",
+      "agent": "MAESTRO",
+      "text": "Sharpie Hero Film treatment v2 'Still Writing' delivered (11K) — present-tense corrective to the past-tense lean that came up in last night's strategy session.",
+      "color": "amber"
+    },
+    {
+      "time": "2:05 AM UTC",
       "agent": "SARAH",
-      "text": "Sweep at 00:06 UTC: Downloads empty/not mounted. Detected 3 new outreach files in Documents (director DB, 104-contact CSV, agency execs). 4 pending items carried forward.",
+      "text": "Run 115: Downloads still not mounted, 0 file deltas across all watched dirs. Output tree stable. 5 cleanup items still parked awaiting Rick.",
+      "color": "amber"
+    },
+    {
+      "time": "1:51 AM UTC",
+      "agent": "MAESTRO",
+      "text": "Sharpie Hero Film treatment v1 'The Things We Made' drafted (12K) — first cut, sets up the gallery framing.",
+      "color": "amber"
+    },
+    {
+      "time": "1:41 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — SARAH Run 113 clean, Documents scaffolded with Sharpie/ + Graco/ project dirs. WRITER delivered Graco effectiveness memo today. GUARDIAN 44 cycles dark.",
+      "color": "blue"
+    },
+    {
+      "time": "1:05 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 113: Downloads not mounted. Output tree clean (1,052 files). Heads-up: empty Sharpie/ and Graco/ project directories appeared in ~/Documents/Claude/Projects/.",
       "color": "amber"
     },
     {
       "time": "11:05 PM UTC",
       "agent": "JARVIS",
-      "text": "Nightly report filed: GUARDIAN 41 cycles, Lands' End April 30 unaddressed, ASMR.mp4 unclassified, NYC DOF $5,211 still outstanding.",
+      "text": "Nightly status report filed: NOLAN ramped to amber on staged assets, dashboard live at 4366e1c, GUARDIAN 41 cycles dark, Lands' End/ASMR/NYC DOF still open.",
       "color": "blue"
     },
     {
-      "time": "11:06 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 112: Downloads not accessible — ~/Downloads not in connected workspace. No files moved. 5 cleanup items pending authorization.",
-      "color": "amber"
-    },
-    {
-      "time": "10:07 PM UTC",
-      "agent": "SARAH",
-      "text": "Run at 22:07 UTC: Downloads mounted — moved 3 Sharpie hero MOV files (9.11 GB) → NOLAN shots/. Moved 49 Artlist WAV files → NOLAN music/Sound Effects/. ASMR.mp4 flagged.",
+      "time": "~9:00 PM UTC",
+      "agent": "WRITER",
+      "text": "Graco Effectiveness Read memo delivered — BHT funnel moved across the board, but Safety ranking claim is circular and impressions number is media output not behavior. Swap recommendations enclosed.",
       "color": "teal"
     },
     {
-      "time": "~8:00 PM UTC",
+      "time": "~6:00 PM UTC",
       "agent": "MAESTRO",
-      "text": "Sharpie outro card animation prompt generated for Higgsfield Marketing Studio (Wild Card preset). Three-beat sequence: MAKE IT BOLD → MAKE IT LAST → MAKE IT SHARPIE.",
+      "text": "Sharpie Gallery campaign strategy: pressure-tested 'Still Real' as weakest piece; flagged past-tense lean; recommended at least one 'mark being made now' beat. Six follow-on directions queued — and now executing.",
       "color": "teal"
-    },
-    {
-      "time": "1:05 PM UTC",
-      "agent": "ATLAS",
-      "text": "Daily report: Gallery flag resolved (PARK filed deck). Flags: Lands' End Apr 30, Macy's Q2 now open, GUARDIAN 15 cycles dark. Two-deck decision pending.",
-      "color": "teal"
-    },
-    {
-      "time": "10:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "BiG sweep complete: J.M. Smucker added (Katie Williams CMO, June 9 window, fit 3/5). Git commit staged, push requires manual credentials.",
-      "color": "teal"
-    },
-    {
-      "time": "9:04 AM UTC",
-      "agent": "JARVIS",
-      "text": "Uber/Lyft receipt filer ran — scanning Apple Mail for unread receipts.",
-      "color": "blue"
     }
   ],
   "attention": [
     {
       "title": "Lands' End — Sarah Sylvester outreach",
-      "subtitle": "April 30 deadline. Personal letter not drafted. 3 days.",
+      "subtitle": "April 30 deadline. Personal letter still not drafted. 3 days.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN: 43 cycles dark",
-      "subtitle": "Blocking T2 Final score and Gallery client delivery. One session fixes it.",
+      "title": "GUARDIAN: 45 cycles dark",
+      "subtitle": "Blocking T2 Final score, Sharpie voice validation, and Gallery client delivery. One session fixes it.",
       "severity": "red"
+    },
+    {
+      "title": "MAESTRO Sharpie session still running",
+      "subtitle": "Hero film v1 + v2 + Product Territory Map landed in last 90 min. Worth a glance to see where it's headed before the next batch ships.",
+      "severity": "amber"
+    },
+    {
+      "title": "Graco Cannes Proof of Impact letter",
+      "subtitle": "WRITER flagged Safety claim (circular, no BHT support) and +1.5B impressions (media output, not behavior). Swap before next deck ships.",
+      "severity": "amber"
     },
     {
       "title": "SCOUT git push needs manual run",
-      "subtitle": "cd ~/Desktop/CLAUDE/JARVIS/output/big-new-business/dashboard && git push origin main",
+      "subtitle": "J.M. Smucker prospect commit staged but unpushed — credentials required.",
       "severity": "amber"
     },
     {
-      "title": "Macy's — Q2 creative window opening",
-      "subtitle": "May–June decisions start now. Seven consecutive flags. Move this week.",
+      "title": "Two-PARK-deck decision still pending",
+      "subtitle": "Gallery standalone vs. unified MAKE IT v9 — call needed before next pitch window.",
       "severity": "amber"
     },
     {
-      "title": "SARAH: Downloads not connected",
-      "subtitle": "Add ~/Downloads as a Cowork workspace folder to enable future sweeps.",
+      "title": "ASMR.mp4 unclassified",
+      "subtitle": "Surfaced during the 22:07 sweep. Needs a routing call.",
       "severity": "amber"
     },
     {
-      "title": "ASMR.mp4 — unclassified asset",
-      "subtitle": "Surfaced in Downloads during sweep. Needs routing decision.",
+      "title": "NYC DOF balance",
+      "subtitle": "$5,211.94 outstanding since Dec 2025, penalties accruing. Verify on nyc.gov/eservices.",
       "severity": "amber"
     },
     {
-      "title": "NYC DOF balance: $5,211.94",
-      "subtitle": "Outstanding since December 2025, penalties accruing. Verify and pay at nyc.gov/eservices.",
+      "title": "5 SARAH cleanup items pending authorization",
+      "subtitle": "Gallery deck rename, big-new-business duplicate PPTXs, 2 zero-byte test files, onesheet docx move, outreach files move. Reply with the SARAH commands to clear.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 7,
-    "top_score": 90,
-    "prospects": 13,
-    "files_swept": 1048
+    "tasks_today": 11,
+    "top_score": 9.0,
+    "prospects": 5,
+    "files_swept": 1052
   },
   "scheduled": [
     {
-      "name": "sarah-file-sweep",
-      "next_run": "Mon 2:04 AM UTC"
+      "name": "SARAH file sweep",
+      "next_run": "3:04 AM UTC"
     },
     {
-      "name": "uber-lyft-receipt-filer",
-      "next_run": "Mon 9:04 AM UTC"
+      "name": "JARVIS dashboard push",
+      "next_run": "3:39 AM UTC"
     },
     {
-      "name": "morning-priorities",
-      "next_run": "Mon 10:06 AM UTC"
+      "name": "Uber/Lyft receipt filer",
+      "next_run": "9:04 AM UTC"
     },
     {
-      "name": "scout-pipeline-check",
-      "next_run": "Mon 10:07 AM UTC"
+      "name": "Morning priorities",
+      "next_run": "10:06 AM UTC"
     },
     {
-      "name": "atlas-dependency-check",
-      "next_run": "Mon 1:05 PM UTC"
+      "name": "SCOUT pipeline check",
+      "next_run": "10:07 AM UTC"
     },
     {
-      "name": "nightly-status-report",
-      "next_run": "Mon 7:05 PM UTC"
+      "name": "SCOUT Apollo enrichment",
+      "next_run": "11:06 AM UTC"
     },
     {
-      "name": "jarvis-dashboard-push",
-      "next_run": "Mon 2:39 AM UTC"
+      "name": "ATLAS dependency check",
+      "next_run": "1:04 PM UTC"
+    },
+    {
+      "name": "Nightly status report",
+      "next_run": "11:04 PM UTC"
     }
   ]
 }
