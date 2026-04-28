@@ -1,61 +1,61 @@
 {
-  "updated_at": "2026-04-28T11:39:30Z",
-  "status_line": "Tuesday 7:39 AM ET / Tue 11:39 UTC — SCOUT had a productive cadence hour: Apollo enrichment (11:06 UTC) shipped 4 verified emails into the Outreach Database (Jessica Purton / Electric Theatre Collective, Rupert Baynham / Believe Media, Rachel Solomon / Saatchi UK, Sally Kursa / BBH London — Sheet rows 123/128/180/181). Apollo MTD now ~36/60 credits used, ~24 left for the last 2 days of April. Earlier same hour: SCOUT's daily pipeline scan (10:12 UTC) added Delta Air Lines (Ranjan Goswami CMO+Product role, tier-3 cultivate, before-mid-June outreach) and re-flagged Macy's URGENT alongside Lands' End at #1. SARAH Run 143 (11:04 UTC) was a quiet sweep — 4th consecutive successful Downloads byte-verify, 16th consecutive zero-delta on the top-level production tree, 17 Open Items unchanged. The BiG daily auto-cadence event (scout-pipeline-2026-04-28.md NEW + dashboard index.html MODIFIED) closed the production-tree zero-delta streak as expected once per calendar day. Creative wing remains quiet — last emission still WRITER's case-study-source-extracts.md at 03:48 UTC, ~7h 51m ago. LOCAL heartbeat outage extended to 6 consecutive missed fires (~6h 50min stale at this push) — BiG scheduler proven decoupled from heartbeat. Lands' End T-2 days = Thu Apr 30. Next push: 12:39 UTC.",
+  "updated_at": "2026-04-28T12:39:30Z",
+  "status_line": "Tuesday 8:39 AM ET / Tue 12:39 UTC — quiet creative-wing hour #9 since WRITER's case-study-source-extracts.md at 03:48 UTC (~8h 51m). SCOUT closed yesterday's loop; Apollo enrichment shipped at 11:06 UTC and the daily pipeline at 10:12 UTC are already on the books. SARAH Run 144 (12:05 UTC) ran in autonomous scheduled-task mode — Downloads byte-verify drought reopens at 1 sweep (computer-use osascript hop is operator-only). Steady-state on the SARAH-direct creative-asset surfaces for the 4th consecutive hour; 17 Open Items all carry forward unchanged. Sister scheduled task scout-apollo-enrichment fired its CSV + log writes at 11:27/11:31 UTC into ~/Documents/ (Open Item #5 advanced via auto-cadence; no SARAH action). The 11:40 UTC repo fetch was the FIRST CONTENT-BEARING fetch since Run 138 — 5 new git objects including a 9,450 B blob, with refs/remotes/origin/main mtime advanced. Heartbeat outage now 7 consecutive missed fires (~7h 51min stale at this push) — BiG, scout-apollo-enrichment, and .git fetch schedulers all proven decoupled. Next ATLAS daily report due ~13:04 UTC (~25m), and SARAH Run 145 due ~13:04 UTC. Lands' End T-2 days = Thu Apr 30 — letter v1 + GUARDIAN-clean Gallery Deck v2 still send-ready. Next push: 13:39 UTC.",
   "agents": [
     {
       "name": "SCOUT",
-      "state": "active",
-      "last_action": "11:06 UTC — Apollo enrichment shipped 4 verified emails into the Outreach Database: Jessica Purton (Electric Theatre Collective, jessica@electrictheatre.tv), Rupert Baynham (Believe Media, rupert@believemedia.com), Rachel Solomon (Saatchi UK, rachel.solomon@saatchi.co.uk), Sally Kursa (BBH London, sally.kursa@bartleboglehegarty.com) — pushed to Sheet rows 123/128/180/181 with Status=Verified. Apollo MTD ~36/60, ~24 credits left for last 2 days of April. Earlier 10:12 UTC — Tuesday pipeline scan added Delta Air Lines (Ranjan Goswami CMO+Product role) as tier-3 cultivate; Macy's re-flagged URGENT (May–June Thanksgiving Parade window); Lands' End held at #1 with hard 2-day callout. ~93 'Research Needed' rows + ~88 named-Unknown rows still pending.",
-      "last_run": "33m ago",
+      "state": "idle",
+      "last_action": "11:06 UTC — Apollo enrichment shipped 4 verified emails into the Outreach Database: Jessica Purton (Electric Theatre Collective, jessica@electrictheatre.tv), Rupert Baynham (Believe Media, rupert@believemedia.com), Rachel Solomon (Saatchi UK, rachel.solomon@saatchi.co.uk), Sally Kursa (BBH London, sally.kursa@bartleboglehegarty.com) — Sheet rows 123/128/180/181 with Status=Verified. Apollo MTD ~36/60, ~24 credits left for last 2 days of April. Earlier 10:12 UTC — Tuesday pipeline scan added Delta Air Lines (Ranjan Goswami CMO+Product) as tier-3 cultivate; Macy's re-flagged URGENT (May–June Thanksgiving Parade window); Lands' End held at #1 with hard 2-day callout. ~93 'Research Needed' rows + ~88 named-Unknown rows still pending.",
+      "last_run": "1h 33m ago",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "active",
-      "last_action": "Run 143 at 11:04 UTC — quiet sweep on SARAH-direct surfaces; healthy daily BiG auto-cadence fired. Downloads 16 entries byte-identical to Run 142 (4th consecutive successful Downloads byte-verify since drought ended). Zero new Documents files. Production tree zero-delta hour #16; the BiG daily pipeline closed the streak as expected with a NEW scout-pipeline-2026-04-28.md (18,466 B, 10:12 UTC) + MODIFIED big-new-business/dashboard/index.html (177,732 B, 10:15 UTC) — both canonical, no SARAH action. Heartbeat outage extended to 6 consecutive missed fires (~6h 17min stale at observation). .git fetch held tight 1h cadence (10:40 UTC, 6th consecutive decoupled fetch, 112→428 B due to 2 new claude/* not-for-merge branches). .git/ORIG_HEAD.lock now stale across 5 subsequent fetches. 17 Open Items all carried forward unchanged. 0 moves / renames / deletes.",
+      "last_action": "Run 144 at 12:05 UTC — autonomous scheduled-task sweep, conservative-attribution policy held. 4th consecutive steady-state hour on SARAH-direct creative-asset surfaces. Downloads NOT byte-verified this run (autonomous mode does not invoke the computer-use osascript hop, which requires operator approval); drought now 1 sweep since Run 143's verify. Sister scheduled task scout-apollo-enrichment fired at 11:27/11:31 UTC — apollo_email_results.csv advanced 3,788 → 4,487 B (+14 rows); enrichment-log.md grew +6,131 B. Pipeline-owned auto-cadence, tracked under Open Item #5 (no item state change). Production tree zero-delta hour #17 (top-level output). 11:40 UTC repo fetch wrote 5 new git objects including a 9,450 B blob (first content-bearing fetch since Run 138) and advanced refs/remotes/origin/main. Stale .git/ORIG_HEAD.lock persists across 6 subsequent fetches. Heartbeat outage extended to 7 consecutive missed fires (~7h 17min stale at observation). 0 moves / 0 renames / 0 deletes. 17 Open Items all carried forward unchanged.",
       "last_run": "35m ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B at output/2026-04-27_gobig-upgrade/) shipped: Sharpie Gallery + Graco 'Next Arms' source extracts compiled for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in canonical output (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B), Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2. Last creative-wing emission ~7h 51m ago.",
-      "last_run": "7h 51m ago",
+      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B at output/2026-04-27_gobig-upgrade/) shipped: Sharpie Gallery + Graco 'Next Arms' source extracts compiled for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in canonical output (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B), Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2. Last creative-wing emission ~8h 51m ago.",
+      "last_run": "8h 51m ago",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. Full slide-by-slide audit of MAESTRO's gallery-v2 deck (62 KB .pptx, 01:42 UTC). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. Voice locked, Katrina open earned, no agency speak, zero em dashes. The first GUARDIAN-validated Lands' End pitch instrument — the urgency-lane gap closes for the v2 path. PARK v1 deck and T2 v8 still uncovered, but a clean alternate now exists. ~8h 48m since last GUARDIAN action.",
-      "last_run": "8h 48m ago",
+      "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. Full slide-by-slide audit of MAESTRO's gallery-v2 deck (62 KB .pptx, 01:42 UTC). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. Voice locked, Katrina open earned, no agency speak, zero em dashes. The first GUARDIAN-validated Lands' End pitch instrument — the urgency-lane gap closes for the v2 path. PARK v1 deck and T2 v8 still uncovered, but a clean alternate now exists. ~9h 48m since last GUARDIAN action.",
+      "last_run": "9h 48m ago",
       "color": "green"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain complete (research markdown + PptxGenJs script + emitted .pptx). GUARDIAN graded this exact file 9.1/10 SHIPS CLEAN at 02:51 UTC — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) still awaiting V2-version GUARDIAN re-score.",
-      "last_run": "9h 57m ago",
+      "last_run": "10h 57m ago",
       "color": "green"
     },
     {
       "name": "NOLAN",
       "state": "idle",
       "last_action": "Three locked-treatment storyboards shipped 02:00–02:01 UTC: t2-60-final-storyboard-v1.md (18,342 B), gallery-version-b-storyboard-v1.md (22,436 B), t2-hybrid-v1-storyboard-v1.md (25,354 B). Pairs with three shotlists from 23:04 UTC. All six landed at output/ top-level — SARAH Run 134 opened Open Item #21 to force a convention call. Reference .mov masters (~9.1 GB) and 49-file SFX library still staged.",
-      "last_run": "9h 38m ago",
+      "last_run": "10h 38m ago",
       "color": "green"
     },
     {
       "name": "TESTING",
       "state": "idle",
       "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC) addresses GUARDIAN's 7.8/10 V1 flags: Smithsonian elevation restored, fallback contingency added, Grand Prix probability stated explicitly (35–40% with Smithsonian / 5–10% without), Case Film closing line softened, line-45 emotional drift corrected. Awaiting GUARDIAN re-score on V2. T2-60-final and T2-anthem-30 still unscored on locked scripts.",
-      "last_run": "12h 43m ago",
+      "last_run": "13h 43m ago",
       "color": "dim"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 27 13:11 UTC daily report still the latest. All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md, output/2026-04-27_atlas/atlas-daily-report.md, output/2026-04-27_atlas/atlas-daily-report-morning.md. Open Item #19 unchanged. Report predates last night's GUARDIAN burst, MAESTRO v2.pptx, NOLAN storyboards, SCOUT cultural insight + story bank, the Lands' End letter, the gobig.nyc 16-commit ship, the case-study-source-extracts packet, this morning's pipeline scan (Delta Air Lines added), and Apollo enrichment (4 verified emails). Tue 13:04 UTC dependency check (~1h 25m away) will surface the full catch-up.",
-      "last_run": "22h 28m ago",
+      "last_action": "Apr 27 13:11 UTC daily report still the latest. All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md, output/2026-04-27_atlas/atlas-daily-report.md, output/2026-04-27_atlas/atlas-daily-report-morning.md. Open Item #19 unchanged. Report predates last night's GUARDIAN burst, MAESTRO v2.pptx, NOLAN storyboards, SCOUT cultural insight + story bank, the Lands' End letter, the gobig.nyc 16-commit ship, the case-study-source-extracts packet, this morning's pipeline scan (Delta Air Lines added), and Apollo enrichment (4 verified emails). Tue 13:04 UTC dependency check (~25m away) will surface the full catch-up — first ATLAS run since Apr 27 13:05 UTC.",
+      "last_run": "23h 28m ago",
       "color": "amber"
     },
     {
@@ -68,35 +68,53 @@
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — SCOUT (active this hour x2: Apollo + pipeline), MAESTRO, WRITER, NOLAN, GUARDIAN, TESTING all covered downstream. No new persona work needed.",
+      "last_action": "Dependency satisfied — SCOUT (active in earlier hour: Apollo + pipeline), MAESTRO, WRITER, NOLAN, GUARDIAN, TESTING all covered downstream. No new persona work needed.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
+      "time": "12:39 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — quiet creative-wing hour #9 (~8h 51m since WRITER's case-study-source-extracts.md at 03:48 UTC). Today's morning SCOUT cadence (10:12 UTC pipeline scan + 11:06 UTC Apollo enrichment) already booked. SARAH Run 144 (12:05 UTC) was an autonomous-mode sweep — Downloads byte-verify paused for the run (osascript hop is operator-only); 4th consecutive steady-state hour on SARAH-direct creative surfaces; 17 Open Items unchanged. Sister scout-apollo-enrichment auto-cadence advanced ~/Documents/apollo_email_results.csv (+14 rows) and enrichment-log.md (+6,131 B) at 11:27/11:31 UTC. The 11:40 UTC repo fetch was the FIRST CONTENT-BEARING fetch since Run 138 (5 new git objects, 9,450 B blob, refs/remotes/origin/main advanced). Heartbeat outage now 7 consecutive missed fires (~7h 51min stale) — three observed schedulers (BiG, scout-apollo-enrichment, .git fetch) all proven decoupled. Lands' End T-2 days. ATLAS daily report next due ~13:04 UTC. Next push 13:39 UTC.",
+      "color": "blue"
+    },
+    {
+      "time": "12:05 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 144 — autonomous scheduled-task sweep. Conservative-attribution policy held: 0 auto-moves / 0 auto-renames / 0 auto-deletes. 4th consecutive steady-state hour on SARAH-direct creative-asset surfaces. Downloads NOT byte-verified this run (autonomous mode cannot invoke computer-use osascript hop; drought now 1 sweep). Sister scheduled task scout-apollo-enrichment fired at 11:27/11:31 UTC — apollo_email_results.csv advanced 3,788→4,487 B (+14 rows); enrichment-log.md grew +6,131 B. Pipeline-owned auto-cadence, tracked under Open Item #5 (no state change). Production tree zero-delta hour #17. 11:40 UTC repo fetch wrote 5 new git objects (9,450 B blob), first content-bearing fetch since Run 138; refs/remotes/origin/main mtime advanced. Stale .git/ORIG_HEAD.lock persists across 6 subsequent fetches. Heartbeat outage extended to 7 missed fires (~7h 17min stale). 17 Open Items all carried forward unchanged.",
+      "color": "amber"
+    },
+    {
       "time": "11:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — productive SCOUT cadence hour. Apollo enrichment (11:06 UTC) pushed 4 verified emails into the Outreach Database: Purton (Electric Theatre Collective), Baynham (Believe Media), Solomon (Saatchi UK), Kursa (BBH London) — Sheet rows 123/128/180/181, Apollo MTD ~36/60. Earlier 10:12 UTC — Tuesday pipeline scan added Delta Air Lines (Ranjan Goswami CMO+Product), re-flagged Macy's URGENT, held Lands' End at #1. SARAH Run 143 (11:04 UTC) quiet — 4th Downloads byte-verify, 16th zero-delta on production tree, 17 Open Items unchanged; the daily BiG auto-cadence (scout-pipeline + dashboard refresh) closed the streak as expected. Creative wing 8th quiet hour (since 03:48 UTC). LOCAL heartbeat outage extended to 6 consecutive missed fires (~6h 50min stale). Local Desktop tree now 22 commits behind origin (mitigation: composed in /tmp clone). Lands' End T-2 days. Next push 12:39 UTC.",
+      "text": "Dashboard push — productive SCOUT cadence hour. Apollo enrichment (11:06 UTC) pushed 4 verified emails into the Outreach Database: Purton (Electric Theatre Collective), Baynham (Believe Media), Solomon (Saatchi UK), Kursa (BBH London) — Sheet rows 123/128/180/181, Apollo MTD ~36/60. Earlier 10:12 UTC Tuesday pipeline scan added Delta Air Lines (Ranjan Goswami CMO+Product), re-flagged Macy's URGENT, held Lands' End at #1.",
       "color": "blue"
+    },
+    {
+      "time": "11:31 AM UTC",
+      "agent": "SCOUT",
+      "text": "scout-apollo-enrichment auto-write — enrichment-log.md grew from 7,035 B to 13,166 B (+6,131 B) at ~/Documents/Claude/Scheduled/scout-apollo-enrichment/enrichment-log.md. Companion log to today's 14-row CSV write. Pipeline-owned auto-cadence; not a JARVIS creative artifact.",
+      "color": "teal"
+    },
+    {
+      "time": "11:27 AM UTC",
+      "agent": "SCOUT",
+      "text": "scout-apollo-enrichment auto-write — apollo_email_results.csv advanced 3,788 B → 4,487 B at ~/Documents/apollo_email_results.csv. +14 rows reflecting today's Apollo sweep across 15 production-company / agency targets (4 successful reveals: Purton, Baynham, Solomon, Kursa). 5 credits used today (4 verified + 1 wasted on Tasha Cronin / BBH USA where Apollo had no email after credit consumption).",
+      "color": "teal"
     },
     {
       "time": "11:06 AM UTC",
       "agent": "SCOUT",
-      "text": "Apollo enrichment — 4 verified emails pushed into the Rick Wayne Full Outreach Database (500). Jessica Purton (Head of New Business, Electric Theatre Collective) → Sheet row 123. Rupert Baynham (Executive Producer, Believe Media) → row 128. Rachel Solomon (Head of Integrated Production, Saatchi UK) → row 180. Sally Kursa (Head of Art Production & Partner, BBH London) → row 181. All with Status=Verified. Apollo MTD ~36/60 credits used, ~24 remaining for the last 2 days of April. Notes: Saatchi sheet row got UK office contact (only Head-of-Production-level person Apollo had with a real email — flag if US Saatchi person preferred); Electric Theatre Collective is VFX/post-production (Purton still right business-dev contact). Apollo dead-ends logged for skip in future runs (Black Dog Films, Conde Nast Entertainment, Interscope, Humble, Rabbit Content, The Garage, Groundwork, Whitelist, Carbon VFX). ~93 Research Needed + ~88 named-Unknown rows still pending.",
+      "text": "Apollo enrichment — 4 verified emails pushed into the Rick Wayne Full Outreach Database (500). Jessica Purton (Head of New Business, Electric Theatre Collective) → Sheet row 123. Rupert Baynham (Executive Producer, Believe Media) → row 128. Rachel Solomon (Head of Integrated Production, Saatchi UK) → row 180. Sally Kursa (Head of Art Production & Partner, BBH London) → row 181. All Status=Verified. Apollo MTD ~36/60 credits used, ~24 remaining for the last 2 days of April. Apollo dead-ends logged for skip in future runs (Black Dog Films, Conde Nast Entertainment, Interscope, Humble, Rabbit Content, The Garage, Groundwork, Whitelist, Carbon VFX). ~93 Research Needed + ~88 named-Unknown rows still pending.",
       "color": "teal"
     },
     {
       "time": "11:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 143 — quiet sweep on SARAH-direct surfaces, healthy daily BiG auto-cadence fired. Downloads 16 entries byte-identical to Run 142 (4th consecutive Downloads byte-verify; drought officially confirmed broken across Runs 140+141+142+143). Zero new Documents files. Production tree's 15-run zero-delta streak ended cleanly with the BiG daily pipeline's NEW scout-pipeline-2026-04-28.md (18,466 B, 10:12 UTC) + MODIFIED big-new-business/dashboard/index.html (177,732 B, 10:15 UTC) — both canonical, no SARAH action; this is the once-per-day expected closer. Heartbeat outage now 6 consecutive missed fires (~6h 17min stale at observation), confirming infra Open Item #23. .git/ORIG_HEAD.lock stale across 5 subsequent fetches; today's 10:40 UTC fetch pulled 2 new claude/* not-for-merge branches alongside main (112→428 B). 17 Open Items all unchanged. 0 moves / renames / deletes.",
+      "text": "Run 143 — quiet sweep on SARAH-direct surfaces, healthy daily BiG auto-cadence fired. Downloads 16 entries byte-identical to Run 142 (4th consecutive Downloads byte-verify). Production tree's 15-run zero-delta streak ended cleanly with the BiG daily pipeline's NEW scout-pipeline-2026-04-28.md (18,466 B, 10:12 UTC) + MODIFIED big-new-business/dashboard/index.html (177,732 B, 10:15 UTC). 17 Open Items all unchanged.",
       "color": "teal"
-    },
-    {
-      "time": "10:41 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — morning wake-up hour. SCOUT pipeline-check first creative-side advance since 03:48 UTC: Delta Air Lines added to BiG dashboard (Ranjan Goswami CMO+Product, tier-3 cultivate, before-mid-June outreach window). Macy's re-flagged URGENT (May–June Thanksgiving Parade decision window). Lands' End held at #1, T-2 days. SARAH Run 142 (10:06 UTC) third Downloads byte-verify and 15th zero-delta on production tree. Heartbeat outage 5th hour.",
-      "color": "blue"
     },
     {
       "time": "10:15 AM UTC",
@@ -107,26 +125,8 @@
     {
       "time": "10:12 AM UTC",
       "agent": "SCOUT",
-      "text": "Tuesday pipeline scan shipped at output/big-new-business/daily-scout-reports/scout-pipeline-2026-04-28.md (18,466 B). One new prospect: Delta Air Lines / Ranjan Goswami (Chief Marketing & Product Officer, combined CMO+Product mandate is a structural inflection point at a major US airline; tier-3 monitor-and-cultivate; before-mid-June outreach window). Industry intel: Mastercard / IBM / OpenAI / Bayer / Grubhub all too large or wrong category. Yoplait Liberté Canada / Jaguar Land Rover→WPP / Wayfair→Highdive / Zoom→PMG resolved. Macy's re-flagged URGENT (May–June Thanksgiving Parade decision); Lands' End held #1 (T-2 days).",
+      "text": "Tuesday pipeline scan shipped at output/big-new-business/daily-scout-reports/scout-pipeline-2026-04-28.md (18,466 B). One new prospect: Delta Air Lines / Ranjan Goswami (Chief Marketing & Product Officer, combined CMO+Product mandate is a structural inflection point at a major US airline; tier-3 monitor-and-cultivate; before-mid-June outreach window). Macy's re-flagged URGENT (May–June Thanksgiving Parade decision); Lands' End held #1 (T-2 days).",
       "color": "teal"
-    },
-    {
-      "time": "10:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 142 — quiet sweep, third consecutive successful Downloads byte-verify (drought officially confirmed broken across Runs 140+141+142). 15th consecutive zero-delta on the production tree. All 17 Open Items unchanged. Heartbeat outage 5th hour.",
-      "color": "amber"
-    },
-    {
-      "time": "9:39 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — 5th consecutive quiet hour creative-side. SARAH Run 141 steady-state quiet (2nd Downloads byte-verify, all 17 Open Items unchanged), 14th zero-delta on production tree, heartbeat extended to 4 missed fires (~4h 18min stale).",
-      "color": "blue"
-    },
-    {
-      "time": "8:39 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — 4th quiet hour creative-side. SARAH Run 140 RESTORED Downloads access via osascript bridge (first byte-verify in 13h since Run 127), found 2 new entries (book outline .pages + '_MOVE TO CLAUDE/' folder), opened 3 new Open Items (#21 #22 #23), open-slate 14→17.",
-      "color": "blue"
     },
     {
       "time": "3:48 AM UTC",
@@ -138,7 +138,7 @@
   "attention": [
     {
       "title": "Send Lands' End letter to Sarah Sylvester — T-2 days",
-      "subtitle": "Letter v1 send-ready in canonical output (2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B at 03:08 UTC). 30-min ask. Attachment: GUARDIAN-validated Gallery Deck v2 (9.1/10 SHIPS CLEAN). Send window: April 28–30 (Tue–Thu). SCOUT this morning held this at #1 in the daily pipeline report. Owner: Rick. Tomorrow morning's #1.",
+      "subtitle": "Letter v1 send-ready in canonical output (2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B at 03:08 UTC). 30-min ask. Attachment: GUARDIAN-validated Gallery Deck v2 (9.1/10 SHIPS CLEAN). Send window: April 28–30 (Tue–Thu). SCOUT this morning held this at #1 in the daily pipeline report. Owner: Rick. Today's #1.",
       "severity": "red"
     },
     {
@@ -148,7 +148,7 @@
     },
     {
       "title": "Resolve '_MOVE TO CLAUDE/' Downloads bucket — Rick-named adoption signal (Open Item #22)",
-      "subtitle": "Folder containing 3 PDFs: Graco_Project_Bible.pdf (46,651 B), Rick Wayne Director Website.pdf (39,675 B), SHARPIE_GALLERY_PROJECT_MASTER.pdf (101,431 B). Rick's explicit '_MOVE TO CLAUDE/' naming is an adoption signal. Reply 'SARAH adopt move-to-claude folder' or per-file. Highest-priority SARAH prompt across Runs 140-143.",
+      "subtitle": "Folder containing 3 PDFs: Graco_Project_Bible.pdf (46,651 B), Rick Wayne Director Website.pdf (39,675 B), SHARPIE_GALLERY_PROJECT_MASTER.pdf (101,431 B). Rick's explicit '_MOVE TO CLAUDE/' naming is an adoption signal. Reply 'SARAH adopt move-to-claude folder' or per-file. Highest-priority SARAH prompt across Runs 140-144.",
       "severity": "amber"
     },
     {
@@ -162,18 +162,18 @@
       "severity": "amber"
     },
     {
-      "title": "LOCAL heartbeat HARD-STALLED 6th hour — Open Item #23 deepens",
-      "subtitle": "data/jarvis-state.json on the local Desktop tree last advanced 04:48:50 UTC and is now 6 consecutive missed fires (~6h 50min stale at this push). Note: this is decoupled from the live GitHub canonical, which has been pushed every hour on cadence (05:39 / 06:39 / 07:39 / 08:39 / 09:39 / 10:39 / 11:39). The /tmp-clone mitigation leaves the local Desktop tree behind by design. SARAH's reads against the local copy show the stale state. BiG scheduler proven decoupled from heartbeat — pipeline + dashboard refreshes both fired on schedule.",
+      "title": "LOCAL heartbeat HARD-STALLED 7th hour — Open Item #23 deepens",
+      "subtitle": "data/jarvis-state.json on the local Desktop tree last advanced 04:48:50 UTC and is now 7 consecutive missed fires (~7h 51min stale at this push). Decoupled from the live GitHub canonical, which has been pushed every hour on cadence (05:39 / 06:39 / 07:39 / 08:39 / 09:39 / 10:39 / 11:39 / 12:39). The /tmp-clone mitigation leaves the local Desktop tree behind by design. SARAH's reads against the local copy show the stale state. BiG, scout-apollo-enrichment, and .git fetch schedulers all proven decoupled.",
       "severity": "amber"
     },
     {
       "title": "Local Desktop dashboard repo now 22 commits behind origin/main",
-      "subtitle": "Was 21 → 20 → 19 → 18 → 17 → 16 → 12 over the past 7 hourly pushes. Pushes from /tmp clones don't pull-back into Desktop tree. Mitigation: this dashboard-push task composes inside a fresh /tmp clone so the canonical advances cleanly. SARAH agents reading the local file will see the stale state until Rick (or a fast-forward task) pulls origin/main into the Desktop tree.",
+      "subtitle": "Was 22 → 21 → 20 → 19 → 18 → 17 → 16 → 12 over the past 8 hourly pushes. Pushes from /tmp clones don't pull-back into Desktop tree. Mitigation: this dashboard-push task composes inside a fresh /tmp clone so the canonical advances cleanly. SARAH agents reading the local file will see the stale state until Rick (or a fast-forward task) pulls origin/main into the Desktop tree.",
       "severity": "amber"
     },
     {
-      "title": "Stale .git/ORIG_HEAD.lock persists across 5 subsequent fetches",
-      "subtitle": "First seen Run 140 (06:40 UTC fetch). Now persists across 5 hourly fetches without teardown. Today's 10:40 UTC fetch pulled 2 new claude/* not-for-merge branches (claude/auto-approve-commands-O3OcJ, claude/jarvis-self-approve-prompts-wryV4) alongside main, accounting for the size jump from 112 → 428 B in FETCH_HEAD. Out of SARAH domain; sustained-cadence infra signal.",
+      "title": "First content-bearing fetch since Run 138 — origin/main advanced 11:40 UTC",
+      "subtitle": "SARAH Run 144 observed the 11:40 UTC fetch wrote 5 new git objects (prefixes 0f, bd, 6b, 49 — including a 9,450 B blob) and advanced refs/remotes/origin/main (mtime advance only; size unchanged at 41 B). First non-trivial-content fetch since Run 138. Logs file logs/refs/remotes/origin/main grew. Confirms upstream activity on main between 10:40 and 11:40 — consistent with the 11:39 UTC dashboard push from /tmp clone. Stale .git/ORIG_HEAD.lock survived this content-bearing fetch (now 6 subsequent fetches without cleanup).",
       "severity": "amber"
     },
     {
@@ -197,128 +197,49 @@
       "severity": "amber"
     },
     {
-      "title": "gobig.nyc upgrade — 16 commits live, 5 calls still need Rick",
-      "subtitle": "Status doc at output/2026-04-27_gobig-upgrade/status.md (rev'd 03:46 UTC, Addendum 3). 21 pages live, em-dash-clean, 10 case studies on 'What It Proves' thesis bands, rich four-column footer site-wide, /work CTA. Rick's calls: (1) Formspree endpoint xdklvkbw — confirm ownership; (2) provision team mailboxes; (3) confirm or restore Cannes line on /about; (4) confirm new hero tagline; (5) read-through of new cpg.html / film.html / sweetspotter.html.",
-      "severity": "amber"
-    },
-    {
-      "title": "Send Jack in the Box outreach — Katelyn Zborowski",
-      "subtitle": "Three-part draft ready (LinkedIn connect + email + 1-page POV). 29d into CMO tenure (per this morning's pipeline status board), 75th anniversary year, project-pitch lane outside TBWA AOR. Window narrows once another shop locks anniversary scope. SCOUT confirmed lead is on the BiG dashboard.",
-      "severity": "amber"
-    },
-    {
-      "title": "New tier-3 prospect: Delta Air Lines under Ranjan Goswami",
-      "subtitle": "From this morning's SCOUT pipeline scan. Ranjan Goswami named Chief Marketing & Product Officer (~30 days in role). Combined CMO+Product mandate at a major US airline is a structural inflection point. W+K incumbency strong, so project-level scope only — premium-segment, customer-experience-led brand films, anniversary work. Outreach window: before mid-June 2026 (60-day mark). One-page POV letter recommended.",
-      "severity": "amber"
-    },
-    {
-      "title": "ATLAS daily report 22h+ stale — pre-tonight's burst + mornings activity",
-      "subtitle": "Apr 27 13:11 UTC report still latest. Misses last night's GUARDIAN burst, MAESTRO v2.pptx, NOLAN storyboards, SCOUT cultural insight + story bank, Lands' End letter, gobig.nyc 16-commit ship, case-study-source-extracts packet, this morning's pipeline scan (Delta added), and Apollo enrichment (4 verified emails). Tue 13:04 UTC dependency check (~1h 25m away) will surface the full catch-up.",
+      "title": "ATLAS daily report due ~13:04 UTC — first run since Apr 27 13:05 UTC",
+      "subtitle": "Tomorrow morning's ATLAS dependency check is ~25 minutes away. Will surface the full creative-wing catch-up: GUARDIAN burst, MAESTRO v2.pptx, NOLAN storyboards, SCOUT cultural insight + story bank, Lands' End letter, gobig.nyc 16-commit ship, case-study-source-extracts packet, Tuesday pipeline scan (Delta Air Lines), and Apollo enrichment (4 verified emails).",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 21,
+    "tasks_today": 4,
     "top_score": 9.1,
-    "prospects": 69,
-    "files_swept": 67
-  },
-  "pipeline": {
-    "active": 13,
-    "signals": 22,
-    "watch": 7,
-    "completed": 3,
-    "total": 42,
-    "urgent": [
-      {
-        "name": "Lands' End / Sarah Sylvester",
-        "status": "ACTIVE",
-        "note": "T-2 days. Letter v1 send-ready (03:08 UTC). Gallery Deck v2 attachment GUARDIAN-validated 9.1/10 at 02:51 UTC. Tomorrow's #1."
-      },
-      {
-        "name": "Hormel / Jason Levine",
-        "status": "SIGNALS",
-        "note": "Priority 2. First-ever enterprise CMO, 19 years Mondelez, no existing agency infra. 90-day window."
-      },
-      {
-        "name": "Macy's",
-        "status": "ACTIVE",
-        "note": "Yes/no call window open NOW. Option A (send) vs Option B (close)."
-      },
-      {
-        "name": "Delta Air Lines / Ranjan Goswami",
-        "status": "WATCH",
-        "note": "NEW (tier-3 cultivate). CMO+Product combined role, ~30 days in seat. Outreach before mid-June. Project-level scope outside W+K AOR."
-      },
-      {
-        "name": "Glossier / Nicole Solórzano",
-        "status": "SIGNALS",
-        "note": "Day 22. Note drafted, parked four mornings. Past 'timely'."
-      },
-      {
-        "name": "Jack in the Box / Katelyn Zborowski",
-        "status": "SIGNALS",
-        "note": "Day 28 in seat, 75th anniversary year, project lane outside TBWA AOR. Three-part draft ready."
-      },
-      {
-        "name": "Haleon US / Richard Manso",
-        "status": "SIGNALS",
-        "note": "Day 0 (named CMO Apr 27). Best window late May / early June. Williams↔Manso loop play active."
-      },
-      {
-        "name": "Smucker / Williams",
-        "status": "SIGNALS",
-        "note": "Day 49, ex-Haleon. Loop with Manso."
-      },
-      {
-        "name": "LA Galaxy / Jessica Jacobi",
-        "status": "SIGNALS",
-        "note": "Drafted, send-ready, 14-day late timing acknowledged."
-      },
-      {
-        "name": "Graza / Allen Dushi",
-        "status": "SIGNALS",
-        "note": "Stay-on-radar posture per Rick (commit b8d56fc). Thank-you reply logged."
-      },
-      {
-        "name": "Fishwife / Becca Millstein",
-        "status": "SIGNALS",
-        "note": "Contacted. Awaiting next move."
-      }
-    ]
+    "prospects": 12,
+    "files_swept": 51
   },
   "scheduled": [
     {
-      "name": "sarah-file-sweep (Run 144)",
-      "next_run": "Tue 12:04 UTC / 08:04 ET"
-    },
-    {
-      "name": "jarvis-dashboard-push",
-      "next_run": "Tue 12:39 UTC / 08:39 ET"
+      "name": "sarah-file-sweep",
+      "next_run": "1:04 PM UTC (Run 145)"
     },
     {
       "name": "atlas-dependency-check",
-      "next_run": "Tue 13:04 UTC / 09:04 ET"
+      "next_run": "1:04 PM UTC (first run since Apr 27)"
+    },
+    {
+      "name": "jarvis-dashboard-push",
+      "next_run": "1:39 PM UTC"
     },
     {
       "name": "nightly-status-report",
-      "next_run": "Tue 23:04 UTC / 19:04 ET"
-    },
-    {
-      "name": "uber-lyft-receipt-filer",
-      "next_run": "Wed 09:04 UTC / 05:04 ET"
-    },
-    {
-      "name": "morning-priorities",
-      "next_run": "Wed 10:06 UTC / 06:06 ET"
+      "next_run": "11:04 PM UTC"
     },
     {
       "name": "scout-pipeline-check",
-      "next_run": "Wed 10:07 UTC / 06:07 ET"
+      "next_run": "Wed 10:07 AM UTC"
     },
     {
       "name": "scout-apollo-enrichment",
-      "next_run": "Wed 11:06 UTC / 07:06 ET"
+      "next_run": "Wed 11:06 AM UTC"
+    },
+    {
+      "name": "morning-priorities",
+      "next_run": "Wed 10:06 AM UTC"
+    },
+    {
+      "name": "uber-lyft-receipt-filer",
+      "next_run": "Wed 9:04 AM UTC"
     }
   ]
 }
