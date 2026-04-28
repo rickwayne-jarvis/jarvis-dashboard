@@ -1,159 +1,174 @@
 {
-  "updated_at": "2026-04-28T03:39:34Z",
-  "status_line": "Monday 11:39 PM ET / Tue 03:39 UTC — catch-up push after the 02:39 window was missed (first cadence break in the dashboard-push series since the 22-hour streak began). Two SARAH sweeps closed in the gap and both came back quiet: Run 134 at 02:09 UTC and Run 135 at 03:05 UTC, eight consecutive zero-delta sweeps now on the production tree. No new SCOUT, MAESTRO, NOLAN, GUARDIAN, or TESTING artifacts since the 01:37 UTC build-sharpie-gallery-v2.js drop — three full hours of creative-side silence. Top-level output steady at 60 production-relevant files (51 raw including sarah-log + test stragglers; .DS_Store excluded). Subfolder count steady at 36. Tray steady at 14 open items. Downloads inaccessible for the tenth consecutive scheduled run. Lands' End is now T-2 days (Tue→Thu send window opens in the morning). PARK Gallery deck and T2 v8 still GUARDIAN-unvalidated — that gap held flat for another two-hour stretch. MAESTRO V2 + TESTING V2 still queued for GUARDIAN re-score. Catch-up push closes the cadence break; next scheduled run is 04:39 UTC.",
+  "updated_at": "2026-04-28T03:41:00Z",
+  "status_line": "Monday 11:41 PM ET / Tue 03:41 UTC — late-night hour push. Major shift since the 01:40 push: GUARDIAN re-broke silence with a full Gallery Deck V2 audit landing 02:51 UTC at 9.1/10 SHIPS CLEAN — the first GUARDIAN-validated Lands' End pitch instrument. SCOUT shipped two more Sharpie Gallery research artifacts (cultural insight v1 at 02:07 UTC, story bank v1 at 02:09 UTC, ~90 KB combined). MAESTRO completed the gallery-v2 build chain by emitting sharpie-gallery-campaign-deck-v2.pptx (62 KB at 01:42 UTC) — the file GUARDIAN then validated. NOLAN landed three more storyboards at top-level (02:00–02:01 UTC) extending the Run 132 shotlist pattern — SARAH formally opened Open Item #21 to force a convention call. Lands' End cover letter v1 drafted at 03:08 UTC — Sarah Sylvester, BiG-voiced, 30-min ask, attaches the now-validated Gallery Deck v2. Earlier in the window: gobig.nyc upgrade shipped 13 commits (status doc 03:20 UTC, site live with metrics on every work tile, named contact handoffs, RFP form, em-dash sweep). SCOUT cross-reference nightly landed at 03:37 UTC. SARAH Run 134 (02:06 UTC) opened Open Item #21 (NOLAN top-level) and EXPANDED Open Item #3 from a 3-copy in-folder dupe set (~77.6 MB) to a 6-copy cross-location dupe set (~155 MB). Top-level output now 62 (was 60, +3 NOLAN storyboards). Subfolder count 39 (was 36 — three new dated subfolders for sharpie-gallery-research-v2, lands-end, gobig-upgrade plus scout-cross-ref). Tray now 15 items (was 14). Lands' End now T-2 days. PARK Gallery Deck v1 + T2 v8 still GUARDIAN-unvalidated, but the v2 deck route is now CLEAN and ready to send.",
   "agents": [
     {
+      "name": "GUARDIAN",
+      "state": "active",
+      "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. Full slide-by-slide audit of MAESTRO's gallery-v2 deck (the 62 KB .pptx that landed at 01:42 UTC). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. Voice locked: command-focused, cinematic, ownable. Katrina open earned, no agency speak, zero em dashes. One minor formatting note on Slide 24. This is the first GUARDIAN-validated Lands' End pitch instrument — the urgency-lane gap closes for the v2 path. PARK v1 deck and T2 v8 still uncovered, but a clean alternate now exists.",
+      "last_run": "50m ago",
+      "color": "green"
+    },
+    {
       "name": "SCOUT",
-      "state": "idle",
-      "last_action": "Triple-burst window earlier tonight: (1) 00:37 UTC Apollo enrichment — 7 verified director emails added to ledger (Alison Hill, Danielle Hinde, Cabell Hopkins, Mino Jarjoura, Shawn Lacy, Ali Brown new venture, Jason Cole), 8 credits consumed, MTD 39/60. ⚠ Dashboard stale: Ali Brown is now President at Ventureland. (2) 01:07 UTC big-pipeline commit ea95418 — added Graza (Allen Dushi connected) and Fishwife (Becca Millstein contacted), updated LA Galaxy outreach status. (3) 01:30 UTC sharpie-momentous-marks-v2.md (33.7 KB) — clean rewrite of v1 stripping tragedy/death entries (per Barry pushback). No new SCOUT activity in the past 2 hours.",
-      "last_run": "2h 9m ago",
-      "color": "teal"
+      "state": "active",
+      "last_action": "Six landings since 01:30 UTC: (1) sharpie-scout-gallery-cultural-insight-v1.md (20,869 B at 02:07 UTC) — five cultural-tension framework, the Cannes-jury-reads-first doc; (2) sharpie-scout-gallery-story-bank-v1.md (69,443 B at 02:09 UTC) — 45 Cannes-ready narratives across 11 emotional categories with sensitivity protocol and first-9 hero shortlist; (3) cross-reference nightly at 03:37 UTC into 2026-04-27_scout-cross-ref/ — 67 contacts vs 11 enriched, 7 verified emails queued, Ali Brown job-change confirmed, 4 Apollo no-email returns (Dempster, Kuschnir, Thomas, Davies); (4–5) two more big-pipeline commits (b8d56fc Graza stay-on-radar posture per Rick, 057252b Graza thank-you reply from Allen Dushi logged in dialogue); (6) earlier 01:30 UTC sharpie-momentous-marks-v2.md still standing.",
+      "last_run": "4m ago",
+      "color": "green"
     },
     {
       "name": "MAESTRO",
-      "state": "idle",
-      "last_action": "01:37 UTC — build-sharpie-gallery-v2.js shipped (25.9 KB) into output/2026-04-27_sharpie-gallery-research-v2/. PptxGenJs deck-builder script for the Gallery v2 leave-behind, Sharpie palette (black/white/Sharpie-red DC143C with gold accent D4AF37). Title slide: 'THE GALLERY OF ORDINARY MASTERPIECES' on black, 54pt. Earlier today: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) both still awaiting GUARDIAN re-score on the V2 versions. Quiet for the past 2 hours.",
-      "last_run": "2h 2m ago",
-      "color": "teal"
+      "state": "active",
+      "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain now complete (research markdown + PptxGenJs script + emitted .pptx, all folder-canonical). GUARDIAN audited this exact file 69 minutes later at 02:51 UTC and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier today: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) still awaiting V2-version GUARDIAN re-score.",
+      "last_run": "2h ago",
+      "color": "green"
+    },
+    {
+      "name": "NOLAN",
+      "state": "active",
+      "last_action": "Three locked-treatment storyboards shipped in a one-minute window at 02:00–02:01 UTC: (1) sharpie-nolan-t2-60-final-storyboard-v1.md (18,342 B); (2) sharpie-nolan-gallery-version-b-storyboard-v1.md (22,436 B); (3) sharpie-nolan-t2-hybrid-v1-storyboard-v1.md (25,354 B). Pairs with the three shotlists that landed 23:04 UTC. All six landed at output/ top-level instead of dated-project subdirs — SARAH Run 134 formally opened Open Item #21 to force a convention call (move to dated subdirs vs formalize NOLAN top-level pattern in CLAUDE.md). Reference .mov masters (~9.1 GB) and 49-file SFX library still staged.",
+      "last_run": "1h 41m ago",
+      "color": "green"
     },
     {
       "name": "WRITER",
-      "state": "idle",
-      "last_action": "Graco 'Next Arms' Cannes 2028 roadmap deck delivered (17 slides, .pptx in ~/Documents/Claude/Projects/Graco/). 'We Got You' as a multi-year initiative — NICU families, foster parents, parents with disabilities — four pillars, three investment tiers ($0.5M / $5–8M / $15–20M), May 2026 → March 2028 phased plan. 4 asks need greenlight in next 30 days.",
-      "last_run": "~25h ago",
-      "color": "dim"
-    },
-    {
-      "name": "TESTING",
-      "state": "idle",
-      "last_action": "Final 9 Report V2 reissued — sharpie-testing-gallery-final-9-report-v2.md (7,535 B at 22:56 UTC). Addresses GUARDIAN's 7.8/10 flags on V1: Smithsonian elevation restored to top-level hierarchy, fallback contingency added if NMAH passes, Grand Prix probability now stated explicitly (35–40% with Smithsonian / 5–10% without), Case Film closing line softened, emotional drift on line 45 corrected. T2-60-final and T2-anthem-30 still awaiting locked-script re-runs.",
-      "last_run": "4h 43m ago",
+      "state": "active",
+      "last_action": "03:08 UTC — Lands' End cover letter v1 shipped (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B). Addresses Sarah Sylvester directly. Frames the cultural moment (heritage-as-transgression in a disposability market). Cites Sharpie Gallery as proof of strategic approach + Graco 'Next Arms' as proof of platform-pivot range in hardened categories. 30-minute ask, no deck unless wanted. Attachment: the now-GUARDIAN-validated Sharpie Gallery Deck v2. Letter is send-ready. Earlier: Graco 'Next Arms' Cannes 2028 roadmap deck still in flight.",
+      "last_run": "33m ago",
       "color": "teal"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 135 at 03:05 UTC — quiet sweep, zero net-new artifacts in mounted scope (eighth consecutive zero-delta sweep on the production tree). Notable signal: first missed hourly tick on data/jarvis-state.json after 5 consecutive on-cadence ticks (file ~78 min stale at sweep time — that gap is what this catch-up push is now closing). Run 134 at 02:09 UTC was also clean. Downloads inaccessible for the tenth consecutive run. Top-level output unchanged at 51 raw files (48 production + sarah-log + 2 test stragglers). Subfolder count steady at 36. Open-slate steady at 14 items. Highest-priority pending: 'SARAH leave migration package' (Open Item #20).",
-      "last_run": "34m ago",
+      "last_action": "Run 134 at 02:06 UTC — productive sweep, six new landings, one new dated subfolder, zero rework. Three folder-canonical landings into 2026-04-27_sharpie-gallery-research-v2/ (MAESTRO research+script+pptx triple) plus three top-level NOLAN storyboards continuing the Run 132 shotlist pattern. NEW Open Item #21: NOLAN top-level emissions — six files now at output/ top-level when CLAUDE.md prescribes dated-project subdirs; reply 'SARAH adopt nolan top-level' (formalize in docs) or 'SARAH move nolan files to dated subdirs' (bulk move). EXPANDED Open Item #3: sharpie-make-it dupe set grew from 3-copy in-folder (~77.6 MB) to 6-copy cross-location (~155 MB) — top-level v6/v7/v8 are byte-identical to big-new-business/ counterparts (md5-verified). Top-level count 62 (+3 from Run 133). Downloads/Documents blackout 7th consecutive run. Tray now 15 items (was 14).",
+      "last_run": "1h 35m ago",
       "color": "amber"
-    },
-    {
-      "name": "ATLAS",
-      "state": "idle",
-      "last_action": "Apr 27 daily report delivered at 13:11 UTC; copies migrated into 2026-04-27_atlas/ at 13:11 UTC (atlas-daily-report.md) and 23:40 UTC (atlas-daily-report-morning.md). All three copies byte-identical (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B) — Open Item #19, now triple. Headline: GUARDIAN broke silence after 15 dark cycles — first GUARDIAN artifact landed (three-document voice check on the Gallery suite). Doc 1 ships clean at 9.2. Docs 2 and 3 require rework. Lands' End now T-2 days. Next ATLAS run: 13:04 UTC (Tue 9:04 AM ET).",
-      "last_run": "14h 28m ago",
-      "color": "dim"
-    },
-    {
-      "name": "NOLAN",
-      "state": "idle",
-      "last_action": "Three locked-treatment shotlists shipped in a three-minute window at 23:04 UTC: (1) sharpie-nolan-gallery-version-b-shotlist-v1.md (33,093 B); (2) sharpie-nolan-t2-60-final-shotlist-v1.md (24,995 B); (3) sharpie-nolan-t2-hybrid-v1-shotlist-v1.md (36,494 B). Em-dashes cleaned per house style. Storyboards still empty in nolan/storyboard/. 3 reference .mov masters (~9.1 GB) and 49-file SFX library remain staged. Higgsfield outro hf_20260427_010045 still in Downloads = Open Item #18.",
-      "last_run": "4h 35m ago",
-      "color": "teal"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "Two decks delivered: T2 v8 (43 MB) and Gallery campaign deck v1 (.pptx + matching .pdf). Decision pending: Gallery standalone vs. unified MAKE IT v9. Neither pitch instrument GUARDIAN-validated despite tonight's GUARDIAN burst — gap unchanged. Lands' End now T-2 days. MAESTRO's 01:37 UTC build-sharpie-gallery-v2.js implies a v2 deck path is being prepared in parallel — coordination still pending.",
+      "last_action": "Two original decks delivered: T2 v8 (43 MB) and Gallery campaign deck v1 (.pptx + .pdf). Both still GUARDIAN-unvalidated. BUT — the v2 path is now live and clean: MAESTRO's sharpie-gallery-campaign-deck-v2.pptx (01:42 UTC) was GUARDIAN-validated at 9.1/10 SHIPS CLEAN at 02:51 UTC. Lands' End T-2 days; the v2 deck is ready to attach. Decision: ship v2 to Lands' End now, or invest the day in revising v1 + T2 v8 to GUARDIAN-pass. WRITER's Lands' End letter (03:08 UTC) already attaches the v2 deck — implicit decision is the v2 path.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
-      "name": "GUARDIAN",
+      "name": "TESTING",
+      "state": "active",
+      "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC) addresses GUARDIAN's 7.8/10 V1 flags: Smithsonian elevation restored to top hierarchy, fallback contingency added, Grand Prix probability stated explicitly (35–40% with Smithsonian / 5–10% without), Case Film closing line softened, line-45 emotional drift corrected. Awaiting GUARDIAN re-score on V2. T2-60-final and T2-anthem-30 still unscored on locked scripts.",
+      "last_run": "4h 45m ago",
+      "color": "green"
+    },
+    {
+      "name": "ATLAS",
       "state": "idle",
-      "last_action": "First canonically-named GUARDIAN artifact landed: sharpie-guardian-voice-check-2026-04-27-batch-v1.md (12,154 B at 23:09 UTC) in output/ root — naming convention 'sharpie-guardian-[topic]-[YYYY-MM-DD]-batch-v[N].md' now formally demonstrated in-tree (half-resolves Open Item #11). Voice standard locked: 'Confident, specific, zero filler, command-focused, cinematic in register.' MAESTRO V2 + TESTING V2 documents still queued for re-score after a 4.5h pause. PARK Gallery deck + T2 v8 + T2 final scripts + 6 product renders + WYMI scenes still uncovered.",
-      "last_run": "4h 30m ago",
+      "last_action": "Apr 27 daily report still the latest. All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Open Item #19 unchanged this window. Report predates tonight's GUARDIAN burst on the v2 deck, MAESTRO's v2 .pptx, NOLAN's storyboards, SCOUT's cultural insight + story bank, the Lands' End letter, and the gobig.nyc 13-commit ship. Tue 1:04 PM UTC dependency check will surface the full catch-up.",
+      "last_run": "14h 30m ago",
       "color": "teal"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN, GUARDIAN, TESTING all completed downstream work earlier today. Currently quiet across the system.",
+      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN, GUARDIAN, TESTING all active downstream.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
-      "time": "3:39 AM UTC",
+      "time": "3:41 AM UTC",
       "agent": "JARVIS",
-      "text": "Catch-up dashboard push — closes the cadence break from the missed 02:39 window. State file last updated 01:40 UTC, now ~120 min stale. No catch-up of substance to flush: SARAH ran two clean sweeps in the gap (Runs 134 + 135), zero new creative artifacts, tray and output counts unchanged, open-slate steady at 14. Cadence restored; next scheduled run 04:39 UTC.",
+      "text": "Dashboard push — late-night hour. Eight landings since the 01:40 push: MAESTRO Gallery Deck v2.pptx (01:42, 62 KB); NOLAN three storyboards top-level (02:00–02:01, ~66 KB); SARAH Run 134 (02:06, +1 Open Item #21 NOLAN top-level, #3 expanded 3→6 copies / 77→155 MB); SCOUT Gallery cultural insight + story bank (02:07–02:09, ~90 KB); GUARDIAN Gallery Deck V2 audit (02:51, 9.1/10 SHIPS CLEAN — first GUARDIAN-validated pitch instrument); WRITER Lands' End cover letter v1 (03:08, send-ready); gobig.nyc upgrade status (03:20, 13 commits live); SCOUT cross-ref nightly (03:37). Top-level output 62. Subfolder count 39 (+3 dated subfolders post-SARAH-Run-134). Tray 15 (was 14).",
       "color": "blue"
     },
     {
-      "time": "3:05 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 135 — quiet sweep, eighth consecutive zero-delta on the production tree. Notable signal: first missed hourly tick on data/jarvis-state.json after 5 consecutive on-cadence ticks (the cadence break this catch-up push is now closing). Downloads inaccessible for the tenth consecutive run. Open-slate steady at 14. No moves, no renames, no deletes.",
-      "color": "amber"
+      "time": "3:37 AM UTC",
+      "agent": "SCOUT",
+      "text": "Cross-reference nightly: 67 dashboard contacts × 11 enriched. 7 verified emails queued for Doc inline insert (Hinde, Cole, Hopkins, Jarjoura, Lacy, Hill, Brown). 1 job change confirmed (Ali Brown → Ventureland President, a.brown@venture.land). 4 Apollo no-email returns need alt paths (Dempster, Kuschnir, Thomas, Davies — LinkedIn InMail or warm intro). Doc lookup struck out — no master Drive Doc matches the 67-contact dashboard. Two Sheet candidates exist but neither mirrors the structure. Recommendation logged for Rick: confirm dashboard-as-source or create a Doc. Apollo MTD 39/60, 21 left for last 3 days of April.",
+      "color": "teal"
+    },
+    {
+      "time": "3:20 AM UTC",
+      "agent": "WRITER",
+      "text": "gobig.nyc upgrade status doc landed — 13 commits shipped tonight across two parallel sessions. Site materially closer to bar: hero locked ('We imagine LOVEABLE brands. Then we make them real.'), every work tile leads with quantified result (Big Spaceship pattern), three named-contact handoffs on /contact (Pereira O'Dell pattern), RFP form (Formspree), three new pages live (cpg, film, sweetspotter), false Cannes claim removed from /about, em-dash sweep (zero em dashes site-wide), bios rewritten with credentials. Five items need Rick's call (Formspree endpoint ownership, mailbox provisioning, Cannes line, hero tagline, three new pages voice check). Live: rickwayne-jarvis.github.io/gobig-nyc.",
+      "color": "teal"
+    },
+    {
+      "time": "3:08 AM UTC",
+      "agent": "WRITER",
+      "text": "Lands' End cover letter v1 shipped (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B). Addressed to Sarah Sylvester. Opens with the cultural moment — heritage-as-transgression in a disposability market. Cites Sharpie Gallery as proof of strategic range + Graco 'Next Arms' as proof of platform pivot in hardened categories. 30-minute ask, no deck unless wanted. Attachment: Sharpie Gallery Campaign Deck v2 (the GUARDIAN-validated 9.1 version). Send-ready for Tuesday/Wednesday morning.",
+      "color": "teal"
+    },
+    {
+      "time": "2:51 AM UTC",
+      "agent": "GUARDIAN",
+      "text": "Gallery Deck V2 full audit shipped (sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md, 19,825 B). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9 (Tone, Consistency, Clarity, Values Alignment, Emotional Impact). Voice locked: command-focused, cinematic, ownable. Katrina open earned (X-codes real, Sharpie survived, copy says so without hedging). No agency speak. Zero em dashes. One minor formatting note on Slide 24. First GUARDIAN-validated Lands' End pitch instrument — the urgency-lane v2 path closes clean; v1 deck + T2 v8 still uncovered.",
+      "color": "green"
     },
     {
       "time": "2:09 AM UTC",
+      "agent": "SCOUT",
+      "text": "Sharpie Gallery story bank v1 shipped (sharpie-scout-gallery-story-bank-v1.md, 69,443 B). 45 Cannes-ready narratives across 11 emotional categories. Sensitivity protocol for loss/queer/activism stories. First-9 hero shortlist (baseball glove, doorframe, barista cups, hospice signatures, cast signings, etc.). Casting strategy mixes ages 8–85, geography, profession. Pairs with the cultural insight memo (02:07 UTC).",
+      "color": "teal"
+    },
+    {
+      "time": "2:07 AM UTC",
+      "agent": "SCOUT",
+      "text": "Sharpie Gallery cultural insight memo shipped (sharpie-scout-gallery-cultural-insight-v1.md, 20,869 B). Five cultural tensions framework: AI-fatigue → handmade hunger; permanence under deletion-culture; permission of the ordinary; care as luxury; civic gravity. The 'Cannes jury reads first' doc — cultural spine of the campaign.",
+      "color": "teal"
+    },
+    {
+      "time": "2:06 AM UTC",
       "agent": "SARAH",
-      "text": "Run 134 — quiet sweep, seventh consecutive zero-delta on the production tree. JARVIS pipeline heartbeat held (data/jarvis-state.json advanced to 01:47 UTC, +5,850 B / +27.9% size growth — first non-trivial state-payload advance, suggesting real state accretion). Open Items unchanged from Run 133.",
+      "text": "Run 134: productive sweep, six new landings, one new dated subfolder, zero rework. NEW Open Item #21 — NOLAN top-level emissions (six files now at output/ top-level when CLAUDE.md prescribes dated-project subdirs; pattern set Run 132 with shotlists, confirmed Run 134 with storyboards). Reply 'SARAH adopt nolan top-level' or 'SARAH move nolan files to dated subdirs'. EXPANDED Open Item #3: sharpie-make-it dupe set grew from 3-copy in-folder (~77.6 MB) to 6-copy cross-location (~155 MB) — top-level v6/v7/v8 are byte-identical to big-new-business/ counterparts (md5-verified). Downloads/Documents blackout 7th consecutive run. Tray now 15 (was 14).",
       "color": "amber"
     },
     {
-      "time": "1:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — twenty-second hour. Five landings since the 00:39 push: SCOUT Apollo enrichment (7 verified emails + Ali Brown job-change flag); SARAH Run 133 (+4 automation folders, +1 Open Item #20); SCOUT BiG pipeline commit (+Graza, +Fishwife, LA Galaxy update); SCOUT Sharpie Gallery research v2 (tragedy entries removed); MAESTRO Gallery v2 deck builder script.",
-      "color": "blue"
+      "time": "2:01 AM UTC",
+      "agent": "NOLAN",
+      "text": "Three locked-treatment storyboards shipped at top-level in a one-minute window: t2-60-final (18,342 B), gallery-version-b (22,436 B), t2-hybrid-v1 (25,354 B). Pairs with the three shotlists from 23:04 UTC. All six landed at output/ top-level — extends the Run 132 pattern. SARAH formally opened Open Item #21 — convention call needed (move to dated subdirs vs adopt top-level pattern in CLAUDE.md).",
+      "color": "teal"
     },
     {
-      "time": "1:37 AM UTC",
+      "time": "1:42 AM UTC",
       "agent": "MAESTRO",
-      "text": "build-sharpie-gallery-v2.js (25.9 KB) shipped into output/2026-04-27_sharpie-gallery-research-v2/. PptxGenJs deck-builder for the Gallery v2 leave-behind. Title slide: 'THE GALLERY OF ORDINARY MASTERPIECES' on black, 54pt. Pairs with SCOUT's v2 research doc from 7 minutes earlier — coordinated v2 prep against the Lands' End window.",
-      "color": "teal"
-    },
-    {
-      "time": "1:30 AM UTC",
-      "agent": "SCOUT",
-      "text": "sharpie-momentous-marks-v2.md (33.7 KB) shipped. Clean rewrite of v1 — strips tragedy/death entries Barry pushed back on (hurricane ID body marking, combat tourniquet, Katrina X-codes, 9/11 helmets, ordnance messages, border number marking) while keeping Smithsonian opening + ISS marker anchors.",
-      "color": "teal"
-    },
-    {
-      "time": "1:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "BiG dashboard commit ea95418 to big-pipeline repo: added Graza (Allen Dushi connected) and Fishwife (Becca Millstein contacted) — two emerging-brand prospects in the same beat as the morning's Jack in the Box and Haleon US pushes. LA Galaxy outreach status refreshed.",
-      "color": "teal"
-    },
-    {
-      "time": "1:05 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 133 — productive sweep, four automation landings on schedule (morning-brief, scout-pipeline-v1, receipt-filer pending-queue, scout-apollo enrichment-log). Open Item #19 expanded from 2 to 3 byte-identical Atlas copies. New Open Item #20 — system-automation naming convention undocumented in CLAUDE.md.",
-      "color": "amber"
-    },
-    {
-      "time": "12:37 AM UTC",
-      "agent": "SCOUT",
-      "text": "Apollo enrichment — 7 verified director emails added to ledger (Alison Hill, Danielle Hinde, Cabell Hopkins, Mino Jarjoura, Shawn Lacy, Ali Brown new venture, Jason Cole), 8 credits consumed, MTD 39/60. ⚠ Dashboard stale: Ali Brown now President at Ventureland.",
-      "color": "teal"
-    },
-    {
-      "time": "11:09 PM UTC",
-      "agent": "GUARDIAN",
-      "text": "First canonically-named artifact landed: sharpie-guardian-voice-check-2026-04-27-batch-v1.md (12,154 B). Naming pattern formally demonstrated in-tree. Voice standard locked: 'Confident, specific, zero filler, command-focused, cinematic in register.' MAESTRO V2 + TESTING V2 queued for re-score.",
+      "text": "sharpie-gallery-campaign-deck-v2.pptx emitted (62,245 B) into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain complete: research markdown + PptxGenJs script + emitted .pptx, all folder-canonical. GUARDIAN audited this file 69 minutes later and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass.",
       "color": "teal"
     }
   ],
   "attention": [
     {
       "title": "Send Lands' End letter to Sarah Sylvester — T-2 days",
-      "subtitle": "Letter is drafted (2026-04-27_outreach-drafts.md, Section 1, ~250 words). Subject: 'Lands' End doesn't need to prove anything.' Send window opens tomorrow morning. Eight ATLAS reports have flagged this. Owner: Rick. Tomorrow's #1.",
+      "subtitle": "Letter v1 NOW DRAFTED in canonical output (2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B at 03:08 UTC). Subject hook: heritage-as-transgression. 30-min ask. Attachment: GUARDIAN-validated Gallery Deck v2 (9.1/10 SHIPS CLEAN). Send window narrows to April 28–30 = Tue–Thu. Eight ATLAS reports + one WRITER session have flagged this. Owner: Rick. Tomorrow morning's #1.",
       "severity": "red"
     },
     {
-      "title": "PARK Gallery deck + T2 v8 still GUARDIAN-unvalidated",
-      "subtitle": "Tonight's GUARDIAN burst covered the Gallery leave-behinds (one-sheet, gold package, board report). The two actual pitch instruments — sharpie-gallery-campaign-deck-v1.pptx and sharpie-make-it-deck-v8.pptx — remain unvalidated. With Lands' End T-2 days, these are the urgency lane. MAESTRO's build-sharpie-gallery-v2.js (01:37 UTC) implies a v2 path may also be in motion. Tomorrow's #2.",
-      "severity": "red"
-    },
-    {
-      "title": "Apollo flagged Ali Brown as out-of-date on dashboard — pivot Prettybird touch",
-      "subtitle": "SCOUT's 00:37 UTC Apollo run surfaced that Ali Brown is now President at Ventureland (verified email a.brown@venture.land); Prettybird buildRel entry is stale. Two options: (1) update dashboard to make Kerstin Emhoff or Candice Dragonas the Prettybird primary; (2) use the Ali job change as a warm reason to congratulate her at Ventureland and re-route Prettybird via Kerstin. Either way, edit the dashboard before next outreach pass.",
+      "title": "PARK Gallery Deck v1 + T2 v8 still GUARDIAN-unvalidated — but v2 path now CLEAN",
+      "subtitle": "GUARDIAN audited the new v2 deck at 02:51 UTC: 9.1/10 SHIPS CLEAN. The v2 path is now ready for Lands' End and is the implicit choice in WRITER's letter. Decision moment: ship v2 only and retire v1 + T2 v8 from the Lands' End slot, or invest tomorrow in revising v1/T2 v8 to GUARDIAN-pass for parallel use. PARK direction call needed before MAESTRO and PARK both work the same v2 surface.",
       "severity": "amber"
     },
     {
-      "title": "GUARDIAN re-score MAESTRO V2 + TESTING V2",
-      "subtitle": "MAESTRO Gold Package V2 (22:54) and TESTING Final 9 Report V2 (22:56) both addressed tonight's GUARDIAN flags. Both still await re-score before external send — queue has been pending for 4.5h.",
+      "title": "NOLAN convention drift — six top-level files (Open Item #21 NEW)",
+      "subtitle": "Three shotlists (Run 132, 23:04 UTC) + three storyboards (Run 134, 02:00–02:01 UTC) all landed at output/ top-level instead of dated-project subdirs. Pattern is now set across two waves. Reply 'SARAH adopt nolan top-level' (formalize convention in CLAUDE.md, leave files) or 'SARAH move nolan files to dated subdirs' (bulk-move all 6 into [DATE]_[CLIENT]-[PROJECT]/nolan/[shots|storyboard]/, mkdir -p as needed). Either resolution closes #21.",
+      "severity": "amber"
+    },
+    {
+      "title": "Open Item #3 expanded — sharpie-make-it dupes now 6 copies / ~155 MB",
+      "subtitle": "SARAH Run 134 md5-verified that top-level v6/v7/v8 .pptx are byte-identical to their big-new-business/ counterparts. Was reported as 3-copy in-folder (~77.6 MB); now 6-copy cross-location (~155 MB). Reply 'SARAH delete big-new-business dupe decks' (will need follow-up clarification on which side to keep — top-level or big-new-business/).",
+      "severity": "amber"
+    },
+    {
+      "title": "Apollo flagged Ali Brown as out-of-date on dashboard — pivot Prettybird touch",
+      "subtitle": "SCOUT's 00:37 + 03:37 UTC runs both confirm: Ali Brown is now President at Ventureland (verified email a.brown@venture.land). Dashboard buildRel entry is stale. Two paths: (1) reframe as congrats touch + Ventureland pitch; (2) pivot Prettybird to Kerstin Emhoff (already in linkedinAdds) or Candice Dragonas. Recommend running both. Edit dashboard before next outreach pass.",
+      "severity": "amber"
+    },
+    {
+      "title": "GUARDIAN re-score MAESTRO V2 + TESTING V2 (one-sheet, gold package, board report)",
+      "subtitle": "MAESTRO Gold Package V2 (22:54) and One-Sheet V2 (22:46) and TESTING Final 9 Report V2 (22:56) all addressed tonight's earlier GUARDIAN flags. All three await re-score on the V2 versions. GUARDIAN bandwidth proven this window — already shipped the deck audit at 02:51.",
+      "severity": "amber"
+    },
+    {
+      "title": "gobig.nyc upgrade — 5 calls needed from Rick",
+      "subtitle": "Status doc at output/2026-04-27_gobig-upgrade/status.md (03:20 UTC). 13 commits shipped tonight. Rick's calls: (1) Formspree endpoint xdklvkbw — confirm ownership; (2) provision barry@/rick@/samuel@ mailboxes or change /contact addresses; (3) confirm or restore Cannes line on /about; (4) confirm new hero tagline 'We imagine LOVEABLE brands. Then we make them real.'; (5) read-through of new cpg.html / film.html / sweetspotter.html for voice and claims.",
       "severity": "amber"
     },
     {
@@ -163,12 +178,12 @@
     },
     {
       "title": "Send Jack in the Box outreach — Katelyn Zborowski",
-      "subtitle": "Three-part draft ready (LinkedIn connect + email + 1-page POV). Warm hook references her Pizza Hut work. 28d into CMO tenure, 75th anniversary year, project-pitch lane outside TBWA AOR. Window narrows once another shop locks anniversary scope. SCOUT confirmed the lead is now on the BiG dashboard.",
+      "subtitle": "Three-part draft ready (LinkedIn connect + email + 1-page POV). Warm hook references her Pizza Hut work. 28d into CMO tenure, 75th anniversary year, project-pitch lane outside TBWA AOR. Window narrows once another shop locks anniversary scope. SCOUT confirmed the lead is on the BiG dashboard.",
       "severity": "amber"
     },
     {
       "title": "Haleon US — new lead, Williams→Manso loop",
-      "subtitle": "Richard Manso named US CMO yesterday (Apr 27, Day 0). Ex-Google B2B marketing. Mandate: GLP-1 OTC adjacencies, Women's Health, Pediatric Health — three new categories where the brief hasn't been written yet. Best outreach window late May / early June (Day 30–45). POV letter, not meeting request. Loop play: Smucker (Williams, Day 49, ex-Haleon) → Haleon (Manso, Day 0, ex-Google) — reference one when reaching out to the other.",
+      "subtitle": "Richard Manso named US CMO Apr 27 (Day 0). Ex-Google B2B marketing. Mandate: GLP-1 OTC adjacencies, Women's Health, Pediatric Health — three new categories where the brief hasn't been written. Best outreach window late May / early June (Day 30–45). POV letter, not meeting request. Loop play: Smucker (Williams, Day 49, ex-Haleon) ↔ Haleon (Manso, Day 0, ex-Google).",
       "severity": "amber"
     },
     {
@@ -178,32 +193,32 @@
     },
     {
       "title": "Two new emerging-brand prospects on dashboard — Graza + Fishwife",
-      "subtitle": "01:07 UTC big-pipeline commit added Graza (Allen Dushi connected — extra-virgin olive oil DTC, founder-led) and Fishwife (Becca Millstein contacted — tinned-fish premium DTC). Both warm-touch follow-ups, not cold. Decide whether to slot into the LA Galaxy / Glossier / Macy's outreach block this week or hold for next batch.",
+      "subtitle": "Graza posture is now stay-on-radar after thank-you reply from Allen Dushi (commits 057252b + b8d56fc). Fishwife (Becca Millstein contacted) waiting for next move. Both warm-touch follow-ups, not cold. Decide whether to slot into the LA Galaxy / Glossier / Macy's outreach block this week.",
+      "severity": "amber"
+    },
+    {
+      "title": "SCOUT Apollo — 21 credits left for last 3 days of April",
+      "subtitle": "Cross-ref nightly logged 39/60 MTD. Recommended next-pass priorities: Kerstin Emhoff (Prettybird pivot), Patrick Milling Smith (Smuggler), Rebecca O'Neill, Orlee Tatarka, Jen Passaniti. 4 high-value targets need alt paths (Dempster, Kuschnir, Thomas, Davies — Apollo struck out on email).",
       "severity": "amber"
     },
     {
       "title": "Two Higgsfield videos in Downloads — bulk-decision lane (Open Items #7 + #18)",
-      "subtitle": "hf_20260427_003857 (416 KB, #7) + hf_20260427_010045 (4.81 MB, #18) both ambiguous JARVIS-adjacent. Downloads inaccessible for the tenth consecutive SARAH sweep. Reply 'SARAH bulk adopt hf videos' to land both at output/nolan/shots/, 'SARAH bulk ignore hf videos' to dismiss both, or single-resolve each.",
+      "subtitle": "hf_20260427_003857 (416 KB, #7, ~30h+ stale) + hf_20260427_010045 (4.81 MB, #18, ~12h+ stale) both ambiguous JARVIS-adjacent (NOLAN/Higgsfield pipeline). Downloads inaccessible for the seventh consecutive SARAH sweep. Reply 'SARAH bulk adopt hf videos' / 'SARAH bulk ignore hf videos' / single-resolve.",
       "severity": "amber"
     },
     {
-      "title": "Atlas top-level vs dated-subfolder dupe — now triple (Open Item #19 expanded)",
-      "subtitle": "All three byte-identical (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Reply 'SARAH atlas top-level is rolling pointer' or 'SARAH atlas top-level is legacy' — locks Atlas's own naming convention plus the -morning vs unsuffixed dated-subfolder choice.",
+      "title": "Atlas top-level vs dated-subfolder dupe — triple unchanged (Open Item #19)",
+      "subtitle": "All three byte-identical (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Re-verified Run 134 unchanged. Reply 'SARAH atlas top-level is rolling pointer' or 'SARAH atlas top-level is legacy'.",
       "severity": "amber"
     },
     {
       "title": "System-automation naming convention undocumented in CLAUDE.md (Open Item #20)",
-      "subtitle": "SARAH Run 133 opened on a documentation gap. CLAUDE.md's File Naming Conventions assumes every output is client-bound ([CLIENT]-[STAGE]-v[N].md), but the daily-automation outputs (atlas/, dashboard/, morning-brief/, scout-pipeline/, receipt-filer/, scout-apollo/) use folder=automation-name, inner-file=generic-stage. Reply 'SARAH formalize system-automation naming' (adopt and edit CLAUDE.md) or 'SARAH leave system-automation naming'.",
+      "subtitle": "CLAUDE.md still has no '## System-Automation Outputs' section (re-verified Run 134). Pattern is well-established across atlas/, dashboard/, morning-brief/, scout-pipeline/, scout-apollo/, receipt-filer/, nightly/. Reply 'SARAH formalize system-automation naming' (adopt + edit CLAUDE.md) or 'SARAH leave system-automation naming' (treat as ad-hoc).",
       "severity": "amber"
     },
     {
-      "title": "Run SARAH routing commands set",
-      "subtitle": "SARAH surfaced 10 ready-to-type routing commands in output/sarah-routing-commands-2026-04-27.md (6.4 KB, 23:08 UTC). Each item has file info, recommendation, exact command, and action description. Highest-leverage next-session work.",
-      "severity": "amber"
-    },
-    {
-      "title": "GUARDIAN naming convention — formally demonstrated tonight",
-      "subtitle": "GUARDIAN authored its first canonically-named output at 23:09 UTC: sharpie-guardian-voice-check-2026-04-27-batch-v1.md. Pattern is now self-evident in-tree. Open Item #11's pattern half is resolved by author. File-decision half (whether to adopt the Documents-side GUARDIAN-gallery-voice-check.md) still pending. CLAUDE.md update to formalize the pattern is nice-to-have — pairs naturally with Open Item #20.",
+      "title": "Run SARAH routing commands set (sarah-routing-commands-2026-04-27.md)",
+      "subtitle": "SARAH surfaced 10 ready-to-type routing commands at output/sarah-routing-commands-2026-04-27.md. Each item has file info, recommendation, exact command, and action description. Highest-leverage next-session work. Run 134 added a useful priority order: delete test files (zero risk) → resolve big-new-business dupes (~155 MB recovery) → close Open Item #21 → close #19 → bulk-resolve hf videos → close #20.",
       "severity": "amber"
     },
     {
@@ -213,12 +228,12 @@
     },
     {
       "title": "Adopt or park 4 Sharpie project drafts? (Open Item #6)",
-      "subtitle": "Gallery / two Hero Film drafts / Product Territory Map (~70 KB total) sitting in Documents/Claude/Projects/Sharpie/ plus the Apr 27 23:17 UTC SHARPIE_GALLERY_PROJECT_MASTER.md addition. Mirror into output/ under maestro naming or leave as working drafts? Carry-forward.",
+      "subtitle": "Gallery / two Hero Film drafts / Product Territory Map (~70 KB total) sitting in Documents/Claude/Projects/Sharpie/. Mirror into output/ under maestro naming or leave as working drafts? Carry-forward.",
       "severity": "amber"
     },
     {
       "title": "Adopt JARVIS morning brief? (Open Item #10)",
-      "subtitle": "'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). The in-tree morning brief now lives at output/2026-04-27_morning-brief/morning-brief.md (00:29 UTC, 4.7 KB) — Documents-side is presumably stale/superseded. Reply 'SARAH adopt morning brief' or 'SARAH leave morning brief'.",
+      "subtitle": "'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). The in-tree morning brief now lives at output/2026-04-27_morning-brief/morning-brief.md. Documents-side is presumably stale/superseded. Reply 'SARAH adopt morning brief' or 'SARAH leave morning brief'.",
       "severity": "amber"
     },
     {
@@ -227,33 +242,23 @@
       "severity": "amber"
     },
     {
-      "title": "Adopt Rick Directing Photos folder? (Open Item #9)",
-      "subtitle": "5 photos, ~1.6 MB, in Downloads. Likely RickWayne portfolio assets. Folders not auto-adopted per policy. Reply 'SARAH adopt directing photos' or 'SARAH ignore directing photos'.",
+      "title": "Frame.io receipt — file in next interactive session ($65.33)",
+      "subtitle": "Receipt-filer scheduled run found Frame.io subscription receipt (Apr 8, $65.33, Visa 9636 = BIG Ramp). Cannot file from sandbox: ~/Desktop/Dropbox/_RECEIPTS TO FILE/ not mounted. Frame.io email left UNREAD so next run picks it up. Pickup queue at output/2026-04-27_receipt-filer/pending-queue.md. iCloud account NOT scanned this run.",
       "severity": "amber"
     },
     {
-      "title": "Frame.io receipt — file in next interactive session ($65.33)",
-      "subtitle": "Receipt-filer scheduled run found Frame.io subscription receipt (Apr 8, $65.33, Visa 9636 = BIG Ramp). Cannot file from sandbox: ~/Desktop/Dropbox/_RECEIPTS TO FILE/ not mounted; no AppleScript fallback. Frame.io email left UNREAD so next run picks it up. Pickup queue: output/2026-04-27_receipt-filer/pending-queue.md.",
+      "title": "Grant ~/Downloads + ~/Documents as Cowork directories",
+      "subtitle": "SARAH Run 134 marks seventh consecutive blackout — Downloads/Documents not mounted in scheduled-task sessions. Open Items #1, #5, #6, #7, #9, #10, #11, #15, #18 cannot be byte-verified (~7 days stale). osascript bridge via Control_your_Mac MCP works in interactive runs; native Cowork mount remains preferred.",
+      "severity": "amber"
+    },
+    {
+      "title": "15 SARAH cleanup items pending authorization (was 14)",
+      "subtitle": "Run 134 added Open Item #21 (NOLAN top-level emissions, six files) and expanded #3 from 3 in-folder dupes to 6 cross-location dupes (~155 MB). Tray now: Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business 6-copy dupe set (~155 MB), 3 zero-byte test files (2 top-level + 1 in t2 subfolder), outreach files (with Apollo CSVs), 4 Sharpie project drafts, 2 hf MP4s (#7 + #18), directing photos folder, JARVIS morning brief, GUARDIAN voice check (#11 pattern half-resolved), outreach CSV (#15), Atlas dupe (#19, triple), CLAUDE.md naming docs gap (#20), NOLAN convention drift (#21 NEW). Reply with the SARAH commands to clear.",
       "severity": "amber"
     },
     {
       "title": "Graco 'Next Arms' roadmap — review window",
       "subtitle": "WRITER shipped the 17-slide Cannes 2028 deck with 4 asks needing greenlight in the next 30 days for the timeline to hold. Proof of Impact letter Safety claim (circular, no BHT support) and +1.5B impressions (media output, not behavior) flagged for swap before next deck ships.",
-      "severity": "amber"
-    },
-    {
-      "title": "Two-PARK-deck decision still pending",
-      "subtitle": "Gallery standalone vs. unified MAKE IT v9 — call needed before next pitch window. Use Monday 3:00 PM ET Sharpie Review slot. MAESTRO's 01:37 UTC build-sharpie-gallery-v2.js suggests a v2 deck path may already be branching — call PARK direction before parallel work compounds.",
-      "severity": "amber"
-    },
-    {
-      "title": "Grant ~/Downloads as a Cowork directory",
-      "subtitle": "SARAH Run 135 marks tenth consecutive blackout — Downloads not mounted in scheduled-task sessions. Open Items #7/#9/#15/#18 cannot be byte-verified (~6+ days stale). osascript bridge via Control_your_Mac MCP works in interactive runs; native Cowork mount remains preferred.",
-      "severity": "amber"
-    },
-    {
-      "title": "14 SARAH cleanup items pending authorization",
-      "subtitle": "Tray steady at 14: Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business duplicate PPTXs (~77.6 MB), 2 zero-byte test files, outreach files (with Apollo CSVs), 4+ Sharpie project drafts, 2 hf MP4s (#7 + #18), directing photos folder, JARVIS morning brief, GUARDIAN voice check, outreach CSV (#15), Atlas dupe (#19, now triple), CLAUDE.md naming docs gap (#20). Reply with the SARAH commands to clear.",
       "severity": "amber"
     },
     {
@@ -263,19 +268,78 @@
     }
   ],
   "stats": {
-    "tasks_today": 47,
+    "tasks_today": 56,
     "top_score": 9.2,
-    "prospects": 10,
-    "files_swept": 1080
+    "prospects": 41,
+    "files_swept": 1086
+  },
+  "pipeline": {
+    "active": 13,
+    "signals": 22,
+    "watch": 6,
+    "completed": 3,
+    "total": 41,
+    "urgent": [
+      {
+        "name": "Lands' End / Sarah Sylvester",
+        "status": "ACTIVE",
+        "note": "T-2 days. Letter v1 send-ready (03:08 UTC). Gallery Deck v2 attachment GUARDIAN-validated 9.1/10 at 02:51 UTC. Tomorrow's #1."
+      },
+      {
+        "name": "Hormel / Jason Levine",
+        "status": "SIGNALS",
+        "note": "Priority 2. First-ever enterprise CMO, 19 years Mondelez, no existing agency infra. 90-day window."
+      },
+      {
+        "name": "Macy's",
+        "status": "ACTIVE",
+        "note": "Yes/no call window open NOW. Option A (send) vs Option B (close)."
+      },
+      {
+        "name": "Glossier / Nicole Solórzano",
+        "status": "SIGNALS",
+        "note": "Day 22. Note drafted, parked four mornings. Past 'timely'."
+      },
+      {
+        "name": "Jack in the Box / Katelyn Zborowski",
+        "status": "SIGNALS",
+        "note": "Day 28 in seat, 75th anniversary year, project lane outside TBWA AOR. Three-part draft ready."
+      },
+      {
+        "name": "Haleon US / Richard Manso",
+        "status": "SIGNALS",
+        "note": "Day 0 (named CMO Apr 27). Best window late May / early June. Williams↔Manso loop play active."
+      },
+      {
+        "name": "Smucker / Williams",
+        "status": "SIGNALS",
+        "note": "Day 49, ex-Haleon. Loop with Manso."
+      },
+      {
+        "name": "LA Galaxy / Jessica Jacobi",
+        "status": "SIGNALS",
+        "note": "Drafted, send-ready, 14-day late timing acknowledged."
+      },
+      {
+        "name": "Graza / Allen Dushi",
+        "status": "SIGNALS",
+        "note": "Stay-on-radar posture per Rick (commit b8d56fc). Thank-you reply logged."
+      },
+      {
+        "name": "Fishwife / Becca Millstein",
+        "status": "SIGNALS",
+        "note": "Contacted. Awaiting next move."
+      }
+    ]
   },
   "scheduled": [
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "Tue 4:39 AM UTC"
+      "name": "SARAH file sweep",
+      "next_run": "Tue 4:05 AM UTC"
     },
     {
-      "name": "SARAH file sweep",
-      "next_run": "Tue 4:04 AM UTC"
+      "name": "JARVIS dashboard push",
+      "next_run": "Tue 4:39 AM UTC"
     },
     {
       "name": "Uber/Lyft receipt filer",
@@ -300,6 +364,10 @@
     {
       "name": "Nightly status report",
       "next_run": "Tue 11:04 PM UTC"
+    },
+    {
+      "name": "SCOUT directors cross-reference",
+      "next_run": "Wed 3:32 AM UTC"
     }
   ]
 }
