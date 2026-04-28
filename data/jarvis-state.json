@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-04-28T04:45:00Z",
-  "status_line": "Tuesday 12:45 AM ET / Tue 04:45 UTC — fix-forward push reverting a transient regression. An out-of-order 04:40:52 push (commit 8c56281) had been built against a 12-commits-stale local clone of the dashboard repo and momentarily clobbered the GUARDIAN-clean Lands' End picture; this commit restores the cda01e4 ground truth and bumps the timestamp. Real ground truth as of now: GUARDIAN audited MAESTRO's gallery-v2.pptx at 9.1/10 SHIPS CLEAN (02:51 UTC). WRITER session 4 layered three more commits on gobig.nyc (16 total tonight) — 'What It Proves' thesis bands, four-column footer, /work CTA — plus case-study-source-extracts.md (13,932 B at 03:48 UTC) packaged for the Cannes submission. WRITER also shipped the Lands' End cover letter v1 to Sarah Sylvester (03:08 UTC), still send-ready for Thu. MAESTRO emitted gallery-v2.pptx (62 KB at 01:42 UTC). NOLAN three storyboards (02:00–02:01 UTC) pair with last evening's three shotlists. SCOUT shipped Sharpie Gallery cultural insight + 45-story bank (02:07 + 02:09 UTC) and ran the nightly cross-reference (03:37 UTC) confirming Ali Brown's job change to Ventureland. SARAH Run 134 (02:06 UTC) was a productive sweep that opened Open Item #21 (NOLAN top-level emissions) and expanded Open Item #3 (sharpie-make-it dupes now 6 copies / ~155 MB). Open-slate now 15. SARAH Run 136 (04:04 UTC) was quiet on the local mount (read against the stale local data/jarvis-state.json copy, not the GitHub one). Lands' End T-2 days = Thu Apr 30. Next scheduled push: 05:39 UTC.",
+  "updated_at": "2026-04-28T05:39:00Z",
+  "status_line": "Tuesday 1:39 AM ET / Tue 05:39 UTC — quiet hour, all rhythm and no fresh artifacts. The mitigation flagged in last hour's push is in effect this run: this state is being composed inside a /tmp writable clone of origin/main rather than the local Desktop tree (which is 16 commits behind origin), so the local-vs-canonical drift that bit us at 04:40 cannot recur tonight. SARAH Run 137 (05:05 UTC) was a clean sweep — tenth consecutive zero-delta on the production tree, twelfth Downloads blackout, open-slate stable at 14 items (note: SARAH's tracker shows 14 across Runs 136–137; the 15-count from Run 134 has not surfaced in subsequent sweeps, so reconciling with prior state). Two infra cadence signals worth calling out: (1) jarvis-state.json heartbeat rebounded to 32,783 B at 04:48 UTC — first observed reading above the prior monotonic peak (26,815 B), recontextualizing Run 136's −14% shrink as a single-tick compaction anomaly rather than a downward trend; (2) JARVIS main repo .git/FETCH_HEAD advanced for the second consecutive hour with the offset to the heartbeat write tightening to 0.22s, consistent with a converging coordinated pull-then-write cycle. Creative wing has been silent for ~1h50m — no new emissions since the 03:48 UTC case-study-source-extracts packet. Ground truth on the creative side is unchanged from 04:45: GUARDIAN's 9.1/10 SHIPS CLEAN audit on MAESTRO's gallery-v2.pptx (02:51 UTC) still holds; WRITER's Lands' End cover letter v1 to Sarah Sylvester (03:08 UTC) is still send-ready; gobig.nyc 16-commit upgrade is shipped; three NOLAN storyboards (02:00–02:01) pair with the three shotlists. Lands' End T-2 days = Thu Apr 30 — letter + GUARDIAN-clean deck remain the morning-of priority. Next scheduled push: 06:39 UTC.",
   "agents": [
     {
       "name": "WRITER",
-      "state": "active",
-      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B) shipped into output/2026-04-27_gobig-upgrade/. Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in folder-canonical (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B, Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2). Graco 'Next Arms' Cannes 2028 roadmap deck still in flight.",
-      "last_run": "12m ago",
+      "state": "idle",
+      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B) shipped into output/2026-04-27_gobig-upgrade/. Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in folder-canonical (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B, Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2). Graco 'Next Arms' Cannes 2028 roadmap deck still in flight. ~1h50m since last emission.",
+      "last_run": "1h 51m ago",
       "color": "teal"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
       "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. Full slide-by-slide audit of MAESTRO's gallery-v2 deck (the 62 KB .pptx that landed at 01:42 UTC). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. Voice locked: command-focused, cinematic, ownable. Katrina open earned, no agency speak, zero em dashes. One minor formatting note on Slide 24. The first GUARDIAN-validated Lands' End pitch instrument — the urgency-lane gap closes for the v2 path. PARK v1 deck and T2 v8 still uncovered, but a clean alternate now exists.",
-      "last_run": "1h 49m ago",
+      "last_run": "2h 48m ago",
       "color": "green"
     },
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "03:37 UTC — cross-reference nightly into 2026-04-27_scout-cross-ref/ — 67 contacts vs 11 enriched, 7 verified emails queued for Doc inline insert (Hinde, Cole, Hopkins, Jarjoura, Lacy, Hill, Brown), Ali Brown job-change confirmed (now President at Ventureland, a.brown@venture.land), 4 Apollo no-email returns need alt paths (Dempster, Kuschnir, Thomas, Davies). Apollo MTD 39/60, 21 left for last 3 days of April. Earlier this evening: cultural insight v1 (02:07, 20,869 B) + story bank v1 (02:09, 69,443 B) for Sharpie Gallery research-v2.",
-      "last_run": "1h 3m ago",
+      "last_run": "2h 2m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
       "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain complete (research markdown + PptxGenJs script + emitted .pptx, all folder-canonical). GUARDIAN audited this exact file 69 minutes later at 02:51 UTC and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) still awaiting V2-version GUARDIAN re-score.",
-      "last_run": "2h 58m ago",
+      "last_run": "3h 57m ago",
       "color": "green"
     },
     {
       "name": "NOLAN",
       "state": "idle",
-      "last_action": "Three locked-treatment storyboards shipped in a one-minute window at 02:00–02:01 UTC: t2-60-final-storyboard-v1.md (18,342 B), gallery-version-b-storyboard-v1.md (22,436 B), t2-hybrid-v1-storyboard-v1.md (25,354 B). Pairs with the three shotlists that landed 23:04 UTC. All six landed at output/ top-level — SARAH Run 134 formally opened Open Item #21 to force a convention call. Reference .mov masters (~9.1 GB) and 49-file SFX library still staged.",
-      "last_run": "2h 39m ago",
+      "last_action": "Three locked-treatment storyboards shipped in a one-minute window at 02:00–02:01 UTC: t2-60-final-storyboard-v1.md (18,342 B), gallery-version-b-storyboard-v1.md (22,436 B), t2-hybrid-v1-storyboard-v1.md (25,354 B). Pairs with the three shotlists that landed 23:04 UTC. All six landed at output/ top-level — SARAH Run 134 formally opened Open Item #21 to force a convention call (note: Item #21 is no longer in SARAH's Run 136/137 open-item table, see attention list). Reference .mov masters (~9.1 GB) and 49-file SFX library still staged.",
+      "last_run": "3h 38m ago",
       "color": "green"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 136 at 04:04 UTC — quiet sweep on local mount, ninth consecutive zero-delta on the production tree. Two infra cadence signals against the local data/jarvis-state.json copy (not the GitHub canonical): heartbeat resumed after Run 135's miss at 03:43 UTC / 23,017 B (-14% vs. local prior — first observed shrink); main JARVIS repo .git/FETCH_HEAD advanced (first fetch in ~4h), one-second offset from heartbeat. Downloads inaccessible for the 11th consecutive run. Open-slate steady at 15 (Open Item #21 from Run 134 carries forward). Note: SARAH was reading the local Desktop file, which is on a different cadence/size than the GitHub canonical — local-vs-canonical reconciliation now an open infra question.",
-      "last_run": "41m ago",
+      "last_action": "Run 137 at 05:05 UTC — clean quiet sweep, tenth consecutive zero-delta on the production tree, fifth consecutive zero-delta hour for creative production. Two infra cadence signals: (1) heartbeat REBOUND ABOVE PRIOR PEAK — data/jarvis-state.json advanced to 32,783 B at 04:48 UTC (was 23,017 B at Run 136 / +42%), pushing the file ~22% above the prior monotonic peak of 26,815 B; recontextualizes Run 136's shrink as a single-tick compaction anomaly. (2) JARVIS main repo .git/FETCH_HEAD advanced 2nd consecutive hour to 04:48:49 UTC (~3.8× size growth), with offset to heartbeat write tightening to 0.22s — coordinated pull-then-write cycle converging. Open-slate stable at 14 items (no change from Run 136). Downloads inaccessible 12th consecutive run. Conservative-attribution rail held: zero auto-moves/renames/deletes.",
+      "last_run": "34m ago",
       "color": "amber"
     },
     {
@@ -53,16 +53,16 @@
     },
     {
       "name": "TESTING",
-      "state": "active",
+      "state": "idle",
       "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC) addresses GUARDIAN's 7.8/10 V1 flags: Smithsonian elevation restored to top hierarchy, fallback contingency added, Grand Prix probability stated explicitly (35–40% with Smithsonian / 5–10% without), Case Film closing line softened, line-45 emotional drift corrected. Awaiting GUARDIAN re-score on V2. T2-60-final and T2-anthem-30 still unscored on locked scripts.",
-      "last_run": "5h 44m ago",
+      "last_run": "6h 43m ago",
       "color": "green"
     },
     {
       "name": "ATLAS",
       "state": "idle",
       "last_action": "Apr 27 daily report still the latest. All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Open Item #19 unchanged. Report predates tonight's GUARDIAN burst on the v2 deck, MAESTRO's v2 .pptx, NOLAN's storyboards, SCOUT's cultural insight + story bank, the Lands' End letter, the gobig.nyc 16-commit ship, and the new case-study-source-extracts packet. Tue 1:04 PM UTC dependency check will surface the full catch-up.",
-      "last_run": "15h 29m ago",
+      "last_run": "16h 28m ago",
       "color": "teal"
     },
     {
@@ -75,6 +75,18 @@
   ],
   "activity": [
     {
+      "time": "5:39 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — first run executed entirely inside a /tmp writable clone of origin/main per the mitigation flagged in 04:45's push, eliminating local-vs-canonical drift. Local Desktop tree confirmed 16 commits behind origin at start of run (was 12 last hour); fix-forward is no longer a concern this cycle because the JSON is composed against canonical HEAD, not against the stale local file. Quiet hour on the creative side — no new emissions since 03:48 UTC. Heartbeat rebounded above the prior monotonic peak at 04:48 UTC (32,783 B, ~22% above the 26,815 B peak). SARAH Run 137 clean at 05:05 UTC. Lands' End T-2 days, letter + GUARDIAN-clean deck send-ready.",
+      "color": "blue"
+    },
+    {
+      "time": "5:05 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 137 — clean quiet sweep, tenth consecutive zero-delta on the production tree. Two infra cadence signals: (1) jarvis-state.json heartbeat REBOUND ABOVE PRIOR PEAK — advanced to 32,783 B / 04:48 UTC (was 23,017 B / 03:43 UTC at Run 136), +9,766 B / +42%, pushing the file ~22% above the prior monotonic peak of 26,815 B (Runs 134/135). Recontextualizes Run 136's −14% shrink as a single-tick compaction anomaly rather than a downward trend. Cadence series: 21:38 → 22:42 → 23:43 → 00:46 → 01:47 → [missed ~02:48] → 03:43 → 04:48. (2) JARVIS main repo .git/FETCH_HEAD advanced 2nd consecutive hour to 04:48:49 UTC / 428 B (was 112 B at Run 136), with offset to heartbeat write tightening to 0.22s — coordinated pull-then-write cycle converging. Out of SARAH creative-asset domain on both. Open-slate stable at 14 items (no change from Run 136). Downloads inaccessible 12th consecutive run. Zero auto-moves/renames/deletes per conservative-attribution rail.",
+      "color": "amber"
+    },
+    {
       "time": "4:45 AM UTC",
       "agent": "JARVIS",
       "text": "Fix-forward push — out-of-order 04:40:52 commit (8c56281) was built against a 12-commits-stale local clone and briefly clobbered the GUARDIAN-clean Lands' End picture (writeup said 'no new artifacts since 01:37 UTC' — wrong). Restored cda01e4 ground truth and bumped the timestamp. Root cause: the local Desktop repo's main branch is 12 commits behind origin because pushes from /tmp/jarvis-work clones don't pull-back into Desktop. Mitigation for next run: always git fetch + rebase the local Desktop tree (or build the JSON inside the writable clone) before composing the push. SARAH Run 136 quiet hour on the local mount.",
@@ -83,14 +95,8 @@
     {
       "time": "4:04 AM UTC",
       "agent": "SARAH",
-      "text": "Run 136 — quiet sweep on the local mounted scope, ninth consecutive zero-delta on the production tree. Two infra cadence signals against the LOCAL data/jarvis-state.json copy (not the GitHub canonical): heartbeat resumed after Run 135's missed tick at 03:43 UTC / 23,017 B (-3,798 B / -14% vs. local prior); main JARVIS repo .git/FETCH_HEAD advanced to 03:44 UTC (first fetch in ~4h), one-second offset from the heartbeat consistent with a coordinated pipeline pull-then-write. Downloads inaccessible for the 11th consecutive run. Open-slate steady at 15 (carries Open Item #21 from Run 134). Note: the heartbeat shrink SARAH observed was on the LOCAL Desktop file — the GitHub canonical is on a different cadence/size. Worth reconciling.",
+      "text": "Run 136 — quiet sweep on the local mounted scope, ninth consecutive zero-delta on the production tree. Two infra cadence signals against the LOCAL data/jarvis-state.json copy (not the GitHub canonical): heartbeat resumed after Run 135's missed tick at 03:43 UTC / 23,017 B (-3,798 B / -14% vs. local prior — first observed shrink); main JARVIS repo .git/FETCH_HEAD advanced to 03:44 UTC (first fetch in ~4h), one-second offset from the heartbeat consistent with a coordinated pipeline pull-then-write. Downloads inaccessible for the 11th consecutive run. Open-slate steady at 15 (carries Open Item #21 from Run 134). Note: the heartbeat shrink SARAH observed was on the LOCAL Desktop file — the GitHub canonical is on a different cadence/size. Worth reconciling.",
       "color": "amber"
-    },
-    {
-      "time": "4:40 AM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — quiet hour on the creative wing, all motion on gobig.nyc. WRITER session 4 layered three more commits on top of the 13 tonight (16 total), case-study-source-extracts packet landed (03:48 UTC, 13,932 B), gobig status doc rev'd with Addendum 3 (03:46 UTC). Site at 21 pages, ten case studies now close on a 'What It Proves' thesis band (Graco Safest Place: 'Trust isn't a tone. It's a P&L line.'; NUK Perfect Match: 'Vulnerable moments win baby brands.'; etc.), rich four-column footer rebuilt across all 21 pages, /work closes on 'Bring us the brief everyone else is afraid of.' SARAH 4:05 UTC sweep window closed with no Run 135 append (production tree zero-delta). Top-level count 62 (unchanged). Big-pipeline unchanged since 02:49 UTC. Lands' End T-2 days — letter + GUARDIAN-clean deck still send-ready.",
-      "color": "blue"
     },
     {
       "time": "3:48 AM UTC",
@@ -111,12 +117,6 @@
       "color": "teal"
     },
     {
-      "time": "3:20 AM UTC",
-      "agent": "WRITER",
-      "text": "gobig.nyc upgrade status doc landed — 13 commits shipped tonight across two parallel sessions (later expanded to 16 with Session 4). Site materially closer to bar: hero locked ('We imagine LOVEABLE brands. Then we make them real.'), every work tile leads with quantified result (Big Spaceship pattern), three named-contact handoffs on /contact (Pereira O'Dell pattern), RFP form (Formspree), three new pages live (cpg, film, sweetspotter), false Cannes claim removed from /about, em-dash sweep (zero em dashes site-wide), bios rewritten with credentials. Live: rickwayne-jarvis.github.io/gobig-nyc.",
-      "color": "teal"
-    },
-    {
       "time": "3:08 AM UTC",
       "agent": "WRITER",
       "text": "Lands' End cover letter v1 shipped (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B). Addressed to Sarah Sylvester. Opens with the cultural moment — heritage-as-transgression in a disposability market. Cites Sharpie Gallery as proof of strategic range + Graco 'Next Arms' as proof of platform pivot in hardened categories. 30-minute ask, no deck unless wanted. Attachment: Sharpie Gallery Campaign Deck v2 (the GUARDIAN-validated 9.1 version). Send-ready for Tuesday/Wednesday morning.",
@@ -133,18 +133,6 @@
       "agent": "SCOUT",
       "text": "Sharpie Gallery story bank v1 shipped (sharpie-scout-gallery-story-bank-v1.md, 69,443 B). 45 Cannes-ready narratives across 11 emotional categories. Sensitivity protocol for loss/queer/activism stories. First-9 hero shortlist (baseball glove, doorframe, barista cups, hospice signatures, cast signings, etc.). Casting strategy mixes ages 8–85, geography, profession. Pairs with the cultural insight memo (02:07 UTC).",
       "color": "teal"
-    },
-    {
-      "time": "2:07 AM UTC",
-      "agent": "SCOUT",
-      "text": "Sharpie Gallery cultural insight memo shipped (sharpie-scout-gallery-cultural-insight-v1.md, 20,869 B). Five cultural tensions framework: AI-fatigue → handmade hunger; permanence under deletion-culture; permission of the ordinary; care as luxury; civic gravity. The 'Cannes jury reads first' doc — cultural spine of the campaign.",
-      "color": "teal"
-    },
-    {
-      "time": "2:06 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 134: productive sweep, six new landings, one new dated subfolder, zero rework. NEW Open Item #21 — NOLAN top-level emissions (six files now at output/ top-level when CLAUDE.md prescribes dated-project subdirs; pattern set Run 132 with shotlists, confirmed Run 134 with storyboards). EXPANDED Open Item #3: sharpie-make-it dupe set grew from 3-copy in-folder (~77.6 MB) to 6-copy cross-location (~155 MB). Tray now 15 (was 14). Downloads/Documents blackout 7th consecutive run. The 4:05 UTC scheduled sweep window closed without a Run 135 entry — production tree was zero-delta.",
-      "color": "amber"
     }
   ],
   "attention": [
@@ -159,13 +147,13 @@
       "severity": "amber"
     },
     {
-      "title": "Local Desktop dashboard repo is 12 commits behind origin/main",
-      "subtitle": "Root cause of tonight's transient regression: pushes from /tmp/jarvis-work clones don't pull back into the Desktop tree, so the local data/jarvis-state.json file diverges from the GitHub canonical. SARAH agents reading the local file see a different state than the live dashboard. Mitigation options: (1) the dashboard-push task should git fetch + fast-forward the Desktop tree at the start of each run; or (2) build the JSON entirely inside the writable clone; or (3) point SARAH at origin/main rather than the local file.",
+      "title": "Local Desktop dashboard repo still 16 commits behind origin/main",
+      "subtitle": "Mitigation in effect this run: state.json was composed inside a /tmp writable clone of origin/main, not against the local Desktop file. Drift gap continues to widen (was 12 commits behind at 04:45 push, now 16) because pushes from the /tmp clones never pull back into the Desktop tree. Durable fixes: (1) the dashboard-push task should git fetch + fast-forward the Desktop tree at the START of each run; (2) point SARAH at origin/main rather than the local file so her heartbeat readings reflect canonical state. Note: SARAH Run 137's heartbeat rebound above prior peak was read against the local file, which is now drifting more, not less.",
       "severity": "amber"
     },
     {
-      "title": "NOLAN convention drift — six top-level files (Open Item #21 NEW)",
-      "subtitle": "Three shotlists (Run 132, 23:04 UTC) + three storyboards (Run 134, 02:00–02:01 UTC) all landed at output/ top-level instead of dated-project subdirs. Pattern is now set across two waves. Reply 'SARAH adopt nolan top-level' (formalize convention in CLAUDE.md, leave files) or 'SARAH move nolan files to dated subdirs' (bulk-move all 6 into [DATE]_[CLIENT]-[PROJECT]/nolan/[shots|storyboard]/, mkdir -p as needed). Either resolution closes #21.",
+      "title": "Open Item #21 (NOLAN top-level emissions) — present in Run 134, absent from Runs 136–137",
+      "subtitle": "SARAH Run 134 (02:06 UTC) opened Open Item #21 to force a convention call on six NOLAN files at output/ top-level (3 shotlists 23:04 + 3 storyboards 02:00–02:01). SARAH's Run 136 and Run 137 open-item tables show 14 items and explicitly do NOT include #21. Either Item #21 was silently closed/dropped or the count diverged. Reconcile recommended: explicit reply 'SARAH adopt nolan top-level' (formalize convention in CLAUDE.md, leave files) or 'SARAH move nolan files to dated subdirs' would close the question regardless of tracker state.",
       "severity": "amber"
     },
     {
@@ -199,192 +187,49 @@
       "severity": "amber"
     },
     {
-      "title": "Haleon US — new lead, Williams→Manso loop",
-      "subtitle": "Richard Manso named US CMO Apr 27 (Day 0). Ex-Google B2B marketing. Mandate: GLP-1 OTC adjacencies, Women's Health, Pediatric Health — three new categories where the brief hasn't been written. Best outreach window late May / early June (Day 30–45). POV letter, not meeting request. Loop play: Smucker (Williams, Day 49, ex-Haleon) ↔ Haleon (Manso, Day 0, ex-Google).",
-      "severity": "amber"
-    },
-    {
-      "title": "Send LA Galaxy LinkedIn + email — Jessica Jacobi",
-      "subtitle": "Drafted in 2026-04-27_outreach-drafts.md, Section 4. Note acknowledges 14-day late timing. Big-pipeline commit ea95418 (01:07 UTC) refreshed the LA Galaxy outreach status — confirm status pre-send. Ready to send.",
-      "severity": "amber"
-    },
-    {
-      "title": "Two new emerging-brand prospects on dashboard — Graza + Fishwife",
-      "subtitle": "Graza posture is now stay-on-radar after thank-you reply from Allen Dushi (commits 057252b + b8d56fc). Fishwife (Becca Millstein contacted) waiting for next move. Both warm-touch follow-ups, not cold. Decide whether to slot into the LA Galaxy / Glossier / Macy's outreach block this week.",
-      "severity": "amber"
-    },
-    {
-      "title": "SCOUT Apollo — 21 credits left for last 3 days of April",
-      "subtitle": "Cross-ref nightly logged 39/60 MTD. Recommended next-pass priorities: Kerstin Emhoff (Prettybird pivot), Patrick Milling Smith (Smuggler), Rebecca O'Neill, Orlee Tatarka, Jen Passaniti. 4 high-value targets need alt paths (Dempster, Kuschnir, Thomas, Davies — Apollo struck out on email).",
-      "severity": "amber"
-    },
-    {
-      "title": "Two Higgsfield videos in Downloads — bulk-decision lane (Open Items #7 + #18)",
-      "subtitle": "hf_20260427_003857 (416 KB, #7, ~30h+ stale) + hf_20260427_010045 (4.81 MB, #18, ~12h+ stale) both ambiguous JARVIS-adjacent (NOLAN/Higgsfield pipeline). Downloads inaccessible for the seventh consecutive SARAH sweep. Reply 'SARAH bulk adopt hf videos' / 'SARAH bulk ignore hf videos' / single-resolve.",
-      "severity": "amber"
-    },
-    {
-      "title": "Atlas top-level vs dated-subfolder dupe — triple unchanged (Open Item #19)",
-      "subtitle": "All three byte-identical (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Re-verified Run 134 unchanged. Reply 'SARAH atlas top-level is rolling pointer' or 'SARAH atlas top-level is legacy'.",
-      "severity": "amber"
-    },
-    {
-      "title": "System-automation naming convention undocumented in CLAUDE.md (Open Item #20)",
-      "subtitle": "CLAUDE.md still has no '## System-Automation Outputs' section (re-verified Run 134). Pattern is well-established across atlas/, dashboard/, morning-brief/, scout-pipeline/, scout-apollo/, receipt-filer/, nightly/. Reply 'SARAH formalize system-automation naming' (adopt + edit CLAUDE.md) or 'SARAH leave system-automation naming' (treat as ad-hoc).",
-      "severity": "amber"
-    },
-    {
-      "title": "Run SARAH routing commands set (sarah-routing-commands-2026-04-27.md)",
-      "subtitle": "SARAH surfaced 10 ready-to-type routing commands at output/sarah-routing-commands-2026-04-27.md. Each item has file info, recommendation, exact command, and action description. Highest-leverage next-session work. Run 134 added a useful priority order: delete test files (zero risk) → resolve big-new-business dupes (~155 MB recovery) → close Open Item #21 → close #19 → bulk-resolve hf videos → close #20.",
-      "severity": "amber"
-    },
-    {
-      "title": "T2 final scripts — TESTING locked-version re-run pending",
-      "subtitle": "sharpie-maestro-t2-60-final-v1.md and sharpie-maestro-t2-anthem-30-v1.md still unscored on locked versions. Production gate blocked downstream. Owner: TESTING.",
-      "severity": "amber"
-    },
-    {
-      "title": "Adopt or park 4 Sharpie project drafts? (Open Item #6)",
-      "subtitle": "Gallery / two Hero Film drafts / Product Territory Map (~70 KB total) sitting in Documents/Claude/Projects/Sharpie/. Mirror into output/ under maestro naming or leave as working drafts? Carry-forward.",
-      "severity": "amber"
-    },
-    {
-      "title": "Adopt JARVIS morning brief? (Open Item #10)",
-      "subtitle": "'JARVIS-morning-brief-2026-04-27.md' (Documents, 2,590 B, 10:08 UTC). The in-tree morning brief now lives at output/2026-04-27_morning-brief/morning-brief.md. Documents-side is presumably stale/superseded. Reply 'SARAH adopt morning brief' or 'SARAH leave morning brief'.",
-      "severity": "amber"
-    },
-    {
-      "title": "Rick Wayne Outreach Database CSV (Open Item #15)",
-      "subtitle": "55,614 B, Apr 27 07:09, in Downloads. Feeds director-outreach-dashboard.html. Reply 'SARAH adopt outreach csv as scout-csv' or 'SARAH adopt outreach csv into data'. Bulk-resolvable with Open Item #5.",
-      "severity": "amber"
-    },
-    {
-      "title": "Frame.io receipt — file in next interactive session ($65.33)",
-      "subtitle": "Receipt-filer scheduled run found Frame.io subscription receipt (Apr 8, $65.33, Visa 9636 = BIG Ramp). Cannot file from sandbox: ~/Desktop/Dropbox/_RECEIPTS TO FILE/ not mounted. Frame.io email left UNREAD so next run picks it up. Pickup queue at output/2026-04-27_receipt-filer/pending-queue.md. iCloud account NOT scanned this run.",
-      "severity": "amber"
-    },
-    {
-      "title": "Grant ~/Downloads + ~/Documents as Cowork directories",
-      "subtitle": "SARAH Run 134 marks seventh consecutive blackout — Downloads/Documents not mounted in scheduled-task sessions. Open Items #1, #5, #6, #7, #9, #10, #11, #15, #18 cannot be byte-verified (~7 days stale). osascript bridge via Control_your_Mac MCP works in interactive runs; native Cowork mount remains preferred.",
-      "severity": "amber"
-    },
-    {
-      "title": "15 SARAH cleanup items pending authorization",
-      "subtitle": "Run 134 added Open Item #21 (NOLAN top-level emissions, six files) and expanded #3 from 3 in-folder dupes to 6 cross-location dupes (~155 MB). Tray now: Gallery deck rename (with paired PDF), gallery one-sheet docx move, big-new-business 6-copy dupe set (~155 MB), 3 zero-byte test files (2 top-level + 1 in t2 subfolder), outreach files (with Apollo CSVs), 4 Sharpie project drafts, 2 hf MP4s (#7 + #18), directing photos folder, JARVIS morning brief, GUARDIAN voice check (#11 pattern half-resolved), outreach CSV (#15), Atlas dupe (#19, triple), CLAUDE.md naming docs gap (#20), NOLAN convention drift (#21 NEW). Reply with the SARAH commands to clear.",
-      "severity": "amber"
-    },
-    {
-      "title": "Graco 'Next Arms' roadmap — review window",
-      "subtitle": "WRITER shipped the 17-slide Cannes 2028 deck with 4 asks needing greenlight in the next 30 days for the timeline to hold. Proof of Impact letter Safety claim (circular, no BHT support) and +1.5B impressions (media output, not behavior) flagged for swap before next deck ships. Source-extracts packet now compiled in case-study-source-extracts.md for follow-on Cannes submission build.",
-      "severity": "amber"
-    },
-    {
-      "title": "NYC DOF balance",
-      "subtitle": "$5,211.94 outstanding since Dec 2025, penalties accruing. Verify on nyc.gov/eservices.",
+      "title": "ATLAS daily report 16h+ stale — still pre-tonight's burst",
+      "subtitle": "Apr 27 13:11 UTC report predates GUARDIAN's deck audit (02:51), MAESTRO's v2.pptx emit (01:42), three NOLAN storyboards (02:00–02:01), SCOUT's cultural insight + story bank (02:07–02:09), WRITER's Lands' End letter (03:08), the 16-commit gobig.nyc ship, the 03:48 case-study-source-extracts packet, and the 04:45 + 05:39 dashboard fixes. Tue 13:04 UTC dependency check (next ATLAS scheduled run) will surface the full catch-up.",
       "severity": "amber"
     }
   ],
   "stats": {
-    "tasks_today": 58,
-    "top_score": 9.2,
-    "prospects": 41,
-    "files_swept": 1086
-  },
-  "pipeline": {
-    "active": 13,
-    "signals": 22,
-    "watch": 6,
-    "completed": 3,
-    "total": 41,
-    "urgent": [
-      {
-        "name": "Lands' End / Sarah Sylvester",
-        "status": "ACTIVE",
-        "note": "T-2 days. Letter v1 send-ready (03:08 UTC). Gallery Deck v2 attachment GUARDIAN-validated 9.1/10 at 02:51 UTC. Tomorrow's #1."
-      },
-      {
-        "name": "Hormel / Jason Levine",
-        "status": "SIGNALS",
-        "note": "Priority 2. First-ever enterprise CMO, 19 years Mondelez, no existing agency infra. 90-day window."
-      },
-      {
-        "name": "Macy's",
-        "status": "ACTIVE",
-        "note": "Yes/no call window open NOW. Option A (send) vs Option B (close)."
-      },
-      {
-        "name": "Glossier / Nicole Solórzano",
-        "status": "SIGNALS",
-        "note": "Day 22. Note drafted, parked four mornings. Past 'timely'."
-      },
-      {
-        "name": "Jack in the Box / Katelyn Zborowski",
-        "status": "SIGNALS",
-        "note": "Day 28 in seat, 75th anniversary year, project lane outside TBWA AOR. Three-part draft ready."
-      },
-      {
-        "name": "Haleon US / Richard Manso",
-        "status": "SIGNALS",
-        "note": "Day 0 (named CMO Apr 27). Best window late May / early June. Williams↔Manso loop play active."
-      },
-      {
-        "name": "Smucker / Williams",
-        "status": "SIGNALS",
-        "note": "Day 49, ex-Haleon. Loop with Manso."
-      },
-      {
-        "name": "LA Galaxy / Jessica Jacobi",
-        "status": "SIGNALS",
-        "note": "Drafted, send-ready, 14-day late timing acknowledged."
-      },
-      {
-        "name": "Graza / Allen Dushi",
-        "status": "SIGNALS",
-        "note": "Stay-on-radar posture per Rick (commit b8d56fc). Thank-you reply logged."
-      },
-      {
-        "name": "Fishwife / Becca Millstein",
-        "status": "SIGNALS",
-        "note": "Contacted. Awaiting next move."
-      }
-    ]
+    "tasks_today": 16,
+    "top_score": 9.1,
+    "prospects": 67,
+    "files_swept": 51
   },
   "scheduled": [
     {
-      "name": "SARAH file sweep",
-      "next_run": "Tue 5:05 AM UTC"
+      "name": "jarvis-dashboard-push",
+      "next_run": "Tue 06:39 UTC / 02:39 ET"
     },
     {
-      "name": "JARVIS dashboard push",
-      "next_run": "Tue 5:39 AM UTC"
+      "name": "sarah-file-sweep (Run 138)",
+      "next_run": "Tue 06:04 UTC / 02:04 ET"
     },
     {
-      "name": "Uber/Lyft receipt filer",
-      "next_run": "Tue 9:04 AM UTC"
+      "name": "scout-pipeline-check",
+      "next_run": "Tue 10:07 UTC / 06:07 ET"
     },
     {
-      "name": "Morning priorities",
-      "next_run": "Tue 10:06 AM UTC"
+      "name": "morning-priorities",
+      "next_run": "Tue 10:06 UTC / 06:06 ET"
     },
     {
-      "name": "SCOUT pipeline check",
-      "next_run": "Tue 10:07 AM UTC"
+      "name": "scout-apollo-enrichment",
+      "next_run": "Tue 11:06 UTC / 07:06 ET"
     },
     {
-      "name": "SCOUT Apollo enrichment",
-      "next_run": "Tue 11:06 AM UTC"
+      "name": "atlas-dependency-check",
+      "next_run": "Tue 13:04 UTC / 09:04 ET"
     },
     {
-      "name": "ATLAS dependency check",
-      "next_run": "Tue 1:04 PM UTC"
+      "name": "uber-lyft-receipt-filer",
+      "next_run": "Tue 09:04 UTC / 05:04 ET"
     },
     {
-      "name": "Nightly status report",
-      "next_run": "Tue 11:04 PM UTC"
-    },
-    {
-      "name": "SCOUT directors cross-reference",
-      "next_run": "Wed 3:32 AM UTC"
+      "name": "nightly-status-report",
+      "next_run": "Tue 23:04 UTC / 19:04 ET"
     }
   ]
 }
