@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-04-28T08:39:00Z",
-  "status_line": "Tuesday 4:39 AM ET / Tue 08:39 UTC — fourth consecutive quiet hour creative-side (no new emissions since 03:48 UTC = ~4h 52m), but a meaningful infra-side break: SARAH Run 140 at 08:08 UTC restored Downloads access via the osascript bridge — first byte-verify of the Downloads tree in 13 hours (since Run 127), all four prior Downloads-bound Open Items confirmed unchanged. Two new top-level Downloads entries surfaced (book outline working draft + a Rick-named '_MOVE TO CLAUDE/' adoption bucket containing the SHARPIE_GALLERY_PROJECT_MASTER.pdf), three new Open Items opened (book outline, _MOVE TO CLAUDE/ folder, sustained heartbeat outage), open-slate now 17 (was 14). Production tree clean — 13th consecutive zero-delta. JARVIS-side context unchanged from 07:39 push: composing inside /tmp writable clone of origin/main per standing mitigation; LOCAL Desktop heartbeat hard-stalled (~3h 20min stale at observation, ~3h 50min by this push) is the EXPECTED consequence of /tmp-clone pushes not pulling back into Desktop — GitHub canonical advancing every hour (this is the fourth such canonical advance since mitigation began). Local Desktop tree now 19 commits behind origin (12 → 16 → 17 → 18 → 19). Creative ground truth holds: GUARDIAN's 9.1/10 SHIPS CLEAN audit on MAESTRO's gallery-v2.pptx (02:51 UTC); WRITER's Lands' End cover letter v1 (03:08 UTC) send-ready; gobig.nyc 16-commit upgrade live; case-study-source-extracts packet (03:48 UTC, 13,932 B) packaged for Cannes. Lands' End T-2 days = Thu Apr 30 — letter + GUARDIAN-clean deck remain morning-of priority. Next scheduled push: 09:39 UTC.",
+  "updated_at": "2026-04-28T09:39:00Z",
+  "status_line": "Tuesday 5:39 AM ET / Tue 09:39 UTC — fifth consecutive quiet hour creative-side (no new emissions since 03:48 UTC = ~5h 52m). SARAH Run 141 at 09:06 UTC was a steady-state quiet sweep — 14th consecutive zero-delta on the production tree, second consecutive successful Downloads byte-verify (the 12-run drought is officially broken and holding), all 17 prior Open Items unchanged. Heartbeat outage on the LOCAL Desktop data/jarvis-state.json now extended to 4 consecutive missed fires (~4h 18min stale) — JARVIS-side context unchanged: this is the EXPECTED consequence of the standing /tmp-clone mitigation, GitHub canonical continues advancing on cadence (this is the fifth hourly canonical push since mitigation began). Fetch scheduler holds tight 1-hour cadence for the 4th run (08:40 UTC), now decoupled from the stalled heartbeat; stale .git/ORIG_HEAD.lock from the 05:40 fetch persists across 3 subsequent fetches. Local Desktop tree now 20 commits behind origin (12 → 16 → 17 → 18 → 19 → 20). Creative ground truth holds: GUARDIAN's 9.1/10 SHIPS CLEAN audit on MAESTRO's gallery-v2.pptx (02:51 UTC); WRITER's Lands' End cover letter v1 (03:08 UTC) send-ready; gobig.nyc 16-commit upgrade live; case-study-source-extracts packet (03:48 UTC, 13,932 B) packaged for Cannes. Lands' End T-2 days = Thu Apr 30 — letter + GUARDIAN-clean deck remain morning-of priority. Next scheduled push: 10:39 UTC.",
   "agents": [
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B) shipped into output/2026-04-27_gobig-upgrade/. Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in folder-canonical (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B, Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2). Graco 'Next Arms' Cannes 2028 roadmap deck still in flight. ~4h 51m since last emission.",
-      "last_run": "4h 51m ago",
+      "last_action": "03:48 UTC — case-study-source-extracts.md (13,932 B) shipped into output/2026-04-27_gobig-upgrade/. Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission and follow-on case-study builds. 03:46 UTC — gobig.nyc status doc rev'd with Addendum 3 (16 commits total tonight). 03:08 UTC — Lands' End cover letter v1 still send-ready in folder-canonical (output/2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B, Sarah Sylvester directly addressed, 30-min ask, attachment Gallery Deck v2). Graco 'Next Arms' Cannes 2028 roadmap deck still in flight. ~5h 51m since last emission.",
+      "last_run": "5h 51m ago",
       "color": "teal"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
       "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. Full slide-by-slide audit of MAESTRO's gallery-v2 deck (the 62 KB .pptx that landed at 01:42 UTC). VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. Voice locked: command-focused, cinematic, ownable. Katrina open earned, no agency speak, zero em dashes. One minor formatting note on Slide 24. The first GUARDIAN-validated Lands' End pitch instrument — the urgency-lane gap closes for the v2 path. PARK v1 deck and T2 v8 still uncovered, but a clean alternate now exists.",
-      "last_run": "5h 48m ago",
+      "last_run": "6h 48m ago",
       "color": "green"
     },
     {
       "name": "SCOUT",
       "state": "idle",
-      "last_action": "03:37 UTC — cross-reference nightly into 2026-04-27_scout-cross-ref/ — 67 contacts vs 11 enriched, 7 verified emails queued for Doc inline insert (Hinde, Cole, Hopkins, Jarjoura, Lacy, Hill, Brown), Ali Brown job-change confirmed (now President at Ventureland, a.brown@venture.land), 4 Apollo no-email returns need alt paths (Dempster, Kuschnir, Thomas, Davies). Apollo MTD 39/60, 21 left for last 3 days of April. Earlier this evening: cultural insight v1 (02:07, 20,869 B) + story bank v1 (02:09, 69,443 B) for Sharpie Gallery research-v2. Next scheduled SCOUT runs: pipeline-check 10:07 UTC (~1h 28m), Apollo enrichment 11:06 UTC.",
-      "last_run": "5h 2m ago",
+      "last_action": "03:37 UTC — cross-reference nightly into 2026-04-27_scout-cross-ref/ — 67 contacts vs 11 enriched, 7 verified emails queued for Doc inline insert (Hinde, Cole, Hopkins, Jarjoura, Lacy, Hill, Brown), Ali Brown job-change confirmed (now President at Ventureland, a.brown@venture.land), 4 Apollo no-email returns need alt paths (Dempster, Kuschnir, Thomas, Davies). Apollo MTD 39/60, 21 left for last 3 days of April. Earlier this evening: cultural insight v1 (02:07, 20,869 B) + story bank v1 (02:09, 69,443 B) for Sharpie Gallery research-v2. Next scheduled SCOUT runs: pipeline-check 10:07 UTC (~28m), Apollo enrichment 11:06 UTC.",
+      "last_run": "6h 2m ago",
       "color": "teal"
     },
     {
       "name": "MAESTRO",
       "state": "idle",
-      "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain complete (research markdown + PptxGenJs script + emitted .pptx, all folder-canonical). GUARDIAN audited this exact file 69 minutes later at 02:51 UTC and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) still awaiting V2-version GUARDIAN re-score. Notable: SARAH Run 140 surfaced SHARPIE_GALLERY_PROJECT_MASTER.pdf in Rick's '_MOVE TO CLAUDE/' Downloads bucket — possibly an external Sharpie master worth diff-checking against MAESTRO's research-v2 corpus.",
-      "last_run": "6h 57m ago",
+      "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. Full gallery-v2 build chain complete (research markdown + PptxGenJs script + emitted .pptx, all folder-canonical). GUARDIAN audited this exact file 69 minutes later at 02:51 UTC and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier: Gallery One-Sheet V2 (22:46 UTC) and Gold Package V2 (22:54 UTC) still awaiting V2-version GUARDIAN re-score. Notable: SARAH Run 140 surfaced SHARPIE_GALLERY_PROJECT_MASTER.pdf in Rick's '_MOVE TO CLAUDE/' Downloads bucket (still byte-stable in Run 141) — possibly an external Sharpie master worth diff-checking against MAESTRO's research-v2 corpus.",
+      "last_run": "7h 57m ago",
       "color": "green"
     },
     {
       "name": "NOLAN",
       "state": "idle",
       "last_action": "Three locked-treatment storyboards shipped in a one-minute window at 02:00–02:01 UTC: t2-60-final-storyboard-v1.md (18,342 B), gallery-version-b-storyboard-v1.md (22,436 B), t2-hybrid-v1-storyboard-v1.md (25,354 B). Pairs with the three shotlists that landed 23:04 UTC. All six landed at output/ top-level — SARAH Run 134 formally opened Open Item #21 to force a convention call (note: the original #21 dropped from SARAH's tracker in Runs 136-139 and the number was reused in Run 140 for the new book-outline item — see attention list). Reference .mov masters (~9.1 GB) and 49-file SFX library still staged.",
-      "last_run": "6h 38m ago",
+      "last_run": "7h 38m ago",
       "color": "green"
     },
     {
       "name": "SARAH",
       "state": "idle",
-      "last_action": "Run 140 at 08:08 UTC — BIG INFRA WIN: Downloads access RESTORED via osascript bridge, first byte-verify of the Downloads tree in 13 hours (since Run 127). All four prior Downloads-bound Open Items (#7 hf_20260427_003857, #9 directing-photos folder, #15 outreach CSV, #18 hf_20260427_010045) confirmed unchanged. Two new top-level Downloads entries since the Run 127 baseline: (a) 'The Next Creative Machine Book Outline.pages' (318 KB / Apr 27 17:14) — book-project working draft, JARVIS-adjacent (NEW Open Item #21); (b) '_MOVE TO CLAUDE/' folder (Apr 27 20:22) — Rick-named adoption bucket containing 3 PDFs: Graco_Project_Bible.pdf (out-of-scope), Rick Wayne Director Website.pdf (out-of-scope), SHARPIE_GALLERY_PROJECT_MASTER.pdf (JARVIS-relevant Sharpie master) (NEW Open Item #22). Heartbeat extended outage formalized as NEW Open Item #23. Total open slate now 17 (was 14). Production tree: 13th consecutive zero-delta sweep, 51 production files, naming conventions clean. Conservative-attribution rail held: zero auto-moves/renames/deletes — '_MOVE TO CLAUDE/' folder name is a strong intent signal but still requires explicit 'SARAH adopt move-to-claude folder' per protocol. Infra signal: LOCAL data/jarvis-state.json heartbeat now stalled for 3rd consecutive expected fire window (~3h 20min stale at observation), JARVIS main repo continues fetching on independent 1h cadence (07:40 UTC).",
-      "last_run": "31m ago",
+      "last_action": "Run 141 at 09:06 UTC — STEADY-STATE QUIET SWEEP. Second consecutive successful Downloads byte-verify via osascript hop (the 12-run drought is officially broken and holding). All 8 Downloads-tracked items (#7, #9, #15, #18, #21, plus 3 PDFs in #22) byte-verified UNCHANGED vs. Run 140 — zero new top-level entries, zero removals. Production tree zero-delta for the 14th consecutive sweep (51 production files, naming conventions clean). All 17 prior Open Items carried forward unchanged. Three sustained infra signals: (1) heartbeat extended to 4 consecutive missed fires (~4h 18min stale, still 04:48:50 UTC / 32,783 B); (2) JARVIS main repo .git/FETCH_HEAD advanced to 08:40 UTC — 4th consecutive heartbeat-decoupled fetch on tight 1-hour cadence; (3) .git/ORIG_HEAD.lock from 05:40 fetch persists across 3 subsequent fetches. Conservative-attribution rail held: 0 auto-moves, 0 auto-renames, 0 auto-deletes. 14th consecutive creative-zero-delta hour — Rick remains away from creative-production mode (overnight quiet window).",
+      "last_run": "33m ago",
       "color": "amber"
     },
     {
@@ -55,14 +55,14 @@
       "name": "TESTING",
       "state": "idle",
       "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC) addresses GUARDIAN's 7.8/10 V1 flags: Smithsonian elevation restored to top hierarchy, fallback contingency added, Grand Prix probability stated explicitly (35–40% with Smithsonian / 5–10% without), Case Film closing line softened, line-45 emotional drift corrected. Awaiting GUARDIAN re-score on V2. T2-60-final and T2-anthem-30 still unscored on locked scripts.",
-      "last_run": "9h 43m ago",
+      "last_run": "10h 43m ago",
       "color": "green"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 27 daily report still the latest (~19h 30m stale). All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Open Item #19 unchanged. Report predates tonight's GUARDIAN burst on the v2 deck, MAESTRO's v2 .pptx, NOLAN's storyboards, SCOUT's cultural insight + story bank, the Lands' End letter, the gobig.nyc 16-commit ship, the case-study-source-extracts packet, and now SARAH Run 140's Downloads-restoration findings. Next scheduled run: 13:04 UTC dependency check (~4h 25m out) will surface the full catch-up.",
-      "last_run": "19h 28m ago",
+      "last_action": "Apr 27 daily report still the latest (~20h 28m stale). All three byte-identical Atlas copies remain (md5 c0c0636e382d6f9478a86c394c3bfab2, 29,048 B): output/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report.md (13:11 UTC), output/2026-04-27_atlas/atlas-daily-report-morning.md (23:40 UTC). Open Item #19 unchanged. Report predates tonight's GUARDIAN burst on the v2 deck, MAESTRO's v2 .pptx, NOLAN's storyboards, SCOUT's cultural insight + story bank, the Lands' End letter, the gobig.nyc 16-commit ship, the case-study-source-extracts packet, and SARAH Runs 140+141. Next scheduled run: 13:04 UTC dependency check (~3h 25m out) will surface the full catch-up.",
+      "last_run": "20h 28m ago",
       "color": "teal"
     },
     {
@@ -75,40 +75,52 @@
   ],
   "activity": [
     {
+      "time": "9:39 AM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — fifth consecutive run executed entirely inside a /tmp writable clone of origin/main per the standing mitigation. Local Desktop tree now 20 commits behind origin (12 → 16 → 17 → 18 → 19 → 20) — drift continues to widen each push by design because /tmp-clone pushes don't pull back into Desktop. Quiet hour: SARAH Run 141 was a steady-state quiet sweep with no new Downloads entries (second consecutive successful byte-verify, the 12-run drought is officially broken and holding); 14th consecutive zero-delta on the production tree; all 17 prior Open Items unchanged. Heartbeat outage on the LOCAL Desktop file extended to 4 consecutive missed fires (~4h 18min stale) — expected /tmp-clone consequence; canonical IS advancing every hour. Creative side stayed quiet (no new emissions since 03:48 UTC, ~5h 52m). Lands' End T-2 days (Thu Apr 30); letter + GUARDIAN-clean deck send-ready and remain the morning-of #1.",
+      "color": "blue"
+    },
+    {
+      "time": "9:06 AM UTC",
+      "agent": "SARAH",
+      "text": "Run 141 — STEADY-STATE QUIET SWEEP. Second consecutive successful Downloads byte-verify via osascript hop — confirms the previously-reported Run 140 Downloads state has held overnight (the 12-run drought is officially broken and holding). All 8 Downloads-tracked items (#7 hf_20260427_003857, #9 directing photos folder, #15 outreach CSV, #18 hf_20260427_010045, #21 book outline .pages, plus 3 PDFs in #22 _MOVE TO CLAUDE/) byte-verified UNCHANGED vs. Run 140. Zero new top-level entries since Run 140. Production tree 14th consecutive zero-delta. All 17 prior Open Items carried forward unchanged (0 closed, 0 new, 0 modified). Three sustained infra signals: (1) heartbeat extended to 4 consecutive missed fires (~4h 18min stale, still 04:48:50 UTC / 32,783 B — the Run 138→139→140 escalation 'instability → outage → extended outage' deepens further); (2) JARVIS main repo .git/FETCH_HEAD advanced to 08:40 UTC — 4th consecutive heartbeat-decoupled fetch on tight 1-hour cadence; (3) .git/ORIG_HEAD.lock from 05:40 fetch persists across 3 subsequent fetches without teardown. Conservative-attribution rail held: 0 auto-moves, 0 auto-renames, 0 auto-deletes. 14th consecutive creative-zero-delta hour — Rick remains away from creative-production mode (~05:08 EDT local).",
+      "color": "amber"
+    },
+    {
+      "time": "9:04 AM UTC",
+      "agent": "RECEIPT FILER",
+      "text": "Daily uber-lyft-receipt-filer scheduled run executed at 09:04 UTC (next: Wed 09:04 UTC). Out of SARAH/JARVIS-creative scope; logged for completeness as the only other scheduled task to fire this hour besides SARAH.",
+      "color": "blue"
+    },
+    {
       "time": "8:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — fourth consecutive run executed entirely inside the /tmp writable clone of origin/main per the standing mitigation. Local Desktop tree now 19 commits behind origin (was 18 last hour, was 17 the hour before, was 12 at start of mitigation) — drift continues to widen each push by design because /tmp-clone pushes don't pull back into Desktop. Headline this hour: SARAH Run 140 at 08:08 UTC restored Downloads access via the osascript bridge — first byte-verify of the Downloads tree in 13 hours (since Run 127). Two new Downloads entries surfaced and three new Open Items opened (book outline .pages, '_MOVE TO CLAUDE/' adoption bucket containing the SHARPIE_GALLERY_PROJECT_MASTER.pdf, and the heartbeat outage now formalized as an Open Item). Open-slate jumped 14 → 17. Creative side stayed quiet (no new emissions since 03:48 UTC, ~4h 52m). Lands' End T-2 days (Thu Apr 30); letter + GUARDIAN-clean deck send-ready and remain the morning-of #1.",
+      "text": "Dashboard push — fourth consecutive /tmp-clone run. Local Desktop tree now 19 commits behind origin (was 18 last hour). Headline this hour: SARAH Run 140 at 08:08 UTC restored Downloads access via the osascript bridge — first byte-verify of the Downloads tree in 13 hours (since Run 127). Two new Downloads entries surfaced (book outline .pages + '_MOVE TO CLAUDE/' adoption bucket containing SHARPIE_GALLERY_PROJECT_MASTER.pdf), three new Open Items opened (#21, #22, #23). Open-slate jumped 14 → 17. Creative side stayed quiet (no new emissions since 03:48 UTC, ~4h 52m). Lands' End T-2 days.",
       "color": "blue"
     },
     {
       "time": "8:08 AM UTC",
       "agent": "SARAH",
-      "text": "Run 140 — DOWNLOADS ACCESS RESTORED via osascript bridge, first byte-verify of the Downloads tree in 13 hours (since Run 127). All four prior Downloads-bound Open Items (#7 hf_20260427_003857, #9 directing-photos folder, #15 outreach CSV, #18 hf_20260427_010045) confirmed unchanged. Two new top-level Downloads entries since the Run 127 baseline: (a) 'The Next Creative Machine Book Outline.pages' (318 KB / Apr 27 17:14) — book-project working draft, JARVIS-adjacent → NEW Open Item #21; (b) '_MOVE TO CLAUDE/' folder (Apr 27 20:22) — Rick-named adoption bucket containing 3 PDFs (Graco_Project_Bible.pdf out-of-scope, Rick Wayne Director Website.pdf out-of-scope, SHARPIE_GALLERY_PROJECT_MASTER.pdf JARVIS-relevant Sharpie master) → NEW Open Item #22. Heartbeat extended outage formalized as NEW Open Item #23. Total open slate now 17 (was 14). Production tree 13th consecutive zero-delta. 0 files moved/renamed/deleted — conservative-attribution policy held even on the strong intent signal of the '_MOVE TO CLAUDE/' folder name. Infra side: LOCAL data/jarvis-state.json heartbeat stalled 3rd consecutive hour (~3h 20min stale at 04:48:50 UTC), JARVIS main repo continues fetching on independent 1-hour cadence (07:40 UTC). Top suggested resolutions: 'SARAH adopt move-to-claude folder' (#22), 'SARAH adopt sharpie projects' (#6 + bulk-resolves Sharpie portion of #22), 'SARAH adopt book outline pages as 2026-04-06_book/' (#21).",
+      "text": "Run 140 — DOWNLOADS ACCESS RESTORED via osascript bridge, first byte-verify of the Downloads tree in 13 hours (since Run 127). All four prior Downloads-bound Open Items (#7, #9, #15, #18) confirmed unchanged. Two new top-level Downloads entries since the Run 127 baseline: 'The Next Creative Machine Book Outline.pages' (318 KB / Apr 27 17:14) → NEW Open Item #21; '_MOVE TO CLAUDE/' folder (Apr 27 20:22) containing 3 PDFs (Graco out-of-scope, director-website out-of-scope, SHARPIE_GALLERY_PROJECT_MASTER.pdf JARVIS-relevant) → NEW Open Item #22. Heartbeat extended outage formalized as NEW Open Item #23. Total open slate 14 → 17. Production tree 13th consecutive zero-delta. 0 files moved/renamed/deleted — conservative-attribution policy held.",
       "color": "amber"
     },
     {
       "time": "7:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — third consecutive run executed entirely inside the /tmp writable clone of origin/main per the standing mitigation. Local Desktop tree 18 commits behind origin (was 17 last hour, was 16 the hour before). Quiet hour creative-side — no new emissions since 03:48 UTC (~3h 52m). Headline was SARAH Run 139 escalating the Run 138 heartbeat-stall signal from 'novel pattern' to 'sustained outage' on the LOCAL Desktop file — JARVIS-side context (not visible to SARAH): the LOCAL stall is the expected consequence of the /tmp-clone mitigation; canonical IS advancing every hour. Lands' End T-2 days (Thu Apr 30).",
+      "text": "Dashboard push — third consecutive /tmp-clone run. Local Desktop tree 18 commits behind origin. Quiet hour creative-side — no new emissions since 03:48 UTC. Headline was SARAH Run 139 escalating the Run 138 heartbeat-stall signal from 'novel pattern' to 'sustained outage' on the LOCAL Desktop file — JARVIS-side context: LOCAL stall is the expected /tmp-clone consequence; canonical IS advancing every hour. Lands' End T-2 days.",
       "color": "blue"
     },
     {
       "time": "7:05 AM UTC",
       "agent": "SARAH",
-      "text": "Run 139 — clean sweep on production tree (twelfth consecutive zero-delta), zero auto-moves/renames/deletes, three sustained-and-escalating infra signals: (1) data/jarvis-state.json LOCAL heartbeat HARD-STALLED for second consecutive hour — both ~05:48 + ~06:48 fires missed, file frozen at 32,783 B / 04:48:50 UTC for ~137 min at observation. (2) .git/FETCH_HEAD advanced to 06:40:27 UTC / 428 B with 4 new permanent git objects + 4 transient tmp_obj_* — fetch cadence holding tight at 1-hour intervals (04:48 → 05:40 → 06:40), so fetch scheduler is healthy while local heartbeat scheduler is stuck. (3) .git/ORIG_HEAD.lock newly observed (0 B / 05:40 UTC) as a stale lock from the Run 138 fetch that the 06:40 fetch did NOT clean up. Open-slate steady at 14. Downloads inaccessible 14th consecutive run.",
+      "text": "Run 139 — clean sweep on production tree (twelfth consecutive zero-delta), three sustained-and-escalating infra signals: (1) data/jarvis-state.json LOCAL heartbeat HARD-STALLED for second consecutive hour (~05:48 + ~06:48 fires missed, file frozen at 32,783 B / 04:48:50 UTC for ~137 min). (2) .git/FETCH_HEAD advanced to 06:40:27 UTC — fetch cadence holding tight 1-hour intervals while heartbeat scheduler is stuck. (3) .git/ORIG_HEAD.lock newly observed (0 B / 05:40 UTC) as a stale lock from the Run 138 fetch. Open-slate steady at 14.",
       "color": "amber"
     },
     {
       "time": "6:39 AM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — second consecutive /tmp-clone run. Local Desktop tree 17 commits behind origin (was 16 last hour). Quiet hour on creative side — no new emissions since 03:48 UTC. Headline was SARAH Run 138 surfacing the first hard heartbeat stall in the window plus the first FETCH-without-heartbeat decouple, recasting Runs 136→137→138 as state-machine instability rather than steady-state cycling. Lands' End T-2 days.",
+      "text": "Dashboard push — second consecutive /tmp-clone run. Local Desktop tree 17 commits behind origin. Quiet hour on creative side — no new emissions since 03:48 UTC. Headline was SARAH Run 138 surfacing the first hard heartbeat stall in the window plus the first FETCH-without-heartbeat decouple, recasting Runs 136→137→138 as state-machine instability rather than steady-state cycling. Lands' End T-2 days.",
       "color": "blue"
-    },
-    {
-      "time": "6:08 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 138 — clean sweep on production tree (eleventh consecutive zero-delta), zero auto-moves/renames/deletes, but three novel-for-the-window infra signals: (1) data/jarvis-state.json heartbeat HARD-STALLED — expected ~05:48 fire missed, file remained 32,783 B / 04:48:50 UTC at observation (~77 min stale; first hard stall in the series). (2) .git/FETCH_HEAD advanced to 05:40:04 UTC / 112 B (baseline size) with 16 new permanent git objects + 16 transient tmp_obj_* files — first observed FETCH-without-heartbeat in the window, decoupling from prior tight FETCH↔heartbeat coupling. (3) .git/ORIG_HEAD newly visible at back-dated mtime 2026-04-27 20:41 UTC, surfacing an earlier merge/pull not previously logged. Run 136→137→138 trajectory reads as state-machine instability. Open-slate steady at 14. Downloads inaccessible 13th consecutive run.",
-      "color": "amber"
     },
     {
       "time": "5:39 AM UTC",
@@ -117,21 +129,9 @@
       "color": "blue"
     },
     {
-      "time": "5:05 AM UTC",
-      "agent": "SARAH",
-      "text": "Run 137 — clean quiet sweep, tenth consecutive zero-delta on the production tree. Two infra cadence signals: (1) jarvis-state.json heartbeat REBOUND ABOVE PRIOR PEAK — advanced to 32,783 B / 04:48 UTC, +9,766 B / +42% over Run 136, pushing the file ~22% above the prior monotonic peak of 26,815 B. (2) JARVIS main repo .git/FETCH_HEAD advanced 2nd consecutive hour to 04:48:49 UTC / 428 B, with offset to heartbeat write tightening to 0.22s. Open-slate stable at 14 items. Downloads inaccessible 12th consecutive run.",
-      "color": "amber"
-    },
-    {
       "time": "3:48 AM UTC",
       "agent": "WRITER",
       "text": "case-study-source-extracts.md shipped (13,932 B at output/2026-04-27_gobig-upgrade/). Compiles the two case studies the gobig.nyc upgrade flagged as missing — Sharpie Gallery + Graco 'Next Arms' — into a single canonical packet: problem, insight, what-we-made, what-it-did, what-it-proves, tagline/hero line, visual cues (renders + storyboard frames + decks), credits, source docs. Doubles as a Cannes submission seed: Titanium / Brand Experience / PR / Film Craft / Direct / Outdoor positioning is captured for the Gallery; Graco Year-One credibility (3.5pt share, 1.5B impressions, 97% consider-to-purchase) is locked in for the Year-Two extension argument.",
-      "color": "teal"
-    },
-    {
-      "time": "3:46 AM UTC",
-      "agent": "WRITER",
-      "text": "gobig.nyc status doc rev'd — Addendum 3 documents Session 4 (parallel worktree). Two commits on top of the 13: (1) 12a2eb0 — 'What It Proves' closing thesis band injected before .case-credits on 10 case studies. (2) e962fdf — rich four-column footer rebuilt across all 21 pages with case-study auto-invert; /work closes on 'Bring us the brief everyone else is afraid of.' Total tonight: 16 commits, 21 pages, em-dash-clean, awards page truthful, hero re-tagged 'We imagine LOVEABLE brands. Then we make them real.'",
       "color": "teal"
     }
   ],
@@ -142,13 +142,13 @@
       "severity": "red"
     },
     {
-      "title": "Resolve '_MOVE TO CLAUDE/' Downloads bucket — Rick-named adoption signal (NEW Open Item #22)",
-      "subtitle": "SARAH Run 140 surfaced ~/Downloads/_MOVE TO CLAUDE/ (Apr 27 20:22) — Rick-named adoption bucket containing 3 PDFs: Graco_Project_Bible.pdf, Rick Wayne Director Website.pdf, SHARPIE_GALLERY_PROJECT_MASTER.pdf. The folder name is a strong intent signal but the conservative-attribution rail held — no auto-moves. The Sharpie master PDF is JARVIS-relevant (possibly an external master worth diff-checking against MAESTRO's research-v2 corpus). Reply 'SARAH adopt move-to-claude folder' (route each PDF to its appropriate dated subdir) or 'SARAH leave move-to-claude folder' (treat as Rick-side staging, do not adopt).",
+      "title": "Resolve '_MOVE TO CLAUDE/' Downloads bucket — Rick-named adoption signal (Open Item #22)",
+      "subtitle": "SARAH Runs 140+141 byte-verified ~/Downloads/_MOVE TO CLAUDE/ (Apr 27 20:22) holding stable — 3 PDFs: Graco_Project_Bible.pdf, Rick Wayne Director Website.pdf, SHARPIE_GALLERY_PROJECT_MASTER.pdf. The folder name is a strong intent signal but the conservative-attribution rail held — no auto-moves. The Sharpie master PDF is JARVIS-relevant (possibly an external master worth diff-checking against MAESTRO's research-v2 corpus). Reply 'SARAH adopt move-to-claude folder' (route each PDF to its appropriate dated subdir) or 'SARAH leave move-to-claude folder' (treat as Rick-side staging, do not adopt).",
       "severity": "amber"
     },
     {
-      "title": "Resolve 'The Next Creative Machine Book Outline.pages' (NEW Open Item #21)",
-      "subtitle": "SARAH Run 140 surfaced ~/Downloads/The Next Creative Machine Book Outline.pages (318 KB / Apr 27 17:14). Book-project working draft, JARVIS-adjacent but not in any current dated subfolder. SARAH's suggested route: 'SARAH adopt book outline pages as 2026-04-06_book/' (or 'SARAH leave book outline' to keep as Rick-side draft).",
+      "title": "Resolve 'The Next Creative Machine Book Outline.pages' (Open Item #21)",
+      "subtitle": "SARAH Runs 140+141 byte-verified ~/Downloads/The Next Creative Machine Book Outline.pages (318 KB / Apr 27 17:14) holding stable. Book-project working draft, JARVIS-adjacent but not in any current dated subfolder; book project has permanent output home at 2026-04-06_book/ (.md + .pdf), this .pages is a third format. SARAH's suggested route: 'SARAH adopt book outline pages as 2026-04-06_book/' (or 'SARAH leave book outline' to keep as Rick-side draft).",
       "severity": "amber"
     },
     {
@@ -157,18 +157,23 @@
       "severity": "amber"
     },
     {
-      "title": "LOCAL heartbeat HARD-STALLED 3rd hour — formalized as Open Item #23",
-      "subtitle": "SARAH Run 140 (08:08 UTC) formalized the heartbeat extended outage as new Open Item #23 — LOCAL Desktop data/jarvis-state.json now hard-stalled across three consecutive expected fire windows (~05:48 + ~06:48 + ~07:48 missed; frozen at 32,783 B / 04:48:50 UTC for ~3h 20min at observation, ~3h 50min by this push). JARVIS-side context (not visible to SARAH): the LOCAL stall is the EXPECTED consequence of the /tmp-clone mitigation — pushes from /tmp don't pull back into Desktop, so the local file ages out while GitHub canonical advances on cadence. Canonical advances confirmed: 04:45 (98afa52) → 05:39 (ccd5726) → 06:39 (5f8922c) → 07:39 (67ea0c0) → 08:39 (this push). Two durable fixes still pending: (1) the dashboard-push task should git fetch + fast-forward the Desktop tree at the START of each run; (2) point SARAH at origin/main rather than the local file so her heartbeat readings reflect canonical state.",
+      "title": "LOCAL heartbeat HARD-STALLED 4th hour — Open Item #23 deepens",
+      "subtitle": "SARAH Run 141 (09:06 UTC) extended the heartbeat extended outage to 4 consecutive missed fires (~05:48 + ~06:48 + ~07:48 + ~08:48), with the LOCAL Desktop data/jarvis-state.json frozen at 32,783 B / 04:48:50 UTC for ~4h 18min at observation. JARVIS-side context (not visible to SARAH): the LOCAL stall is the EXPECTED consequence of the /tmp-clone mitigation — pushes from /tmp don't pull back into Desktop, so the local file ages out while GitHub canonical advances on cadence. Canonical advances confirmed: 04:45 → 05:39 → 06:39 → 07:39 → 08:39 → 09:39 (this push). Two durable fixes still pending: (1) the dashboard-push task should git fetch + fast-forward the Desktop tree at the START of each run; (2) point SARAH at origin/main rather than the local file so her heartbeat readings reflect canonical state.",
       "severity": "amber"
     },
     {
-      "title": "Local Desktop dashboard repo now 19 commits behind origin/main (was 18, 17, 16, 12)",
-      "subtitle": "Mitigation in effect this run: state.json composed inside a /tmp writable clone of origin/main, not against the local Desktop file. Drift gap continues to widen each push (12 → 16 → 17 → 18 → 19) — by design under current mitigation, but unsustainable. SARAH's heartbeat-stall observations are reading the local file (which IS stalled because of the drift) — she's correct about local state but the canonical is fine. Same two durable fixes as above.",
+      "title": "Local Desktop dashboard repo now 20 commits behind origin/main (was 19, 18, 17, 16, 12)",
+      "subtitle": "Mitigation in effect this run: state.json composed inside a /tmp writable clone of origin/main, not against the local Desktop file. Drift gap continues to widen each push (12 → 16 → 17 → 18 → 19 → 20) — by design under current mitigation, but unsustainable. SARAH's heartbeat-stall observations are reading the local file (which IS stalled because of the drift) — she's correct about local state but the canonical is fine. Same two durable fixes as above.",
+      "severity": "amber"
+    },
+    {
+      "title": "Stale .git/ORIG_HEAD.lock persists across 3 subsequent fetches",
+      "subtitle": "SARAH Run 141 confirms the .git/ORIG_HEAD.lock file (0 B / 05:40:04 UTC) introduced by the Run 138-window fetch has now persisted across the 06:40, 07:40, and 08:40 fetches without teardown — none of those fetches cleaned up the lock. Out of SARAH creative-asset domain; secondary infra signal of fetch-scheduler edge-case behavior. May warrant manual rm if it begins blocking future operations.",
       "severity": "amber"
     },
     {
       "title": "Open Item #21 (NOLAN top-level emissions) — present in Run 134, dropped from Runs 136-139, number reused in Run 140",
-      "subtitle": "SARAH Run 134 (02:06 UTC) opened Open Item #21 to force a convention call on six NOLAN files at output/ top-level. SARAH's Runs 136-139 open-item tables show 14 items and explicitly do NOT include the original #21. Run 140 reused #21 for the new book-outline item — so the NOLAN convention call is no longer tracked under any item number. Reconcile recommended: explicit reply 'SARAH adopt nolan top-level' (formalize convention in CLAUDE.md, leave files) or 'SARAH move nolan files to dated subdirs' would close the question regardless of tracker state.",
+      "subtitle": "SARAH Run 134 (02:06 UTC) opened Open Item #21 to force a convention call on six NOLAN files at output/ top-level. SARAH's Runs 136-139 open-item tables show 14 items and explicitly do NOT include the original #21. Run 140 reused #21 for the new book-outline item; Run 141 carries that forward — so the NOLAN convention call is no longer tracked under any item number. Reconcile recommended: explicit reply 'SARAH adopt nolan top-level' (formalize convention in CLAUDE.md, leave files) or 'SARAH move nolan files to dated subdirs' would close the question regardless of tracker state.",
       "severity": "amber"
     },
     {
@@ -202,8 +207,8 @@
       "severity": "amber"
     },
     {
-      "title": "ATLAS daily report 19h+ stale — still pre-tonight's burst + Run 140",
-      "subtitle": "Apr 27 13:11 UTC report predates GUARDIAN's deck audit (02:51), MAESTRO's v2.pptx emit (01:42), three NOLAN storyboards (02:00–02:01), SCOUT's cultural insight + story bank (02:07–02:09), WRITER's Lands' End letter (03:08), the 16-commit gobig.nyc ship, the 03:48 case-study-source-extracts packet, the 04:45 + 05:39 + 06:39 + 07:39 + 08:39 dashboard pushes, and SARAH Run 140's Downloads-restoration findings. Tue 13:04 UTC dependency check (next ATLAS scheduled run, ~4h 25m out) will surface the full catch-up.",
+      "title": "ATLAS daily report 20h+ stale — still pre-tonight's burst + Runs 140-141",
+      "subtitle": "Apr 27 13:11 UTC report predates GUARDIAN's deck audit (02:51), MAESTRO's v2.pptx emit (01:42), three NOLAN storyboards (02:00–02:01), SCOUT's cultural insight + story bank (02:07–02:09), WRITER's Lands' End letter (03:08), the 16-commit gobig.nyc ship, the 03:48 case-study-source-extracts packet, the 04:45 + 05:39 + 06:39 + 07:39 + 08:39 + 09:39 dashboard pushes, and SARAH Runs 140+141. Tue 13:04 UTC dependency check (next ATLAS scheduled run, ~3h 25m out) will surface the full catch-up.",
       "severity": "amber"
     }
   ],
@@ -216,15 +221,11 @@
   "scheduled": [
     {
       "name": "jarvis-dashboard-push",
-      "next_run": "Tue 09:39 UTC / 05:39 ET"
+      "next_run": "Tue 10:39 UTC / 06:39 ET"
     },
     {
-      "name": "sarah-file-sweep (Run 141)",
-      "next_run": "Tue 09:04 UTC / 05:04 ET"
-    },
-    {
-      "name": "uber-lyft-receipt-filer",
-      "next_run": "Tue 09:04 UTC / 05:04 ET"
+      "name": "sarah-file-sweep (Run 142)",
+      "next_run": "Tue 10:04 UTC / 06:04 ET"
     },
     {
       "name": "morning-priorities",
@@ -245,6 +246,10 @@
     {
       "name": "nightly-status-report",
       "next_run": "Tue 23:04 UTC / 19:04 ET"
+    },
+    {
+      "name": "uber-lyft-receipt-filer",
+      "next_run": "Wed 09:04 UTC / 05:04 ET"
     }
   ]
 }
