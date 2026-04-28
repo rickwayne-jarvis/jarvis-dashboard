@@ -1,131 +1,119 @@
 {
-  "updated_at": "2026-04-28T20:40:00Z",
-  "status_line": "Tuesday 4:40 PM ET / Tue 20:40 UTC — 17th consecutive quiet hour on the creative wing. SARAH Run 152 fired on cadence (20:04 UTC) and is mid-sweep right now — sarah-log.md hasn't taken the append yet, but the production tree appears unchanged again (top-level still 52 / tree-wide 1,066 from Run 151). Two of four observed schedulers continue in sustained-failure mode: heartbeat is now 15 consecutive missed fires (~15h 52m stale; local data/jarvis-state.json frozen at 04:48:50 UTC), and the fetch-scheduler 19:40 expected fire window has elapsed unobserved — provisional 6th consecutive miss pending Run 152's byte-verify. ATLAS-daily and BiG-daily are still firing clean. Creative-wing silence now 16h 52m since WRITER's 03:48 UTC ship; MAESTRO/TESTING/NOLAN/PARK/GUARDIAN/PERSONA all idle. GUARDIAN remediation queue 33+ hours stale (Gold Package v1 / Board Report v1 / One-Sheet v2 word swaps still untouched). Open Items steady at 17. SCOUT pipeline session from this morning's trigger window appears to have wound down without a new artifact landing. Calendar: Elmer's brainstorm KO fired ~2h 40m ago (2 PM ET / 18:00 UTC); Chicago Lighthouse 12 PM ET wrapped earlier. Lands' End T-2 days = Thu Apr 30 (letter + GUARDIAN-clean v2 deck still send-ready). Local Desktop tree 30 commits behind origin — this push composed in a fresh writable clone in the session sandbox. Next push 21:39 UTC.",
+  "updated_at": "2026-04-28T21:40:00Z",
+  "status_line": "Tuesday 5:40 PM ET / Tue 21:40 UTC — 18th consecutive quiet hour on the creative wing (~17h 52m since WRITER's 03:48 UTC ship). New cadence concern this hour: SARAH-scheduler shows lastRunAt 20:04:26 UTC and nextRunAt set to 22:04 UTC, meaning the 21:04 cron fire window appears to have been skipped — first SARAH cadence break in the series. A SARAH session is still 'running' in the session list but is hung on its 6th turn calling request_cowork_directory, so the 21:04 fire may have started without recording. Heartbeat is now 16 consecutive missed fires (~16h 52m stale; local data/jarvis-state.json frozen at 04:48:50 UTC), and fetch-scheduler 20:40 UTC fire window elapsed unobserved (provisional 7th consecutive miss). Three of four observed schedulers now showing weakness; only ATLAS-daily and BiG-daily holding clean cadence. MAESTRO/TESTING/NOLAN/PARK/GUARDIAN/PERSONA all idle. GUARDIAN remediation queue 34+ hours stale (Gold Package v1 / Board Report v1 / One-Sheet v2 word swaps still untouched). 17 Open Items unchanged. Lands' End T-2 days = Thu Apr 30 (letter + GUARDIAN-clean v2 deck still send-ready; second-to-last business hour of the East-coast workday closing now). Local Desktop tree 31 commits behind origin — this push composed in a fresh writable clone in the session sandbox. Next push 22:39 UTC; nightly status report scheduled 23:04 UTC.",
   "agents": [
     {
       "name": "SARAH",
       "state": "running",
-      "last_action": "Run 152 fired on cadence at 20:04 UTC — currently mid-sweep (sarah-log.md still at Run 151's 1,142,259 B / 19:08 UTC mtime). Run 151's read at 19:04 UTC closed the 24th consecutive zero-delta on the top-level production tree (52 top-level / 1,066 tree-wide). 17 Open Items unchanged in disposition; Open Item #23 (heartbeat + fetch outage) scope expanded to track 14th heartbeat miss and suspected 5th fetch miss. Conservative-attribution policy held (0 moves / 0 renames / 0 deletes; only mutation = sarah-log.md append). Downloads mount path-verify still holding via Glob route. Run 152 now in flight; expected to escalate the infra signals one more notch (15th heartbeat miss / suspected 6th fetch miss).",
-      "last_run": "in-flight now",
+      "last_action": "21:04 cron-fire window appears to have skipped — scheduler shows lastRunAt 20:04:26 UTC + nextRunAt 22:04 UTC, but a SARAH session in the session list is still 'running' on its 6th turn (hung calling request_cowork_directory). First SARAH cadence break observed in the series; either a delayed fire that hasn't yet committed a log entry, or a true miss that promotes Open Item #23 from 'two of four schedulers in failure' to 'three of four'. Last log-of-record remains Run 151 at 19:08 UTC: 24th consecutive zero-delta on the top-level production tree (52 top-level / 1,066 tree-wide), 17 Open Items carried unchanged, conservative-attribution policy held (0 moves / 0 renames / 0 deletes). Run 152 (20:04 cadence fire) reported in last hour's push as in-flight; Run 153 (21:04) is the missed/hung fire under investigation.",
+      "last_run": "in-flight / cadence break suspected",
       "color": "amber"
     },
     {
       "name": "ATLAS",
       "state": "idle",
-      "last_action": "Apr 28 daily report shipped at 13:11 UTC (31,319 B at top-level + byte-identical copy in 2026-04-28_atlas/, 10th consecutive day of the YYYY-MM-DD_atlas/ pattern). Headline: quiet creative pipeline, GUARDIAN remediation queue is the single biggest production unlocker idle right now. ATLAS-daily scheduler is one of two still firing on time (with BiG-daily); heartbeat and fetch-scheduler both in sustained-failure mode. Next dependency check fires Wed 13:04 UTC.",
-      "last_run": "7h 29m ago",
+      "last_action": "Apr 28 daily report shipped at 13:11 UTC (31,319 B at top-level + byte-identical copy in 2026-04-28_atlas/, 10th consecutive day of the YYYY-MM-DD_atlas/ pattern). Headline: quiet creative pipeline, GUARDIAN remediation queue is the single biggest production unlocker idle right now. ATLAS-daily is one of two schedulers still firing on time; heartbeat + fetch + (now) SARAH all showing cadence weakness. Next dependency check fires Wed 13:04 UTC.",
+      "last_run": "8h 29m ago",
       "color": "teal"
     },
     {
       "name": "SCOUT",
       "state": "idle",
       "last_action": "Apollo enrichment fired on cadence at 11:06 UTC — 4 verified emails added to Sheet (Jessica Purton/Electric, Baynham/Believe, Solomon/Saatchi UK, Kursa/BBH London; rows 123/128/180/181, MTD ~36/60). Earlier 10:12 UTC pipeline scan (scout-pipeline-2026-04-28.md, 18,466 B at output/big-new-business/daily-scout-reports/) added Delta Air Lines (Ranjan Goswami, CMO+Product, tier-3 monitor-and-cultivate, before-mid-June outreach window). Pipeline session from this morning's trigger appears to have wound down without further artifact emission.",
-      "last_run": "9h 33m ago",
+      "last_run": "10h 33m ago",
       "color": "teal"
     },
     {
       "name": "WRITER",
       "state": "idle",
-      "last_action": "15h 52m quiet on creative deliverables. Last ship was 03:48 UTC — case-study-source-extracts.md (13,932 B at output/2026-04-27_gobig-upgrade/), the Cannes-submission seed packet for Sharpie Gallery + Graco 'Next Arms'. Earlier in the same session: gobig.nyc Addendum 3 (16 commits tonight, 21 pages live), Lands' End cover letter v1 to Sarah Sylvester (03:08 UTC, send-ready with Gallery Deck v2 attachment), Graco Year-Two Cannes 2028 roadmap deck. Send-window for Lands' End narrows to today through Thu Apr 30.",
-      "last_run": "16h 52m ago",
+      "last_action": "16h 52m quiet on creative deliverables. Last ship was 03:48 UTC — case-study-source-extracts.md (13,932 B at output/2026-04-27_gobig-upgrade/), the Cannes-submission seed packet for Sharpie Gallery + Graco 'Next Arms'. Earlier in the same session: gobig.nyc Addendum 3 (16 commits tonight, 21 pages live), Lands' End cover letter v1 to Sarah Sylvester (03:08 UTC, send-ready with Gallery Deck v2 attachment), Graco Year-Two Cannes 2028 roadmap deck. Send window for Lands' End closes Thu Apr 30 — letter still sittable today/tomorrow.",
+      "last_run": "17h 52m ago",
+      "color": "dim"
+    },
+    {
+      "name": "MAESTRO",
+      "state": "idle",
+      "last_action": "01:42 UTC — sharpie-gallery-campaign-deck-v2.pptx (62,245 B) emitted from build-sharpie-gallery-v2.js into output/2026-04-27_sharpie-gallery-research-v2/. GUARDIAN audited this exact file 69 minutes later at 02:51 UTC and graded it 9.1/10 SHIPS CLEAN — first MAESTRO-built deck to clear GUARDIAN on first pass. 19h 58m quiet since.",
+      "last_run": "19h 58m ago",
       "color": "dim"
     },
     {
       "name": "GUARDIAN",
       "state": "idle",
-      "last_action": "Remediation queue from yesterday's audit (issued 11:28 UTC Apr 27) crosses 32 hours stale — three concrete tasks unaddressed: One-Sheet v2 word swaps (~5 min, lines 86–87), Gold Package v1 restructure (~1h, 5-step plan in GUARDIAN file), Board Report v1 clarifications (~30 min, Smithsonian elevation + fallback contingency + Grand Prix probability bullet + Case Film closing). Plus PARK v1 deck + T2 v8 + six renders + WYMI all still un-validated. Last GUARDIAN write was 02:51 UTC: sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B, 9.1/10 SHIPS CLEAN on MAESTRO's gallery-v2 deck). ATLAS Apr 28 report calls this queue the single biggest production unlocker idle right now.",
-      "last_run": "17h 49m ago",
-      "color": "amber"
-    },
-    {
-      "name": "MAESTRO",
-      "state": "idle",
-      "last_action": "Last canonical emission was sharpie-gallery-campaign-deck-v2.pptx (62,245 B at 01:42 UTC Apr 28), GUARDIAN-validated 9.1/10 SHIPS CLEAN at 02:51 UTC — first MAESTRO-built deck to clear GUARDIAN on first pass. Earlier V2 work (Gallery One-Sheet V2 22:46 UTC, Gold Package V2 22:54 UTC) still awaiting V2-version GUARDIAN re-score. Top-level v6/v7/v8 .pptx are byte-identical to their big-new-business/ counterparts (Open Item #3, ~155 MB cross-location).",
-      "last_run": "18h 58m ago",
+      "last_action": "02:51 UTC — sharpie-guardian-gallery-deck-v2-audit-2026-04-27.md (19,825 B) shipped at top-level. VERDICT: 9.1/10 SHIPS CLEAN. All five dimensions score 9. The first GUARDIAN-validated Lands' End pitch instrument. Remediation queue from yesterday's 11:28 UTC audits (One-Sheet v2 / Gold Package v1 / Board Report v1) is now 34+ hours stale — single biggest production unlocker idle right now per ATLAS Apr 28 report.",
+      "last_run": "18h 49m ago",
       "color": "dim"
     },
     {
       "name": "TESTING",
       "state": "idle",
-      "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC Apr 27) addressed GUARDIAN's V1 flags but still awaits V2 re-score. T2-60-final and T2-anthem-30 locked scripts still unscored — production gate downstream of TESTING.",
-      "last_run": "21h 44m ago",
+      "last_action": "Final 9 Report V2 (sharpie-testing-gallery-final-9-report-v2.md, 7,535 B at 22:56 UTC Apr 27) addressed GUARDIAN's 7.8/10 V1 flags. Awaiting GUARDIAN re-score on V2. T2-60-final and T2-anthem-30 still unscored on locked scripts.",
+      "last_run": "22h 44m ago",
       "color": "dim"
     },
     {
       "name": "NOLAN",
-      "state": "idle",
-      "last_action": "Three locked-treatment storyboards from Apr 28 02:00–02:01 UTC remain the most recent ship: t2-60-final-storyboard-v1.md (18,342 B), gallery-version-b-storyboard-v1.md (22,436 B), t2-hybrid-v1-storyboard-v1.md (25,354 B). All six top-level (3 storyboards + 3 shotlists) still pending Rick's convention call (Open Item #21). Reference .mov masters (~9.1 GB) and 49-file SFX library still staged. 11th consecutive empty NOLAN report on storyboard/ + vo/ subdirs.",
-      "last_run": "18h 39m ago",
+      "state": "parked",
+      "last_action": "11th consecutive empty report. Three locked-treatment storyboards from 02:00–02:01 UTC Apr 28 (T2-60, Gallery Version B, T2 Hybrid V1) pair with three shotlists from yesterday evening — but storyboard/ and vo/ subdirs in the staged Nolan tree remain empty. Reference .mov masters (~9.1 GB) and 49-file SFX library still staged. Open Item #21 (NOLAN top-level emissions) still pending Rick's convention call.",
+      "last_run": "19h 39m ago",
       "color": "dim"
     },
     {
       "name": "PARK",
       "state": "parked",
-      "last_action": "Two original decks still GUARDIAN-unvalidated: T2 v8 (43 MB) and Gallery campaign deck v1 (.pptx + .pdf). The v2 path is the implicit pick — MAESTRO's gallery-v2.pptx is GUARDIAN-clean and the WRITER Lands' End letter attaches it. Decision moment open: ship v2 only and retire v1 + T2 v8, or invest today in revising both to GUARDIAN-pass for parallel use.",
+      "last_action": "Two original decks delivered: T2 v8 (43 MB) and Gallery campaign deck v1 (.pptx + .pdf). Both still GUARDIAN-unvalidated. v2 path is live and clean (MAESTRO's deck at 9.1/10). WRITER's Lands' End letter attaches the v2 deck — implicit decision is the v2 path. Decision still open: ship v2 only or revise v1 + T2 v8 to GUARDIAN-pass.",
       "last_run": "yesterday",
       "color": "dim"
     },
     {
       "name": "PERSONA",
       "state": "idle",
-      "last_action": "Dependency satisfied — SCOUT/MAESTRO/WRITER/NOLAN/GUARDIAN/TESTING all downstream-active in this 24-hour window. permanent-ink-design-philosophy.md (Apr 20) still canonical.",
+      "last_action": "Dependency satisfied — SCOUT, MAESTRO, WRITER, NOLAN, GUARDIAN, TESTING all active downstream. No new prompts requested.",
       "last_run": "multiple days",
       "color": "dim"
     }
   ],
   "activity": [
     {
+      "time": "9:39 PM UTC",
+      "agent": "JARVIS",
+      "text": "Dashboard push — 18th consecutive quiet hour on the creative wing, ~17h 52m since WRITER's 03:48 UTC ship. New signal: SARAH-scheduler 21:04 fire window appears to have been skipped — lastRunAt still 20:04:26 UTC, nextRunAt set to 22:04 UTC. A SARAH session is still 'running' in the session list (hung on 6th turn calling request_cowork_directory) so this could be a delayed/in-flight fire that hasn't yet committed a log entry, or a true SARAH cadence break (would be the first in the series). Heartbeat 16 consecutive missed fires (~16h 52m stale). Fetch-scheduler 20:40 UTC fire window elapsed unobserved — provisional 7th consecutive miss. Three of four observed schedulers now showing weakness; ATLAS-daily and BiG-daily still clean. GUARDIAN remediation queue 34+ hours stale. 17 Open Items unchanged. Lands' End T-2 days; letter + GUARDIAN-clean v2 deck send-ready. Local Desktop tree 31 commits behind origin/main (push composed in /tmp writable clone). Nightly status report scheduled 23:04 UTC. Next push 22:39 UTC.",
+      "color": "blue"
+    },
+    {
+      "time": "9:04 PM UTC",
+      "agent": "SARAH",
+      "text": "Run 153 fire window (cron 21:04 UTC) status uncertain — scheduler bookkeeping shows lastRunAt 20:04:26 UTC + nextRunAt 22:04 UTC, suggesting the 21:04 fire was skipped. But a SARAH session is sitting 'running' on 6 turns in the session list, hung calling request_cowork_directory. Two reads: (a) delayed fire that hasn't committed its log entry yet, or (b) genuine cadence miss + an unrelated stuck session — would mark the FIRST SARAH cadence break in the series, promoting Open Item #23 from 'two of four schedulers in failure' to 'three of four'. Last log-of-record remains Run 151 at 19:08 UTC.",
+      "color": "amber"
+    },
+    {
       "time": "8:39 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — 17th consecutive quiet hour on the creative wing, ~16h 52m since WRITER's 03:48 UTC ship. SARAH Run 152 fired on cadence at 20:04 UTC and is mid-sweep right now (sarah-log.md still at Run 151's 19:08 UTC mtime). Two of four observed schedulers in sustained-failure mode: heartbeat 15 consecutive missed fires (~15h 52m stale on local data/jarvis-state.json), fetch-scheduler suspected 6th consecutive miss (19:40 UTC fire window elapsed unobserved). ATLAS-daily and BiG-daily still firing clean. GUARDIAN remediation queue 33+ hours stale. 17 Open Items unchanged. Lands' End T-2 days = Thu Apr 30; letter + GUARDIAN-clean v2 deck still send-ready. Local Desktop tree 30 commits behind origin/main (push composed in /tmp writable clone). Next push 21:39 UTC.",
+      "text": "Dashboard push — 17th consecutive quiet hour on the creative wing. SARAH Run 152 fired on cadence at 20:04 UTC and was mid-sweep at push time. Two of four observed schedulers in sustained-failure mode: heartbeat 15 consecutive missed fires (~15h 52m stale on local data/jarvis-state.json), fetch-scheduler suspected 6th consecutive miss. ATLAS-daily and BiG-daily still firing clean. GUARDIAN remediation queue 33+ hours stale. 17 Open Items unchanged. Lands' End T-2 days. Local Desktop tree 30 commits behind origin (push composed in /tmp writable clone).",
       "color": "blue"
     },
     {
       "time": "8:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 152 fired on cadence (scheduler tick at 20:04:26 UTC) — sweep currently in flight. Last log-of-record is Run 151 at 19:08 UTC: 24th consecutive zero-delta on the top-level production tree (52 top-level / 1,066 tree-wide), 17 Open Items carried forward unchanged in disposition, Open Item #23 (infra) scope expanded to track 14th heartbeat miss + suspected 5th fetch miss. Conservative-attribution policy held (0 moves / 0 renames / 0 deletes; only mutation = the log append itself). Run 152's full readout will land once the session writes its log entry.",
+      "text": "Run 152 fired on cadence (scheduler tick at 20:04:26 UTC) — sweep currently in flight at last push. Last log-of-record was Run 151 at 19:08 UTC: 24th consecutive zero-delta on the top-level production tree (52 top-level / 1,066 tree-wide), 17 Open Items carried forward unchanged in disposition, Open Item #23 (infra) scope expanded to track 14th heartbeat miss + suspected 5th fetch miss. Conservative-attribution policy held (0 moves / 0 renames / 0 deletes; only mutation = the log append itself). Run 152's full readout pending log write.",
       "color": "amber"
     },
     {
       "time": "7:39 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — 16th consecutive quiet hour on the creative wing. SARAH Run 151 (19:04 UTC) closed the 24th straight zero-delta sweep on the top-level production tree (52 top-level / 1,066 tree-wide), 17 Open Items unchanged, 0 mutations. Heartbeat outage now 14 consecutive missed fires (~14h 21m stale, local data/jarvis-state.json frozen at 04:48:50 UTC); fetch-scheduler suspected 5th consecutive miss (FETCH_HEAD mtime stuck at 2026-04-26 02:12). Two of four observed schedulers in sustained-failure mode (ATLAS-daily + BiG-daily still firing). GUARDIAN remediation queue 32+ hrs stale. SCOUT pipeline-check from 14:07 ET trigger still running in background (96+ turns). Local Desktop tree still 28 commits behind origin — pushed from writable clone in session sandbox per durable mitigation. Next push 20:39 UTC.",
+      "text": "Dashboard push — 16th consecutive quiet hour. SARAH Run 151 (19:04 UTC) closed the 24th straight zero-delta sweep on the top-level production tree, 17 Open Items unchanged, 0 mutations. Heartbeat outage 14 consecutive missed fires (~14h 21m stale); fetch-scheduler suspected 5th consecutive miss. Two of four observed schedulers in sustained-failure mode (ATLAS-daily + BiG-daily still firing). GUARDIAN remediation queue 32+ hrs stale.",
       "color": "blue"
     },
     {
       "time": "7:04 PM UTC",
       "agent": "SARAH",
-      "text": "Run 151 — quiet maintenance sweep, output tree zero-delta for the 24th consecutive hour. Downloads mount unavailable in Linux sandbox (Glob path-verify route only): 54 entries enumerated, zero JARVIS-keyword deltas vs. Run 150. Output tree: 1,066 files / 52 top-level, all canonical pattern counts unchanged (10 scout / 20 maestro / 9 testing / 2 draft-mode / 3 make-it decks). Documents/Desktop zero new JARVIS-creative writes. Infra worsened: heartbeat 14 consecutive missed fires (~14h 21m stale); fetch-scheduler suspected 5th consecutive miss. 0 moves / 0 renames / 0 deletes / 0 adoptions. Open-slate steady at 17, Open Item #23 scope expanded to track scheduler outages.",
+      "text": "Run 151 — quiet maintenance sweep, output tree zero-delta for the 24th consecutive hour. Downloads mount unavailable in Linux sandbox (Glob path-verify route only): 54 entries enumerated, zero JARVIS-keyword deltas vs. Run 150. Output tree: 1,066 files / 52 top-level, all canonical pattern counts unchanged. Documents/Desktop zero new JARVIS-creative writes. Infra worsened: heartbeat 14 consecutive missed fires; fetch-scheduler suspected 5th consecutive miss. 0 moves / 0 renames / 0 deletes / 0 adoptions. Open-slate steady at 17.",
       "color": "amber"
     },
     {
       "time": "6:39 PM UTC",
       "agent": "JARVIS",
-      "text": "Dashboard push — 15th consecutive quiet hour on the creative wing. SARAH Run 150 (18:06 UTC) closed another zero-delta sweep: 23rd straight on top-level production tree, 17 Open Items unchanged, 0 moves / 0 renames / 0 deletes. Two infra outages still deepening: heartbeat 13 consecutive missed fires (~13h 52m stale, local data/jarvis-state.json frozen at 04:48:50 UTC); fetch-scheduler 17:40 UTC fire window elapsed unobserved (suspected 4th consecutive miss, pending byte-verify). Two of four observed schedulers in sustained-failure mode. Local Desktop tree now 28 commits behind origin — pushes still composed from a writable sandbox clone (durable mitigation). Calendar: Chicago Lighthouse 12 PM ET wrapped 2h 40m ago; Elmer's brainstorm KO at 2 PM ET fired ~40 min ago — first frame check-in due. Lands' End T-2 days: letter + GUARDIAN-clean Gallery Deck v2 still send-ready. GUARDIAN remediation 31+ hrs stale. SCOUT pipeline check session still running in background (commit-push phase). Next push 19:39 UTC.",
-      "color": "blue"
-    },
-    {
-      "time": "6:06 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 150 — quiet maintenance sweep. Downloads mount still unavailable in Linux sandbox (23rd consecutive sweep with no native mutability). All 6 Downloads-resident Open Items (#7 #9 #15 #18 #21 #22) still pending Rick's explicit instruction. Output tree: 23rd consecutive zero-delta sweep — 52 top-level files, 1,066 tree-wide. Documents/Desktop: 0 new writes since Run 149. Two infra signals worsening: heartbeat 13 consecutive missed fires (~13h 52m stale); fetch-scheduler 17:40 UTC fire window elapsed unobserved (suspected 4th consecutive miss). Conservative-attribution policy held — 23rd straight sweep with 0 moves / 0 renames / 0 deletes. Tray steady at 17.",
-      "color": "amber"
-    },
-    {
-      "time": "5:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — 14th consecutive quiet creative-wing hour. SARAH Run 149 (17:07 UTC): Downloads path-verify holding ~6h consecutive (56 entries, zero-delta vs. Run 148, all 6 Downloads-resident Open Items present), 22nd zero-delta on top-level production tree, 17 Open Items unchanged. Heartbeat 12 consecutive missed fires (~12h 21m stale); fetch-scheduler suspected 3rd consecutive miss. Two of four schedulers in sustained-failure mode. Local Desktop tree 27 commits behind origin — composing pushes from /tmp writable clone is durable mitigation. Calendar: Chicago Lighthouse 12 PM ET wrapped; Elmer's brainstorm KO at 2 PM ET in ~21 min. Lands' End T-2 days. GUARDIAN remediation 30+ hrs stale.",
-      "color": "blue"
-    },
-    {
-      "time": "5:07 PM UTC",
-      "agent": "SARAH",
-      "text": "Run 149 — quiet maintenance sweep. Downloads path-verify (Glob route) holding ~6h consecutive: 56 entries, zero-delta vs. Run 148. All 6 Downloads-resident Open Items confirmed present, no churn. Top-level production tree: 22nd consecutive zero-delta. Documents/Desktop: 0 new writes. Two infra signals worsening: heartbeat 12 consecutive missed fires (~12h 21m stale); fetch-scheduler 16:40 UTC fire elapsed unobserved (suspected 3rd consecutive miss). Conservative-attribution policy held — 22nd consecutive sweep with 0 moves / 0 renames / 0 deletes. Tray steady at 17.",
-      "color": "amber"
-    },
-    {
-      "time": "4:39 PM UTC",
-      "agent": "JARVIS",
-      "text": "Dashboard push — 13th consecutive quiet creative-wing hour. SARAH Run 148 was a drought-break sweep on access (Glob/Read file tools resolved Downloads paths for first time in ~5h, all 56 paths byte-verified). 21st zero-delta on top-level production tree. Two scheduler outages now in sustained-failure mode (heartbeat 11 missed fires; fetch-scheduler 2 consecutive misses). GUARDIAN remediation 29+ hrs stale.",
+      "text": "Dashboard push — 15th consecutive quiet hour. SARAH Run 150 (18:06 UTC) closed another zero-delta sweep: 23rd straight on top-level production tree, 17 Open Items unchanged. Heartbeat 13 consecutive missed fires; fetch-scheduler 17:40 UTC fire window elapsed unobserved (suspected 4th consecutive miss). Two of four observed schedulers in sustained-failure mode. Calendar: Chicago Lighthouse 12 PM ET wrapped 2h 40m ago; Elmer's brainstorm KO at 2 PM ET fired ~40 min ago. Lands' End T-2 days. GUARDIAN remediation 31+ hrs stale.",
       "color": "blue"
     },
     {
@@ -149,7 +137,7 @@
     {
       "time": "3:48 AM UTC",
       "agent": "WRITER",
-      "text": "case-study-source-extracts.md shipped (13,932 B at output/2026-04-27_gobig-upgrade/). Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission and follow-on case-study builds. Last creative-wing ship — 14h 52m back as of this push.",
+      "text": "case-study-source-extracts.md shipped (13,932 B at output/2026-04-27_gobig-upgrade/). Compiles Sharpie Gallery + Graco 'Next Arms' source extracts (problem/insight/what-we-made/what-it-did/what-it-proves/tagline/visual cues/credits/source docs) into a single canonical packet for Cannes submission. Last creative-wing ship — 17h 52m back as of this push.",
       "color": "teal"
     },
     {
@@ -162,17 +150,17 @@
   "attention": [
     {
       "title": "Send Lands' End letter to Sarah Sylvester — T-2 days",
-      "subtitle": "Letter v1 send-ready in canonical output (2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B at 03:08 UTC). Subject hook: heritage-as-transgression. 30-min ask. Attachment: GUARDIAN-validated Gallery Deck v2 (9.1/10 SHIPS CLEAN). Send window narrows to today–Thursday (Apr 28–30). Eight ATLAS reports plus today's flagged this. Owner: Rick. Today's #1.",
+      "subtitle": "Letter v1 send-ready in canonical output (2026-04-27_lands-end/cover-letter-sarah-sylvester-v1.md, 2,066 B at 03:08 UTC). Subject hook: heritage-as-transgression. 30-min ask. Attachment: GUARDIAN-validated Gallery Deck v2 (9.1/10 SHIPS CLEAN). Send window narrows to today–Thursday (Apr 28–30). Eight ATLAS reports plus today's flagged this. East-coast workday is closing now — second-to-last realistic Tuesday send window. Owner: Rick. Today's #1.",
       "severity": "red"
     },
     {
-      "title": "GUARDIAN remediation queue 32+ hours stale — single biggest production unlocker",
+      "title": "GUARDIAN remediation queue 34+ hours stale — single biggest production unlocker",
       "subtitle": "Three short concrete tasks issued by GUARDIAN at 11:28 UTC Apr 27 still untouched: One-Sheet v2 word swaps (~5 min on lines 86–87), Gold Package v1 restructure (~1 hour, 5-step plan in GUARDIAN file), Board Report v1 clarifications (~30 min — Smithsonian elevation, fallback contingency, Grand Prix probability bullet, Case Film closing softening). Plus PARK v1 deck + T2 v8 + six renders + WYMI all still un-validated. ATLAS Apr 28 report calls this the single biggest production unlocker idle right now.",
       "severity": "red"
     },
     {
-      "title": "JARVIS heartbeat stalled 15+ hours / fetch-scheduler suspected 6th consecutive miss",
-      "subtitle": "Local data/jarvis-state.json `updated_at` field still pinned at 2026-04-28T04:45:00Z, file mtime 04:48:50 UTC — 15 consecutive missed hourly fires, ~15h 52m stale. Fetch-scheduler `jarvis-deploy/.git/FETCH_HEAD` mtime stuck at 2026-04-26 02:12 UTC; the 19:40 UTC expected fire window elapsed unobserved (provisional 6th consecutive miss). Two of four observed schedulers in sustained-failure mode; ATLAS-daily and BiG-daily are still firing on cadence. Mitigation in place: dashboard-push composes the JSON inside a fresh writable clone in /tmp and pushes from there, so the GitHub canonical advances on time even while the local mirror lags. Underlying cause likely a stuck local cron/launchd task on the Mac side.",
+      "title": "Three of four schedulers now showing cadence weakness — SARAH 21:04 fire skipped/hung",
+      "subtitle": "New this hour: SARAH-scheduler shows lastRunAt 20:04:26 UTC + nextRunAt 22:04 UTC, meaning the 21:04 cron fire window was skipped at the bookkeeping level. A SARAH session is sitting 'running' on 6 turns in the session list, hung calling request_cowork_directory — could be a delayed fire that hasn't committed a log entry, or a true cadence break + an unrelated stuck session. Either way it's the first SARAH cadence concern in the series. Plus heartbeat 16 consecutive missed fires (~16h 52m stale on local data/jarvis-state.json) and fetch-scheduler provisional 7th consecutive miss (20:40 UTC fire window elapsed unobserved). ATLAS-daily and BiG-daily still firing on cadence. Underlying cause likely a stuck local cron/launchd task on the Mac side. The /tmp writable-clone push mitigation continues to keep the GitHub canonical advancing on time.",
       "severity": "red"
     },
     {
@@ -182,12 +170,12 @@
     },
     {
       "title": "Apr 28 morning-brief generator did not fire — first observed miss in tracking history",
-      "subtitle": "No Apr 28 morning brief produced in either ~/Documents/ or output/. Apr 27 brief still un-adopted in Documents (Open Item #10). Other schedulers (BiG pipeline, Apollo enrichment, .git fetcher, ATLAS daily) ARE firing — this is brief-generator specific. Likely related to the 13-hour heartbeat outage; same underlying chain.",
+      "subtitle": "No Apr 28 morning brief produced in either ~/Documents/ or output/. Apr 27 brief still un-adopted in Documents (Open Item #10). Other schedulers (BiG pipeline, Apollo enrichment, ATLAS daily) ARE firing — this is brief-generator specific. Likely related to the 16-hour heartbeat outage; same underlying chain.",
       "severity": "amber"
     },
     {
-      "title": "Local Desktop dashboard repo 30 commits behind origin/main",
-      "subtitle": "Pushes from /tmp writable-clone workaround don't pull back into the Desktop tree, so the local data/jarvis-state.json drifts from the GitHub canonical (~30 commits behind right now). The live dashboard at GitHub Pages reads from canonical and is correct. SARAH agents reading the local file see the 04:48 UTC frozen snapshot. Mitigation options unchanged: (1) have the dashboard-push task git fetch + fast-forward the Desktop tree at task end; (2) build JSON entirely inside the writable clone (current approach); (3) point SARAH at origin/main rather than the local file.",
+      "title": "Local Desktop dashboard repo 31 commits behind origin/main",
+      "subtitle": "Pushes from /tmp writable-clone workaround don't pull back into the Desktop tree, so the local data/jarvis-state.json drifts from the GitHub canonical (~31 commits behind right now). The live dashboard at GitHub Pages reads from canonical and is correct. SARAH agents reading the local file see the 04:48 UTC frozen snapshot. Mitigation options unchanged: (1) have the dashboard-push task git fetch + fast-forward the Desktop tree at task end; (2) build JSON entirely inside the writable clone (current approach); (3) point SARAH at origin/main rather than the local file.",
       "severity": "amber"
     },
     {
@@ -292,7 +280,7 @@
     },
     {
       "title": "System-automation naming convention undocumented in CLAUDE.md (Open Item #20)",
-      "subtitle": "CLAUDE.md still has no '## System-Automation Outputs' section. Pattern is well-established across atlas/, dashboard/, morning-brief/, scout-pipeline/, scout-apollo/, receipt-filer/, nightly/. Reply 'SARAH formalize system-automation naming' (adopt + edit CLAUDE.md) or 'SARAH leave system-automation naming' (treat as ad-hoc).",
+      "subtitle": "CLAUDE.md still has no '## System-Automation Outputs' section. Pattern is well-established across atlas/, dashboard/, morning-brief/, scout-pipeline/, scout-apollo/, receipt-filer/, nightly/. Reply 'SARAH formalize system-automation naming' or 'SARAH leave system-automation naming'.",
       "severity": "amber"
     },
     {
@@ -312,7 +300,7 @@
     },
     {
       "title": "Grant ~/Downloads + ~/Documents as Cowork directories",
-      "subtitle": "SARAH Run 150 marks 23rd consecutive sandbox sweep with Downloads not natively mutable. osascript bridge via Control_your_Mac MCP works in interactive runs; native Cowork mount remains preferred. Long-pending Grain Haven x EditorPacks/ delete (~4.8 GB recovery) blocked on this.",
+      "subtitle": "SARAH Run 151 marks 24th consecutive sandbox sweep with Downloads not natively mutable. osascript bridge via Control_your_Mac MCP works in interactive runs; native Cowork mount remains preferred. Long-pending Grain Haven x EditorPacks/ delete (~4.8 GB recovery) blocked on this.",
       "severity": "amber"
     },
     {
@@ -404,11 +392,11 @@
   "scheduled": [
     {
       "name": "SARAH file sweep",
-      "next_run": "Tue 9:04 PM UTC"
+      "next_run": "Tue 10:04 PM UTC"
     },
     {
       "name": "JARVIS dashboard push",
-      "next_run": "Tue 9:39 PM UTC"
+      "next_run": "Tue 10:39 PM UTC"
     },
     {
       "name": "Nightly status report",
