@@ -575,15 +575,42 @@ const AGENTS_DEFAULT = [
 
 let AGENTS = AGENTS_DEFAULT.map(a => ({...a}));
 
-const PIPELINE = [
-  { name:'Sharpie',         status:'CEO pitch TOMORROW — deck needs KPI slide', badge:'active',   badgeLabel:'Pitch Tomorrow' },
-  { name:'Glossier',        status:'Solorzano outreach 2 days overdue',          badge:'overdue',  badgeLabel:'Overdue'        },
-  { name:'LA Galaxy',       status:'Jessica Jacobi CMO — deadline April 25',     badge:'overdue',  badgeLabel:'3 Days'         },
-  { name:"Lands' End",      status:'Sarah Sylvester, new CMO — BiG fit 4/5',     badge:'warm',     badgeLabel:'Warm'           },
-  { name:"Macy's",          status:'Q2 decision — move this week',                badge:'warm',     badgeLabel:'Warm'           },
-  { name:'Michael Kors',    status:'Market analysis in progress',                 badge:'research', badgeLabel:'Research'       },
-  { name:"Driscoll's",      status:'Competitive positioning review',              badge:'research', badgeLabel:'Research'       }
+// PIPELINE is loaded dynamically from data/jarvis-state.json so SCOUT additions render without an HTML rebuild.
+let PIPELINE = [
+  { name:"Lands' End / Sarah Sylvester",       status:'CMO 26 days in. Window closes today.',                badge:'overdue',  badgeLabel:'TODAY'    },
+  { name:"Macy's",                              status:'Q2 creative review. 100th Parade. Decide this week.', badge:'warm',     badgeLabel:'Warm'     },
+  { name:'Glossier / Nicole Solorzano',         status:'Outreach overdue. Send or close.',                    badge:'overdue',  badgeLabel:'Overdue'  },
+  { name:'LA Galaxy / Jessica Jacobi',          status:'CMO week 2. Send today.',                             badge:'overdue',  badgeLabel:'Overdue'  },
+  { name:'Jack in the Box / Katelyn Zborowski', status:'New CMO. 75th anniversary brand film hook.',          badge:'warm',     badgeLabel:'Warm'     },
+  { name:'Smucker / Katie Williams',            status:'New CMO. 90-day window closes June 9.',               badge:'warm',     badgeLabel:'Warm'     },
+  { name:'Haleon US / Richard Manso',           status:'New CMO. Watch.',                                     badge:'research', badgeLabel:'Research' },
+  { name:'Hormel / Jason Levine',               status:'CMO transition. Watch for review trigger.',           badge:'research', badgeLabel:'Research' },
+  { name:'Delta Air Lines / Ranjan Goswami',    status:'CMO + Product. Newly added by SCOUT.',                badge:'research', badgeLabel:'Research' },
+  { name:'Graza / Allen Dushi',                 status:'COO replied warm. Stay-on-radar. Do not push.',       badge:'warm',     badgeLabel:'Hot'      },
+  { name:'Fishwife / Becca Millstein',          status:'Founder contacted. Awaiting next move.',              badge:'warm',     badgeLabel:'Warm'     }
 ];
+
+// Try to load the live pipeline from the state file. Falls back to the hardcoded list above if the fetch fails.
+async function loadLivePipeline() {
+  try {
+    const r = await fetch('data/jarvis-state.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    const urgent = d && d.pipeline && d.pipeline.urgent;
+    if (!Array.isArray(urgent) || urgent.length === 0) return;
+    const badgeFor = (s) => {
+      const t = (s || '').toLowerCase();
+      if (t.includes('overdue') || t.includes('today') || t.includes('urgent')) return ['overdue','Overdue'];
+      if (t.includes('research') || t.includes('watch') || t.includes('signal')) return ['research','Research'];
+      return ['warm','Warm'];
+    };
+    PIPELINE = urgent.map(p => {
+      const [b, lbl] = badgeFor(p.status || p.note || '');
+      return { name: p.name || '?', status: p.note || p.status || '', badge: b, badgeLabel: lbl };
+    });
+    if (typeof renderPipeline === 'function') renderPipeline();
+  } catch (e) { /* keep fallback */ }
+}
 
 let ACTIVITY = [
   { agent:'SARAH',   action:'Run 64 — JARVIS ProductVision + Dashboard UX filed', time:'9:07 PM' },
@@ -1130,6 +1157,8 @@ function init() {
   updateKeyBanner();
   initVoice();
   document.getElementById('drawer-model').textContent = state.model;
+  loadLivePipeline();
+  setInterval(loadLivePipeline, 60000);
   pollState();
   setInterval(pollState, 30000);
 }
